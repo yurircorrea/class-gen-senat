@@ -118,12 +118,15 @@ planilha (e no Excel do aluno) isso dá `#NOME?`. Traduza função e separador.
 ### Atalho ou menu de outra versão
 
 Atalhos mudam com o teclado (ABNT2 x americano) e menus mudam entre Office 2016, 2019 e 365.
+No Office em português vários atalhos são traduzidos: `Ctrl`+`N` é Negrito e `Ctrl`+`B` é Salvar.
+Escreva o atalho como a Microsoft escreve (`Ctrl`+`Shift`+`$`) e diga a tecla física quando ela
+não for óbvia ("o `$` fica na tecla 4").
 Confira na documentação da Microsoft em português antes de escrever; na dúvida, mostre o caminho
 de menus e deixe o atalho de fora.
 
 ### Formato de porcentagem
 
-O botão "Estilo de Porcentagem" (`Ctrl`+`Shift`+`5`) usa zero casas: 0,075 aparece como 8%. O
+O formato Porcentagem do atalho `Ctrl`+`Shift`+`%` (o `%` fica na tecla 5) usa zero casas: 0,075 aparece como 8%. O
 formato `pct` da planilha faz o mesmo; use `pct2` para duas casas.
 
 ### Logotipo no fundo errado
@@ -143,7 +146,7 @@ batem. `.container`, `.badge`, `.row`, `.card`, `.table`, `.small`, `.lead` são
 
 Renomeie tudo o que é da aula: `.wrap` em vez de `.container`, `.selo` em vez de `.badge`,
 `.tabela` em vez de `.table`. Carregue o CSS da aula **depois** do framework. O aplicativo refeito
-em HTML usa `.app` (e não `.janela`, que a aula de Flexbox usa como demonstração).
+em HTML usa `.app`; não reaproveite esse nome para outra coisa na aula.
 
 ### Contêiner flex quebrando componentes
 

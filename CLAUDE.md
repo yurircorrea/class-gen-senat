@@ -34,8 +34,7 @@ class-gen-senat/
 ├── aulas/                             SAÍDA: uma pasta por aula, dentro do curso
 │   └── <curso>/<aula>/                ex.: aulas/excel-basico/aula1/index.html
 ├── exemplos/
-│   ├── aula-flexbox/                  referência de qualidade (CSS puro, a partir de PPTX)
-│   └── aula-bootstrap/                referência de qualidade (framework, a partir de PDF)
+│   └── aula-excel/                    referência de qualidade (Excel Básico: planilhas, labs, tour, quiz)
 └── .claude/
     ├── skills/aula-sest-senat/        a habilidade (processo, regras, assets)
     └── commands/nova-aula.md          o comando /nova-aula
@@ -44,11 +43,6 @@ class-gen-senat/
 Nomes de pasta: curso em minúsculas, sem acento, com hífen (`excel-basico`, `power-bi`,
 `informatica-basica`); aula como `aula` + número, sem zero à esquerda (`aula1`, `aula2`,
 `aula12`). As pastas são criadas quando o primeiro material do curso chega.
-
-**Pastas legadas:** `material/1o_periodo/`, `material/2o_periodo/`, `aulas/1o_periodo/` e
-`aulas/2o_periodo/` vêm da instância anterior do class-gen (Descomplica UniAmérica, organizada por
-período e PM). Não seguem o modelo curso/aula: não crie nada nelas, não as ofereça como curso e
-não as use como referência de organização ou de identidade visual.
 
 ## Regras de organização (valem sempre)
 
@@ -72,8 +66,8 @@ não as use como referência de organização ou de identidade visual.
 6. **Cargo do instrutor como o pedido escrever** ("Instrutor de Informática", "Instrutora de
    Informática"). Se não vier, pergunte junto com o nome; não deduza pelo nome da pessoa. E-mail só
    entra se for informado.
-7. **`exemplos/` é só leitura** ao criar uma aula. Guarda as duas aulas de referência de qualidade,
-   já na identidade SEST SENAT (o curso e a aula dos chips delas são ilustrativos).
+7. **`exemplos/` é só leitura** ao criar uma aula. Guarda a aula de referência de qualidade
+   (`aula-excel`), na identidade SEST SENAT (o curso e a aula dos chips são ilustrativos).
 
 ## Regras que valem para toda aula
 
@@ -109,8 +103,7 @@ Detalhadas na habilidade `aula-sest-senat`. As que mais importam:
 - Para arquivos grandes, prefira a ferramenta de escrita de arquivo a heredocs de shell.
 - Se o material for protegido por direitos autorais de terceiros, mantenha a atribuição na aula
   (rodapé ou README) e não reproduza trechos longos literalmente além do necessário para ensinar.
-  Exemplo: a apostila `bootstrap5_min.pdf` do exemplo de Bootstrap é CC BY-NC 4.0 (Mariano, D.,
-  Alfahelix, 2022).
+  Apostila com licença Creative Commons: cite autor, título, ano e licença no README da aula.
 - `material/designsystem.pdf` é classificado pela instituição como informação interna: use-o como
   referência, não o publique nem anexe a aulas.
 - **A habilidade desta instância existe só no projeto** (`.claude/skills/aula-sest-senat/`). Não a

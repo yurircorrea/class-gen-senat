@@ -158,6 +158,19 @@ NÃO ARRED INT ABS CONCAT CONCATENAR MAIÚSCULA MINÚSCULA ARRUMAR ESQUERDA DIRE
 **Erros como no Excel:** `#NOME?` (função desconhecida ou fórmula em inglês, como `=SUM(…)`),
 `#DIV/0!`, `#VALOR!`, `#N/D`, `#REF!`. Referência circular mostra 0, como o Excel.
 
+**Gráfico que acompanha a planilha:** depois de cada recálculo a raiz dispara o evento
+`planilha-calculada`, e `planilha.ler("F2")` devolve o valor já calculado de uma célula:
+
+```js
+var el = document.getElementById("pl-gastos");
+function desenhar(p) { /* atualiza --v de cada .grafico-col com p.ler("F2"), p.ler("F3")… */ }
+el.addEventListener("planilha-calculada", function (e) { desenhar(e.detail.planilha); });
+if (el.planilha) desenhar(el.planilha);       /* o primeiro cálculo já aconteceu ao carregar */
+```
+
+Código específico de uma aula vai no fim do `js/aula.js`, dentro da mesma função (assim enxerga
+`formatar` e `esc`). Exemplo completo em `exemplos/aula-excel/` (gastos por categoria).
+
 **Limites:** sem datas, sem matrizes dinâmicas, sem `PROCX`, sem formatação condicional
 automática. Para esses assuntos, use um construtor (§5) que monta a tabela já com o resultado.
 
@@ -203,7 +216,7 @@ var construtores = {
   formato: function (v) {             // v = { formato:'moeda', casas:'2', milhar:'false' }
     return {
       html:   '<div class="planilha">…tabela já formatada…</div>',
-      codigo: "Página Inicial › Número › Moeda\natalho: Ctrl + Shift + 4"
+      codigo: "Página Inicial › Número › Moeda\natalho: Ctrl + Shift + $"
     };
   }
 };

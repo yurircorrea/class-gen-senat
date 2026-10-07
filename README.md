@@ -39,9 +39,6 @@ aula têm o mesmo nome em `material/` e em `aulas/`.
 A página da aula mostra o curso e a aula em chips na capa e é assinada pelo instrutor, com o cargo
 e a unidade (B086 - Foz do Iguaçu/PR), na capa e no rodapé.
 
-As pastas `1o_periodo/` e `2o_periodo/` em `material/` e `aulas/` são da instância anterior do
-class-gen (outra instituição, organizada por período e PM) e não fazem parte do modelo curso/aula.
-
 ## O que sai de cada aula
 
 - `index.html` com uma seção por conceito
@@ -60,11 +57,10 @@ class-gen (outra instituição, organizada por período e PM) e não fazem parte
 
 | Exemplo | Destaques |
 |---|---|
-| `exemplos/aula-flexbox` | CSS puro, bordas revelando o contêiner, laboratório de Flexbox |
-| `exemplos/aula-bootstrap` | 9 laboratórios, 8 simuladores, playground, conteúdo atualizado de 5.1 para 5.3 |
-| `.claude/skills/aula-sest-senat/assets/modelo-aula.html` | esqueleto com cada bloco funcionando, inclusive os sem código (planilha, faixa de opções, tour, quiz) |
+| `exemplos/aula-excel` | Excel Básico, fórmulas e funções: 11 seções, planilhas que calculam, 4 laboratórios (cópia de fórmula, referência absoluta, SOMASE com gráfico, formatos), tour da AutoSoma, quiz e atividade |
+| `.claude/skills/aula-sest-senat/assets/modelo-aula.html` | esqueleto com cada bloco funcionando, com e sem código (planilha, faixa de opções, tour, quiz, painel de código) |
 
-Os dois exemplos estão na identidade SEST SENAT; o curso e a aula mostrados nos chips são
+A aula de exemplo é a referência de qualidade: o curso e a aula mostrados nos chips são
 ilustrativos.
 
 ## A habilidade

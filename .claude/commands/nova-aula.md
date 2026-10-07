@@ -17,8 +17,7 @@ Siga este roteiro, sem pular etapas:
      Informática"), e o e-mail, se for informado.
 
    **O que faltar, pergunte antes de fazer qualquer outra coisa**, tudo numa rodada só:
-   - curso: ofereça como opções os cursos que já existem em `material/` e `aulas/` (ignore
-     `1o_periodo/` e `2o_periodo/`, que são da instância anterior);
+   - curso: ofereça como opções os cursos que já existem em `material/` e `aulas/`;
    - aula: diga quais aulas o curso já tem e sugira a próxima;
    - instrutor: se o curso já tem aulas, ofereça o instrutor delas (`data-instrutor` do
      `index.html` ou o `README.md`). Pergunte também o cargo como deve aparecer ("Instrutor de
@@ -64,9 +63,9 @@ Siga este roteiro, sem pular etapas:
    (`.rodape-meta`) e `data-curso`/`data-aula`/`data-instrutor`/`data-unidade` no `<body>`. Modelo
    em `references/design-system.md` §8. Repita tudo no `README.md` da aula.
 
-9. **Referência de qualidade:** `.claude/skills/aula-sest-senat/assets/modelo-aula.html` (todos os
-   blocos, inclusive os sem código), `exemplos/aula-flexbox/` (CSS puro, a partir de PPTX) e
-   `exemplos/aula-bootstrap/` (framework, a partir de PDF, com laboratórios e simuladores).
+9. **Referência de qualidade:** `exemplos/aula-excel/` (aula completa sem código: planilhas que
+   calculam, laboratórios com construtor, tour, quiz, gráfico que acompanha a planilha, atividade) e
+   `.claude/skills/aula-sest-senat/assets/modelo-aula.html` (todos os blocos, com e sem código).
 
 10. **Verificar** conforme `references/qa-e-armadilhas.md`: sem transbordo horizontal, sem erro de
     console, laboratórios, planilhas, quiz e tour funcionando, iframes com altura justa, sem área

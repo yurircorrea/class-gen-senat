@@ -14,9 +14,10 @@ informática e tecnologia (Excel, Power BI, informática básica, internet e seg
 programação…). Muitos assuntos **não são código**: a aula mostra a fórmula, o caminho de menus ou
 o atalho, e reproduz em HTML o programa funcionando.
 
-Testado em duas aulas completas de código (Flexbox a partir de um PPTX; Bootstrap 5 a partir de
-uma apostila em PDF de 108 páginas, em `exemplos/`) e com os blocos sem código do
-`assets/modelo-aula.html` (mini planilha, faixa de opções refeita em HTML, tour, quiz).
+Testado em aulas completas de código (Flexbox a partir de um PPTX; Bootstrap 5 a partir de uma
+apostila em PDF de 108 páginas) e numa aula completa sem código, que é a referência de qualidade
+desta instância: `exemplos/aula-excel/` (Excel Básico, fórmulas e funções — planilhas que calculam,
+laboratórios de cópia de fórmula e referência absoluta, SOMASE com gráfico, tour, quiz).
 
 ---
 
@@ -247,5 +248,6 @@ vazio;   // some de ~9000px para ~1200px quando está certo
 | `assets/demos.css` | demos, laboratórios, planilha, quiz, tour, aplicativo, simuladores e playground |
 | `assets/aula.js` | realce, navegação, formatos pt-BR, motor da planilha, labs, playground, quiz e tour |
 | `assets/modelo-aula.html` | esqueleto com um exemplo funcionando de cada tipo de bloco |
+| `exemplos/aula-excel/` (na raiz do projeto) | aula completa de referência, sem código: copie a estrutura, o tom e o nível de detalhe |
 | `assets/fonts/` | Roboto (títulos) em cópia local e a licença OFL |
 | `assets/img/` | símbolo das meias-luas e logotipos SEST SENAT (branco e azul) |

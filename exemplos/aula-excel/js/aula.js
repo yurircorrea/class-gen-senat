@@ -10,9 +10,11 @@
    8. Quiz de verificação
    9. Tour: passo a passo clicável sobre um aplicativo
 
-   JavaScript puro, sem dependência. Copie para js/aula.js,
-   apague as seções que a aula não usa e acrescente os
-   construtores de laboratório do seu assunto (seção 6).
+   10. Desta aula: gráfico que acompanha o resumo de gastos
+
+   Aula de referência: Excel Básico · Aula 3 · Fórmulas e funções.
+   Os construtores desta aula (copiar, referencia) estão na seção 6,
+   junto do construtor de formatos que veio do modelo.
    ========================================================= */
 
 (function () {
@@ -822,6 +824,50 @@
 
   var construtores = {
 
+    /* Lab 1 — copiar a fórmula de D2 para baixo: a referência relativa anda junto */
+    copiar: function (v) {
+      var ate = parseInt(v.ate, 10);
+      var itens = [["Arroz 5 kg", "2", "27,90"], ["Feijão 1 kg", "3", "8,49"], ["Café 500 g", "1", "19,99"], ["Óleo 900 ml", "4", "7,49"]];
+      var linhas = '<tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>';
+      var codigo = [];
+      itens.forEach(function (it, i) {
+        var n = i + 2, f = n <= ate ? "=B" + n + "*C" + n : "";
+        if (f) codigo.push("D" + n + "   " + f + (n === 2 ? "   // a original" : "   // cópia: B e C agora são da linha " + n));
+        linhas += "<tr><td>" + it[0] + "</td><td>" + it[1] + "</td><td>" + it[2] + "</td><td>" + f + "</td></tr>";
+      });
+      return {
+        html: '<div class="planilha" data-planilha data-selecionar="D' + ate + '">' +
+          '<table class="planilha-grade" data-formatos="texto,int,moeda,moeda">' + linhas + "</table></div>",
+        codigo: codigo.join("\n")
+      };
+    },
+
+    /* Lab 2 — o desconto em F1 com cada tipo de referência, depois de copiar C2 até C5 */
+    referencia: function (v) {
+      var itens = [["Arroz 5 kg", "27,90"], ["Feijão 1 kg", "8,49"], ["Café 500 g", "19,99"], ["Óleo 900 ml", "7,49"]];
+      var linhas = '<tr><td class="titulo">Produto</td><td class="titulo">Preço</td><td class="titulo">Com desconto</td>' +
+        '<td></td><td class="titulo">Desconto</td><td>10%</td></tr>';
+      var codigo = [];
+      itens.forEach(function (it, i) {
+        var n = i + 2, andou = n - 2;            /* quantas linhas a cópia desceu */
+        var ref = { "F1": "F" + (1 + andou), "$F$1": "$F$1", "F$1": "F$1", "$F1": "$F" + (1 + andou) }[v.tipo];
+        var f = "=B" + n + "*(1-" + ref + ")";
+        codigo.push("C" + n + "   " + f);
+        linhas += "<tr><td>" + it[0] + "</td><td>" + it[1] + "</td><td>" + f + "</td><td></td><td></td><td></td></tr>";
+      });
+      codigo.push({
+        "F1": "// errado: as cópias desceram para F2, F3 e F4, que estão vazias",
+        "$F$1": "// certo: coluna e linha travadas, todas olham para F1",
+        "F$1": "// certo para copiar para baixo: a linha 1 está travada",
+        "$F1": "// errado: a coluna está travada, mas a linha continua andando"
+      }[v.tipo]);
+      return {
+        html: '<div class="planilha" data-planilha data-selecionar="C4">' +
+          '<table class="planilha-grade" data-formatos="texto,moeda,moeda,texto,texto,pct">' + linhas + "</table></div>",
+        codigo: codigo.join("\n")
+      };
+    },
+
     /* EXEMPLO sem código — formato de número numa planilha.
        Substitua pelos do seu assunto. */
     formato: function (v) {
@@ -1014,4 +1060,39 @@
     if (prox) prox.addEventListener("click", function () { if (atual < passos.length - 1) { atual++; mostrar(); } });
     mostrar();
   });
+
+  /* ======================================================
+     10. DESTA AULA — gráfico que acompanha o resumo de gastos
+
+     Lê a coluna F (totais por categoria) e a E (nomes) da
+     planilha do Lab 3 a cada recálculo.
+     ====================================================== */
+
+  (function () {
+    var el = document.getElementById("pl-gastos");
+    var graf = document.getElementById("graf-gastos");
+    if (!el || !graf) return;
+    var cols = graf.querySelectorAll(".grafico-col");
+    var rotulos = document.querySelectorAll("#rot-gastos > span");
+
+    function desenhar(p) {
+      var vals = [], max = 0, i;
+      for (i = 0; i < cols.length; i++) {
+        var v = p.ler("F" + (i + 2));
+        v = typeof v === "number" ? v : 0;
+        vals.push(v);
+        if (v > max) max = v;
+      }
+      for (i = 0; i < cols.length; i++) {
+        cols[i].style.setProperty("--v", max ? vals[i] / max : 0);
+        cols[i].querySelector("b").textContent = formatar(vals[i], "moeda");
+        cols[i].classList.toggle("grafico-col--destaque", max > 0 && vals[i] === max);
+        var nome = p.ler("E" + (i + 2));
+        if (rotulos[i]) rotulos[i].textContent = typeof nome === "string" ? nome : "";
+      }
+    }
+
+    el.addEventListener("planilha-calculada", function (e) { desenhar(e.detail.planilha); });
+    if (el.planilha) desenhar(el.planilha);
+  })();
 })();

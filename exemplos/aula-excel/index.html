@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fórmulas e funções — Excel Básico · Aula 3 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="excel-basico" data-aula="aula3" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Fórmulas e funções</a>
+    <nav class="barra-menu">
+      <a href="#formula">fórmula</a>
+      <a href="#operadores">operadores</a>
+      <a href="#referencias">referências</a>
+      <a href="#copiar">copiar</a>
+      <a href="#absoluta">$ absoluta</a>
+      <a href="#funcoes">funções</a>
+      <a href="#autosoma">AutoSoma</a>
+      <a href="#se">SE</a>
+      <a href="#contse">CONT.SE</a>
+      <a href="#formatos">formatos</a>
+      <a href="#erros">erros</a>
+      <a href="#quiz">quiz</a>
+      <a href="#referencia">resumo</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Excel Básico</span><span>Aula 3</span></div>
+      <h1>Fórmulas e funções</h1>
+      <p class="subtitulo">Fazer o Excel calcular por você: operadores, referências, SOMA, SE e CONT.SE</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Informática · Unidade B086 - Foz do Iguaçu/PR</span>
+        <span class="contato">E-mail: yuricorrea@sestsenat.org.br</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Da primeira conta com o sinal de igual até uma planilha de gastos que se refaz sozinha quando um valor muda.</p>
+
+    <div class="roteiro">
+      <a href="#formula"><span class="num">01</span><span class="rotulo">Fórmulas e operadores</span></a>
+      <a href="#referencias"><span class="num">02</span><span class="rotulo">Referências: o endereço da célula</span></a>
+      <a href="#copiar"><span class="num">03</span><span class="rotulo">Copiar fórmulas e travar com $</span></a>
+      <a href="#funcoes"><span class="num">04</span><span class="rotulo">SOMA, MÉDIA, MÁXIMO, MÍNIMO</span></a>
+      <a href="#autosoma"><span class="num">05</span><span class="rotulo">AutoSoma, passo a passo</span></a>
+      <a href="#se"><span class="num">06</span><span class="rotulo">SE: a planilha decide</span></a>
+      <a href="#contse"><span class="num">07</span><span class="rotulo">CONT.SE e SOMASE</span></a>
+      <a href="#formatos"><span class="num">08</span><span class="rotulo">Formatos e erros comuns</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">Painel escuro = o que você digita ou clica no Excel.</div>
+      <div class="legenda-item">Caixa branca = a planilha funcionando: clique numa célula e a fórmula aparece na barra.</div>
+      <div class="legenda-item">Contorno verde = a célula selecionada. Contornos coloridos = as células que a fórmula usa.</div>
+    </div>
+  </section>
+
+  <!-- ======================= 01 FÓRMULA ======================= -->
+  <section class="secao" id="formula">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Toda fórmula começa com =</h2>
+    </div>
+    <p class="secao-lead">Fórmula é uma conta que o Excel faz e refaz sozinho. O sinal de igual avisa: o que vem depois é para calcular, não para mostrar.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>digite na célula D2</figcaption>
+<pre class="codigo" data-lang="formula">=B2*C2
+// quantidade vezes preço</pre>
+        <ol class="passos">
+          <li>Clique na célula D2.</li>
+          <li>Digite <b>=</b> e clique em B2.</li>
+          <li>Digite <b>*</b> e clique em C2.</li>
+          <li>Tecle <kbd>Enter</kbd>.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique em D2, D3 ou D4</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-somente-leitura data-selecionar="D2">
+            <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+              <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+              <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>=B2*C2</td></tr>
+              <tr><td>Feijão 1 kg</td><td>3</td><td>8,49</td><td>=B3*C3</td></tr>
+              <tr><td>Café 500 g</td><td>1</td><td>19,99</td><td>=B4*C4</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">sem o sinal de igual</span>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="D2">
+          <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+            <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+            <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>B2*C2</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <span class="rotulo-atual">com o sinal de igual</span>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="D2">
+          <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+            <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+            <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>=B2*C2</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Célula tem endereço</h3><p>Coluna (letra) e linha (número): B2 é a coluna B, linha 2. É esse endereço que a fórmula usa.</p></article>
+      <article class="cartao"><h3>A barra mostra a conta</h3><p>A célula mostra o resultado; a barra de fórmulas, acima da grade, mostra a conta que gerou o resultado.</p></article>
+      <article class="cartao cartao--erro"><h3>Esqueceu o =</h3><p>Sem o sinal de igual, <code>B2*C2</code> vira texto: o Excel mostra exatamente o que foi digitado, alinhado à esquerda.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 OPERADORES ======================= -->
+  <section class="secao" id="operadores">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Operadores e ordem das contas</h2>
+    </div>
+    <p class="secao-lead">As regras da matemática da escola: primeiro potência, depois multiplicação e divisão, por último soma e subtração. Parênteses mandam em tudo.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>os operadores do Excel</figcaption>
+<pre class="codigo" data-lang="formula">=10+5      // + soma
+=10-5      // - subtração
+=10*5      // * multiplicação
+=10/5      // / divisão
+=10^2      // ^ potência
+=200*15%   // % porcentagem</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>a coluna A mostra a conta; a B, o resultado</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-somente-leitura data-selecionar="B2" data-formatos="texto,geral">
+            <table class="planilha-grade">
+              <tr><td class="titulo">Conta</td><td class="titulo">Resultado</td></tr>
+              <tr><td>'=2+3*4</td><td>=2+3*4</td></tr>
+              <tr><td>'=(2+3)*4</td><td>=(2+3)*4</td></tr>
+              <tr><td>'=10/4</td><td>=10/4</td></tr>
+              <tr><td>'=2^3</td><td>=2^3</td></tr>
+              <tr><td>'=200*15%</td><td>=200*15%</td></tr>
+              <tr><td>'=10-2-3</td><td>=10-2-3</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Multiplicação antes da soma</h3><p><code>=2+3*4</code> dá 14, não 20: o Excel faz <code>3*4</code> primeiro e só depois soma.</p></article>
+      <article class="cartao"><h3>Parênteses decidem</h3><p><code>=(2+3)*4</code> dá 20. Na dúvida, ponha parênteses: não muda nada quando já estava certo e deixa a conta clara.</p></article>
+      <article class="cartao cartao--erro"><h3>x não é vezes</h3><p>O Excel não entende <b>x</b> nem <b>÷</b>. Multiplicação é <code>*</code> (asterisco) e divisão é <code>/</code> (barra).</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 REFERÊNCIAS ======================= -->
+  <section class="secao" id="referencias">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Use o endereço, não o número</h2>
+    </div>
+    <p class="secao-lead">Quando a fórmula aponta para a célula, basta mudar o valor e o resultado acompanha. Número digitado dentro da fórmula fica congelado.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">número dentro da fórmula</span>
+        <div class="planilha" data-planilha data-selecionar="C2">
+          <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+            <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+            <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>=2*27,90</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <span class="rotulo-atual">referência à célula</span>
+        <div class="planilha" data-planilha data-selecionar="C2">
+          <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+            <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+            <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>=B2*C2</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="planilha-dica">o preço (C2) já está selecionado nas duas: troque 27,90 por 29,90 na barra e compare os totais</p>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Mudou o dado, mudou o resultado</h3><p>Com <code>=B2*C2</code>, o preço novo entra na conta na hora. Com <code>=2*27,90</code>, alguém precisa lembrar de reescrever a fórmula.</p></article>
+      <article class="cartao"><h3>A fórmula conta a história</h3><p><code>=B2*C2</code> diz de onde vêm os números: quantidade vezes preço. <code>=2*27,90</code> esconde.</p></article>
+      <article class="cartao cartao--erro"><h3>Vírgula é decimal</h3><p>Se precisar digitar um número na fórmula, use vírgula: <code>=2*27,90</code>. No Excel em português, <code>27.90</code> com ponto não é aceito.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 COPIAR (LAB 1) ======================= -->
+  <section class="secao" id="copiar">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">Copiar fórmulas: a referência anda junto</h2>
+    </div>
+    <p class="secao-lead">Escreveu a fórmula uma vez, copie para as linhas de baixo: cada cópia ajusta os endereços para a própria linha. É a referência relativa.</p>
+
+    <div class="lab" data-lab="copiar">
+      <div class="lab-controles">
+        <h4>Lab 1 · controles</h4>
+        <div class="lab-campo">
+          <label for="c-ate">copiar a fórmula de D2 até a linha — <span data-eco="ate">2</span></label>
+          <input type="range" id="c-ate" data-campo="ate" min="2" max="5" step="1" value="2">
+        </div>
+        <h4>no Excel</h4>
+        <ol class="passos">
+          <li>Clique em D2, que já tem <code>=B2*C2</code>.</li>
+          <li>Arraste a <b>alça de preenchimento</b> (o quadradinho no canto inferior direito da célula) até D5.</li>
+          <li>Ou selecione D2:D5 e tecle <kbd>Ctrl</kbd> + <kbd>D</kbd>.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">fórmulas na coluna D</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Relativa é o padrão</h3><p>Toda referência comum (<code>B2</code>, <code>C2</code>) é relativa: na cópia, ela anda o mesmo tanto que a fórmula andou.</p></article>
+      <article class="cartao"><h3>Para o lado, anda a coluna</h3><p>Copiando para a direita, <code>B2</code> vira <code>C2</code>, <code>D2</code>… A linha fica, a coluna anda.</p></article>
+      <article class="cartao cartao--erro"><h3>Digitar o resultado</h3><p>Escrever 25,47 em vez de copiar a fórmula quebra a planilha: o número não se atualiza quando a quantidade ou o preço mudar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 ABSOLUTA (LAB 2) ======================= -->
+  <section class="secao" id="absoluta">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Referência absoluta: o $ trava</h2>
+    </div>
+    <p class="secao-lead">Quando todas as linhas precisam olhar para a mesma célula (um desconto, uma taxa), o endereço não pode andar na cópia. O cifrão trava: <code>$F$1</code>.</p>
+
+    <div class="lab" data-lab="referencia">
+      <div class="lab-controles">
+        <h4>Lab 2 · controles</h4>
+        <div class="lab-campo">
+          <label for="r-tipo">como o desconto (F1) foi escrito em C2</label>
+          <select id="r-tipo" data-campo="tipo">
+            <option value="F1" selected>F1 — relativa</option>
+            <option value="$F$1">$F$1 — absoluta</option>
+            <option value="F$1">F$1 — só a linha travada</option>
+            <option value="$F1">$F1 — só a coluna travada</option>
+          </select>
+        </div>
+        <h4>no Excel</h4>
+        <ol class="passos">
+          <li>Na fórmula, deixe o cursor sobre <code>F1</code>.</li>
+          <li>Tecle <kbd>F4</kbd>: F1 vira $F$1, F$1, $F1 e volta a F1.</li>
+          <li>Copie para baixo e clique nas cópias para conferir.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">fórmulas na coluna C, depois de copiar</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>F4 é o atalho</h3><p>Com o cursor sobre o endereço na fórmula, cada <kbd>F4</kbd> troca o tipo: <code>F1</code>, <code>$F$1</code>, <code>F$1</code>, <code>$F1</code>.</p></article>
+      <article class="cartao"><h3>O $ trava o que vem depois</h3><p><code>$F</code> trava a coluna; <code>$1</code> trava a linha. <code>$F$1</code> trava as duas e serve para copiar em qualquer direção.</p></article>
+      <article class="cartao cartao--erro"><h3>O erro que não avisa</h3><p>Sem o $, as cópias apontam para células vazias e o preço sai sem desconto, sem nenhuma mensagem de erro. Clique em C4 e veja para onde ela aponta.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 FUNÇÕES ======================= -->
+  <section class="secao" id="funcoes">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Funções: contas prontas com nome</h2>
+    </div>
+    <p class="secao-lead">Função recebe um intervalo entre parênteses e devolve o resultado. Cinco delas resolvem boa parte do dia a dia.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>a anatomia de uma função</figcaption>
+<pre class="codigo" data-lang="formula">=SOMA(B2:B6)
+// SOMA   = o nome da função
+// B2:B6  = de B2 até B6 (o intervalo)
+
+=MÉDIA(B2:B6)
+=MÁXIMO(B2:B6)
+=MÍNIMO(B2:B6)
+=CONT.NÚM(B2:B6)</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique nos resultados da coluna E</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-somente-leitura data-selecionar="E2">
+            <table class="planilha-grade" data-formatos="texto,int,texto,texto,int">
+              <tr><td class="titulo">Mês</td><td class="titulo">Vendas</td><td></td><td class="titulo">Função</td><td class="titulo">Resultado</td></tr>
+              <tr><td>Jan</td><td>1.200</td><td></td><td>SOMA</td><td>=SOMA(B2:B6)</td></tr>
+              <tr><td>Fev</td><td>950</td><td></td><td>MÉDIA</td><td>=MÉDIA(B2:B6)</td></tr>
+              <tr><td>Mar</td><td>1.430</td><td></td><td>MÁXIMO</td><td>=MÁXIMO(B2:B6)</td></tr>
+              <tr><td>Abr</td><td>1.100</td><td></td><td>MÍNIMO</td><td>=MÍNIMO(B2:B6)</td></tr>
+              <tr><td>Mai</td><td>1.280</td><td></td><td>CONT.NÚM</td><td>=CONT.NÚM(B2:B6)</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="galeria">
+      <div class="mini"><div class="mini-titulo"><code>SOMA</code><span>soma tudo</span></div><p class="nota-demo">1.200 + 950 + 1.430 + 1.100 + 1.280 = 5.960</p></div>
+      <div class="mini"><div class="mini-titulo"><code>MÉDIA</code><span>soma e divide pela quantidade</span></div><p class="nota-demo">5.960 ÷ 5 = 1.192</p></div>
+      <div class="mini"><div class="mini-titulo"><code>MÁXIMO</code><span>o maior valor</span></div><p class="nota-demo">1.430 (março)</p></div>
+      <div class="mini"><div class="mini-titulo"><code>MÍNIMO</code><span>o menor valor</span></div><p class="nota-demo">950 (fevereiro)</p></div>
+      <div class="mini"><div class="mini-titulo"><code>CONT.NÚM</code><span>quantas células têm número</span></div><p class="nota-demo">5 meses com venda lançada</p></div>
+      <div class="mini"><div class="mini-titulo"><code>B2:B6</code><span>o intervalo</span></div><p class="nota-demo">dois-pontos = "até": de B2 até B6</p></div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Dois-pontos ou ponto e vírgula</h3><p><code>=SOMA(B2:B6)</code> soma de B2 até B6. <code>=SOMA(B2;B6)</code> soma só as duas células: o ponto e vírgula separa itens.</p></article>
+      <article class="cartao"><h3>O Excel completa</h3><p>Ao digitar <code>=SO</code>, o Excel lista as funções que começam assim; <kbd>Tab</kbd> completa o nome e abre o parêntese.</p></article>
+      <article class="cartao cartao--erro"><h3>O total dentro do intervalo</h3><p><code>=SOMA(B2:B7)</code> digitada em B7 inclui a própria célula: é uma referência circular. O Excel avisa e o resultado não fica certo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 AUTOSOMA (TOUR) ======================= -->
+  <section class="secao" id="autosoma">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">AutoSoma, passo a passo</h2>
+    </div>
+    <p class="secao-lead">O botão que escreve a SOMA por você: ele procura o bloco de números logo acima da célula e sugere o intervalo.</p>
+
+    <div class="dupla dupla--preview">
+      <figure class="painel-codigo">
+        <figcaption>caminho e atalho</figcaption>
+        <ol class="caminho">
+          <li><span>Página Inicial</span></li>
+          <li><span>Edição</span></li>
+          <li><span>AutoSoma</span></li>
+        </ol>
+        <p class="atalho">atalho, em qualquer guia: <kbd>Alt</kbd> + <kbd>=</kbd></p>
+        <p class="atalho">a seta ao lado do botão traz outras funções prontas: média, contagem, máximo e mínimo</p>
+        <ol class="passos">
+          <li>Clique na célula logo abaixo dos números.</li>
+          <li>Abra a guia Página Inicial.</li>
+          <li>No grupo Edição, clique em AutoSoma.</li>
+          <li>Confira o intervalo sugerido e tecle <kbd>Enter</kbd>.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">passo a passo</span><code>use os botões para avançar</code></div>
+        <div class="preview-corpo">
+          <div class="tour" data-tour>
+            <div class="tour-barra">
+              <button type="button" data-tour-anterior>anterior</button>
+              <span class="tour-contador" data-tour-contador></span>
+              <button type="button" data-tour-proximo>próximo</button>
+            </div>
+            <p class="tour-legenda" data-tour-legenda></p>
+            <div class="app">
+              <div class="app-titulo"><b>Vendas - Excel</b><span class="app-botoes">— ▢ ✕</span></div>
+              <div class="app-guias"><span>Arquivo</span><span class="ativa" data-passo="2" data-legenda="2. Abra a guia Página Inicial.">Página Inicial</span><span>Inserir</span><span>Fórmulas</span><span>Dados</span></div>
+              <div class="app-faixa">
+                <div class="app-grupo"><div><span class="app-btn">Colar</span></div><small>Área de Transferência</small></div>
+                <div class="app-grupo"><div><span class="app-btn"><b>N</b></span><span class="app-btn"><i>I</i></span><span class="app-btn"><u>S</u></span></div><small>Fonte</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="3" data-legenda="3. No grupo Edição, clique em AutoSoma (ou tecle Alt + =).">Σ AutoSoma</span><span class="app-btn">Classificar e Filtrar</span></div><small>Edição</small></div>
+              </div>
+              <div class="app-corpo">
+                <div class="planilha">
+                  <div class="planilha-barra">
+                    <span class="planilha-nome">B7</span><span class="planilha-fx">fx</span>
+                    <span class="planilha-entrada" data-passo="4" data-legenda="4. Confira o intervalo sugerido (B2:B6) e tecle Enter.">=SOMA(B2:B6)</span>
+                  </div>
+                  <div class="planilha-rolagem">
+                    <table class="planilha-grade">
+                      <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+                      <tbody>
+                        <tr><th>1</th><td class="titulo">Mês</td><td class="titulo">Vendas</td></tr>
+                        <tr><th>2</th><td>Jan</td><td class="num">1.200</td></tr>
+                        <tr><th>3</th><td>Fev</td><td class="num">950</td></tr>
+                        <tr><th>4</th><td>Mar</td><td class="num">1.430</td></tr>
+                        <tr><th>5</th><td>Abr</td><td class="num">1.100</td></tr>
+                        <tr><th>6</th><td>Mai</td><td class="num">1.280</td></tr>
+                        <tr><th>7</th><td class="titulo">Total</td><td data-passo="1" data-legenda="1. Clique na célula logo abaixo dos números (B7)."></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Confira antes do Enter</h3><p>A AutoSoma sugere o bloco de números encostado na célula. Uma célula vazia no meio da coluna corta o intervalo sugerido.</p></article>
+      <article class="cartao"><h3>Também em Fórmulas</h3><p>O mesmo botão aparece na guia <b>Fórmulas</b>. E <kbd>Alt</kbd> + <kbd>=</kbd> funciona com qualquer guia aberta.</p></article>
+      <article class="cartao"><h3>É só uma SOMA</h3><p>O botão escreve <code>=SOMA(B2:B6)</code> na célula: depois de criada, ela é uma fórmula comum, que dá para editar com <kbd>F2</kbd>.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 SE ======================= -->
+  <section class="secao" id="se">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">SE: a planilha decide</h2>
+    </div>
+    <p class="secao-lead">SE faz uma pergunta e escolhe entre duas respostas: <code>=SE(teste; resposta se sim; resposta se não)</code>.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>troque uma nota: a média e a situação se refazem</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-selecionar="F2">
+            <table class="planilha-grade" data-formatos="texto,dec1,dec1,dec1,dec1,texto">
+              <tr><td class="titulo">Aluno</td><td class="titulo">Prova 1</td><td class="titulo">Prova 2</td><td class="titulo">Trabalho</td><td class="titulo">Média</td><td class="titulo">Situação</td></tr>
+              <tr><td>Ana</td><td>8</td><td>7,5</td><td>9</td><td>=MÉDIA(B2:D2)</td><td>=SE(E2&gt;=7;"Aprovado";"Recuperação")</td></tr>
+              <tr><td>Bruno</td><td>5</td><td>6</td><td>7</td><td>=MÉDIA(B3:D3)</td><td>=SE(E3&gt;=7;"Aprovado";"Recuperação")</td></tr>
+              <tr><td>Carla</td><td>9,5</td><td>10</td><td>8</td><td>=MÉDIA(B4:D4)</td><td>=SE(E4&gt;=7;"Aprovado";"Recuperação")</td></tr>
+              <tr><td>Diego</td><td>6,5</td><td>7</td><td>7,5</td><td>=MÉDIA(B5:D5)</td><td>=SE(E5&gt;=7;"Aprovado";"Recuperação")</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo painel-codigo--duplo">
+        <figcaption>digite em F2 e copie para baixo</figcaption>
+<pre class="codigo" data-lang="formula">=SE(E2&gt;=7;"Aprovado";"Recuperação")
+
+// teste:     E2&gt;=7   (a média é 7 ou mais?)
+// se sim:    "Aprovado"
+// se não:    "Recuperação"
+// texto vai entre aspas; os três
+// pedaços se separam com ;</pre>
+      </figure>
+    </div>
+
+    <h3 class="sub-titulo">As comparações que cabem no teste</h3>
+    <div class="galeria">
+      <div class="mini"><div class="mini-titulo"><code>=</code><span>igual</span></div><p class="nota-demo">B2="Pago"</p></div>
+      <div class="mini"><div class="mini-titulo"><code>&lt;&gt;</code><span>diferente</span></div><p class="nota-demo">B2&lt;&gt;"Pago"</p></div>
+      <div class="mini"><div class="mini-titulo"><code>&gt;</code><span>maior que</span></div><p class="nota-demo">C2&gt;100</p></div>
+      <div class="mini"><div class="mini-titulo"><code>&lt;</code><span>menor que</span></div><p class="nota-demo">C2&lt;100</p></div>
+      <div class="mini"><div class="mini-titulo"><code>&gt;=</code><span>maior ou igual</span></div><p class="nota-demo">E2&gt;=7 — a nota 7 já aprova</p></div>
+      <div class="mini"><div class="mini-titulo"><code>&lt;=</code><span>menor ou igual</span></div><p class="nota-demo">C2&lt;=F1 — dentro do orçamento</p></div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Texto entre aspas</h3><p>Respostas em texto vão entre aspas duplas: <code>"Aprovado"</code>. Números não: <code>=SE(E2&gt;=7;1;0)</code>.</p></article>
+      <article class="cartao"><h3>&gt; ou &gt;=</h3><p>Com <code>E2&gt;7</code>, quem tirou exatamente 7 fica em recuperação. Leia o teste em voz alta antes de confiar nele.</p></article>
+      <article class="cartao cartao--erro"><h3>Vírgula separando os pedaços</h3><p><code>=SE(E2&gt;=7,"Aprovado","Recuperação")</code> é como se escreve no Excel em inglês. No Excel em português, os pedaços se separam com <code>;</code>.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 CONT.SE E SOMASE (LAB 3) ======================= -->
+  <section class="secao" id="contse">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">CONT.SE e SOMASE: contar e somar por categoria</h2>
+    </div>
+    <p class="secao-lead">Duas funções que perguntam antes de contar ou somar: só entram as linhas que atendem ao critério.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>resumo por categoria</figcaption>
+<pre class="codigo" data-lang="formula">=CONT.SE(B2:B9;"Alimentação")
+// quantas linhas são de Alimentação
+
+=SOMASE(B2:B9;"Alimentação";C2:C9)
+// soma os valores (C) dessas linhas
+
+=SOMASE($B$2:$B$9;E2;$C$2:$C$9)
+// critério vindo da célula E2 e intervalos
+// travados: a mesma fórmula serve para todas</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">gráfico</span><code>acompanha a coluna F da planilha abaixo</code></div>
+        <div class="preview-corpo">
+          <div class="grafico" id="graf-gastos">
+            <div class="grafico-col"><b></b><i></i></div>
+            <div class="grafico-col"><b></b><i></i></div>
+            <div class="grafico-col"><b></b><i></i></div>
+            <div class="grafico-col"><b></b><i></i></div>
+          </div>
+          <div class="grafico-rotulos" id="rot-gastos"><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Lab 3 · gastos do mês</h3>
+    <div class="planilha" id="pl-gastos" data-planilha data-selecionar="F3">
+      <table class="planilha-grade" data-formatos="texto,texto,moeda,texto,texto,moeda,int">
+        <tr><td class="titulo">Item</td><td class="titulo">Categoria</td><td class="titulo">Valor</td><td></td><td class="titulo">Resumo</td><td class="titulo">Total</td><td class="titulo">Lançamentos</td></tr>
+        <tr><td>Aluguel</td><td>Moradia</td><td>900</td><td></td><td>Moradia</td><td>=SOMASE($B$2:$B$9;E2;$C$2:$C$9)</td><td>=CONT.SE($B$2:$B$9;E2)</td></tr>
+        <tr><td>Conta de luz</td><td>Moradia</td><td>145,80</td><td></td><td>Alimentação</td><td>=SOMASE($B$2:$B$9;E3;$C$2:$C$9)</td><td>=CONT.SE($B$2:$B$9;E3)</td></tr>
+        <tr><td>Mercado</td><td>Alimentação</td><td>620,35</td><td></td><td>Transporte</td><td>=SOMASE($B$2:$B$9;E4;$C$2:$C$9)</td><td>=CONT.SE($B$2:$B$9;E4)</td></tr>
+        <tr><td>Feira</td><td>Alimentação</td><td>88</td><td></td><td>Saúde</td><td>=SOMASE($B$2:$B$9;E5;$C$2:$C$9)</td><td>=CONT.SE($B$2:$B$9;E5)</td></tr>
+        <tr><td>Ônibus</td><td>Transporte</td><td>198</td><td></td><td class="titulo">Total geral</td><td>=SOMA(C2:C9)</td><td>=CONT.VALORES(A2:A9)</td></tr>
+        <tr><td>Farmácia</td><td>Saúde</td><td>74,90</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Lanche</td><td>Alimentação</td><td>36,50</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Gasolina</td><td>Transporte</td><td>150</td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+    <p class="planilha-dica">troque a categoria de um item (coluna B) ou um valor (coluna C): o resumo e o gráfico acompanham</p>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Critério numa célula</h3><p>Com o critério em E2, a fórmula de F2 copiada para baixo vale para todas as categorias, porque os intervalos estão travados com $.</p></article>
+      <article class="cartao"><h3>Critério com comparação</h3><p><code>=CONT.SE(C2:C9;"&gt;100")</code> conta os gastos acima de R$ 100: a comparação vai dentro das aspas.</p></article>
+      <article class="cartao cartao--erro"><h3>Escrita diferente, categoria diferente</h3><p>Para o Excel, "Alimentação" e "Alimentacao" são categorias diferentes. Maiúsculas não importam; acento e espaço sobrando, sim.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 FORMATOS (LAB 4) ======================= -->
+  <section class="secao" id="formatos">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Formatos de número</h2>
+    </div>
+    <p class="secao-lead">Formatar muda a aparência do número, não o valor guardado: a conta usa sempre o valor de verdade.</p>
+
+    <div class="lab" data-lab="formato">
+      <div class="lab-controles">
+        <h4>Lab 4 · controles</h4>
+        <div class="lab-campo">
+          <label for="f-formato">formato da coluna A</label>
+          <select id="f-formato" data-campo="formato">
+            <option value="geral" selected>Geral</option>
+            <option value="moeda">Moeda</option>
+            <option value="pct">Porcentagem</option>
+            <option value="dec2">Número</option>
+          </select>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>O valor não muda</h3><p>0,075 formatado como porcentagem aparece como 8%, mas qualquer fórmula que use a célula continua recebendo 0,075.</p></article>
+      <article class="cartao"><h3>Porcentagem é número</h3><p>Digitar <code>15%</code> guarda 0,15. Por isso <code>=200*15%</code> dá 30.</p></article>
+      <article class="cartao cartao--erro"><h3>Formato não arredonda</h3><p>Com duas casas, 2,346 aparece como 2,35, mas a conta usa 2,346. Para arredondar de verdade, use <code>=ARRED(A1;2)</code>.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 ERROS ======================= -->
+  <section class="secao" id="erros">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Erros comuns e o que eles dizem</h2>
+    </div>
+    <p class="secao-lead">Erro não é defeito do Excel: é a planilha dizendo o que está errado. Cada código tem uma causa.</p>
+
+    <div class="galeria galeria--duplo">
+      <div class="mini">
+        <div class="mini-titulo"><code>#DIV/0!</code><span>divisão por zero ou por célula vazia</span></div>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="C2">
+          <table class="planilha-grade" data-formatos="moeda,int,moeda">
+            <tr><td class="titulo">Conta</td><td class="titulo">Pessoas</td><td class="titulo">Por pessoa</td></tr>
+            <tr><td>120</td><td></td><td>=A2/B2</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>#NOME?</code><span>nome de função errado ou em inglês</span></div>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="B2">
+          <table class="planilha-grade">
+            <tr><td class="titulo">Valor</td><td class="titulo">Soma</td></tr>
+            <tr><td>10</td><td>=SUM(A2:A3)</td></tr>
+            <tr><td>20</td><td></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>#VALOR!</code><span>texto entrando numa conta</span></div>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="B2">
+          <table class="planilha-grade">
+            <tr><td class="titulo">Quantidade</td><td class="titulo">Dobro</td></tr>
+            <tr><td>dez</td><td>=A2*2</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>número como texto</code><span>alinhado à esquerda e fora da soma</span></div>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="A4">
+          <table class="planilha-grade">
+            <tr><td class="titulo">Valor</td></tr>
+            <tr><td>100</td></tr>
+            <tr><td>'50</td></tr>
+            <tr><td>=SOMA(A2:A3)</td></tr>
+          </table>
+        </div>
+        <p class="nota-demo">a soma deveria dar 150: o 50 foi guardado como texto</p>
+      </div>
+      <div class="mini mini--largo">
+        <div class="mini-titulo"><code>#####</code><span>o número não cabe na largura da coluna</span></div>
+        <div class="planilha">
+          <div class="planilha-rolagem" style="display:inline-block">
+            <table class="planilha-grade" style="width:auto">
+              <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+              <tbody>
+                <tr><th>1</th><td class="num" style="min-width:0;width:64px;max-width:64px">#####</td><td class="num">R$ 1.250.000,00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="nota-demo">a mesma célula na coluna A (estreita) e na coluna B (larga): o valor é o mesmo; alargue a coluna com dois cliques na divisa do cabeçalho</p>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Leia o código</h3><p>#DIV/0! aponta o divisor; #NOME? aponta o nome da função; #VALOR! aponta um texto onde deveria haver número.</p></article>
+      <article class="cartao"><h3>Triângulo verde no canto</h3><p>É um aviso, não um erro. Muitas vezes indica número guardado como texto, como o 50 acima.</p></article>
+      <article class="cartao cartao--erro"><h3>Esconder não conserta</h3><p><code>=SEERRO(A2/B2;0)</code> troca o erro por zero, mas a causa continua lá. Corrija a causa antes de pensar em esconder.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Cinco perguntas rápidas; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">1. Qual fórmula soma as células de A1 até A10?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">=SOMA(A1;A10)</button>
+          <button type="button" data-opcao="b">=SOMA(A1:A10)</button>
+          <button type="button" data-opcao="c">SOMA(A1:A10)</button>
+        </div>
+        <p class="quiz-explica">Os dois-pontos indicam o intervalo de A1 até A10. Com ponto e vírgula, a soma pega só as duas células; sem o sinal de igual, nada é calculado.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">2. Quanto dá <code>=2+3*4</code>?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">20</button>
+          <button type="button" data-opcao="b">14</button>
+          <button type="button" data-opcao="c">24</button>
+        </div>
+        <p class="quiz-explica">A multiplicação vem antes da soma: 3*4 = 12, mais 2 = 14. Para dar 20, seria <code>=(2+3)*4</code>.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">3. A fórmula <code>=B2*F1</code> foi copiada de C2 para C3. Como ela fica em C3?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">=B2*F1</button>
+          <button type="button" data-opcao="b">=B3*F2</button>
+          <button type="button" data-opcao="c">=B3*F1</button>
+        </div>
+        <p class="quiz-explica">As duas referências são relativas e andam uma linha. Para F1 ficar parada, a fórmula original precisaria ser <code>=B2*$F$1</code>.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">4. Qual está escrita certo para o Excel em português?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">=SE(A1&gt;=7,"Sim","Não")</button>
+          <button type="button" data-opcao="b">=SE(A1&gt;=7;Sim;Não)</button>
+          <button type="button" data-opcao="c">=SE(A1&gt;=7;"Sim";"Não")</button>
+        </div>
+        <p class="quiz-explica">Os pedaços se separam com ponto e vírgula e o texto vai entre aspas. A primeira é a forma do Excel em inglês.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">5. A célula mostra <code>#DIV/0!</code>. O que aconteceu?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O número não cabe na coluna</button>
+          <button type="button" data-opcao="b">Divisão por zero ou por célula vazia</button>
+          <button type="button" data-opcao="c">Nome de função errado</button>
+        </div>
+        <p class="quiz-explica">#DIV/0! aponta o divisor. Número que não cabe aparece como #####; nome errado dá #NOME?.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">O que aparece em praticamente toda planilha.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde / atalho</th></tr></thead>
+        <tbody>
+          <tr><td>Começar uma fórmula</td><td><code>=</code></td><td>sempre o primeiro caractere</td></tr>
+          <tr><td>Somar um intervalo</td><td><code>=SOMA(B2:B6)</code></td><td>Página Inicial › Edição › AutoSoma · <kbd>Alt</kbd> + <kbd>=</kbd></td></tr>
+          <tr><td>Média, maior, menor</td><td><code>=MÉDIA()</code> <code>=MÁXIMO()</code> <code>=MÍNIMO()</code></td><td>seta ao lado da AutoSoma</td></tr>
+          <tr><td>Contar células com número</td><td><code>=CONT.NÚM(B2:B6)</code></td><td>seta ao lado da AutoSoma</td></tr>
+          <tr><td>Escolher entre duas respostas</td><td><code>=SE(teste;"sim";"não")</code></td><td>texto entre aspas, pedaços separados por <code>;</code></td></tr>
+          <tr><td>Contar ou somar por critério</td><td><code>=CONT.SE()</code> <code>=SOMASE()</code></td><td>critério entre aspas ou numa célula</td></tr>
+          <tr><td>Travar uma referência</td><td><code>$F$1</code></td><td><kbd>F4</kbd> com o cursor sobre o endereço</td></tr>
+          <tr><td>Copiar a fórmula para baixo</td><td>alça de preenchimento</td><td><kbd>Ctrl</kbd> + <kbd>D</kbd> com o intervalo selecionado</td></tr>
+          <tr><td>Editar a fórmula da célula</td><td>barra de fórmulas</td><td><kbd>F2</kbd></td></tr>
+          <tr><td>Formatar como moeda</td><td>Moeda</td><td>Página Inicial › Número · <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>$</kbd></td></tr>
+          <tr><td>Formatar como porcentagem</td><td>Porcentagem</td><td>Página Inicial › Número · <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>%</kbd></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Controle de gastos do mês</h2>
+    </div>
+    <p class="secao-lead">Uma planilha de gastos que se calcula sozinha: total, média, maior gasto, resumo por categoria e alerta de orçamento.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que a planilha precisa ter</h3>
+        <ul class="requisitos">
+          <li>A coluna Valor no formato Moeda (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>$</kbd>).</li>
+          <li>O total do mês com <code>=SOMA</code> (ou AutoSoma, <kbd>Alt</kbd> + <kbd>=</kbd>).</li>
+          <li>A média, o maior e o menor gasto com <code>MÉDIA</code>, <code>MÁXIMO</code> e <code>MÍNIMO</code>.</li>
+          <li>A quantidade de lançamentos com <code>CONT.NÚM</code>.</li>
+          <li>Um título em cada coluna.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Os lançamentos já estão prontos</h3>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="A1">
+          <table class="planilha-grade" data-formatos="texto,texto,geral">
+            <tr><td class="titulo">Item</td><td class="titulo">Categoria</td><td class="titulo">Valor</td></tr>
+            <tr><td>Aluguel</td><td>Moradia</td><td>900</td></tr>
+            <tr><td>Conta de luz</td><td>Moradia</td><td>145,8</td></tr>
+            <tr><td>Mercado</td><td>Alimentação</td><td>620,35</td></tr>
+            <tr><td>Feira</td><td>Alimentação</td><td>88</td></tr>
+            <tr><td>Ônibus</td><td>Transporte</td><td>198</td></tr>
+            <tr><td>Farmácia</td><td>Saúde</td><td>74,9</td></tr>
+            <tr><td>Lanche</td><td>Alimentação</td><td>36,5</td></tr>
+            <tr><td>Gasolina</td><td>Transporte</td><td>150</td></tr>
+          </table>
+        </div>
+        <p class="nota-demo" style="margin-top:10px">orçamento do mês: R$ 2.000,00 — digite numa célula própria</p>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>Uma coluna <b>% do total</b> ao lado de cada valor, feita com <b>uma</b> fórmula copiada para baixo: o total precisa estar travado com <code>$</code>.</li>
+          <li>Um resumo por categoria com <code>SOMASE</code> e <code>CONT.SE</code>, com o critério vindo de uma célula: a mesma fórmula copiada para as quatro categorias.</li>
+          <li>Uma célula <b>Situação</b> que mostra "Dentro do orçamento" ou "Acima do orçamento", comparando o total com a célula do orçamento (<code>SE</code>).</li>
+          <li>Nenhum valor calculado digitado à mão: troque qualquer gasto e tudo tem que se refazer.</li>
+          <li>Insira um lançamento novo no meio da lista: o total e o resumo precisam continuar certos sem reescrever nenhuma fórmula.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, numa aba "Respostas"</h3>
+        <ul class="requisitos">
+          <li>Por que a coluna % do total precisa do <code>$</code> no total e não no valor de cada linha?</li>
+          <li>O que muda se você escrever <code>=SOMA(C2;C9)</code> em vez de <code>=SOMA(C2:C9)</code>? Teste e explique.</li>
+          <li>Escreva "alimentação" (minúsculas) numa categoria: o resumo muda? E "Alimentacao", sem acento? Por quê?</li>
+          <li>Com a coluna % do total formatada sem casas decimais, a soma dos percentuais continua dando 100%? Por quê?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="planilha" data-planilha data-somente-leitura data-selecionar="H7">
+        <table class="planilha-grade" data-formatos="texto,texto,moeda,pct2,texto,texto,moeda,texto">
+          <tr><td class="titulo">Item</td><td class="titulo">Categoria</td><td class="titulo">Valor</td><td class="titulo">% do total</td><td></td><td class="titulo">Categoria</td><td class="titulo">Total</td><td class="titulo">Lançamentos</td></tr>
+          <tr><td>Aluguel</td><td>Moradia</td><td>900</td><td>0,406587</td><td></td><td>Moradia</td><td>1045,8</td><td>2</td></tr>
+          <tr><td>Conta de luz</td><td>Moradia</td><td>145,8</td><td>0,065867</td><td></td><td>Alimentação</td><td>744,85</td><td>3</td></tr>
+          <tr><td>Mercado</td><td>Alimentação</td><td>620,35</td><td>0,280251</td><td></td><td>Transporte</td><td>348</td><td>2</td></tr>
+          <tr><td>Feira</td><td>Alimentação</td><td>88</td><td>0,039755</td><td></td><td>Saúde</td><td>74,9</td><td>1</td></tr>
+          <tr><td>Ônibus</td><td>Transporte</td><td>198</td><td>0,089449</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Farmácia</td><td>Saúde</td><td>74,9</td><td>0,033837</td><td></td><td class="titulo">Orçamento</td><td>2000</td><td>Acima do orçamento</td></tr>
+          <tr><td>Lanche</td><td>Alimentação</td><td>36,5</td><td>0,016489</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Gasolina</td><td>Transporte</td><td>150</td><td>0,067764</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="titulo">Total</td><td></td><td>2213,55</td><td>1</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="titulo">Média</td><td></td><td>276,69375</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="titulo">Maior gasto</td><td></td><td>900</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="titulo">Menor gasto</td><td></td><td>36,5</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="titulo">Lançamentos</td><td></td><td data-formato="int">8</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+      <p class="nota-demo" style="margin-top:12px">só os valores: as fórmulas que chegam neles são o trabalho da atividade</p>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Um arquivo <b>.xlsx</b> com a aba da planilha e a aba Respostas.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Nenhum número calculado digitado à mão. Fórmulas em português, com <code>;</code> entre os argumentos.</p></article>
+      <article class="cartao"><h3>Critério de clareza</h3><p>Título em cada coluna, valores em Moeda, percentuais em Porcentagem. Quem abrir o arquivo entende sem perguntar.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Planilha boa é a que se refaz sozinha quando o dado muda.</p>
+      <div class="rodape-meta">Excel Básico · Aula 3 — Yuri Reis Correa, Instrutor de Informática<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/aula.js"></script>
+</body>
+</html>
