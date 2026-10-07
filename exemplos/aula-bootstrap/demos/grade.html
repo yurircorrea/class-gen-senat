@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema de grade</title>
+<link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<div class="container-fluid py-3 marcado">
+
+  <p class="faixa mb-1">12 colunas: a soma dentro de uma linha deve dar 12</p>
+  <div class="row g-2 mb-3">
+    <div class="col-6"><div class="bloco bg-primary text-white">col-6</div></div>
+    <div class="col-6"><div class="bloco bg-danger text-white">col-6</div></div>
+  </div>
+
+  <p class="faixa mb-1">colunas autom&aacute;ticas: .col divide o espa&ccedil;o em partes iguais</p>
+  <div class="row g-2 mb-3">
+    <div class="col"><div class="bloco bg-success text-white">col</div></div>
+    <div class="col"><div class="bloco bg-success text-white">col</div></div>
+    <div class="col"><div class="bloco bg-success text-white">col</div></div>
+  </div>
+
+  <p class="faixa mb-1">.col-auto ocupa apenas a largura do conte&uacute;do</p>
+  <div class="row g-2 mb-3">
+    <div class="col-auto"><div class="bloco bg-info text-dark">col-auto</div></div>
+    <div class="col"><div class="bloco bg-secondary text-white">col &mdash; fica com o resto</div></div>
+  </div>
+
+  <p class="faixa mb-1">offset: empurra a coluna para a direita</p>
+  <div class="row g-2 mb-3">
+    <div class="offset-2 col-4"><div class="bloco bg-warning text-dark">offset-2 col-4</div></div>
+    <div class="col-4"><div class="bloco bg-dark text-white">col-4</div></div>
+  </div>
+
+  <p class="faixa mb-1">grade dentro de grade: uma coluna pode conter outra linha</p>
+  <div class="row g-2">
+    <div class="col-12 col-md-8">
+      <div class="row g-2">
+        <div class="col-6"><div class="bloco bg-primary text-white">col-6</div></div>
+        <div class="col-6"><div class="bloco bg-primary text-white">col-6</div></div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4"><div class="bloco bg-danger text-white">col-12 col-md-4</div></div>
+  </div>
+
+</div>
+
+<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

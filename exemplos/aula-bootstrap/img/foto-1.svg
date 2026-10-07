@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Imagem de exemplo grade">
+  <rect width="800" height="500" fill="#0A2A1E"/>
+  <g fill="#00E88F" opacity="0.18">
+    <rect x="60" y="60" width="200" height="120" rx="12"/>
+    <rect x="290" y="60" width="450" height="120" rx="12"/>
+    <rect x="60" y="210" width="330" height="110" rx="12"/>
+    <rect x="420" y="210" width="320" height="110" rx="12"/>
+    <rect x="60" y="350" width="680" height="90" rx="12"/>
+  </g>
+  <g fill="none" stroke="#00E88F" stroke-width="3" stroke-dasharray="10 8" opacity="0.65">
+    <rect x="40" y="40" width="720" height="420" rx="18"/>
+  </g>
+  <text x="400" y="268" font-family="Arial, Helvetica, sans-serif" font-size="128" font-weight="bold" fill="#00E88F" text-anchor="middle">01</text>
+  <text x="400" y="320" font-family="Consolas, monospace" font-size="30" fill="#FFFFFF" opacity="0.8" text-anchor="middle">grade</text>
+</svg>

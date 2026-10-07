@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrollspy</title>
+<link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<div class="container-fluid py-3">
+  <div class="row g-3">
+
+    <div class="col-12 col-md-4">
+      <nav id="menu-rolagem" class="navbar bg-body-tertiary flex-column align-items-stretch p-3 rounded">
+        <a class="navbar-brand" href="#">Menu de rolagem</a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link" href="#item-1">Item 1</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#item-1-1">Item 1-1</a>
+          </nav>
+          <a class="nav-link" href="#item-2">Item 2</a>
+          <a class="nav-link" href="#item-3">Item 3</a>
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
+            <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+          </nav>
+        </nav>
+      </nav>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <div data-bs-spy="scroll"
+           data-bs-target="#menu-rolagem"
+           data-bs-smooth-scroll="true"
+           data-bs-root-margin="0px 0px -40%"
+           class="bg-body-tertiary p-3 rounded"
+           tabindex="0"
+           style="height:320px; overflow:auto">
+
+        <h4 id="item-1">Item 1</h4>
+        <p>Role esta caixa e observe o menu ao lado marcando sozinho o item correspondente. O scrollspy do Bootstrap 5.3 usa a API Intersection Observer.</p>
+        <p>Cada título precisa de um <code>id</code>, e cada link do menu precisa apontar para esse <code>id</code>.</p>
+
+        <h5 id="item-1-1">Item 1-1</h5>
+        <p>Subitens também são marcados, desde que estejam aninhados no menu com a mesma estrutura de <code>nav</code>.</p>
+        <p>O menu não precisa ser vertical: funciona igualmente em uma navbar horizontal.</p>
+
+        <h4 id="item-2">Item 2</h4>
+        <p>O antigo atributo <code>data-bs-offset</code> foi descontinuado na versão 5.2 e substituído por <code>data-bs-root-margin</code>.</p>
+        <p>Outra novidade é <code>data-bs-smooth-scroll="true"</code>, que faz a rolagem suave ao clicar em um link do menu.</p>
+        <p>Sem esse atributo o salto é instantâneo, como no HTML puro.</p>
+
+        <h4 id="item-3">Item 3</h4>
+        <p>O elemento que rola precisa de <code>tabindex="0"</code> para poder receber foco e ser navegável pelo teclado.</p>
+
+        <h5 id="item-3-1">Item 3-1</h5>
+        <p>Quando a caixa de rolagem é a própria página, aplique os atributos no <code>&lt;body&gt;</code>.</p>
+        <p>Isso é o mais comum em páginas de uma seção só (landing pages).</p>
+
+        <h5 id="item-3-2">Item 3-2</h5>
+        <p>Fim da lista. Role de volta para cima e acompanhe a marcação mudando no menu.</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

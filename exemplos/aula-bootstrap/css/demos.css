@@ -1,0 +1,178 @@
+﻿/* =========================================================
+   demos.css - demonstrações ao vivo, simuladores e laboratórios
+   Convenção visual de marcação usada nas demos de layout:
+     linha  (.row)  -> contorno TRACEJADO VERDE
+     coluna (.col-*)-> contorno TRACEJADO CINZA
+   ========================================================= */
+
+/* ---------- marcação da grade ----------
+   usa outline (não border) para não deslocar o layout do Bootstrap */
+.demo-grade .row{
+  outline:2px dashed var(--verde);
+  outline-offset:-2px;
+  background:rgba(0,232,143,.06);
+  border-radius:8px;
+}
+.demo-grade [class*="col"]{
+  outline:2px dashed #98A2A9;
+  outline-offset:-4px;
+  min-height:42px;
+}
+.demo-grade .row + .row{margin-top:18px}
+
+/* bloco colorido dentro de uma coluna (o mesmo recurso da apostila) */
+.bloco{
+  padding:14px 10px;border-radius:6px;text-align:center;
+  font-family:var(--mono);font-size:15px;font-weight:700;
+}
+
+/* marcação de contêiner */
+.demo-container .container,
+.demo-container .container-fluid,
+.demo-container .container-sm,
+.demo-container .container-md,
+.demo-container .container-lg,
+.demo-container .container-xl,
+.demo-container .container-xxl{
+  outline:2px dashed var(--verde);
+  outline-offset:-2px;
+  background:rgba(0,232,143,.07);
+  padding-top:10px;padding-bottom:10px;
+}
+
+/* rótulo miúdo sob uma demonstração */
+.nota-demo{font-size:14.5px;color:var(--texto);font-family:var(--mono);margin:0}
+
+/* moldura neutra para destacar um trecho da demonstração */
+.moldura{border:2px dashed #98A2A9;border-radius:10px;padding:14px;background:#fff}
+
+/* ---------- simulador de tela (iframe redimensionável) ---------- */
+.simulador{margin:0}
+.simulador-barra{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:10px 14px;background:var(--verde-escuro);border-radius:10px 10px 0 0;
+}
+.simulador-barra .larg{
+  font-family:var(--mono);font-size:14px;font-weight:700;color:var(--verde);
+  min-width:120px;
+}
+.simulador-barra .bp{
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.8px;
+  background:var(--verde);color:var(--verde-escuro);border-radius:999px;padding:3px 10px;
+}
+.simulador-barra button{
+  font-family:var(--mono);font-size:12.5px;cursor:pointer;
+  background:transparent;color:#cfd8d4;border:1px solid #33463f;border-radius:999px;padding:4px 11px;
+}
+.simulador-barra button:hover{border-color:var(--verde);color:var(--verde)}
+.simulador-caixa{
+  resize:horizontal;overflow:hidden;min-width:320px;max-width:100%;width:100%;
+  border:1px solid var(--borda);border-top:none;border-radius:0 0 10px 10px;background:#fff;
+  padding-bottom:16px;
+}
+.simulador-caixa iframe{display:block;width:100%;border:0;background:#fff}
+.simulador-dica{
+  font-family:var(--mono);font-size:13.5px;color:var(--texto);
+  margin:8px 0 0;display:flex;align-items:center;gap:8px;
+}
+
+/* ---------- laboratórios ---------- */
+.lab{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.lab-controles{
+  flex:1 1 320px;background:var(--superficie);border:1px solid var(--borda);border-radius:var(--raio);
+  padding:22px 24px;display:flex;flex-direction:column;gap:16px;
+}
+.lab-controles h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:1.3px;text-transform:uppercase;
+  color:var(--texto);margin:0;font-weight:700;
+}
+.lab-campo{display:flex;flex-direction:column;gap:6px}
+.lab-campo > label{font-size:14px;font-family:var(--mono);color:var(--texto);letter-spacing:.3px}
+.lab-campo select,.lab-campo input[type=text]{
+  font-family:var(--mono);font-size:15px;padding:8px 11px;border:1px solid var(--borda);
+  border-radius:8px;background:#fff;color:var(--tinta);
+}
+.lab-campo input[type=range]{accent-color:var(--verde);height:28px;padding:0;border:none;background:none}
+.lab-check{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14.5px;color:var(--tinta)}
+.lab-check input{accent-color:var(--verde);width:17px;height:17px}
+.lab-saida{flex:1 1 620px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.lab-palco{
+  border:1px solid var(--borda);background:#fff;border-radius:var(--raio);
+  padding:24px;min-height:150px;
+}
+.lab-palco--xadrez{
+  background-image:linear-gradient(45deg,#f1f3f2 25%,transparent 25%,transparent 75%,#f1f3f2 75%),
+                   linear-gradient(45deg,#f1f3f2 25%,transparent 25%,transparent 75%,#f1f3f2 75%);
+  background-size:22px 22px;background-position:0 0,11px 11px;
+}
+.lab-codigo{background:var(--code-bg);border-radius:var(--raio);padding:20px 24px;overflow-x:auto}
+.lab-codigo pre{margin:0;font-family:var(--mono);font-size:15px;line-height:1.6;color:var(--code-fg);white-space:pre-wrap;word-break:break-word}
+
+/* caixa alvo dos labs de espaçamento e cor */
+.alvo{
+  background:var(--verde);border:2px solid var(--verde-escuro);border-radius:8px;
+  font-family:var(--mono);font-weight:700;font-size:16px;text-align:center;padding:18px;
+}
+.alvo-externo{outline:2px dashed #98A2A9;outline-offset:0;background:rgba(0,0,0,.035);display:inline-block}
+
+/* ---------- playground livre ---------- */
+.playground{display:flex;flex-wrap:wrap;gap:24px;align-items:stretch}
+.playground > *{flex:1 1 520px;min-width:0}
+.pg-editor{display:flex;flex-direction:column;gap:12px}
+.pg-barra{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pg-barra select{
+  font-family:var(--mono);font-size:14px;padding:7px 10px;border:1px solid var(--borda);
+  border-radius:8px;background:#fff;color:var(--tinta);
+}
+.pg-barra button{
+  font-family:var(--mono);font-size:14px;font-weight:700;cursor:pointer;
+  background:var(--verde);color:var(--tinta);border:2px solid var(--verde-escuro);border-radius:8px;padding:7px 16px;
+}
+.pg-barra button.secundario{background:#fff;border-color:var(--borda);font-weight:400}
+.pg-editor textarea{
+  width:100%;min-height:520px;resize:vertical;
+  background:var(--code-bg);color:var(--code-fg);border:0;border-radius:var(--raio);
+  padding:22px 24px;font-family:var(--mono);font-size:15px;line-height:1.65;tab-size:2;
+}
+.pg-editor textarea:focus{outline:3px solid var(--verde);outline-offset:2px}
+.pg-resultado{display:flex;flex-direction:column}
+.pg-resultado iframe{
+  flex:1 1 auto;width:100%;min-height:520px;border:1px solid var(--borda);
+  border-radius:0 0 var(--raio) var(--raio);background:#fff;
+}
+
+/* ---------- paleta de cores do Bootstrap ---------- */
+.paleta{display:flex;flex-wrap:wrap;gap:14px}
+.paleta .cor{flex:1 1 150px;border:1px solid var(--borda);border-radius:10px;overflow:hidden;background:#fff}
+.paleta .amostra-cor{height:62px}
+.paleta .rotulo-cor{padding:9px 12px;font-family:var(--mono);font-size:13.5px;color:var(--tinta)}
+.paleta .rotulo-cor small{display:block;color:var(--texto);font-size:12.5px}
+
+/* ---------- comparativo antes/depois ---------- */
+.par{display:flex;flex-wrap:wrap;gap:20px}
+.par > *{flex:1 1 420px;min-width:0}
+.rotulo-antigo,.rotulo-atual{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;
+  letter-spacing:1.1px;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-bottom:10px;
+}
+.rotulo-antigo{background:var(--erro-bg);color:var(--erro-tx);border:1px solid var(--erro-bd)}
+.rotulo-atual{background:var(--verde);color:var(--tinta)}
+
+/* ---------- grade de ícones ---------- */
+.icones{display:flex;flex-wrap:wrap;gap:14px}
+.icones .ico{
+  flex:1 1 150px;border:1px solid var(--borda);border-radius:10px;background:#fff;
+  padding:16px 10px;text-align:center;
+}
+.icones .ico i{font-size:32px;display:block;margin-bottom:8px;color:var(--verde-escuro)}
+.icones .ico code{font-family:var(--mono);font-size:12.5px;color:var(--texto);word-break:break-all}
+
+/* a página da aula é clara; demos que precisam de fundo escuro ficam isoladas */
+.fundo-escuro{background:#212529;border-radius:10px;padding:18px}
+
+/* ponto-alvo usado na demonstração do translate-middle */
+.ponto-alvo{
+  position:absolute;width:10px;height:10px;border-radius:50%;
+  background:#000;outline:3px solid rgba(0,0,0,.18);
+}
+.quadro-alvo{position:relative;height:130px;border:2px dashed #98A2A9;border-radius:10px;background:#fff}

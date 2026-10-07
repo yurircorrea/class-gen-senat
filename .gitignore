@@ -1,0 +1,14 @@
+# arquivos temporários de verificação
+_qa*.css
+*.backup.html
+index.backup.html
+.claude/launch.json
+.claude/settings.local.json
+
+# perfis temporários do navegador usados nas capturas
+chromeprof/
+perfil*/
+
+# sistema
+Thumbs.db
+.DS_Store
