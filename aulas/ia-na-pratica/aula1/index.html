@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inteligência artificial — IA na Prática · Aula 1 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="ia-na-pratica" data-aula="aula1" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Fundamentos de IA</a>
+    <nav class="barra-menu">
+      <a href="#ia">IA</a>
+      <a href="#transporte">transporte</a>
+      <a href="#dia-a-dia">dia a dia</a>
+      <a href="#aprende">aprende</a>
+      <a href="#dados">dados</a>
+      <a href="#tipos">tipos</a>
+      <a href="#autonomia">autonomia</a>
+      <a href="#pln">PLN</a>
+      <a href="#geracao">geração</a>
+      <a href="#prompt">prompt</a>
+      <a href="#montar">montar</a>
+      <a href="#tecnicas">técnicas</a>
+      <a href="#boas-praticas">boas práticas</a>
+      <a href="#cuidados">cuidados</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>IA na Prática</span><span>Aula 1</span></div>
+      <h1>Inteligência artificial</h1>
+      <p class="subtitulo">Fundamentos, aplicações no transporte e engenharia de prompt</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= QUEM É O INSTRUTOR ======================= -->
+  <section class="secao" id="instrutor" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Instrutor</span>
+      <h2 class="secao-titulo">Quem é o instrutor</h2>
+    </div>
+    <p class="secao-lead">Desenvolvedor de software e instrutor de tecnologia, com formação em informática, engenharia de software e Internet das Coisas.</p>
+
+    <div class="dupla" style="align-items:center">
+      <div class="instrutor-cartao">
+        <img class="instrutor-foto" src="img/instrutor.jpg" alt="Foto de Yuri Reis Correa">
+        <div class="instrutor-texto">
+          <p class="instrutor-nome">Yuri Reis Correa</p>
+          <div class="instrutor-cargos"><span>Desenvolvedor de Software</span><span>Instrutor de Tecnologia</span></div>
+        </div>
+      </div>
+      <ul class="formacao">
+        <li><b>Técnico em Informática</b><span>Instituto Federal do Paraná — IFPR</span></li>
+        <li><b>Bacharel em Engenharia de Software</b><span>Universidade Tecnológica Federal do Paraná — UTFPR</span></li>
+        <li><b>Especialização em IoT (Internet das Coisas)</b><span>Instituto Federal do Paraná — IFPR</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Primeiro, o que é IA, como ela aprende e onde já trabalha no transporte. Depois, como conversar com uma IA generativa para ela entregar o que você precisa.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Compreender as definições básicas de inteligência artificial.</li>
+      <li>Identificar as diferenças entre IA assistiva e IA autônoma.</li>
+      <li>Compreender o que são as ferramentas de PLN e para que servem.</li>
+      <li>Aplicar as boas práticas no uso das ferramentas de PLN.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#ia"><span class="num">01</span><span class="rotulo">O que é IA e onde ela já está</span></a>
+      <a href="#aprende"><span class="num">02</span><span class="rotulo">Como a IA aprende: dados, algoritmos, modelos</span></a>
+      <a href="#tipos"><span class="num">03</span><span class="rotulo">Aprendizado de máquina e deep learning</span></a>
+      <a href="#autonomia"><span class="num">04</span><span class="rotulo">IA assistiva × IA autônoma</span></a>
+      <a href="#pln"><span class="num">05</span><span class="rotulo">PLN e IA generativa</span></a>
+      <a href="#prompt"><span class="num">06</span><span class="rotulo">Engenharia de prompt e técnicas</span></a>
+      <a href="#boas-praticas"><span class="num">07</span><span class="rotulo">Boas práticas e cuidados</span></a>
+      <a href="#quiz"><span class="num">08</span><span class="rotulo">Quiz e atividade</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">Painel escuro = o que você escreve ou faz: a regra, o prompt, a fórmula.</div>
+      <div class="legenda-item">Caixa branca = o que acontece. Todo laboratório funciona de verdade: mexa nos controles.</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = um grupo que contém outro</div>
+      <div class="legenda-item"><span>Respostas marcadas como <b>exemplo</b> mostram o estilo do que a IA devolve; numa IA de verdade, o texto varia a cada vez.</span></div>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 1</span><span class="parte-titulo">Fundamentos de IA e aplicação no transporte</span></div>
+
+  <!-- ======================= 01 O QUE É IA ======================= -->
+  <section class="secao" id="ia">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">O que é essa tal de IA?</h2>
+    </div>
+    <p class="secao-lead">Inteligência Artificial (em inglês, <i>Artificial Intelligence</i>, AI) é o campo da computação que cria máquinas e sistemas capazes de simular habilidades humanas: raciocinar, aprender, planejar e decidir.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>a definição e o teste rápido</figcaption>
+<pre class="codigo" data-lang="texto">IA = sistemas que simulam habilidades humanas:
+raciocínio, aprendizado, planejamento e tomada de decisão.
+
+O teste rápido:
+aprendeu o padrão com exemplos e dados?  → é IA
+segue uma regra fixa, escrita à mão?     → não é IA</pre>
+        <ol class="passos">
+          <li>Leia o exemplo.</li>
+          <li>Aplique o teste rápido: aprendeu com dados ou segue uma regra fixa?</li>
+          <li>Escolha a resposta e confira a explicação.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>é IA ou não é?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">A calculadora do celular somando o valor de dois fretes</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">É IA</button><button type="button" data-opcao="b">Não é IA</button></div>
+              <p class="quiz-explica">Soma é uma regra fixa: o resultado é sempre o mesmo, ninguém precisou ensinar com exemplos.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">O teclado do celular sugerindo a próxima palavra da mensagem</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">É IA</button><button type="button" data-opcao="b">Não é IA</button></div>
+              <p class="quiz-explica">A sugestão vem de um modelo que aprendeu com milhões de textos (e com o seu jeito de escrever).</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">O Waze mudando a rota por causa de um acidente na BR-277</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">É IA</button><button type="button" data-opcao="b">Não é IA</button></div>
+              <p class="quiz-explica">Ele estima o tempo de cada caminho com dados de trânsito em tempo real e decide a melhor alternativa.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">O alarme que apita quando o cinto de segurança está solto</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">É IA</button><button type="button" data-opcao="b">Não é IA</button></div>
+              <p class="quiz-explica">É um sensor com uma regra escrita por uma pessoa: cinto solto e veículo andando, apita.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Principais características</h3>
+    <div class="galeria galeria--quatro">
+      <div class="mini">
+        <div class="mini-titulo"><code>simula</code><span>a inteligência humana</span></div>
+        <p class="mini-texto">Executa tarefas que pediriam uma pessoa: entender a linguagem, reconhecer imagens, tomar decisões.</p>
+        <p class="mini-exemplo">ex.: a câmera do pedágio que lê a placa do caminhão</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>aprende</code><span>com os dados</span></div>
+        <p class="mini-texto">Melhora com os dados que recebe e com o resultado das próprias ações, ajustando o comportamento.</p>
+        <p class="mini-exemplo">ex.: o filtro de spam, que acerta mais a cada mensagem marcada</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>processa</code><span>grandes volumes de dados</span></div>
+        <p class="mini-texto">Analisa milhões de registros e extrai deles a informação que importa, mais rápido que qualquer equipe.</p>
+        <p class="mini-exemplo">ex.: prever a demanda de frete do mês a partir do histórico de pedidos</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>age</code><span>com autonomia</span></div>
+        <p class="mini-texto">Analisa o ambiente e age sozinha para cumprir um objetivo definido.</p>
+        <p class="mini-exemplo">ex.: o robô de armazém que separa pedidos entre as prateleiras</p>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Não é mágica</h3><p>É matemática aplicada a muitos dados. A IA encontra padrões; não tem vontade, opinião nem consciência.</p></article>
+      <article class="cartao"><h3>Você já usa</h3><p>Se o celular sugere a próxima palavra ou desbloqueia com o seu rosto, você já usa IA todos os dias.</p></article>
+      <article class="cartao cartao--erro"><h3>Nem todo automático é IA</h3><p>O alarme do cinto segue uma regra fixa escrita por uma pessoa. IA é quando o sistema aprende o padrão com exemplos.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 TRANSPORTE ======================= -->
+  <section class="secao" id="transporte">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">IA no transporte</h2>
+    </div>
+    <p class="secao-lead">Do armazém à estrada: a IA organiza o estoque, acompanha a carga, prevê a falha antes de ela acontecer e escolhe a rota.</p>
+
+    <div class="galeria galeria--quatro">
+      <div class="mini">
+        <div class="mini-titulo"><code>estoque</code><span>gestão de armazém</span></div>
+        <p class="mini-texto">Organiza onde cada produto fica e agiliza a separação e o envio das mercadorias.</p>
+        <p class="mini-exemplo">usa: histórico de pedidos, giro de cada produto, espaço livre</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>rastreio</code><span>monitoramento em tempo real</span></div>
+        <p class="mini-texto">Acompanha a remessa durante a viagem, informa a condição da carga e avisa sobre interrupções.</p>
+        <p class="mini-exemplo">usa: GPS, sensores de temperatura do baú, ocorrências na rota</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>manutenção</code><span>preditiva</span></div>
+        <p class="mini-texto">Analisa os dados do veículo para prever falhas e programar a manutenção antes do problema, aumentando a vida útil da frota.</p>
+        <p class="mini-exemplo">usa: sensores do motor, quilometragem, histórico da oficina</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>rotas</code><span>otimização</span></div>
+        <p class="mini-texto">Calcula as rotas mais eficientes com trânsito, clima e restrições de entrega, reduzindo combustível e tempo.</p>
+        <p class="mini-exemplo">usa: mapas, trânsito em tempo real, janelas de entrega</p>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: manutenção preditiva</h3>
+    <div class="lab" data-lab="manutencao">
+      <div class="lab-controles">
+        <h4>sensores do caminhão</h4>
+        <div class="lab-campo">
+          <label for="m-temp">temperatura do motor — <span data-eco="temp">92</span> °C</label>
+          <input type="range" id="m-temp" data-campo="temp" min="80" max="115" step="1" value="92">
+        </div>
+        <div class="lab-campo">
+          <label for="m-vib">vibração do motor — <span data-eco="vib">3,0</span> mm/s</label>
+          <input type="range" id="m-vib" data-campo="vib" min="1" max="12" step="0.5" value="3">
+        </div>
+        <div class="lab-campo">
+          <label for="m-km">km desde a troca de óleo — <span data-eco="km">12.000</span></label>
+          <input type="range" id="m-km" data-campo="km" min="0" max="30000" step="1000" value="12000">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="hist"> já falhou neste componente</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que o sistema faz</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Dados viram decisão</h3><p>Sozinho, cada sensor diz pouco. Combinados, viram uma previsão e uma ação: seguir, agendar ou parar.</p></article>
+      <article class="cartao"><h3>Parada planejada sai mais barato</h3><p>Trocar a peça na oficina custa menos que guincho, carga parada e cliente esperando na estrada.</p></article>
+      <article class="cartao cartao--erro"><h3>O modelo também erra</h3><p>Alerta falso e falha não prevista acontecem. A previsão orienta; quem decide é a oficina.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 DIA A DIA ======================= -->
+  <section class="secao" id="dia-a-dia">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">IA no dia a dia</h2>
+    </div>
+    <p class="secao-lead">Assistente de voz, recomendação, mapa e reconhecimento facial: quatro jeitos de a IA conversar, aprender, raciocinar e perceber.</p>
+
+    <div class="galeria galeria--quatro">
+      <div class="mini">
+        <div class="mini-titulo"><code>interação natural</code><span>assistentes virtuais</span></div>
+        <p class="mini-texto">Alexa, Siri e Google Assistente entendem um comando de voz e respondem. "Vai chover hoje?" vira a previsão do tempo.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>aprendizagem</code><span>recomendações</span></div>
+        <p class="mini-texto">Netflix, Spotify e YouTube aprendem com o que você assiste e ouve e sugerem mais do que deve agradar.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>raciocínio</code><span>navegação e trânsito</span></div>
+        <p class="mini-texto">Waze e Google Maps comparam as rotas possíveis com o trânsito do momento e recomendam a mais rápida.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>percepção</code><span>reconhecimento facial</span></div>
+        <p class="mini-texto">A câmera "enxerga" o rosto para desbloquear o celular ou identificar pessoas em fotos e sistemas de segurança.</p>
+      </div>
+    </div>
+    <p class="nota-demo">percepção, raciocínio, aprendizagem, interação natural e impacto social: as 5 grandes ideias da IA (iniciativa AI4K12), apresentadas no Guia Básico de Inteligência Artificial</p>
+
+    <h3 class="sub-titulo">A quinta ideia, impacto social: a bolha de filtro</h3>
+    <div class="lab" data-lab="bolha">
+      <div class="lab-controles">
+        <h4>você curtiu vídeos de…</h4>
+        <label class="lab-check"><input type="checkbox" data-campo="futebol"> Futebol</label>
+        <label class="lab-check"><input type="checkbox" data-campo="receitas"> Receitas</label>
+        <label class="lab-check"><input type="checkbox" data-campo="estrada" checked> Caminhões e estrada</label>
+        <label class="lab-check"><input type="checkbox" data-campo="sertanejo"> Sertanejo</label>
+        <label class="lab-check"><input type="checkbox" data-campo="noticias"> Notícias</label>
+        <label class="lab-check"><input type="checkbox" data-campo="humor"> Humor</label>
+        <div class="lab-campo">
+          <label for="b-dias">dias usando o aplicativo — <span data-eco="dias">10</span></label>
+          <input type="range" id="b-dias" data-campo="dias" min="1" max="30" step="1" value="10">
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que o algoritmo registrou</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <figure class="painel-codigo" style="margin-top:28px">
+      <figcaption>cinco atitudes para sair da bolha</figcaption>
+      <ol class="passos passos--duas">
+        <li><b>Procure, não só consuma:</b> pesquise palavras diferentes e pontos de vista opostos.</li>
+        <li><b>Faça uma limpeza:</b> apague histórico e cookies, use a navegação anônima, organize o feed.</li>
+        <li><b>Diversifique as fontes:</b> siga pessoas que pensam diferente de você.</li>
+        <li><b>Use ferramentas de descoberta:</b> newsletters e seleções feitas por curadores.</li>
+        <li><b>Pergunte-se:</b> por que estou vendo isso? Quem quer que eu me sinta assim?</li>
+      </ol>
+    </figure>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Ela aprende com o seu clique</h3><p>Cada curtida, pausa ou vídeo assistido até o fim vira dado. O feed de amanhã é feito com o seu comportamento de hoje.</p></article>
+      <article class="cartao"><h3>A bolha tem dois lados</h3><p>O algoritmo mostra mais do mesmo, e nós clicamos no que é familiar. Um alimenta o outro.</p></article>
+      <article class="cartao cartao--erro"><h3>O feed não é o mundo</h3><p>Ele mostra o que prende a sua atenção, não a realidade como ela é. Ideias diferentes continuam existindo fora dele.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 COMO APRENDE ======================= -->
+  <section class="secao" id="aprende">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">E como uma IA aprende?</h2>
+    </div>
+    <p class="secao-lead">A IA é mais inteligente que eu? Não: ela aprende pelo exemplo, como nós, só que com muito mais exemplos. Quanto mais ela é "alimentada" com dados bons, melhor fica.</p>
+
+    <div class="lab" data-lab="treino">
+      <div class="lab-controles">
+        <h4>treine um detector de golpes</h4>
+        <div class="lab-campo">
+          <label for="t-n">exemplos usados no treino — <span data-eco="n">2</span></label>
+          <input type="range" id="t-n" data-campo="n" min="0" max="12" step="1" value="2">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="invertidos"> alguém rotulou errado os 4 primeiros</label>
+        <h4>como ele aprende</h4>
+        <ol class="passos">
+          <li>Recebe mensagens já marcadas: golpe ou normal.</li>
+          <li>Conta quais palavras aparecem em cada tipo.</li>
+          <li>Numa mensagem nova, compara as palavras e dá um palpite, com uma certeza.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que o modelo aprendeu</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Aprende pelo exemplo</h3><p>Ninguém escreveu a regra "Pix + link = golpe". O modelo descobriu o padrão olhando exemplos com a resposta certa.</p></article>
+      <article class="cartao"><h3>Mais exemplos, mais certeza</h3><p>Com dois exemplos ele até acerta, mas no chute. Com doze, acerta com segurança. Por isso as IAs são treinadas com volumes enormes de dados.</p></article>
+      <article class="cartao cartao--erro"><h3>A IA do chat não aprende com a sua conversa</h3><p>O treino acontece antes e tem data de corte: o modelo não muda enquanto você conversa. O aplicativo pode guardar memórias suas ou usar as conversas para treinar versões futuras, conforme as configurações de privacidade.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 DADOS, MODELOS E ALGORITMOS ======================= -->
+  <section class="secao" id="dados">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Dados, algoritmos e modelos</h2>
+    </div>
+    <p class="secao-lead">Os dados são os ingredientes, o algoritmo é a receita e o modelo é o bolo pronto: é ele que faz a previsão.</p>
+
+    <ol class="fluxo">
+      <li><div><b>Dados</b><span>a matéria-prima: informações coletadas e guardadas</span><em>ingredientes</em></div></li>
+      <li><div><b>Algoritmo</b><span>a sequência de instruções que aprende padrões a partir dos dados</span><em>receita</em></div></li>
+      <li><div><b>Modelo</b><span>o padrão aprendido, gerado pelo algoritmo</span><em>bolo pronto</em></div></li>
+      <li><div><b>Previsão</b><span>o modelo usado para prever, decidir ou gerar</span><em>o bolo servido</em></div></li>
+    </ol>
+
+    <div class="dupla" style="margin-top:28px">
+      <figure class="painel-codigo">
+        <figcaption>o algoritmo, numa planilha (célula C9)</figcaption>
+<pre class="codigo" data-lang="formula">=SOMA(C2:C7)/SOMA(B2:B7)
+// total de diesel ÷ total de km:
+// o modelo aprende quantos litros
+// o caminhão gasta por quilômetro
+
+=B12*C9
+// a previsão (célula C12):
+// km da viagem nova × o modelo</pre>
+        <ol class="passos">
+          <li>Clique em C9 e veja a fórmula na barra.</li>
+          <li>Troque um consumo da coluna C: o modelo e a previsão mudam juntos.</li>
+          <li>Troque os km da viagem nova em B12.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>viagens saindo de Foz do Iguaçu (km aproximados)</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-selecionar="C9">
+            <table class="planilha-grade" data-formatos="texto,int,int">
+              <tr><td class="titulo">Viagem saindo de Foz</td><td class="titulo">Km</td><td class="titulo">Diesel (L)</td></tr>
+              <tr><td>Cascavel</td><td>143</td><td>53</td></tr>
+              <tr><td>Toledo</td><td>180</td><td>65</td></tr>
+              <tr><td>Guarapuava</td><td>390</td><td>148</td></tr>
+              <tr><td>Ponta Grossa</td><td>525</td><td>194</td></tr>
+              <tr><td>Curitiba</td><td>640</td><td>230</td></tr>
+              <tr><td>Paranaguá</td><td>730</td><td>277</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td class="titulo">Modelo: litros por km</td><td></td><td data-formato="dec2">=SOMA(C2:C7)/SOMA(B2:B7)</td></tr>
+              <tr><td class="titulo">Rendimento: km por litro</td><td></td><td data-formato="dec1">=SOMA(B2:B7)/SOMA(C2:C7)</td></tr>
+              <tr><td></td><td></td><td></td></tr>
+              <tr><td class="titulo">Previsão: viagem nova</td><td>1050</td><td>=B12*C9</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Lixo entra, lixo sai</h3>
+    <div class="par">
+      <div>
+        <span class="rotulo-atual">dados certos</span>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="C6">
+          <table class="planilha-grade" data-formatos="texto,int,int">
+            <tr><td class="titulo">Viagem</td><td class="titulo">Km</td><td class="titulo">Diesel (L)</td></tr>
+            <tr><td>Cascavel</td><td>143</td><td>53</td></tr>
+            <tr><td>Guarapuava</td><td>390</td><td>148</td></tr>
+            <tr><td>Curitiba</td><td>640</td><td>230</td></tr>
+            <tr><td class="titulo">Modelo (L/km)</td><td></td><td data-formato="dec2">=SOMA(C2:C4)/SOMA(B2:B4)</td></tr>
+            <tr><td class="titulo">Previsão: 1.050 km</td><td></td><td>=1050*C5</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <span class="rotulo-antigo">um zero a mais, digitado sem querer</span>
+        <div class="planilha" data-planilha data-somente-leitura data-selecionar="C3">
+          <table class="planilha-grade" data-formatos="texto,int,int">
+            <tr><td class="titulo">Viagem</td><td class="titulo">Km</td><td class="titulo">Diesel (L)</td></tr>
+            <tr><td>Cascavel</td><td>143</td><td>53</td></tr>
+            <tr><td>Guarapuava</td><td>390</td><td>1480</td></tr>
+            <tr><td>Curitiba</td><td>640</td><td>230</td></tr>
+            <tr><td class="titulo">Modelo (L/km)</td><td></td><td data-formato="dec2">=SOMA(C2:C4)/SOMA(B2:B4)</td></tr>
+            <tr><td class="titulo">Previsão: 1.050 km</td><td></td><td>=1050*C5</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Os três, lado a lado</h3>
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th></th><th>Dados</th><th>Algoritmos</th><th>Modelos</th></tr></thead>
+        <tbody>
+          <tr><td><b>O que é</b></td><td>A matéria-prima: informações estruturadas (tabelas) ou não estruturadas (textos, imagens), coletadas e guardadas.</td><td>Uma receita: instruções lógicas, em sequência, para realizar uma tarefa.</td><td>A representação do padrão aprendido a partir dos dados, gerada pelo algoritmo.</td></tr>
+          <tr><td><b>Exemplos</b></td><td>Planilha de clientes com idade e histórico de compras; banco de imagens; avaliações de produtos.</td><td>Regressão linear, que acha a linha que melhor acompanha os dados; agrupamento, que separa os dados em grupos.</td><td>Uma equação (regressão), um conjunto de regras (árvore de decisão) ou uma rede neural treinada.</td></tr>
+          <tr><td><b>Propósito</b></td><td>Dar ao algoritmo a informação para aprender. Sem dados, não há aprendizado.</td><td>Aprender padrões e relações a partir dos dados.</td><td>Prever, decidir ou gerar informação com base no que aprendeu.</td></tr>
+          <tr><td><b>Na cozinha</b></td><td>Os ingredientes: farinha, ovos, açúcar.</td><td>O modo de fazer: misturar, assar, decorar.</td><td>O bolo pronto, que pode ser servido.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Sem dados, não há aprendizado</h3><p>O algoritmo é a receita, mas sem ingredientes não sai bolo. Coletar e organizar dados é metade do trabalho.</p></article>
+      <article class="cartao"><h3>O modelo é o que fica</h3><p>Depois de treinado, o modelo (0,37 litro por km) faz previsões novas sem precisar refazer a conta com todas as viagens.</p></article>
+      <article class="cartao cartao--erro"><h3>Um zero a mais estraga tudo</h3><p>Uma linha digitada errada multiplicou o modelo por quatro, e todas as previsões junto. Dado ruim gera IA ruim.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 TIPOS DE APRENDIZADO ======================= -->
+  <section class="secao" id="tipos">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Tipos de aprendizado</h2>
+    </div>
+    <p class="secao-lead">Aprendizado de máquina é o computador aprender com dados, sem uma regra escrita para cada caso. Deep learning é o mesmo, com redes neurais de muitas camadas.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>as definições</figcaption>
+<pre class="codigo" data-lang="texto">Aprendizado de Máquina (Machine Learning, ML)
+o computador aprende com os dados e melhora numa
+tarefa, sem programação explícita para cada resultado.
+
+Aprendizado Profundo (Deep Learning)
+uma forma avançada de ML, com redes neurais
+artificiais de muitas camadas: daí o "profundo".
+
+IA generativa
+deep learning treinado para criar conteúdo novo:
+texto, imagem, áudio, código.</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>um grupo dentro do outro</code></div>
+        <div class="preview-corpo">
+          <div class="conjuntos">
+            <b>Inteligência artificial</b>
+            <span>qualquer sistema que simula habilidades humanas, inclusive por regras</span>
+            <div class="conjuntos">
+              <b>Aprendizado de máquina</b>
+              <span>aprende o padrão com dados</span>
+              <div class="conjuntos">
+                <b>Deep learning</b>
+                <span>redes neurais com muitas camadas</span>
+                <div class="conjuntos conjuntos--miolo">
+                  <b>IA generativa</b>
+                  <span>cria texto, imagem, áudio: ChatGPT, Copilot, Gemini, Claude</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: uma rede neural por dentro</h3>
+    <div class="lab" data-lab="rede">
+      <div class="lab-controles">
+        <h4>monte a rede</h4>
+        <div class="lab-campo">
+          <label for="r-camadas">camadas ocultas — <span data-eco="camadas">1</span></label>
+          <input type="range" id="r-camadas" data-campo="camadas" min="1" max="5" step="1" value="1">
+        </div>
+        <div class="lab-campo">
+          <label for="r-neuronios">neurônios por camada — <span data-eco="neuronios">4</span></label>
+          <input type="range" id="r-neuronios" data-campo="neuronios" min="2" max="6" step="1" value="4">
+        </div>
+        <p class="nota-demo">entram os quatro sinais do laboratório de manutenção; sai o risco de falha</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o tamanho da rede</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Três jeitos de aprender</h3>
+    <div class="galeria">
+      <div class="mini">
+        <div class="mini-titulo"><code>supervisionado</code><span>com a resposta certa</span></div>
+        <p class="mini-texto">Aprende com exemplos que já vêm marcados. É o detector de golpes da seção 04: cada mensagem dizia "golpe" ou "normal".</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>não supervisionado</code><span>sem resposta pronta</span></div>
+        <p class="mini-texto">Encontra grupos sozinho. Ex.: separar os clientes por perfil de compra sem ninguém dizer quais perfis existem.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>por reforço</code><span>tentativa, erro e recompensa</span></div>
+        <p class="mini-texto">Aprende por repetição: ganha "pontos" quando acerta e perde quando erra. Ex.: um robô de armazém descobrindo o caminho mais curto.</p>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Camada é uma etapa</h3><p>Cada camada transforma o que recebeu da anterior. As primeiras pegam detalhes; as últimas, o quadro geral.</p></article>
+      <article class="cartao"><h3>Mais camadas, mais exigência</h3><p>Redes profundas aprendem padrões complexos, mas precisam de muitos dados e muito processamento para treinar.</p></article>
+      <article class="cartao cartao--novo"><h3>Os chatbots são deep learning</h3><p>ChatGPT, Copilot, Gemini e Claude são redes profundas com bilhões de pesos, treinadas com enormes volumes de texto.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 ASSISTIVA × AUTÔNOMA ======================= -->
+  <section class="secao" id="autonomia">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">IA assistiva × IA autônoma</h2>
+    </div>
+    <p class="secao-lead">A assistiva ajuda uma pessoa a fazer a tarefa; a autônoma faz a tarefa sozinha. No volante, a diferença está em quem vigia a estrada.</p>
+
+    <div class="par">
+      <div class="bloco-branco">
+        <span class="nivel">IA assistiva</span>
+        <h3>Ferramenta de apoio: a pessoa decide</h3>
+        <ul class="requisitos">
+          <li><b>Reativa:</b> age quando alguém pede.</li>
+          <li><b>Dependente:</b> precisa de uma pessoa no comando.</li>
+          <li><b>Segura e controlada:</b> o erro passa por alguém antes de virar ação.</li>
+          <li><b>Foco em tarefas:</b> corretor de texto, assistente de faixa, chatbot que responde perguntas.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">IA autônoma</span>
+        <h3>Decide e age por conta própria</h3>
+        <ul class="requisitos">
+          <li><b>Proativa:</b> toma a iniciativa para cumprir um objetivo.</li>
+          <li><b>Independente:</b> trabalha sem uma pessoa no comando.</li>
+          <li><b>Adaptável:</b> muda a estratégia conforme o ambiente.</li>
+          <li><b>Pode ser arriscada e instável:</b> robotáxi, robô de armazém, agente que executa tarefas sozinho.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: os níveis de automação na direção</h3>
+    <div class="lab" data-lab="autonomia">
+      <div class="lab-controles">
+        <h4>escala SAE J3016</h4>
+        <div class="lab-campo">
+          <label for="a-nivel">nível de automação — <span data-eco="nivel">2</span></label>
+          <input type="range" id="a-nivel" data-campo="nivel" min="0" max="5" step="1" value="2">
+        </div>
+        <p class="nota-demo">a escala usada no mundo todo para classificar a automação de veículos, do 0 (nenhuma) ao 5 (total)</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">quem faz o quê</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>A pergunta que separa</h3><p>Se o sistema errar, tem uma pessoa ali, atenta, para corrigir na hora? Se sim, é assistiva. Se não precisa ter, é autônoma.</p></article>
+      <article class="cartao cartao--novo"><h3>Agentes de IA</h3><p>Desde 2025, assistentes como ChatGPT e Copilot ganharam modos de agente, que navegam em sites e preenchem formulários sozinhos, pedindo confirmação antes de ações importantes.</p></article>
+      <article class="cartao cartao--erro"><h3>Autônoma não é infalível</h3><p>Quanto mais autonomia, maior o estrago de um erro. No trabalho, decisões sobre pessoas, dinheiro e segurança ficam com uma pessoa.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 2</span><span class="parte-titulo">Ferramentas de PLN e engenharia de prompt</span></div>
+
+  <!-- ======================= 08 PLN ======================= -->
+  <section class="secao" id="pln">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">O que é uma ferramenta de PLN?</h2>
+    </div>
+    <p class="secao-lead">Processamento de Linguagem Natural (PLN) é a IA que entende, interpreta e gera linguagem humana. Em linhas gerais: modelos treinados com enormes volumes de texto.</p>
+
+    <div class="lab" data-lab="pln">
+      <div class="lab-controles">
+        <h4>a mensagem recebida</h4>
+        <div class="lab-campo">
+          <label for="p-texto">escolha o texto</label>
+          <select id="p-texto" data-campo="texto">
+            <option value="ocorrencia" selected>áudio do motorista</option>
+            <option value="reclamacao">e-mail de cliente</option>
+            <option value="espanhol">cliente do Paraguai</option>
+          </select>
+        </div>
+        <h4>onde isso ajuda no transporte</h4>
+        <ul class="requisitos">
+          <li>atendimento automático a clientes</li>
+          <li>relatórios operacionais</li>
+          <li>resumo de ocorrências e incidentes</li>
+          <li>tradução para motoristas e clientes de outros países</li>
+        </ul>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">os pedidos feitos à IA</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Linguagem natural é a nossa</h3><p>Português, espanhol, áudio transcrito, gíria de estrada: o PLN trabalha com a língua do jeito que as pessoas falam e escrevem.</p></article>
+      <article class="cartao"><h3>Uma ferramenta, várias tarefas</h3><p>Resumir, classificar, extrair dados, traduzir e responder: muda só o pedido, não a ferramenta.</p></article>
+      <article class="cartao cartao--erro"><h3>Revise antes de enviar</h3><p>No rascunho de resposta ao e-mail, a IA prometeu um horário que ninguém combinou. Ela escreve bem; você responde pelo que é enviado.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 PRÓXIMA PALAVRA ======================= -->
+  <section class="secao" id="geracao">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">IA generativa: a próxima palavra mais provável</h2>
+    </div>
+    <p class="secao-lead">Diante de um prompt, o modelo não procura a resposta num arquivo: ele escreve uma palavra de cada vez, escolhendo uma das mais prováveis para continuar o texto. É assim no ChatGPT, no Copilot, no Gemini e no Claude.</p>
+
+    <div class="dupla dupla--preview">
+      <figure class="painel-codigo">
+        <figcaption>o prompt e o que acontece a cada palavra</figcaption>
+<pre class="codigo" data-lang="texto">Prompt: Escreva um aviso curto para o cliente
+sobre a carga dele.
+
+A resposta começa: Prezado cliente, sua carga…</pre>
+        <ol class="passos">
+          <li>O modelo lê todo o texto até ali.</li>
+          <li>Dá uma probabilidade a cada palavra que pode vir depois.</li>
+          <li>Escolhe uma: a mais provável ou um sorteio, conforme a temperatura.</li>
+          <li>Junta a palavra ao texto e repete até o ponto final.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique numa palavra ou deixe o modelo sortear</code></div>
+        <div class="preview-corpo">
+          <div class="gerador" data-gerador>
+            <div class="gerador-texto"><span class="gerador-prompt">Prezado cliente, sua carga</span><span data-gerado></span></div>
+            <div class="gerador-candidatos" data-candidatos></div>
+            <div class="gerador-controles">
+              <label for="g-temp">temperatura <b data-temp-eco>0,7</b><input type="range" id="g-temp" data-temp min="0" max="1.6" step="0.1" value="0.7"></label>
+              <span class="gerador-botoes">
+                <button type="button" class="botao" data-gerar>sortear a próxima</button>
+                <button type="button" class="botao" data-completar>completar a frase</button>
+                <button type="button" class="botao botao--secundario" data-recomecar>recomeçar</button>
+              </span>
+            </div>
+            <p class="nota-demo" data-gerador-nota></p>
+            <p class="nota-demo">probabilidades ilustrativas: um modelo real escolhe entre dezenas de milhares de pedaços de palavra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Por isso a resposta muda</h3><p>Há sorteio na escolha das palavras. A mesma pergunta, feita duas vezes, pode ter respostas diferentes, e as duas podem estar boas.</p></article>
+      <article class="cartao"><h3>Por isso ela inventa</h3><p>O modelo escolhe o que soa provável, não o que é verdadeiro. Uma resposta pode ser fluente e errada: é a chamada alucinação.</p></article>
+      <article class="cartao cartao--erro"><h3>Não é uma busca na internet</h3><p>Sem a busca ligada, o modelo responde com o que aprendeu no treino, que tem data de corte. Para fatos recentes, peça as fontes e confira.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 O QUE É UM PROMPT ======================= -->
+  <section class="secao" id="prompt">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">O que é um prompt</h2>
+    </div>
+    <p class="secao-lead">Prompt é a instrução ou pergunta que você escreve para a IA. Ele é a interface entre você e o modelo: a qualidade da resposta depende muito da qualidade do prompt. Engenharia de prompt é a habilidade de escrever prompts que produzem a saída desejada.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">prompt simples</span>
+        <div class="chat">
+          <div class="chat-topo"><b>Assistente de IA</b><span>resposta de exemplo</span></div>
+          <div class="chat-corpo">
+            <div class="chat-msg chat-msg--voce">Escreva um e-mail para o cliente.</div>
+            <div class="chat-msg chat-msg--ia">Assunto: <span class="lacuna">[assunto]</span>
+
+Prezado(a) <span class="lacuna">[nome do cliente]</span>,
+
+Espero que esteja bem. Entro em contato para <span class="lacuna">[motivo do contato]</span>. Fico à disposição para qualquer dúvida.
+
+Atenciosamente,
+<span class="lacuna">[seu nome]</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="rotulo-atual">prompt estruturado</span>
+        <div class="chat">
+          <div class="chat-topo"><b>Assistente de IA</b><span>resposta de exemplo</span></div>
+          <div class="chat-corpo">
+            <div class="chat-msg chat-msg--voce">Escreva um e-mail formal, com tom cordial, informando atraso de 2 horas na entrega da carga 12345.</div>
+            <div class="chat-msg chat-msg--ia">Assunto: Atraso na entrega da carga 12345
+
+Prezado(a) cliente,
+
+Informamos que a entrega da carga 12345 terá um atraso de aproximadamente 2 horas. Pedimos desculpas pelo transtorno e seguimos acompanhando para que ela chegue o quanto antes.
+
+Atenciosamente,
+<span class="lacuna">[seu nome]</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="nota-demo" style="margin-top:10px">em amarelo, as lacunas: tudo o que o prompt não disse e a IA não tinha como saber</p>
+
+    <h3 class="sub-titulo">As partes de um prompt</h3>
+    <div class="galeria galeria--quatro">
+      <div class="mini">
+        <div class="mini-titulo"><code>instrução</code><span>a tarefa e o objetivo</span></div>
+        <p class="mini-texto">O que o modelo deve fazer: escrever, revisar, resumir, criar? Que informação usar ou evitar?</p>
+        <p class="mini-exemplo">"Escreva um aviso informando o atraso…"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>contexto</code><span>a situação e o público</span></div>
+        <p class="mini-texto">Quem vai ler? É para uso pessoal ou profissional? Explicação simples ou técnica? Quais dados importam?</p>
+        <p class="mini-exemplo">"para a cliente Marina; carga 12345; atraso de 2 horas"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>papel</code><span>a persona da IA</span></div>
+        <p class="mini-texto">Quem a IA deve ser ao responder. O papel muda o vocabulário, o foco e o nível de detalhe.</p>
+        <p class="mini-exemplo">"Você é atendente de uma transportadora."</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>formato e tom</code><span>como a resposta deve sair</span></div>
+        <p class="mini-texto">E-mail, tabela, lista, mensagem curta; formal, cordial, direto; no máximo tantas palavras.</p>
+        <p class="mini-exemplo">"em tópicos, tom cordial, no máximo 80 palavras"</p>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Onde se escreve o prompt</h3>
+    <div class="tour" data-tour>
+      <div class="tour-barra">
+        <button type="button" data-tour-anterior>anterior</button>
+        <span class="tour-contador" data-tour-contador></span>
+        <button type="button" data-tour-proximo>próximo</button>
+      </div>
+      <p class="tour-legenda" data-tour-legenda></p>
+      <div class="app">
+        <div class="app-titulo"><b>Assistente de IA</b><span class="app-botoes">— ▢ ✕</span></div>
+        <div class="assistente">
+          <div class="assistente-lateral">
+            <span class="app-btn" data-passo="1" data-legenda="1. Assunto novo? Comece uma conversa nova: a IA não mistura com o assunto anterior." style="border-color:#C5CFDA">+ Nova conversa</span>
+            <small>conversas anteriores</small>
+            <span class="item-conversa">Escala da semana</span>
+            <span class="item-conversa">Resumo da ocorrência</span>
+            <span class="item-conversa">Tradução para o espanhol</span>
+          </div>
+          <div class="assistente-principal">
+            <div class="assistente-topo">
+              <span class="app-btn" data-passo="2" data-legenda="2. Escolha o modo: resposta rápida no dia a dia, raciocínio mais longo para problemas difíceis. Os nomes mudam de uma ferramenta para outra." style="border-color:#C5CFDA">modo: rápido</span>
+            </div>
+            <div class="assistente-conversa">
+              <div class="chat-msg chat-msg--voce">Escreva um aviso formal para a cliente Marina: a carga 12345 vai atrasar 2 horas.</div>
+              <div class="chat-msg chat-msg--ia">Prezada Marina, informamos que a carga 12345 chegará com atraso de cerca de 2 horas. Pedimos desculpas pelo transtorno.</div>
+              <div class="assistente-acoes">
+                <span class="app-btn" data-passo="7" data-legenda="7. Copie, revise e só então envie: quem assina a mensagem é você." style="border-color:#C5CFDA">Copiar</span>
+                <span class="app-btn" style="border-color:#C5CFDA">Refazer</span>
+                <span class="app-btn" data-passo="6" data-legenda="6. Não ficou bom? Peça um ajuste na mesma conversa: mais curto, em tópicos, tom mais formal." style="border-color:#C5CFDA">Mais curto</span>
+                <span class="app-btn" style="border-color:#C5CFDA">Em tópicos</span>
+              </div>
+            </div>
+            <div class="assistente-caixa">
+              <span class="app-btn" data-passo="4" data-legenda="4. Anexe um arquivo se precisar, mas nunca com dados pessoais de clientes ou colegas.">+ Anexar</span>
+              <span class="assistente-texto" data-passo="3" data-legenda="3. Escreva o prompt: instrução, contexto, formato e tamanho.">Escreva seu prompt…</span>
+              <span class="app-btn" data-passo="5" data-legenda="5. Envie e leia a resposta inteira antes de usar." style="background:var(--azul);color:#fff">Enviar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Prompt é conversa</h3><p>A primeira resposta não precisa ser a última. Peça ajustes na mesma conversa até o texto ficar do jeito certo.</p></article>
+      <article class="cartao"><h3>Quem não diz recebe o genérico</h3><p>O prompt simples produziu um modelo de e-mail cheio de lacunas. O estruturado já saiu quase pronto.</p></article>
+      <article class="cartao cartao--erro"><h3>Lacuna vira invenção</h3><p>Sem o dado no prompt, a IA deixa um campo em branco ou, pior, inventa um nome, um horário, um número.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 MONTE UM PROMPT ======================= -->
+  <section class="secao" id="montar">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Monte um prompt</h2>
+    </div>
+    <p class="secao-lead">Ligue e desligue cada parte e veja a resposta mudar: instrução, contexto, papel, tom, formato e tamanho.</p>
+
+    <div class="lab" data-lab="prompt">
+      <div class="lab-controles">
+        <h4>as partes do prompt</h4>
+        <div class="lab-campo">
+          <label for="pr-instrucao">instrução</label>
+          <select id="pr-instrucao" data-campo="instrucao">
+            <option value="vaga">vaga: "Fala do atraso."</option>
+            <option value="clara" selected>clara: "Escreva um aviso…"</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label>contexto</label>
+          <label class="lab-check"><input type="checkbox" data-campo="cliente"> cliente: Marina, Mercado Bom Preço</label>
+          <label class="lab-check"><input type="checkbox" data-campo="carga"> carga 12345</label>
+          <label class="lab-check"><input type="checkbox" data-campo="atraso"> atraso de 2 horas</label>
+          <label class="lab-check"><input type="checkbox" data-campo="motivo"> motivo: pneu furado na BR-277</label>
+        </div>
+        <div class="lab-campo">
+          <label for="pr-papel">papel</label>
+          <select id="pr-papel" data-campo="papel">
+            <option value="nenhum" selected>(não informado)</option>
+            <option value="atendente">atendente de transportadora</option>
+            <option value="supervisor">supervisor de logística</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="pr-tom">tom</label>
+          <select id="pr-tom" data-campo="tom">
+            <option value="" selected>(não informado)</option>
+            <option value="formal">formal e cordial</option>
+            <option value="direto">direto e objetivo</option>
+            <option value="descontraido">leve e descontraído</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="pr-formato">formato</label>
+          <select id="pr-formato" data-campo="formato">
+            <option value="" selected>(não informado)</option>
+            <option value="email">e-mail com assunto</option>
+            <option value="whatsapp">mensagem de WhatsApp</option>
+            <option value="topicos">tópicos</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="pr-tamanho">tamanho</label>
+          <select id="pr-tamanho" data-campo="tamanho">
+            <option value="" selected>(não informado)</option>
+            <option value="t50">no máximo 50 palavras</option>
+            <option value="t100">no máximo 100 palavras</option>
+          </select>
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="perguntar"> se faltar informação, pergunte antes</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o prompt montado</p><button type="button" class="botao-copiar" data-copiar="#prompt-montado">copiar o prompt</button></div>
+          <pre id="prompt-montado" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Comece pela instrução</h3><p>Sem uma tarefa clara, nada mais ajuda: a IA devolve uma conversa genérica e pergunta o que você quer.</p></article>
+      <article class="cartao"><h3>O contexto preenche as lacunas</h3><p>Cada dado que entra no prompt sai da lista de campos em branco. Tom, formato e tamanho deixam o texto pronto para usar.</p></article>
+      <article class="cartao cartao--erro"><h3>Prompt enorme não é prompt bom</h3><p>Detalhe o que importa e pare aí. Texto demais, com pedidos que se contradizem, confunde o modelo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 TÉCNICAS ======================= -->
+  <section class="secao" id="tecnicas">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Técnicas de prompt</h2>
+    </div>
+    <p class="secao-lead">Quatro técnicas que resolvem a maior parte dos casos: pedir sem exemplos, pedir com exemplos, dar um papel e pedir o raciocínio passo a passo.</p>
+
+    <div class="galeria galeria--duplo">
+      <div class="mini">
+        <div class="mini-titulo"><code>zero-shot</code><span>pedir sem dar exemplos</span></div>
+        <figure class="painel-codigo painel-codigo--mini">
+<pre class="codigo" data-lang="texto">Classifique a urgência desta ocorrência como
+baixa, média ou alta: "Pneu furado, carga
+refrigerada, atraso de 2 horas."</pre>
+        </figure>
+        <div class="chat-msg chat-msg--ia">Média. A carga refrigerada pede atenção, mas o atraso é curto e não há risco imediato.</div>
+        <p class="nota-demo">a IA decide sozinha o formato da resposta</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>few-shot</code><span>pedir com alguns exemplos</span></div>
+        <figure class="painel-codigo painel-codigo--mini">
+<pre class="codigo" data-lang="texto">Classifique como nos exemplos:
+"Acidente com vítima na pista" → ALTA
+"Cliente pediu a segunda via do boleto" → BAIXA
+"Pneu furado, carga refrigerada, atraso de 2 horas" →</pre>
+        </figure>
+        <div class="chat-msg chat-msg--ia">MÉDIA</div>
+        <p class="nota-demo">a resposta segue exatamente o formato dos exemplos</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>papel</code><span>role prompting: "assuma o papel de…"</span></div>
+        <figure class="painel-codigo painel-codigo--mini">
+<pre class="codigo" data-lang="texto">Você é instrutor de direção defensiva. Explique
+para um motorista novato, em 3 tópicos, como
+frear com segurança na chuva.</pre>
+        </figure>
+        <div class="chat-msg chat-msg--ia">• Aumente a distância do veículo da frente.
+• Freie antes e de forma progressiva, sem travar as rodas.
+• Nas descidas, use o freio motor, reduzindo a marcha.</div>
+        <p class="nota-demo">o papel define o vocabulário e o nível de detalhe</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>cadeia de pensamento</code><span>pedir o passo a passo</span></div>
+        <figure class="painel-codigo painel-codigo--mini">
+<pre class="codigo" data-lang="texto">Um caminhão faz 2,7 km por litro. Quantos litros
+gasta para ir de Foz a Curitiba (640 km) e voltar?
+Mostre o raciocínio passo a passo.</pre>
+        </figure>
+        <div class="chat-msg chat-msg--ia">1. Ida e volta: 640 × 2 = 1.280 km.
+2. Litros: 1.280 ÷ 2,7 ≈ 474 litros.
+Resposta: cerca de 474 litros de diesel.</div>
+        <p class="nota-demo">com o caminho à vista, dá para conferir cada conta</p>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Exemplo vale mais que explicação</h3><p>Quando o formato importa (uma palavra, uma tabela, um padrão de código), dois exemplos resolvem o que um parágrafo de instruções não resolve.</p></article>
+      <article class="cartao"><h3>O papel muda a resposta</h3><p>"Explique como um professor universitário" e "explique para um aluno iniciante" dão respostas bem diferentes para a mesma pergunta.</p></article>
+      <article class="cartao cartao--novo"><h3>Modelos de raciocínio</h3><p>Desde 2024 existem modelos que "pensam" antes de responder (os modos de raciocínio). Neles, pedir o passo a passo importa menos para acertar, mas continua útil para conferir a conta.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 BOAS PRÁTICAS ======================= -->
+  <section class="secao" id="boas-praticas">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Boas práticas para prompts</h2>
+    </div>
+    <p class="secao-lead">Seja claro e específico, dê contexto, peça o formato e o tamanho, use exemplos quando o formato importar e confira os fatos.</p>
+
+    <div class="galeria">
+      <div class="mini">
+        <div class="mini-titulo"><code>específico</code><span>quanto mais detalhe, melhor</span></div>
+        <p class="mini-texto">Para imagem: estilo, ponto de vista, iluminação. Para texto: público, objetivo, dados. Mudar um detalhe muda bastante o resultado.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>modo certo</code><span>para a tarefa</span></div>
+        <p class="mini-texto">Resposta rápida no dia a dia; raciocínio mais longo ou pesquisa para problemas difíceis. Para criatividade ou precisão, peça no próprio prompt.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>fatos</code><span>garanta a precisão</span></div>
+        <p class="mini-texto">Peça as fontes e abra os links. Prefira pedir que a IA resuma um texto que você forneceu a fazer perguntas abertas.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>nível</code><span>personalize a resposta</span></div>
+        <p class="mini-texto">"Explique como para um estudante" e "como um professor universitário" geram respostas diferentes. Diga o nível que você quer.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>um assunto</code><span>por conversa</span></div>
+        <p class="mini-texto">Mudou de assunto, comece uma conversa nova. Misturar temas na mesma conversa confunde o modelo.</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>formato</code><span>e comprimento</span></div>
+        <p class="mini-texto">Peça tabela, lista, diagrama, fluxograma, e diga o tamanho. Se a resposta parar no meio, escreva "continue".</p>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: confira o seu prompt</h3>
+    <div class="lab" data-lab="avaliador">
+      <div class="lab-controles">
+        <h4>o prompt</h4>
+        <div class="lab-campo">
+          <label for="av-exemplo">carregar um exemplo</label>
+          <select id="av-exemplo" data-campo="exemplo">
+            <option value="simples" selected>prompt simples</option>
+            <option value="estruturado">prompt estruturado</option>
+            <option value="completo">prompt completo</option>
+            <option value="sensivel">prompt com dados pessoais</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="av-texto">ou digite o seu</label>
+          <textarea id="av-texto" data-campo="texto" spellcheck="false"></textarea>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">resumo da conferência</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Refine em rodadas</h3><p>Escreva, leia a resposta, ajuste o prompt. Duas ou três rodadas costumam bastar para chegar ao texto certo.</p></article>
+      <article class="cartao"><h3>Peça para continuar</h3><p>Resposta cortada no meio? Escreva "continue" na mesma conversa: o modelo retoma de onde parou.</p></article>
+      <article class="cartao cartao--erro"><h3>Os estilos do Copilot saíram em 2024</h3><p>Materiais antigos citam os estilos Mais Criativo, Mais Equilibrado e Mais Preciso. A Microsoft retirou essa escolha e hoje a ferramenta escolhe o modelo sozinha. Para o mesmo efeito, peça no prompt: "seja criativo" ou "seja preciso e cite as fontes".</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 CUIDADOS ======================= -->
+  <section class="secao" id="cuidados">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Cuidados: o que a IA não faz por você</h2>
+    </div>
+    <p class="secao-lead">A IA é uma ótima assistente e uma péssima chefe: erra com confiança, não guarda segredo por padrão e repete os vieses dos dados com que foi treinada.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">dados reais no prompt</span>
+        <div class="chat"><div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Resuma a reclamação do cliente João da Silva, CPF 123.456.789-00, telefone (45) 99999-1234, sobre o atraso da NF 4521.</div>
+        </div></div>
+      </div>
+      <div>
+        <span class="rotulo-atual">dados trocados por fictícios</span>
+        <div class="chat"><div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Resuma a reclamação do Cliente A sobre o atraso da entrega. Texto da reclamação: "…"</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="dupla" style="margin-top:28px">
+      <figure class="painel-codigo">
+        <figcaption>antes de usar uma resposta da IA</figcaption>
+        <ol class="passos">
+          <li>Confira números, nomes, datas e leis numa fonte oficial.</li>
+          <li>Peça as fontes e abra os links: a IA pode citar uma página que não existe.</li>
+          <li>Não cole dados pessoais, senhas nem documentos internos em ferramentas que a empresa não aprovou (LGPD).</li>
+          <li>Revise o texto inteiro: quem assina é você, não a IA.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>pode colar na IA?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">A planilha de clientes com nome, CPF e telefone, numa ferramenta gratuita</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">Dados pessoais de clientes são protegidos pela LGPD. Troque por dados fictícios ou use só o que for necessário, numa ferramenta aprovada pela empresa.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">O texto público do site da empresa, para reescrever em linguagem mais simples</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">O texto já é público e não tem dado pessoal. Só revise o resultado antes de publicar.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">O contrato confidencial de um cliente, para a IA resumir</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">Documento confidencial só em ferramenta contratada e aprovada pela empresa. Na dúvida, pergunte antes de colar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Alucinação</h3><p>A IA pode inventar uma lei, um número de norma, uma estatística ou um link, com a mesma segurança com que acerta.</p></article>
+      <article class="cartao"><h3>Vieses</h3><p>Treinada com dados enviesados, a IA reforça estereótipos. Desconfie de respostas que generalizam pessoas ou grupos.</p></article>
+      <article class="cartao cartao--erro"><h3>Autoria e direitos</h3><p>Quem é o autor de um texto ou imagem gerado por IA ainda está em debate. No trabalho, siga a política da empresa e diga quando usou IA.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Sete perguntas rápidas; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">1. Qual destes é um exemplo de IA?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O alarme que apita com o cinto solto</button>
+          <button type="button" data-opcao="b">O aplicativo de mapas recalculando a rota pelo trânsito</button>
+          <button type="button" data-opcao="c">A calculadora somando dois fretes</button>
+        </div>
+        <p class="quiz-explica">O mapa estima o tempo de cada caminho com dados em tempo real e decide. O alarme e a calculadora seguem regras fixas escritas por pessoas.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">2. Na comparação com a receita de bolo, o modelo é…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">os ingredientes</button>
+          <button type="button" data-opcao="b">o modo de fazer</button>
+          <button type="button" data-opcao="c">o bolo pronto</button>
+        </div>
+        <p class="quiz-explica">Dados são os ingredientes, o algoritmo é o modo de fazer e o modelo é o resultado: o padrão aprendido, pronto para prever.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">3. O caminhão acelera, freia e mantém a faixa sozinho, mas o motorista precisa vigiar a estrada o tempo todo. É IA…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">assistiva</button>
+          <button type="button" data-opcao="b">autônoma</button>
+          <button type="button" data-opcao="c">nenhuma das duas</button>
+        </div>
+        <p class="quiz-explica">É o nível 2 da escala SAE: o sistema ajuda, mas a pessoa continua no comando e responde pelo que acontece.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">4. Por que a mesma pergunta pode receber respostas diferentes?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Porque a IA pesquisa sites diferentes a cada vez</button>
+          <button type="button" data-opcao="b">Porque a IA sorteia entre as palavras mais prováveis</button>
+          <button type="button" data-opcao="c">Porque a IA aprendeu com a sua última conversa</button>
+        </div>
+        <p class="quiz-explica">O modelo escreve uma palavra de cada vez e há sorteio na escolha (a temperatura). O modelo em si não muda durante a conversa.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">5. Qual prompt tende a dar a melhor resposta?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Fala do atraso.</button>
+          <button type="button" data-opcao="b">Escreva um e-mail sobre o atraso.</button>
+          <button type="button" data-opcao="c">Escreva um e-mail formal e cordial para a cliente Marina: a carga 12345 vai atrasar 2 horas. No máximo 80 palavras.</button>
+        </div>
+        <p class="quiz-explica">O terceiro tem instrução, contexto, tom, formato e tamanho. Os outros deixam a IA adivinhar quase tudo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">6. O que é <i>few-shot</i>?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Pedir respostas curtas</button>
+          <button type="button" data-opcao="b">Dar alguns exemplos no próprio prompt</button>
+          <button type="button" data-opcao="c">Fazer poucas perguntas na mesma conversa</button>
+        </div>
+        <p class="quiz-explica">"Shot" é exemplo. Zero-shot: nenhum exemplo; few-shot: alguns exemplos, para a IA seguir o mesmo padrão.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">7. A IA citou uma lei, com número e data, para justificar uma regra de transporte. O que fazer?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Usar: ela foi treinada com muitos textos</button>
+          <button type="button" data-opcao="b">Conferir numa fonte oficial antes de usar</button>
+          <button type="button" data-opcao="c">Perguntar de novo: se ela repetir, está certa</button>
+        </div>
+        <p class="quiz-explica">A IA pode inventar leis e números com total segurança, e repetir a invenção. Fato que importa se confere na fonte oficial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">As partes e as técnicas de um bom prompt, numa tabela só.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td>Dizer a tarefa</td><td>instrução com verbo</td><td>"Escreva…", "Resuma…", "Compare…", "Traduza…"</td></tr>
+          <tr><td>Dar a situação</td><td>contexto: público, dados, objetivo</td><td>"para a cliente Marina; carga 12345; atraso de 2 horas"</td></tr>
+          <tr><td>Mudar o vocabulário</td><td>papel</td><td>"Você é atendente de uma transportadora."</td></tr>
+          <tr><td>Controlar a saída</td><td>formato e tamanho</td><td>"em tópicos", "em tabela", "no máximo 80 palavras"</td></tr>
+          <tr><td>Ajustar a voz</td><td>tom</td><td>"formal e cordial", "direto", "simples, para iniciantes"</td></tr>
+          <tr><td>Fixar um padrão</td><td>few-shot: exemplos</td><td>"Acidente com vítima" → ALTA</td></tr>
+          <tr><td>Conferir a conta</td><td>cadeia de pensamento</td><td>"mostre o raciocínio passo a passo"</td></tr>
+          <tr><td>Evitar invenção</td><td>pedir que pergunte</td><td>"se faltar informação, pergunte antes de escrever"</td></tr>
+          <tr><td>Mudar de assunto</td><td>conversa nova</td><td>botão de nova conversa da ferramenta</td></tr>
+          <tr><td>Proteger dados</td><td>dados fictícios</td><td>"Cliente A" no lugar do nome, do CPF e do telefone</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">O seu prompt de trabalho</h2>
+    </div>
+    <p class="secao-lead">Escolha uma tarefa real do seu trabalho, escreva um prompt para ela, teste numa ferramenta de IA gratuita e refine até a resposta ficar pronta para usar.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que a entrega precisa ter</h3>
+        <ul class="requisitos">
+          <li>Uma situação real do trabalho: aviso de atraso, resumo de ocorrência, resposta a reclamação, escala da semana, comunicado à equipe.</li>
+          <li>Um prompt com as quatro partes: <b>instrução</b> (verbo), <b>contexto</b> (público e dados), <b>formato</b> e <b>tamanho</b>.</li>
+          <li>O teste numa ferramenta gratuita (ChatGPT, Copilot, Gemini ou outra), com o prompt e a resposta guardados.</li>
+          <li>Na resposta, marcado o que você mudaria antes de usar.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>A ficha do prompt</h3>
+        <figure class="painel-codigo">
+          <figcaption>preencha os colchetes</figcaption>
+<pre class="codigo" data-lang="texto">Você é [papel].
+[Verbo] [o que você quer] para [quem vai ler].
+Contexto: [os dados da situação].
+Formato: [e-mail, tópicos, tabela…].
+Tamanho: [no máximo N palavras].
+Tom: [formal, cordial, direto…].
+Se faltar alguma informação, pergunte antes.</pre>
+        </figure>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>A resposta cabe em <b>no máximo 80 palavras</b> sem perder nenhum dado da situação.</li>
+          <li>A mesma resposta em <b>dois formatos</b> (e-mail e tópicos), mudando só uma linha do prompt.</li>
+          <li><b>Few-shot:</b> dê 2 exemplos e faça a IA classificar 5 ocorrências no mesmo formato, sem nenhuma palavra a mais.</li>
+          <li>O primeiro prompt <b>não traz todos os dados</b>: a IA precisa perguntar o que falta antes de escrever.</li>
+          <li><b>Nenhum dado pessoal real:</b> nomes, CPF, telefones e placas trocados por fictícios.</li>
+          <li>Pelo menos <b>duas rodadas de ajuste</b> na mesma conversa, com o que mudou em cada uma.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, junto da entrega</h3>
+        <ul class="requisitos">
+          <li>Envie o mesmo prompt em duas conversas novas. As respostas foram iguais? Explique com a ideia da próxima palavra mais provável.</li>
+          <li>Tire o contexto do prompt e envie de novo. O que a IA fez com o que faltou: deixou lacuna, perguntou ou inventou?</li>
+          <li>Aponte na resposta um dado que precisava ser conferido. Onde você conferiu?</li>
+          <li>A ferramenta que você usou é IA assistiva ou autônoma? Por quê?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="chat">
+        <div class="chat-topo"><b>Assistente de IA</b><span>exemplo de entrega</span></div>
+        <div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Você é atendente de uma transportadora.
+Escreva um aviso para a cliente Marina, do Mercado Bom Preço, informando o atraso da carga 12345.
+Contexto: atraso de cerca de 2 horas por um pneu furado na BR-277.
+Formato: e-mail com assunto. Tamanho: no máximo 80 palavras. Tom: formal e cordial.
+Se faltar alguma informação, pergunte antes.</div>
+          <div class="chat-msg chat-msg--ia">Assunto: Atraso na entrega da carga 12345
+
+Prezada Marina,
+
+Informamos que a carga 12345 chegará com atraso de cerca de 2 horas, por causa de um pneu furado na BR-277. Pedimos desculpas pelo transtorno. Nova previsão de chegada: <span class="lacuna">[horário]</span>.
+
+Atenciosamente,
+Equipe de Atendimento</div>
+        </div>
+      </div>
+      <p class="nota-demo" style="margin-top:12px">a lacuna que sobrou é o dado que só quem acompanha a viagem sabe: ele entra na revisão, antes de enviar</p>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Um documento com o prompt final, as respostas de cada rodada de ajuste e as respostas da Parte 3.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>O prompt final tem instrução, contexto, formato e tamanho, e a resposta usada foi revisada.</p></article>
+      <article class="cartao"><h3>Critério ético</h3><p>Nenhum dado pessoal real no prompt; todo fato que importa conferido numa fonte confiável.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>A IA escreve rápido; quem decide o que vale é você.</p>
+      <div class="rodape-meta">IA na Prática · Aula 1 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/aula.js"></script>
+</body>
+</html>
