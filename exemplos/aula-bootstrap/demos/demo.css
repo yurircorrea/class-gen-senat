@@ -1,13 +1,13 @@
 /* Estilo comum às páginas carregadas dentro dos simuladores de tela.
    Mantém a mesma convenção de marcação da aula:
-   linha (.row) -> tracejado verde | coluna (.col-*) -> tracejado cinza */
+   linha (.row) -> tracejado azul | coluna (.col-*) -> tracejado cinza */
 
 body{background:#fff;margin:0}
 
 .marcado .row{
-  outline:2px dashed #00E88F;
+  outline:2px dashed #009EE2;
   outline-offset:-2px;
-  background:rgba(0,232,143,.06);
+  background:rgba(0,158,226,.06);
   border-radius:8px;
 }
 .marcado [class*="col"]{
@@ -23,9 +23,9 @@ body{background:#fff;margin:0}
 .marcado-container .container-lg,
 .marcado-container .container-xl,
 .marcado-container .container-xxl{
-  outline:2px dashed #00E88F;
+  outline:2px dashed #009EE2;
   outline-offset:-2px;
-  background:rgba(0,232,143,.07);
+  background:rgba(0,158,226,.07);
 }
 
 .bloco{
@@ -35,7 +35,7 @@ body{background:#fff;margin:0}
 
 .faixa{
   font-family:ui-monospace,Consolas,"Courier New",monospace;
-  font-size:12.5px;color:#5B6660;padding:6px 10px;
+  font-size:12.5px;color:#4A5B74;padding:6px 10px;
 }
 
 /* moldura que simula a janela do navegador nas demos de posicionamento */

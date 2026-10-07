@@ -4,6 +4,12 @@ Página única (single page) da aula de Bootstrap, para ser projetada e rolada d
 Basta abrir `index.html` no navegador — **não precisa de servidor, build nem internet**: o Bootstrap e
 os ícones estão em `vendor/` como cópias locais.
 
+**Curso e aula:** Desenvolvimento Web, Aula 2 · **Instrutor:** Yuri Reis Correa, Instrutor de Informática ·
+**SEST SENAT** · Unidade B086 - Foz do Iguaçu/PR
+
+Exemplo de referência de qualidade do class-gen SEST SENAT. O curso e o número da aula nos chips da
+capa são ilustrativos: mostram onde essas informações ficam numa aula de verdade.
+
 Baseado em: Mariano, D. *Bootstrap 5 – Guia Rápido para Iniciantes*. 1ª ed. Alfahelix, Lagoa Santa, 2022 —
 com o conteúdo conferido e atualizado para a versão atual do framework.
 
@@ -40,8 +46,10 @@ aula-bootstrap/
 │   ├── menus.html             list-group, abas, offcanvas, breadcrumb e paginação
 │   ├── scrollspy.html         menu que marca sozinho o trecho visível
 │   └── pagina.html            página completa — o resultado esperado da atividade
+├── fonts/                     Roboto (títulos), cópia local + licença OFL
 ├── img/
-│   ├── logo.png               logotipo
+│   ├── simbolo.svg            meias-luas: barra e ícone da aba
+│   ├── logo-sest-senat-branco.png, logo-sistema-transporte-branco.png   capa e rodapé
 │   └── foto-1..3.svg          imagens de exemplo (cards, carrossel, figuras)
 └── vendor/
     ├── bootstrap/             bootstrap.min.css + bootstrap.bundle.min.js (5.3.8)
@@ -72,7 +80,7 @@ precisar redimensionar a janela do projetor.
 
 ## Convenção visual das demonstrações
 
-- **Contorno tracejado verde** = uma linha `.row` ou um contêiner.
+- **Contorno tracejado azul** = uma linha `.row` ou um contêiner.
 - **Contorno tracejado cinza** = uma coluna `.col-*`.
 - Toda caixa marcada como *preview* é Bootstrap de verdade rodando na própria página.
 
@@ -81,9 +89,10 @@ precisar redimensionar a janela do projetor.
 - O `estilo.css` é carregado **depois** do Bootstrap e não usa nenhum nome de classe do framework
   (o invólucro de largura é `.wrap`, não `.container`; o selo numerado é `.selo`, não `.badge`),
   então a identidade da aula e os componentes demonstrados não brigam entre si.
-- A fonte de títulos (Barlow Semi Condensed) vem do Google Fonts, com Arial Narrow/Arial como
-  alternativa — a página continua correta sem internet.
-- Paleta herdada da aula de Flexbox: verde `#00E88F`, fundo `#FAFAFA`, painel de código `#0E1A15`
-  com realce de sintaxe em ciano, roxo, amarelo e verde.
+- Identidade visual SEST SENAT (`material/designsystem.pdf`): azul `#00307C`, ciano `#5FE1FF`,
+  azul-gelo `#EAF6FE`, azul-marinho `#002060`; contornos de estrutura em `#009EE2`. Títulos em
+  Roboto (cópia local em `fonts/`), corpo em Calibri (Carlito como alternativa).
+- As cores do próprio Bootstrap (`bg-success` verde, `bg-danger` vermelho…) continuam as do
+  framework: são conteúdo da aula, não identidade visual.
 - A aula ensina o template com **CDN** (é o que o aluno deve usar); a própria página usa as cópias
   locais só para não depender da rede da sala.

@@ -1,28 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bootstrap 5 — Framework CSS/JS para interfaces responsivas</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
 
 <!-- Bootstrap 5.3.8 e Bootstrap Icons 1.13.1 (cópias locais, para a aula funcionar sem internet) -->
 <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
 
 <!-- estilo da aula: carregado depois do Bootstrap -->
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="css/demos.css">
 </head>
-<body>
+<body data-curso="desenvolvimento-web" data-aula="aula2" data-instrutor="Yuri Reis Correa" data-unidade="B086">
 
 <!-- ============================ BARRA ============================ -->
 <div class="barra">
   <div class="barra-interna">
-    <a class="barra-marca" href="#roteiro"><span class="ponto"></span> Bootstrap 5</a>
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Bootstrap 5</a>
     <nav class="barra-menu">
       <a href="#template">template</a>
       <a href="#cores">cores</a>
@@ -48,22 +46,19 @@
 <header class="capa">
   <div class="capa-interna">
     <div class="capa-texto">
-      <img class="capa-logo" src="img/logo.png" alt="Descomplica + UniAmérica">
+      <div class="capa-meta"><span>Desenvolvimento Web</span><span>Aula 2</span></div>
       <h1>Bootstrap 5</h1>
       <p class="subtitulo">O framework CSS/JS para interfaces responsivas</p>
-      <p class="assinatura">Riad Younes — Engenharia de Software</p>
-    </div>
-    <div class="capa-arte">
-      <div class="mosaico">
-        <div class="row g-3">
-          <div class="col-12"><div class="peca">container</div></div>
-          <div class="col-8"><div class="peca">row</div></div>
-          <div class="col-4"><div class="peca">col</div></div>
-          <div class="col-4"><div class="peca">btn</div></div>
-          <div class="col-4"><div class="peca">card</div></div>
-          <div class="col-4"><div class="peca">modal</div></div>
-        </div>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Informática · Unidade B086 - Foz do Iguaçu/PR</span>
+        <span class="contato">E-mail: yuricorrea@sestsenat.org.br</span>
       </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
     </div>
   </div>
 </header>
@@ -91,7 +86,7 @@
 
     <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
     <div class="legenda">
-      <div class="legenda-item"><span class="amostra amostra--linha"></span> contorno tracejado verde = uma linha <code>.row</code> ou um contêiner</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> contorno tracejado azul = uma linha <code>.row</code> ou um contêiner</div>
       <div class="legenda-item"><span class="amostra amostra--coluna"></span> contorno tracejado cinza = uma coluna <code>.col-*</code></div>
       <div class="legenda-item">Toda caixa de <b>preview</b> é Bootstrap de verdade rodando nesta página.</div>
     </div>
@@ -460,7 +455,7 @@
             <div class="col-8"><div class="bloco bg-secondary text-white">col-8</div></div>
             <div class="col-4"><div class="bloco bg-dark text-white">col-4</div></div>
           </div>
-          <p class="nota-demo">Tracejado verde: a <code>.row</code>. Tracejado cinza: cada <code>.col-*</code>.</p>
+          <p class="nota-demo">Tracejado azul: a <code>.row</code>. Tracejado cinza: cada <code>.col-*</code>.</p>
         </div>
       </div>
     </div>
@@ -1171,7 +1166,7 @@
           <table class="table table-bordered align-middle">
             <thead><tr><th>#</th><th>Situação</th><th>Curso</th></tr></thead>
             <tbody>
-              <tr class="table-success"><td>1</td><td>Aprovado</td><td>Engenharia de Software</td></tr>
+              <tr class="table-success"><td>1</td><td>Aprovado</td><td>Informática Básica</td></tr>
               <tr class="table-warning"><td>2</td><td>Recuperação</td><td>Ciência de Dados</td></tr>
               <tr class="table-danger"><td>3</td><td>Reprovado</td><td>Redes</td></tr>
               <tr><td>4</td><td class="table-info">célula colorida</td><td>Sistemas</td></tr>
@@ -2696,7 +2691,7 @@
       </div>
     </div>
 
-    <h3 class="sub-titulo" style="color:#0A2A1E">Resultado esperado na tela</h3>
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
     <div class="bloco-branco">
       <div class="simulador">
         <div class="simulador-barra">
@@ -2730,9 +2725,13 @@
   <div class="rodape-interna">
     <div>
       <h2>Bom código!</h2>
-      <p>Bootstrap resolve o layout para você escrever menos CSS. Toda dúvida é bem-vinda. — Riad Younes</p>
+      <p>Bootstrap resolve o layout para você escrever menos CSS. Toda dúvida é bem-vinda.</p>
+      <div class="rodape-meta">Desenvolvimento Web · Aula 2 — Yuri Reis Correa, Instrutor de Informática<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
     </div>
-    <img src="img/logo.png" alt="Descomplica + UniAmérica">
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
   </div>
 </footer>
 

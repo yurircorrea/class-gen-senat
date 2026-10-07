@@ -8,9 +8,9 @@
 /* ---------- marcação da grade ----------
    usa outline (não border) para não deslocar o layout do Bootstrap */
 .demo-grade .row{
-  outline:2px dashed var(--verde);
+  outline:2px dashed var(--azul-linha);
   outline-offset:-2px;
-  background:rgba(0,232,143,.06);
+  background:rgba(0,158,226,.06);
   border-radius:8px;
 }
 .demo-grade [class*="col"]{
@@ -34,9 +34,9 @@
 .demo-container .container-lg,
 .demo-container .container-xl,
 .demo-container .container-xxl{
-  outline:2px dashed var(--verde);
+  outline:2px dashed var(--azul-linha);
   outline-offset:-2px;
-  background:rgba(0,232,143,.07);
+  background:rgba(0,158,226,.07);
   padding-top:10px;padding-bottom:10px;
 }
 
@@ -50,21 +50,21 @@
 .simulador{margin:0}
 .simulador-barra{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  padding:10px 14px;background:var(--verde-escuro);border-radius:10px 10px 0 0;
+  padding:10px 14px;background:var(--azul);border-radius:10px 10px 0 0;
 }
 .simulador-barra .larg{
-  font-family:var(--mono);font-size:14px;font-weight:700;color:var(--verde);
+  font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ciano);
   min-width:120px;
 }
 .simulador-barra .bp{
   font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.8px;
-  background:var(--verde);color:var(--verde-escuro);border-radius:999px;padding:3px 10px;
+  background:var(--ciano);color:var(--azul);border-radius:999px;padding:3px 10px;
 }
 .simulador-barra button{
   font-family:var(--mono);font-size:12.5px;cursor:pointer;
-  background:transparent;color:#cfd8d4;border:1px solid #33463f;border-radius:999px;padding:4px 11px;
+  background:transparent;color:#CFE0F5;border:1px solid #2E4C82;border-radius:999px;padding:4px 11px;
 }
-.simulador-barra button:hover{border-color:var(--verde);color:var(--verde)}
+.simulador-barra button:hover{border-color:var(--ciano);color:var(--ciano)}
 .simulador-caixa{
   resize:horizontal;overflow:hidden;min-width:320px;max-width:100%;width:100%;
   border:1px solid var(--borda);border-top:none;border-radius:0 0 10px 10px;background:#fff;
@@ -92,17 +92,17 @@
   font-family:var(--mono);font-size:15px;padding:8px 11px;border:1px solid var(--borda);
   border-radius:8px;background:#fff;color:var(--tinta);
 }
-.lab-campo input[type=range]{accent-color:var(--verde);height:28px;padding:0;border:none;background:none}
+.lab-campo input[type=range]{accent-color:var(--azul);height:28px;padding:0;border:none;background:none}
 .lab-check{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14.5px;color:var(--tinta)}
-.lab-check input{accent-color:var(--verde);width:17px;height:17px}
+.lab-check input{accent-color:var(--azul);width:17px;height:17px}
 .lab-saida{flex:1 1 620px;min-width:0;display:flex;flex-direction:column;gap:18px}
 .lab-palco{
   border:1px solid var(--borda);background:#fff;border-radius:var(--raio);
   padding:24px;min-height:150px;
 }
 .lab-palco--xadrez{
-  background-image:linear-gradient(45deg,#f1f3f2 25%,transparent 25%,transparent 75%,#f1f3f2 75%),
-                   linear-gradient(45deg,#f1f3f2 25%,transparent 25%,transparent 75%,#f1f3f2 75%);
+  background-image:linear-gradient(45deg,#EEF3F8 25%,transparent 25%,transparent 75%,#EEF3F8 75%),
+                   linear-gradient(45deg,#EEF3F8 25%,transparent 25%,transparent 75%,#EEF3F8 75%);
   background-size:22px 22px;background-position:0 0,11px 11px;
 }
 .lab-codigo{background:var(--code-bg);border-radius:var(--raio);padding:20px 24px;overflow-x:auto}
@@ -110,7 +110,7 @@
 
 /* caixa alvo dos labs de espaçamento e cor */
 .alvo{
-  background:var(--verde);border:2px solid var(--verde-escuro);border-radius:8px;
+  background:var(--ciano);border:2px solid var(--azul);border-radius:8px;
   font-family:var(--mono);font-weight:700;font-size:16px;text-align:center;padding:18px;
 }
 .alvo-externo{outline:2px dashed #98A2A9;outline-offset:0;background:rgba(0,0,0,.035);display:inline-block}
@@ -126,7 +126,7 @@
 }
 .pg-barra button{
   font-family:var(--mono);font-size:14px;font-weight:700;cursor:pointer;
-  background:var(--verde);color:var(--tinta);border:2px solid var(--verde-escuro);border-radius:8px;padding:7px 16px;
+  background:var(--ciano);color:var(--tinta);border:2px solid var(--azul);border-radius:8px;padding:7px 16px;
 }
 .pg-barra button.secundario{background:#fff;border-color:var(--borda);font-weight:400}
 .pg-editor textarea{
@@ -134,7 +134,7 @@
   background:var(--code-bg);color:var(--code-fg);border:0;border-radius:var(--raio);
   padding:22px 24px;font-family:var(--mono);font-size:15px;line-height:1.65;tab-size:2;
 }
-.pg-editor textarea:focus{outline:3px solid var(--verde);outline-offset:2px}
+.pg-editor textarea:focus{outline:3px solid var(--azul-linha);outline-offset:2px}
 .pg-resultado{display:flex;flex-direction:column}
 .pg-resultado iframe{
   flex:1 1 auto;width:100%;min-height:520px;border:1px solid var(--borda);
@@ -156,7 +156,7 @@
   letter-spacing:1.1px;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-bottom:10px;
 }
 .rotulo-antigo{background:var(--erro-bg);color:var(--erro-tx);border:1px solid var(--erro-bd)}
-.rotulo-atual{background:var(--verde);color:var(--tinta)}
+.rotulo-atual{background:var(--ciano);color:var(--tinta)}
 
 /* ---------- grade de ícones ---------- */
 .icones{display:flex;flex-wrap:wrap;gap:14px}
@@ -164,7 +164,7 @@
   flex:1 1 150px;border:1px solid var(--borda);border-radius:10px;background:#fff;
   padding:16px 10px;text-align:center;
 }
-.icones .ico i{font-size:32px;display:block;margin-bottom:8px;color:var(--verde-escuro)}
+.icones .ico i{font-size:32px;display:block;margin-bottom:8px;color:var(--azul)}
 .icones .ico code{font-family:var(--mono);font-size:12.5px;color:var(--texto);word-break:break-all}
 
 /* a página da aula é clara; demos que precisam de fundo escuro ficam isoladas */

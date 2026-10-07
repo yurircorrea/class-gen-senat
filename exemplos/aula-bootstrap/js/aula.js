@@ -300,7 +300,7 @@
         '<table class="' + c.join(" ") + '">\n' +
         "  <thead>\n    <tr><th>#</th><th>Curso</th><th>Turno</th></tr>\n  </thead>\n" +
         "  <tbody" + divisor + ">\n" +
-        "    <tr><td>1</td><td>Engenharia de Software</td><td>Noite</td></tr>\n" +
+        "    <tr><td>1</td><td>Informática Básica</td><td>Noite</td></tr>\n" +
         "    <tr><td>2</td><td>Ciência de Dados</td><td>Manhã</td></tr>\n" +
         "    <tr><td>3</td><td>Redes de Computadores</td><td>Noite</td></tr>\n" +
         "  </tbody>\n</table>";
