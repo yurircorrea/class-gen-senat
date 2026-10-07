@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!--
+  modelo-aula.html — esqueleto com um exemplo de cada bloco.
+  Copie para index.html, troque o conteúdo e repita as seções.
+  Blocos marcados com OPCIONAL só entram quando fazem sentido no assunto.
+
+  Copie junto, da pasta assets/ da habilidade:
+    css/estilo.css  css/demos.css  js/aula.js
+    fonts/roboto-latin.woff2  fonts/OFL.txt
+    img/simbolo.svg  img/logo-sest-senat-branco.png  img/logo-sistema-transporte-branco.png
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assunto — Curso · Aula 1 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+
+<!-- OPCIONAL: framework ensinado, em cópia local (vendor/), para funcionar sem internet -->
+<!-- <link rel="stylesheet" href="vendor/framework/framework.min.css"> -->
+
+<!-- o estilo da aula vem DEPOIS do framework; a fonte Roboto é local (fonts/) -->
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<!-- curso, aula, instrutor e unidade: ver references/design-system.md §8 -->
+<body data-curso="excel-basico" data-aula="aula1" data-instrutor="Nome do Instrutor" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Assunto</a>
+    <!-- no máximo 16 itens: acima disso os primeiros somem na borda esquerda -->
+    <nav class="barra-menu">
+      <a href="#conceito-1">conceito 1</a>
+      <a href="#conceito-2">conceito 2</a>
+      <a href="#conceito-3">conceito 3</a>
+      <a href="#lab-formato">lab 1</a>
+      <a href="#lab-planilha">lab 2</a>
+      <a href="#tour">passo a passo</a>
+      <a href="#quiz">quiz</a>
+      <a href="#referencia">resumo</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <!-- referência no curso: nome do curso e número da aula -->
+      <div class="capa-meta"><span>Excel Básico</span><span>Aula 1</span></div>
+      <h1>Assunto</h1>
+      <p class="subtitulo">O subtítulo que explica o recorte da aula</p>
+      <!-- cartão do instrutor: nome, cargo e unidade (e-mail é opcional) -->
+      <div class="assinatura">
+        <span class="instrutor">Nome do Instrutor</span>
+        <span class="cargo">Instrutor de Informática · Unidade B086 - Foz do Iguaçu/PR</span>
+        <span class="contato">E-mail: instrutor@sestsenat.org.br</span>
+      </div>
+    </div>
+    <!-- meias-luas do modelo institucional: decorativas -->
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Uma frase sobre o arco da aula, do problema inicial até o resultado.</p>
+
+    <div class="roteiro">
+      <a href="#conceito-1"><span class="num">01</span><span class="rotulo">Primeiro bloco</span></a>
+      <a href="#conceito-2"><span class="num">02</span><span class="rotulo">Segundo bloco</span></a>
+      <a href="#conceito-3"><span class="num">03</span><span class="rotulo">Terceiro bloco</span></a>
+      <a href="#lab-formato"><span class="num">04</span><span class="rotulo">Laboratórios</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <!-- aula sobre layout/estrutura: -->
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = o contêiner</div>
+      <div class="legenda-item"><span class="amostra amostra--coluna"></span> tracejado cinza = cada parte</div>
+      <!-- aula sem código: -->
+      <div class="legenda-item">Painel escuro = o que você digita ou clica. Caixa branca = o que acontece.</div>
+      <div class="legenda-item">Toda caixa de <b>preview</b> funciona de verdade: clique, digite, teste.</div>
+    </div>
+  </section>
+
+  <!-- ======================= SEÇÃO: fórmula + resultado (assunto sem código) ======================= -->
+  <!-- o painel escuro mostra o que se digita; o preview é uma planilha que calcula de verdade -->
+  <section class="secao" id="conceito-1">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Nome do conceito</h2>
+    </div>
+    <p class="secao-lead">Para que serve e quando se usa, em uma frase.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>digite na célula D5</figcaption>
+<pre class="codigo" data-lang="formula">=SOMA(D2:D4)
+// soma o intervalo de D2 até D4</pre>
+        <ol class="caminho">
+          <li><span>Página Inicial</span></li>
+          <li><span>AutoSoma</span></li>
+        </ol>
+        <p class="atalho">ou, na célula D5: <kbd>Alt</kbd> + <kbd>=</kbd></p>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo">
+          <span class="preview-selo">preview</span>
+          <code>clique numa célula para ver a fórmula</code>
+        </div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-somente-leitura data-selecionar="D5">
+            <table class="planilha-grade" data-formatos="texto,int,moeda,moeda">
+              <tr><td class="titulo">Produto</td><td class="titulo">Qtd</td><td class="titulo">Preço</td><td class="titulo">Total</td></tr>
+              <tr><td>Arroz 5 kg</td><td>2</td><td>27,90</td><td>=B2*C2</td></tr>
+              <tr><td>Feijão 1 kg</td><td>3</td><td>8,49</td><td>=B3*C3</td></tr>
+              <tr><td>Café 500 g</td><td>1</td><td>19,99</td><td>=B4*C4</td></tr>
+              <tr><td class="titulo">Total</td><td></td><td></td><td>=SOMA(D2:D4)</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- uma mini por variação: tudo visível, nada atrás de clique -->
+    <div class="galeria">
+      <div class="mini">
+        <div class="mini-titulo"><code>=MÉDIA(B2:B4)</code><span>média das quantidades</span></div>
+        <!-- demonstração -->
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>=MÁXIMO(C2:C4)</code><span>o maior preço</span></div>
+        <!-- demonstração -->
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Lição que fica</h3><p>Uma ou duas frases.</p></article>
+      <article class="cartao"><h3>Segunda lição</h3><p>Uma ou duas frases.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>O erro que o aluno vai cometer.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= SEÇÃO: caminho de menus + aplicativo reconstruído ======================= -->
+  <!-- nunca captura de tela: a interface é refeita em HTML, só com o que interessa -->
+  <section class="secao" id="conceito-2">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Onde fica o comando</h2>
+    </div>
+    <p class="secao-lead">Uma frase.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>caminho e atalho</figcaption>
+        <ol class="caminho">
+          <li><span>Página Inicial</span></li>
+          <li><span>Edição</span></li>
+          <li><span>AutoSoma</span></li>
+        </ol>
+        <p class="atalho">atalho: <kbd>Alt</kbd> + <kbd>=</kbd></p>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>a faixa de opções, refeita em HTML</code></div>
+        <div class="preview-corpo">
+          <div class="app">
+            <div class="app-titulo"><b>Pasta1 - Excel</b><span class="app-botoes">— ▢ ✕</span></div>
+            <div class="app-guias"><span>Arquivo</span><span class="ativa">Página Inicial</span><span>Inserir</span><span>Fórmulas</span><span>Dados</span></div>
+            <div class="app-faixa">
+              <div class="app-grupo"><div><span class="app-btn">Colar</span></div><small>Área de Transferência</small></div>
+              <div class="app-grupo"><div><span class="app-btn"><b>N</b></span><span class="app-btn"><i>I</i></span><span class="app-btn"><u>S</u></span></div><small>Fonte</small></div>
+              <div class="app-grupo"><div><span class="app-btn alvo-clique">Σ AutoSoma</span><span class="app-btn">Classificar</span></div><small>Edição</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="passos">
+      <li>Clique na célula logo abaixo dos números.</li>
+      <li>Clique em <b>AutoSoma</b> (ou <kbd>Alt</kbd> + <kbd>=</kbd>): o Excel sugere o intervalo.</li>
+      <li>Confira o intervalo tracejado e tecle <kbd>Enter</kbd>.</li>
+    </ol>
+  </section>
+
+  <!-- ======================= SEÇÃO: código e preview (assunto de programação) ======================= -->
+  <!-- use .dupla quando as alturas forem parecidas; .pilha quando o painel for bem mais alto:
+       preview em largura total em cima, painel em duas colunas embaixo -->
+  <section class="secao" id="conceito-3">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Conceito com código</h2>
+    </div>
+    <p class="secao-lead">Uma frase.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>resultado</code></div>
+        <div class="preview-corpo">
+          <div style="display:flex;gap:12px;outline:2px dashed var(--azul-linha);outline-offset:-2px;padding:12px;border-radius:8px">
+            <div class="alvo" style="flex:1">1</div><div class="alvo" style="flex:1">2</div><div class="alvo" style="flex:1">3</div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo painel-codigo--duplo">
+        <figcaption>estilo.css — todo &lt; precisa estar escapado como &amp;lt;</figcaption>
+<pre class="codigo" data-lang="css">/* lê-se descendo a primeira coluna
+   e seguindo na segunda */
+.caixa {
+  display: flex;
+  gap: 12px;
+}
+.caixa > div {
+  flex: 1;
+}</pre>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= SEÇÃO: simulador de tela (OPCIONAL, aulas de responsividade) ======================= -->
+  <!--
+  <section class="secao" id="responsivo">
+    …
+    <div class="simulador">
+      <div class="simulador-barra">
+        <span class="larg">—</span><span class="bp">—</span>
+        <button data-larg="375" type="button">375</button>
+        <button data-larg="768" type="button">768</button>
+        <button data-larg="max" type="button">cheio</button>
+      </div>
+      <div class="simulador-caixa">
+        <iframe src="demos/exemplo.html" title="Demonstração" style="height:360px"></iframe>
+      </div>
+    </div>
+    <p class="simulador-dica">arraste o canto inferior direito ou use os botões de largura</p>
+  </section>
+  -->
+
+  <!-- ======================= LABORATÓRIO com construtor (aula.js §6) ======================= -->
+  <section class="secao" id="lab-formato">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Lab 1</span>
+      <h2 class="secao-titulo">Laboratório de formatos</h2>
+    </div>
+    <p class="secao-lead">Troque o formato e veja a aparência mudar, sem mudar o valor guardado.</p>
+
+    <div class="lab" data-lab="formato">
+      <div class="lab-controles">
+        <h4>controles</h4>
+        <div class="lab-campo">
+          <label for="f-formato">formato da coluna A</label>
+          <select id="f-formato" data-campo="formato">
+            <option value="geral" selected>Geral</option>
+            <option value="moeda">Moeda</option>
+            <option value="pct">Porcentagem</option>
+            <option value="dec2">Número</option>
+          </select>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <!-- a saída não precisa ser código: aqui é o caminho do menu e o atalho -->
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= LABORATÓRIO: planilha editável (aula.js §5) ======================= -->
+  <section class="secao" id="lab-planilha">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Lab 2</span>
+      <h2 class="secao-titulo">Planilha ao vivo</h2>
+    </div>
+    <p class="secao-lead">Clique numa célula, troque a fórmula ou um número na barra e veja tudo recalcular.</p>
+
+    <div class="planilha" data-planilha data-selecionar="E2">
+      <table class="planilha-grade" data-formatos="texto,dec1,dec1,dec1,dec1,texto">
+        <tr><td class="titulo">Aluno</td><td class="titulo">Prova 1</td><td class="titulo">Prova 2</td><td class="titulo">Trabalho</td><td class="titulo">Média</td><td class="titulo">Situação</td></tr>
+        <tr><td>Ana</td><td>8</td><td>7,5</td><td>9</td><td>=MÉDIA(B2:D2)</td><td>=SE(E2&gt;=7;"Aprovado";"Recuperação")</td></tr>
+        <tr><td>Bruno</td><td>5</td><td>6</td><td>7</td><td>=MÉDIA(B3:D3)</td><td>=SE(E3&gt;=7;"Aprovado";"Recuperação")</td></tr>
+        <tr><td>Carla</td><td>9,5</td><td>10</td><td>8</td><td>=MÉDIA(B4:D4)</td><td>=SE(E4&gt;=7;"Aprovado";"Recuperação")</td></tr>
+        <tr><td class="titulo">Aprovados</td><td></td><td></td><td></td><td></td><td>=CONT.SE(F2:F4;"Aprovado")</td></tr>
+      </table>
+    </div>
+    <p class="planilha-dica">fórmulas em português, com ponto e vírgula entre os argumentos — como no Excel instalado no Brasil</p>
+  </section>
+
+  <!-- ======================= TOUR: passo a passo clicável (aula.js §9) ======================= -->
+  <section class="secao" id="tour">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Passo a passo</span>
+      <h2 class="secao-titulo">Classificar uma lista</h2>
+    </div>
+    <p class="secao-lead">Avance um passo de cada vez: o botão da vez fica piscando.</p>
+
+    <div class="tour" data-tour>
+      <div class="tour-barra">
+        <button type="button" data-tour-anterior>anterior</button>
+        <span class="tour-contador" data-tour-contador></span>
+        <button type="button" data-tour-proximo>próximo</button>
+      </div>
+      <p class="tour-legenda" data-tour-legenda></p>
+      <div class="app">
+        <div class="app-titulo"><b>Pasta1 - Excel</b><span class="app-botoes">— ▢ ✕</span></div>
+        <div class="app-guias"><span>Arquivo</span><span>Página Inicial</span><span>Inserir</span><span class="ativa" data-passo="2" data-legenda="2. Abra a guia Dados.">Dados</span></div>
+        <div class="app-faixa">
+          <div class="app-grupo"><div><span class="app-btn" data-passo="3" data-legenda="3. Clique em Classificar de A a Z.">A a Z</span><span class="app-btn">Z a A</span><span class="app-btn">Filtro</span></div><small>Classificar e Filtrar</small></div>
+        </div>
+        <div class="app-corpo">
+          <span class="app-btn" data-passo="1" data-legenda="1. Clique em qualquer célula da coluna Nome." style="border-color:#C5CFDA">Nome: Carla · Ana · Bruno</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ (aula.js §8) ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">A turma responde em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Qual fórmula soma as células de A1 até A10?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">=SOMA(A1;A10)</button>
+          <button type="button" data-opcao="b">=SOMA(A1:A10)</button>
+          <button type="button" data-opcao="c">=A1+A10</button>
+        </div>
+        <p class="quiz-explica">Os dois-pontos indicam um intervalo (de A1 até A10). O ponto e vírgula separa argumentos: <code>=SOMA(A1;A10)</code> soma só as duas células.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PLAYGROUND LIVRE (OPCIONAL, aulas de código — aula.js §7) ======================= -->
+  <!--
+  <section class="secao" id="lab">
+    …
+    <div class="playground" data-playground>
+      <div class="pg-editor">
+        <div class="pg-barra">
+          <select data-exemplos aria-label="Carregar exemplo"><option value="">carregar um exemplo…</option><option value="basico">exemplo básico</option></select>
+          <button type="button" data-rodar>Executar</button>
+          <button type="button" class="secundario" data-limpar>Limpar</button>
+        </div>
+        <textarea spellcheck="false" aria-label="Editor de HTML"></textarea>
+      </div>
+      <div class="pg-resultado">
+        <div class="preview-topo" style="border:1px solid var(--borda);border-bottom:none;border-radius:var(--raio) var(--raio) 0 0">
+          <span class="preview-selo">resultado</span><code>atualiza sozinho enquanto você digita</code>
+        </div>
+        <iframe title="Resultado do laboratório livre"></iframe>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">O que aparece em praticamente todo trabalho.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde / atalho</th></tr></thead>
+        <tbody>
+          <tr><td>Somar um intervalo</td><td><code>=SOMA(A1:A10)</code></td><td>Página Inicial › AutoSoma · <kbd>Alt</kbd> + <kbd>=</kbd></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Título do que será construído</h2>
+    </div>
+    <p class="secao-lead">Uma frase que descreve o produto final.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que precisa ter</h3>
+        <ul class="requisitos">
+          <li>Requisito citando o recurso que resolve: <code>=SOMA</code>, AutoSoma, formato Moeda.</li>
+        </ul>
+      </div>
+      <!-- ponto de partida entregue ao aluno: planilha, arquivo, estrutura ou código -->
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Já está pronto</h3>
+        <p style="margin:0">Descreva ou mostre o que o aluno recebe para começar.</p>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>Cada item força um recurso específico da aula.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, junto da entrega</h3>
+        <ul class="requisitos">
+          <li>Por que A dá resultado diferente de B?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <!-- planilha, aplicativo reconstruído, simulador ou demonstração do alvo -->
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>…</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>…</p></article>
+      <article class="cartao"><h3>Critério de acessibilidade</h3><p>…</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Frase de fechamento da aula.</p>
+      <div class="rodape-meta">Excel Básico · Aula 1 — Nome do Instrutor, Instrutor de Informática<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<!-- OPCIONAL: JavaScript do framework ensinado -->
+<!-- <script src="vendor/framework/framework.bundle.min.js"></script> -->
+
+<script src="js/aula.js"></script>
+</body>
+</html>
