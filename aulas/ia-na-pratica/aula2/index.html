@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criar com IA — IA na Prática · Aula 2 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="ia-na-pratica" data-aula="aula2" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Criar com IA</a>
+    <nav class="barra-menu">
+      <a href="#modalidades">modalidades</a>
+      <a href="#prompt-visual">prompt visual</a>
+      <a href="#estilos">estilos</a>
+      <a href="#ferramentas-imagem">IA de imagem</a>
+      <a href="#refinar">refinar</a>
+      <a href="#video">vídeo</a>
+      <a href="#prompt-video">prompt de vídeo</a>
+      <a href="#ferramentas-video">IA de vídeo</a>
+      <a href="#revisao">revisão</a>
+      <a href="#textos">textos</a>
+      <a href="#voz">voz</a>
+      <a href="#documentos">documentos</a>
+      <a href="#organizar">organizar</a>
+      <a href="#apresentar">apresentar</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>IA na Prática</span><span>Aula 2</span></div>
+      <h1>Criar com IA</h1>
+      <p class="subtitulo">Imagens, vídeos e ferramentas de IA para o trabalho</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Na aula 1, o prompt de texto. Hoje, o mesmo raciocínio aplicado a imagens e vídeos, e as ferramentas de IA que ajudam a escrever, ler, aprender, apresentar e registrar o trabalho.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Escrever prompts visuais completos e refinar imagens por feedback.</li>
+      <li>Planejar um vídeo com IA: roteiro, cenas e prompt audiovisual.</li>
+      <li>Escolher a ferramenta de IA adequada para cada tarefa do trabalho.</li>
+      <li>Usar imagens, vídeos, vozes e textos gerados com responsabilidade.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#modalidades"><span class="num">01</span><span class="rotulo">Como a IA gera imagens e vídeos</span></a>
+      <a href="#prompt-visual"><span class="num">02</span><span class="rotulo">O prompt visual e os estilos</span></a>
+      <a href="#ferramentas-imagem"><span class="num">03</span><span class="rotulo">Ferramentas de imagem e refinamento</span></a>
+      <a href="#rostos"><span class="num">04</span><span class="rotulo">Rostos sintéticos e uso responsável</span></a>
+      <a href="#video"><span class="num">05</span><span class="rotulo">Do roteiro ao vídeo</span></a>
+      <a href="#ferramentas-video"><span class="num">06</span><span class="rotulo">Ferramentas de vídeo e revisão</span></a>
+      <a href="#produtividade"><span class="num">07</span><span class="rotulo">IA no dia a dia do trabalho</span></a>
+      <a href="#quiz"><span class="num">08</span><span class="rotulo">Quiz e atividade</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">Painel escuro = o que você escreve: o prompt, o feedback, a pergunta.</div>
+      <div class="legenda-item">Caixa branca = o que acontece. Todo laboratório funciona de verdade: mexa nos controles.</div>
+      <div class="legenda-item"><span class="amostra amostra--esboco">?</span> esboço com "?" = o que o prompt não definiu e a IA vai decidir sozinha</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = os terços da imagem</div>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 1</span><span class="parte-titulo">Imagens com IA</span></div>
+
+  <!-- ======================= 01 MODALIDADES ======================= -->
+  <section class="secao" id="modalidades">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Como a IA gera imagens e vídeos</h2>
+    </div>
+    <p class="secao-lead">A IA não copia a imaginação de ninguém: ela interpreta as instruções. O resultado depende do modelo, do prompt e das configurações, e a qualidade do que sai começa pela clareza do que entra.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>as quatro modalidades</figcaption>
+<pre class="codigo" data-lang="texto">Texto → imagem
+  uma descrição gera a imagem do zero
+
+Imagem → imagem
+  uma composição existente é modificada e transformada
+
+Edição por instrução
+  uma alteração específica, pedida por prompt
+
+Geração de vídeo
+  movimento, transições e animação</pre>
+        <ol class="passos">
+          <li>Leia a situação.</li>
+          <li>Pergunte: parte do zero, de uma imagem pronta ou de um pedido de ajuste?</li>
+          <li>Escolha a modalidade e confira a explicação.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual modalidade?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Descrever um cartaz de segurança e gerar do zero</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">texto → imagem</button><button type="button" data-opcao="b">imagem → imagem</button><button type="button" data-opcao="c">edição</button><button type="button" data-opcao="d">vídeo</button></div>
+              <p class="quiz-explica">Não há imagem de partida: a descrição é tudo o que a IA recebe.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Transformar a foto do pátio numa ilustração em aquarela</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">texto → imagem</button><button type="button" data-opcao="b">imagem → imagem</button><button type="button" data-opcao="c">edição</button><button type="button" data-opcao="d">vídeo</button></div>
+              <p class="quiz-explica">A foto é a base; a IA mantém a composição e muda o estilo.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Pedir: "remova o logotipo da carreta"</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">texto → imagem</button><button type="button" data-opcao="b">imagem → imagem</button><button type="button" data-opcao="c">edição</button><button type="button" data-opcao="d">vídeo</button></div>
+              <p class="quiz-explica">Uma alteração direcionada, num ponto específico, mantendo o resto.</p>
+            </div>
+            <div class="quiz-item" data-resposta="d">
+              <p class="quiz-pergunta">Fazer o caminhão da foto andar pela rodovia</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">texto → imagem</button><button type="button" data-opcao="b">imagem → imagem</button><button type="button" data-opcao="c">edição</button><button type="button" data-opcao="d">vídeo</button></div>
+              <p class="quiz-explica">Movimento é vídeo: aqui, imagem para vídeo, que a Parte 2 detalha.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Interpreta, não copia</h3><p>A IA não vê o que você imaginou: vê só as palavras. O que não está escrito, ela preenche do jeito dela.</p></article>
+      <article class="cartao"><h3>Mesmo prompt, imagens diferentes</h3><p>Modelo, configurações e sorteio mudam o resultado. Gerar duas ou três vezes faz parte do processo.</p></article>
+      <article class="cartao cartao--erro"><h3>Prompt vago, imagem genérica</h3><p>"Um caminhão em uma estrada" deixa quase tudo para a IA decidir: luz, ângulo, estilo, formato.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 PROMPT VISUAL ======================= -->
+  <section class="secao" id="prompt-visual">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Anatomia de um prompt visual</h2>
+    </div>
+    <p class="secao-lead">Objetivo, sujeito, ação, ambiente, estilo, composição, enquadramento, iluminação, cores, formato e restrições: onze decisões. O que você não decidir, a IA decide.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">genérico</span>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Um caminhão em uma estrada.</div></div></div>
+        <div class="esboco-caixa" data-esboco='{"sujeito":"caminhao","ambiente":"rodovia"}'></div>
+        <p class="nota-demo">luz, formato, estilo e cores ficam por conta da IA</p>
+      </div>
+      <div>
+        <span class="rotulo-atual">estruturado</span>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Fotografia publicitária realista de um caminhão moderno circulando por uma rodovia brasileira ao amanhecer, enquadramento horizontal, luz dourada, sensação de segurança, sem textos, marcas ou logotipos.</div></div></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"amanhecer","ambiente":"rodovia","sujeito":"caminhao","posicao":"centro","plano":"medio","estilo":"foto","cores":"azul"}'></div>
+        <p class="nota-demo">cada decisão do prompt aparece no quadro</p>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: monte o prompt visual</h3>
+    <div class="lab lab--largo" data-lab="visual">
+      <div class="lab-controles lab-controles--duas">
+        <h4>os onze elementos</h4>
+        <div class="lab-campo"><label for="pv-obj">objetivo: onde vai ser usada</label>
+          <select id="pv-obj" data-campo="objetivo"><option value="" selected>(não informado)</option><option value="cartaz">cartaz da campanha interna</option><option value="post">post de rede social</option><option value="slide">capa de slide de treinamento</option></select></div>
+        <div class="lab-campo"><label for="pv-suj">sujeito</label>
+          <select id="pv-suj" data-campo="sujeito"><option value="caminhao" selected>caminhão</option><option value="onibus">ônibus</option><option value="pessoa">motorista</option><option value="">(não informado)</option></select></div>
+        <div class="lab-campo"><label for="pv-acao">ação</label>
+          <select id="pv-acao" data-campo="acao"><option value="" selected>(não informada)</option><option value="movimento">em movimento</option><option value="parado">parado</option></select></div>
+        <div class="lab-campo"><label for="pv-amb">ambiente</label>
+          <select id="pv-amb" data-campo="ambiente"><option value="rodovia" selected>rodovia</option><option value="patio">pátio da transportadora</option><option value="cidade">cidade</option><option value="">(não informado)</option></select></div>
+        <div class="lab-campo"><label for="pv-est">estilo</label>
+          <select id="pv-est" data-campo="estilo"><option value="" selected>(não informado)</option><option value="foto">fotografia realista</option><option value="vetorial">ilustração vetorial</option><option value="iso">3D isométrico</option><option value="cinema">cinematográfico</option><option value="cartaz">cartaz</option></select></div>
+        <div class="lab-campo"><label for="pv-comp">composição</label>
+          <select id="pv-comp" data-campo="composicao"><option value="" selected>(não informada)</option><option value="terco">sujeito no terço esquerdo</option><option value="centro">sujeito centralizado</option></select></div>
+        <div class="lab-campo"><label for="pv-plano">enquadramento</label>
+          <select id="pv-plano" data-campo="plano"><option value="" selected>(não informado)</option><option value="aberto">plano aberto</option><option value="medio">plano médio</option><option value="close">close</option></select></div>
+        <div class="lab-campo"><label for="pv-luz">iluminação</label>
+          <select id="pv-luz" data-campo="luz"><option value="" selected>(não informada)</option><option value="amanhecer">amanhecer, luz dourada</option><option value="dia">dia claro</option><option value="noite">noite, faróis acesos</option></select></div>
+        <div class="lab-campo"><label for="pv-cores">cores</label>
+          <select id="pv-cores" data-campo="cores"><option value="" selected>(não informadas)</option><option value="azul">tons de azul</option><option value="quente">cores quentes</option></select></div>
+        <div class="lab-campo"><label for="pv-form">formato</label>
+          <select id="pv-form" data-campo="formato"><option value="" selected>(não informado)</option><option value="16:9">horizontal 16:9</option><option value="1:1">quadrado 1:1</option><option value="9:16">vertical 9:16</option></select></div>
+        <div class="lab-campo"><label>restrições</label>
+          <label class="lab-check"><input type="checkbox" data-campo="semTexto"> sem textos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="semLogo"> sem marcas ou logotipos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="semPessoas"> sem pessoas reconhecíveis</label></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o prompt montado</p><button type="button" class="botao-copiar" data-copiar="#prompt-visual-saida">copiar o prompt</button></div>
+          <pre id="prompt-visual-saida" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Comece pelo objetivo</h3><p>Onde a imagem vai ser usada decide o formato e o estilo: um post vertical não é a capa de um slide.</p></article>
+      <article class="cartao"><h3>Restrição também é instrução</h3><p>"Sem textos, marcas ou logotipos" evita os problemas mais comuns antes que eles apareçam.</p></article>
+      <article class="cartao cartao--erro"><h3>Texto dentro da imagem</h3><p>Os modelos melhoraram muito, mas ainda trocam letras e acentos. Em material oficial, escreva o título depois, no editor.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 ESTILOS ======================= -->
+  <section class="secao" id="estilos">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Estilos de imagem</h2>
+    </div>
+    <p class="secao-lead">Escolha o estilo pelo objetivo, pelo público, pelo canal, pela formalidade e pela identidade visual. A mesma cena, cinco jeitos de comunicar.</p>
+
+    <div class="galeria">
+      <div class="mini">
+        <div class="mini-titulo"><code>fotografia</code><span>realista, corporativa, de produto</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"amanhecer","ambiente":"rodovia","sujeito":"caminhao","posicao":"terco","plano":"medio","estilo":"foto","cores":"azul"}'></div>
+        <p class="mini-texto">Comunicados, campanhas, catálogo de serviços.</p>
+        <p class="mini-exemplo">"fotografia realista", "luz natural", "lente 50 mm"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>ilustração</code><span>vetorial, aquarela, pintura digital</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"dia","ambiente":"rodovia","sujeito":"caminhao","posicao":"terco","plano":"medio","estilo":"vetorial","cores":"azul"}'></div>
+        <p class="mini-texto">Materiais educativos, explicações leves, público amplo.</p>
+        <p class="mini-exemplo">"ilustração vetorial", "traço limpo", "cores chapadas"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>3D e isométrico</code><span>moderno, técnico, impactante</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"dia","ambiente":"patio","sujeito":"caminhao","posicao":"centro","plano":"medio","estilo":"iso","cores":"azul"}'></div>
+        <p class="mini-texto">Processos técnicos, como algo funciona, apresentações modernas.</p>
+        <p class="mini-exemplo">"ilustração 3D isométrica", "vista de cima em 45 graus"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>cinematográfico</code><span>alta produção, narrativa</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"noite","ambiente":"rodovia","sujeito":"caminhao","posicao":"terco","plano":"medio","estilo":"cinema","cores":"azul"}'></div>
+        <p class="mini-texto">Abertura de vídeo, campanhas com emoção, histórias.</p>
+        <p class="mini-exemplo">"cena cinematográfica", "faixas pretas", "luz dramática"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>infográfico e cartaz</code><span>comunicação clara e direta</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","luz":"dia","ambiente":"rodovia","sujeito":"caminhao","posicao":"centro","plano":"aberto","estilo":"cartaz","cores":"azul"}'></div>
+        <p class="mini-texto">Avisos, campanhas, mural, uma mensagem só.</p>
+        <p class="mini-exemplo">"cartaz", "espaço para título no topo", "ícones simples"</p>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>sem estilo</code><span>o que a IA decide sozinha</span></div>
+        <div class="esboco-caixa" data-esboco='{"formato":"16:9","ambiente":"rodovia","sujeito":"caminhao"}'></div>
+        <p class="mini-texto">Sem estilo no prompt, cada geração pode vir num estilo diferente.</p>
+        <p class="mini-exemplo">qual estilo comunica melhor a mensagem pretendida?</p>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>cinco perguntas para escolher o estilo</figcaption>
+        <ol class="passos">
+          <li><b>Objetivo:</b> informar, ensinar, convencer, emocionar?</li>
+          <li><b>Público:</b> motoristas, clientes, gestores, crianças?</li>
+          <li><b>Canal:</b> mural, rede social, slide, vídeo?</li>
+          <li><b>Formalidade:</b> comunicado oficial ou conversa leve?</li>
+          <li><b>Identidade visual:</b> combina com as outras peças da empresa?</li>
+        </ol>
+      </figure>
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual estilo?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Mostrar, passo a passo, como amarrar a carga, para o treinamento</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">cinematográfico</button><button type="button" data-opcao="b">3D isométrico</button><button type="button" data-opcao="c">fotografia</button></div>
+              <p class="quiz-explica">Processo técnico pede clareza: o isométrico mostra cada parte sem a confusão de uma foto real.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Aviso no mural: uso obrigatório do cinto</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">aquarela</button><button type="button" data-opcao="b">cinematográfico</button><button type="button" data-opcao="c">cartaz</button></div>
+              <p class="quiz-explica">Uma mensagem só, lida de longe: cartaz, com título grande e imagem simples.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Abertura do vídeo de fim de ano da empresa</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">cinematográfico</button><button type="button" data-opcao="b">infográfico</button><button type="button" data-opcao="c">3D isométrico</button></div>
+              <p class="quiz-explica">Emoção e narrativa: o cinematográfico cria clima de produção caprichada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Estilo é mensagem</h3><p>A mesma rodovia, em foto ou em cartaz, diz coisas diferentes. Escolha pelo efeito que você quer no público.</p></article>
+      <article class="cartao"><h3>Uma campanha, um estilo</h3><p>Use o mesmo estilo em todas as peças de uma campanha: o público reconhece a série de longe.</p></article>
+      <article class="cartao cartao--erro"><h3>Realista não é real</h3><p>Uma fotografia realista gerada por IA não mostra algo que aconteceu. Ela é ilustração, mesmo parecendo foto.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 FERRAMENTAS DE IMAGEM ======================= -->
+  <section class="secao" id="ferramentas-imagem">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">Ferramentas de imagem</h2>
+    </div>
+    <p class="secao-lead">Todas geram imagens a partir de texto. A melhor ferramenta depende do objetivo e do resultado que cada uma entrega em cada situação: compare com a mesma régua.</p>
+
+    <div class="galeria">
+      <div class="mini">
+        <div class="mini-titulo"><code>Gemini</code><span>Google</span></div>
+        <ul class="lista-curta"><li>Cria imagens por linguagem natural.</li><li>Interpreta descrições detalhadas com precisão.</li><li>Permite alterações por conversa.</li><li>Combina texto e imagens de referência.</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>Microsoft Copilot</code><span>Microsoft</span></div>
+        <ul class="lista-curta"><li>Gera imagens a partir de prompts diretos.</li><li>Bom para experimentações rápidas.</li><li>Materiais para apresentações e campanhas.</li><li>Integrado ao Windows e ao Microsoft 365.</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>ChatGPT</code><span>OpenAI · antes DALL·E</span></div>
+        <ul class="lista-curta"><li>Estilos variados a partir de linguagem natural.</li><li>Composições originais conforme as instruções.</li><li>Edição e refinamento por conversa.</li><li>Ilustrações, conceitos e materiais educativos.</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>Leonardo AI</code><span>geração e edição visual</span></div>
+        <ul class="lista-curta"><li>Vários modelos e estilos no mesmo lugar.</li><li>Ilustrações, personagens e produtos.</li><li>Recursos de refinamento e melhoria de imagem.</li></ul>
+      </div>
+      <div class="mini">
+        <div class="mini-titulo"><code>Google Flow</code><span>antes ImageFX</span></div>
+        <ul class="lista-curta"><li>Gera variações a partir de descrições.</li><li>Testa estilos, cenas e composições.</li><li>Acesso e recursos variam por conta e região.</li></ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: avalie a imagem gerada</h3>
+    <div class="lab" data-lab="rubrica">
+      <div class="lab-controles">
+        <h4>notas de 0 a 5</h4>
+        <div class="lab-campo"><label for="ru-1">aderência ao prompt — <span data-eco="c1">4</span></label><input type="range" id="ru-1" data-campo="c1" min="0" max="5" step="1" value="4"></div>
+        <div class="lab-campo"><label for="ru-2">composição — <span data-eco="c2">3</span></label><input type="range" id="ru-2" data-campo="c2" min="0" max="5" step="1" value="3"></div>
+        <div class="lab-campo"><label for="ru-3">realismo e estilo — <span data-eco="c3">4</span></label><input type="range" id="ru-3" data-campo="c3" min="0" max="5" step="1" value="4"></div>
+        <div class="lab-campo"><label for="ru-4">coerência — <span data-eco="c4">2</span></label><input type="range" id="ru-4" data-campo="c4" min="0" max="5" step="1" value="2"></div>
+        <div class="lab-campo"><label for="ru-5">facilidade de refinar — <span data-eco="c5">3</span></label><input type="range" id="ru-5" data-campo="c5" min="0" max="5" step="1" value="3"></div>
+        <div class="lab-campo"><label for="ru-6">sem elementos indevidos — <span data-eco="c6">2</span></label><input type="range" id="ru-6" data-campo="c6" min="0" max="5" step="1" value="2"></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o veredito</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Mesma régua, duas ferramentas</h3><p>Mande o mesmo prompt a duas ferramentas e dê nota com os mesmos seis critérios. A comparação fica justa.</p></article>
+      <article class="cartao cartao--novo"><h3>O DALL·E saiu de cena</h3><p>O ChatGPT passou a gerar imagens com modelos próprios (GPT Image) e, em 2026, a OpenAI aposentou o DALL·E. Material que cita o DALL·E vale para o gerador de imagens do ChatGPT.</p></article>
+      <article class="cartao cartao--novo"><h3>ImageFX agora é Flow</h3><p>Em 2026, o Google reuniu o ImageFX e o Whisk no Flow, a sua ferramenta de criação de imagens e vídeos.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 REFINAR ======================= -->
+  <section class="secao" id="refinar">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Refinar por feedback</h2>
+    </div>
+    <p class="secao-lead">A primeira geração é uma versão inicial, não o resultado definitivo. Feedback específico produz refinamentos controlados.</p>
+
+    <ol class="fluxo">
+      <li><div><b>Ideia</b><span>o que a imagem precisa comunicar</span></div></li>
+      <li><div><b>Prompt</b><span>os onze elementos</span></div></li>
+      <li><div><b>Imagem inicial</b><span>a primeira versão</span></div></li>
+      <li><div><b>Análise e feedback</b><span>o que manter, mudar, tirar, pôr; e de volta ao prompt</span></div></li>
+    </ol>
+
+    <h3 class="sub-titulo">Laboratório: da versão 1 à versão 2</h3>
+    <div class="lab" data-lab="feedback">
+      <div class="lab-controles">
+        <h4>o feedback</h4>
+        <div class="lab-campo"><label for="fb-tipo">tipo de feedback</label>
+          <select id="fb-tipo" data-campo="tipo"><option value="estruturado" selected>estruturado</option><option value="vago">vago: "Deixe melhor."</option></select></div>
+        <label class="lab-check"><input type="checkbox" data-campo="mantenha" checked> Mantenha a iluminação e o enquadramento</label>
+        <label class="lab-check"><input type="checkbox" data-campo="altere" checked> Altere o fundo para uma sala de treinamento</label>
+        <label class="lab-check"><input type="checkbox" data-campo="remova"> Remova textos e símbolos</label>
+        <label class="lab-check"><input type="checkbox" data-campo="adicione"> Adicione computadores</label>
+        <label class="lab-check"><input type="checkbox" data-campo="evite"> Evite aparência futurista exagerada</label>
+        <label class="lab-check"><input type="checkbox" data-campo="formato"> Utilize formato horizontal 16:9</label>
+        <p class="nota-demo">versão 1: instrutor no pátio, fim de tarde, quadrado, com um texto ilegível e um logotipo inventado</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o feedback enviado</p><button type="button" class="botao-copiar" data-copiar="#feedback-saida">copiar</button></div>
+          <pre id="feedback-saida" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Peça ajuda para escrever o prompt</h3>
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">10 palavras soltas</span>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Capa de livro: autonomia, agilidade, produtividade, automação, IA, gestão do tempo, objetividade, assertividade.</div></div></div>
+        <p class="nota-demo">palavras-chave dão o tema, mas não dizem cenário, personagem, luz nem estilo</p>
+      </div>
+      <div>
+        <span class="rotulo-atual">o ChatGPT como assistente de prompts</span>
+        <div class="chat"><div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Transforme estas palavras num prompt de imagem detalhado para a capa de um livro de não ficção sobre autonomia no trabalho, com cenário, personagem, atmosfera e estilo.</div>
+          <div class="chat-msg chat-msg--ia">Capa de livro, fotografia realista: profissional experiente trabalhando num escritório moderno, com a cidade ao fundo pela janela. Tarde ensolarada, luz quente, sensação de clareza e energia. Formato vertical 2:3, espaço livre no topo para o título, sem textos na imagem.</div>
+        </div></div>
+      </div>
+    </div>
+    <p class="nota-demo" style="margin-top:10px">exemplo adaptado da atividade "capa de livro" do Guia Básico de Inteligência Artificial · resposta de exemplo</p>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Diga o que preservar</h3><p>Sem "mantenha", a IA pode mexer justamente no que estava bom. Peça uma alteração por vez quando o ajuste for delicado.</p></article>
+      <article class="cartao"><h3>Compare e registre</h3><p>Compare as versões antes de decidir e guarde os prompts que deram certo: viram modelo para a próxima peça.</p></article>
+      <article class="cartao cartao--erro"><h3>"Deixe melhor" não é feedback</h3><p>Descreva o problema com precisão: o fundo, a luz, o texto que sobrou. Comentário vago gera mudança aleatória.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 ROSTOS SINTÉTICOS ======================= -->
+  <section class="secao" id="rostos">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Rostos sintéticos e uso responsável</h2>
+    </div>
+    <p class="secao-lead">Sites como Essa Pessoa Não Existe mostram rostos realistas de pessoas que nunca existiram. Fotografias não são automaticamente verdadeiras, e isso vale para qualquer imagem gerada.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>checklist de uso responsável</figcaption>
+        <ol class="passos">
+          <li>Não criar conteúdo feito para enganar.</li>
+          <li>Não usar o rosto de ninguém sem autorização.</li>
+          <li>Verificar os direitos de uso antes de publicar.</li>
+          <li>Evitar marcas e logotipos não autorizados.</li>
+          <li>Procurar distorções e inconsistências.</li>
+          <li>Informar o uso de IA quando necessário.</li>
+          <li>Não tratar imagem gerada como evidência.</li>
+          <li>Manter sempre a supervisão humana.</li>
+        </ol>
+      </figure>
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>pode ou não pode?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Rosto sintético num "depoimento de cliente satisfeito" no site</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">É um depoimento que não existiu, com uma pessoa que não existe: engana quem lê.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Ilustração de um motorista genérico no cartaz interno de segurança</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">Personagem ilustrativo, sem fingir ser alguém real, numa mensagem verdadeira.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Imagem gerada de um caminhão tombado, enviada como prova de um acidente</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">Imagem gerada não é evidência. Usada como prova, é fraude.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">O logotipo de outra transportadora numa imagem da nossa campanha</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Pode</button><button type="button" data-opcao="b">Não pode</button></div>
+              <p class="quiz-explica">Marca de terceiros sem autorização: problema de direito de uso e de imagem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Rosto sem dono ainda engana</h3><p>O rosto não é de ninguém, mas uma identidade falsa ou um depoimento inventado continuam enganando pessoas reais.</p></article>
+      <article class="cartao"><h3>Diga quando usou IA</h3><p>Em material público, informar que a imagem foi gerada protege a empresa e respeita quem vê.</p></article>
+      <article class="cartao cartao--erro"><h3>Imagem gerada não é prova</h3><p>Nem de acidente, nem de entrega, nem de avaria. Para provar, só foto e documento reais.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 2</span><span class="parte-titulo">Vídeos com IA</span></div>
+
+  <!-- ======================= 07 DO ROTEIRO AO VÍDEO ======================= -->
+  <section class="secao" id="video">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">Do roteiro ao vídeo</h2>
+    </div>
+    <p class="secao-lead">No vídeo, a IA precisa interpretar não só a aparência da cena, mas o tempo, a ação, o movimento, a câmera e o áudio.</p>
+
+    <ol class="fluxo">
+      <li><div><b>Ideia</b><span>conceito e objetivo</span></div></li>
+      <li><div><b>Roteiro</b><span>cenas e narrativa</span></div></li>
+      <li><div><b>Cenas</b><span>ações e câmera</span></div></li>
+      <li><div><b>Prompt</b><span>visual e movimento</span></div></li>
+      <li><div><b>Geração</b><span>a sequência, com IA</span></div></li>
+    </ol>
+
+    <h3 class="sub-titulo">Oito modalidades</h3>
+    <div class="galeria galeria--quatro">
+      <div class="mini"><div class="mini-titulo"><code>texto → vídeo</code></div><p class="mini-texto">A descrição vira cena.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>imagem → vídeo</code></div><p class="mini-texto">A imagem ganha movimento de câmera, de objetos ou de personagens.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>vídeo → vídeo</code></div><p class="mini-texto">Um vídeo existente é transformado ou editado.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>roteiro → vídeo</code></div><p class="mini-texto">A ideia ou o roteiro é dividido em cenas.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>avatar</code></div><p class="mini-texto">Um apresentador virtual apresenta a mensagem.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>longo → curto</code></div><p class="mini-texto">Aulas, entrevistas ou podcasts viram cortes.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>quadro inicial e final</code></div><p class="mini-texto">A IA cria a transição entre duas imagens.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>com áudio</code></div><p class="mini-texto">O vídeo já vem com som ambiente, efeitos, voz ou diálogo.</p></div>
+    </div>
+
+    <h3 class="sub-titulo">Clipe, cena, sequência, vídeo</h3>
+    <ol class="fluxo fluxo--crescente">
+      <li><div><b>Clipe</b><span>trecho curto e isolado</span></div></li>
+      <li><div><b>Cena</b><span>unidade da narrativa</span></div></li>
+      <li><div><b>Sequência</b><span>cenas ligadas entre si</span></div></li>
+      <li><div><b>Vídeo completo</b><span>narrativa do início ao fim</span></div></li>
+    </ol>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Comece pelo roteiro</h3><p>Antes de gerar o primeiro clipe, escreva o que acontece em cada cena. A IA gera melhor o que já foi planejado.</p></article>
+      <article class="cartao"><h3>Vídeo longo é montagem</h3><p>As ferramentas costumam gerar clipes de poucos segundos. Um vídeo de um minuto é a soma de vários clipes, editados.</p></article>
+      <article class="cartao cartao--erro"><h3>Clipe bonito não é vídeo pronto</h3><p>Uma ferramenta pode gerar um clipe atraente sem criar uma narrativa completa e coerente.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 PROMPT AUDIOVISUAL ======================= -->
+  <section class="secao" id="prompt-video">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">O prompt audiovisual</h2>
+    </div>
+    <p class="secao-lead">Quatro blocos: objetivo, duração e formato; sujeito, ambiente e ação; câmera, iluminação e estilo; áudio, encerramento e restrições.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">genérico</span>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Um caminhão em uma rodovia.</div></div></div>
+      </div>
+      <div>
+        <span class="rotulo-atual">estruturado</span>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Vídeo publicitário realista de um caminhão moderno circulando por uma rodovia brasileira ao amanhecer. A câmera acompanha o veículo lateralmente, com movimento suave, iluminação dourada e som ambiente discreto. Sem logotipos, textos, placas legíveis ou manobras perigosas.</div></div></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: dirija a câmera</h3>
+    <div class="lab lab--largo" data-lab="video">
+      <div class="lab-controles lab-controles--duas">
+        <h4>1 · objetivo, duração, formato</h4>
+        <div class="lab-campo"><label for="vd-obj">objetivo</label>
+          <select id="vd-obj" data-campo="objetivo"><option value="" selected>(não informado)</option><option value="institucional">vídeo institucional</option><option value="post">post curto para redes</option><option value="treinamento">abertura de treinamento</option></select></div>
+        <div class="lab-campo"><label for="vd-dur">duração — <span data-eco="dur">8</span> s</label><input type="range" id="vd-dur" data-campo="dur" min="4" max="20" step="1" value="8"></div>
+        <div class="lab-campo"><label for="vd-form">formato</label>
+          <select id="vd-form" data-campo="formato"><option value="16:9" selected>horizontal 16:9</option><option value="9:16">vertical 9:16</option><option value="1:1">quadrado 1:1</option><option value="">(não informado)</option></select></div>
+        <h4>2 · sujeito e ambiente</h4>
+        <div class="lab-campo"><label for="vd-suj">sujeito</label>
+          <select id="vd-suj" data-campo="sujeito"><option value="caminhao" selected>caminhão</option><option value="onibus">ônibus</option></select></div>
+        <div class="lab-campo"><label for="vd-amb">ambiente</label>
+          <select id="vd-amb" data-campo="ambiente"><option value="rodovia" selected>rodovia</option><option value="cidade">cidade</option></select></div>
+        <h4>3 · câmera, luz, estilo</h4>
+        <div class="lab-campo"><label for="vd-cam">câmera</label>
+          <select id="vd-cam" data-campo="camera"><option value="lateral" selected>acompanha lateralmente</option><option value="fixa">fixa: o veículo atravessa</option><option value="aproxima">aproximação lenta</option><option value="afasta">sobe e se afasta (drone)</option><option value="pan">panorâmica</option><option value="">(não informada)</option></select></div>
+        <div class="lab-campo"><label for="vd-luz">iluminação</label>
+          <select id="vd-luz" data-campo="luz"><option value="amanhecer" selected>amanhecer</option><option value="dia">dia claro</option><option value="noite">noite</option><option value="">(não informada)</option></select></div>
+        <div class="lab-campo"><label for="vd-est">estilo</label>
+          <select id="vd-est" data-campo="estilo"><option value="foto" selected>realista</option><option value="cinema">cinematográfico</option><option value="vetorial">animação ilustrada</option><option value="">(não informado)</option></select></div>
+        <h4>4 · áudio, fim, restrições</h4>
+        <div class="lab-campo"><label for="vd-aud">áudio</label>
+          <select id="vd-aud" data-campo="audio"><option value="ambiente" selected>som ambiente discreto</option><option value="narracao">narração</option><option value="musica">música instrumental</option><option value="nenhum">sem áudio</option><option value="">(não informado)</option></select></div>
+        <div class="lab-campo"><label for="vd-fim">encerramento</label>
+          <select id="vd-fim" data-campo="fim"><option value="" selected>(não informado)</option><option value="corte">corte seco</option><option value="fade">escurece até o preto</option><option value="mensagem">tela com mensagem</option></select></div>
+        <label class="lab-check"><input type="checkbox" data-campo="semLogo"> sem logotipos</label>
+        <label class="lab-check"><input type="checkbox" data-campo="semTexto"> sem textos ou placas legíveis</label>
+        <label class="lab-check"><input type="checkbox" data-campo="semManobra"> sem manobras perigosas</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o prompt audiovisual</p><button type="button" class="botao-copiar" data-copiar="#prompt-video-saida">copiar o prompt</button></div>
+          <pre id="prompt-video-saida" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Câmera é verbo</h3><p>Acompanha, aproxima, sobe, atravessa: diga como a câmera se move. Sem isso, cada geração escolhe um movimento.</p></article>
+      <article class="cartao"><h3>Diga como termina</h3><p>Corte seco, tela preta ou mensagem final. O encerramento é o que fica na memória de quem assiste.</p></article>
+      <article class="cartao cartao--erro"><h3>O áudio também se revisa</h3><p>Som gerado junto com o vídeo pode errar idioma, pronúncia, sentido e sincronização. Ouça antes de publicar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 FERRAMENTAS DE VÍDEO ======================= -->
+  <section class="secao" id="ferramentas-video">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Ferramentas de vídeo</h2>
+    </div>
+    <p class="secao-lead">Cada ferramenta resolve uma parte do trabalho: gerar clipes, montar o vídeo completo, cortar conteúdo longo, apresentar com avatar, planejar cenas, criar referências.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Objetivo</th><th>Ferramenta</th><th>O que observar</th></tr></thead>
+        <tbody>
+          <tr><td>Criar ou editar clipes</td><td><b>Runway</b></td><td>Gera a partir de texto, imagem ou clipe; transforma cenário, luz e estilo de vídeos existentes; estende sequências.</td></tr>
+          <tr><td>Transformar roteiro em vídeo completo</td><td><b>InVideo</b></td><td>Organiza cenas, imagens, locução, música e transições: um vídeo, não só um clipe.</td></tr>
+          <tr><td>Criar conteúdo curto e vertical</td><td><b>Revid</b></td><td>Transforma artigos, links, PDFs, áudios e vídeos em cortes com narração e legendas. Ritmo de rede social pode não servir para treinamento formal.</td></tr>
+          <tr><td>Usar avatar apresentador</td><td><b>HeyGen</b></td><td>Avatares com sincronização labial, vários idiomas; voz e imagem de pessoas só com autorização.</td></tr>
+          <tr><td>Organizar roteiro e storyboard</td><td><b>LTX Studio</b></td><td>Divide o projeto em cenas, controla enquadramento e câmera, mantém a continuidade.</td></tr>
+          <tr><td>Criar imagens de referência</td><td><b>FLUX</b></td><td>Modelos da Black Forest Labs: personagens, cenários, quadros inicial e final, storyboard.</td></tr>
+          <tr><td>Testar diferentes modelos</td><td><b>OpenArt</b></td><td>Plataforma que reúne vários modelos de imagem e vídeo para comparar resultados.</td></tr>
+          <tr><td>Gerar cenas com referências e áudio</td><td><b>Google Flow</b> (Veo)</td><td>Ingredientes, quadros inicial e final, extensão de cenas, áudio nativo e continuidade de personagens.</td></tr>
+          <tr><td>Referência histórica</td><td><b>Sora</b> (OpenAI)</td><td>Popularizou o texto para vídeo. O aplicativo foi descontinuado em 26 de abril de 2026.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: qual ferramenta usar?</h3>
+    <div class="lab" data-lab="escolha">
+      <div class="lab-controles">
+        <h4>as perguntas orientadoras</h4>
+        <div class="lab-campo"><label for="es-prod">1. preciso de…</label>
+          <select id="es-prod" data-campo="produto"><option value="clipe" selected>um clipe curto</option><option value="completo">um vídeo completo</option><option value="curto">conteúdo curto e vertical</option></select></div>
+        <div class="lab-campo"><label for="es-base">2. já tenho…</label>
+          <select id="es-base" data-campo="base"><option value="ideia">só a ideia</option><option value="roteiro">o roteiro pronto</option><option value="imagem" selected>uma imagem</option><option value="video">um vídeo</option><option value="longo">texto longo, PDF ou aula gravada</option></select></div>
+        <div class="lab-campo"><label>3. preciso de…</label>
+          <label class="lab-check"><input type="checkbox" data-campo="avatar"> apresentador virtual</label>
+          <label class="lab-check"><input type="checkbox" data-campo="audio"> áudio gerado junto</label>
+          <label class="lab-check"><input type="checkbox" data-campo="continuidade"> o mesmo personagem em várias cenas</label>
+          <label class="lab-check"><input type="checkbox" data-campo="comparar"> comparar modelos</label></div>
+        <div class="lab-campo"><label for="es-aut">4. imagem e voz de pessoas reais</label>
+          <select id="es-aut" data-campo="autorizacao"><option value="nenhuma" selected>não uso pessoas reais</option><option value="sim">tenho autorização</option><option value="nao">não tenho autorização</option></select></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o caminho sugerido</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Plataforma × modelo</h3><p>Plataforma é o ambiente que você usa (OpenArt, Flow). Modelo é a IA que produz o conteúdo (Veo, FLUX).</p></article>
+      <article class="cartao"><h3>Referência, movimento, edição</h3><p>Um fluxo comum: o FLUX cria a referência, outra ferramenta cria o movimento, um editor organiza a produção.</p></article>
+      <article class="cartao cartao--erro"><h3>Avatar com cuidado</h3><p>Autorização para imagem e voz; aviso de que o apresentador é sintético; nenhuma fala atribuída a quem não disse; pronúncia e tradução revisadas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 REVISÃO ======================= -->
+  <section class="secao" id="revisao">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Revisão humana</h2>
+    </div>
+    <p class="secao-lead">Criar vídeo com IA é dirigir, revisar e comunicar com responsabilidade, não apenas apertar um botão. Três quadros de um clipe gerado: encontre as seis falhas.</p>
+
+    <div class="falhas" data-falhas>
+      <div class="falhas-barra">
+        <span class="falhas-contador" data-falhas-contador></span>
+        <button type="button" class="botao" data-falhas-todas>mostrar todas</button>
+        <button type="button" class="botao botao--secundario" data-falhas-limpar>recomeçar</button>
+      </div>
+      <div class="falhas-palco" data-falhas-palco></div>
+      <ol class="falhas-lista" data-falhas-lista></ol>
+    </div>
+
+    <div class="par" style="margin-top:28px">
+      <figure class="painel-codigo">
+        <figcaption>limitações comuns: o que revisar</figcaption>
+<pre class="codigo" data-lang="texto">Inconsistência de personagens
+  aparência que muda, mãos ou rostos deformados
+
+Falhas visuais
+  objetos que aparecem ou somem, movimentos estranhos
+
+Problemas de áudio
+  sincronização labial imperfeita, sons ou falas erradas
+
+Falhas de geração
+  textos ilegíveis, prompt atendido pela metade,
+  resultado difícil de reproduzir</pre>
+      </figure>
+      <div class="bloco-branco">
+        <span class="nivel">checklist de uso responsável</span>
+        <ul class="requisitos">
+          <li>Não usar imagem ou voz sem autorização.</li>
+          <li>Não criar declarações falsas nem simular gestores, clientes ou colegas.</li>
+          <li>Informar quando o vídeo for sintético, se necessário.</li>
+          <li>Respeitar direitos autorais.</li>
+          <li>Revisar roteiro, cenas, áudio e legendas.</li>
+          <li>Evitar informações pessoais ou sigilosas.</li>
+          <li>Não apresentar vídeo gerado como prova de acontecimentos.</li>
+          <li>Manter a responsabilidade humana sobre a publicação.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Revise quadro a quadro</h3><p>Passe o vídeo devagar: cor do veículo, número de rodas, objetos ao fundo, placas e o som de cada trecho.</p></article>
+      <article class="cartao"><h3>Vídeo gerado não é prova</h3><p>Ele mostra uma cena possível, não um fato. Nunca o use como registro de algo que aconteceu.</p></article>
+      <article class="cartao cartao--erro"><h3>Ninguém fala pelo outro</h3><p>Não simule gestores, clientes ou colegas dizendo o que não disseram, nem "de brincadeira".</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 3</span><span class="parte-titulo">Utilidades de IA para o trabalho</span></div>
+
+  <!-- ======================= 11 PRODUTIVIDADE ======================= -->
+  <section class="secao" id="produtividade">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Produtividade com IA</h2>
+    </div>
+    <p class="secao-lead">Produtividade com IA não é só produzir mais: é reduzir tarefas repetitivas, melhorar as entregas, achar informação rápido e liberar tempo para a análise e a decisão, que continuam humanas.</p>
+
+    <ol class="fluxo">
+      <li><div><b>Identificar</b><span>a necessidade e o objetivo</span></div></li>
+      <li><div><b>Escolher</b><span>a ferramenta adequada</span></div></li>
+      <li><div><b>Instruir</b><span>prompt claro e preciso</span></div></li>
+      <li><div><b>Gerar</b><span>o resultado, com a IA</span></div></li>
+      <li><div><b>Revisar</b><span>qualidade e precisão</span></div></li>
+    </ol>
+
+    <h3 class="sub-titulo">Sete ferramentas, sete tarefas</h3>
+    <div class="galeria galeria--quatro">
+      <div class="mini"><div class="mini-titulo"><code>escrever</code><span>QuillBot</span></div><p class="mini-texto">Corrigir e melhorar e-mails, comunicados e relatórios.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>narrar</code><span>ElevenLabs</span></div><p class="mini-texto">Texto em fala: narração, dublagem, acessibilidade.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>ler</code><span>ChatPDF</span></div><p class="mini-texto">Perguntar a um PDF, resumir, localizar prazos.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>aprender</code><span>Tutor AI</span></div><p class="mini-texto">Percursos, exercícios e perguntas no seu ritmo.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>organizar</code><span>Mapify</span></div><p class="mini-texto">Conteúdo extenso em mapa mental.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>apresentar</code><span>Gamma</span></div><p class="mini-texto">Tema ou roteiro em apresentação.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>registrar</code><span>tl;dv</span></div><p class="mini-texto">Reunião gravada, transcrita e resumida em ata.</p></div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A IA produz possibilidades</h3><p>Ela entrega rascunhos, versões e sugestões. A decisão final, e a responsabilidade por ela, é de quem assina.</p></article>
+      <article class="cartao"><h3>Não precisa usar todas</h3><p>Uma ferramenta bem escolhida e bem usada vale mais que sete testadas pela metade.</p></article>
+      <article class="cartao cartao--erro"><h3>Mais rápido não é mais certo</h3><p>O tempo que a IA economiza na produção precisa ir, em parte, para a revisão.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 TEXTOS ======================= -->
+  <section class="secao" id="textos">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Corrigir e melhorar textos</h2>
+    </div>
+    <p class="secao-lead">O QuillBot corrige gramática, reformula frases e melhora clareza, fluidez e tom. A versão sugerida sempre precisa ser comparada com a original, para conferir se o sentido continua o mesmo.</p>
+
+    <div class="lab" data-lab="reescrita">
+      <div class="lab-controles">
+        <h4>o pedido</h4>
+        <div class="lab-campo"><label for="rw-modo">reescrever o aviso de forma…</label>
+          <select id="rw-modo" data-campo="modo"><option value="formal" selected>mais formal</option><option value="simples">mais simples</option><option value="repeticao">sem repetições</option><option value="objetivo">mais objetiva</option></select></div>
+        <h4>usos no dia a dia</h4>
+        <ul class="requisitos">
+          <li>deixar um e-mail mais formal</li>
+          <li>simplificar um texto técnico</li>
+          <li>reduzir repetições</li>
+          <li>tornar um comunicado mais objetivo</li>
+        </ul>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a comparação</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Ferramentas especializadas em texto</h3>
+    <div class="galeria">
+      <div class="mini"><div class="mini-titulo"><code>QuillBot</code><span>revisar o que você escreveu</span></div><p class="mini-texto">Gramática, reformulação, tom e clareza de e-mails, comunicados e relatórios.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>Jasper</code><span>marketing</span></div><p class="mini-texto">Textos persuasivos para anúncios, páginas de venda e redes sociais, mantendo o tom da marca.</p></div>
+      <div class="mini"><div class="mini-titulo"><code>NovelAI</code><span>narrativa</span></div><p class="mini-texto">Histórias, personagens, diálogos e enredos; ajuda a sair do bloqueio criativo.</p></div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Compare lado a lado</h3><p>Leia o original e a versão sugerida juntos. O que saiu e o que entrou precisam ser escolhas suas.</p></article>
+      <article class="cartao"><h3>Tom para o público</h3><p>O mesmo aviso pode ser formal para clientes e direto para a equipe. Diga para quem é.</p></article>
+      <article class="cartao cartao--erro"><h3>Mais curto pode mudar o sentido</h3><p>Na versão "mais simples", sumiu a exceção de quem está em viagem. Na "mais objetiva", apareceu um horário que ninguém deu.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 VOZ ======================= -->
+  <section class="secao" id="voz">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Texto em fala</h2>
+    </div>
+    <p class="secao-lead">O ElevenLabs transforma texto em fala com ritmo e entonação: narração de apresentações, treinamentos e vídeos, em vários idiomas, e mais acessibilidade. Abaixo, a mesma ideia com a voz do próprio computador.</p>
+
+    <div class="lab" data-voz>
+      <div class="lab-controles">
+        <h4>o texto e a voz</h4>
+        <div class="lab-campo"><label for="vz-texto">texto para ler</label>
+          <textarea id="vz-texto" data-voz-texto spellcheck="false">Atenção, motoristas: a partir de segunda, a BR-277 terá obras entre o km 590 e o km 600. Reduza a velocidade, mantenha a CNH em dia e chegue ao pátio até as 18h.</textarea></div>
+        <label class="lab-check"><input type="checkbox" data-voz-falado> escrever como se fala (siglas e horas)</label>
+        <div class="lab-campo"><label for="vz-lista">voz</label><select id="vz-lista" data-voz-lista></select></div>
+        <div class="lab-campo"><label for="vz-vel">velocidade — <span data-voz-vel-eco>1,0×</span></label><input type="range" id="vz-vel" data-voz-vel min="0.6" max="1.6" step="0.1" value="1"></div>
+        <div class="lab-campo"><label for="vz-tom">tom — <span data-voz-tom-eco>1,0</span></label><input type="range" id="vz-tom" data-voz-tom min="0.5" max="1.5" step="0.1" value="1"></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco">
+          <div class="voz-botoes">
+            <button type="button" class="botao" data-voz-ouvir>ouvir</button>
+            <button type="button" class="botao botao--secundario" data-voz-parar>parar</button>
+            <span class="voz-status" data-voz-status></span>
+          </div>
+          <p class="voz-leitura" data-voz-leitura></p>
+          <p class="nota-demo">a palavra lida fica destacada · usa as vozes instaladas no computador, sem internet</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Escreva como se fala</h3><p>Siglas, quilômetros e horários podem sair estranhos. Marque a caixa e ouça a diferença: "CNH" vira "cê ene agá".</p></article>
+      <article class="cartao"><h3>Narração é acessibilidade</h3><p>Quem lê com dificuldade, ou está dirigindo, recebe a mensagem em áudio.</p></article>
+      <article class="cartao cartao--erro"><h3>Voz de alguém, só com autorização</h3><p>Não reproduza a voz de uma pessoa sem permissão e não crie áudios para enganar. Confira a pronúncia de termos técnicos.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 DOCUMENTOS ======================= -->
+  <section class="secao" id="documentos">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Conversar com documentos</h2>
+    </div>
+    <p class="secao-lead">O ChatPDF responde a perguntas sobre um PDF, resume e localiza conceitos, prazos e recomendações em manuais, relatórios e regulamentos. A resposta só vale depois de conferida na página original.</p>
+
+    <div class="lab" data-lab="documento">
+      <div class="lab-controles">
+        <h4>a pergunta</h4>
+        <div class="lab-campo"><label for="dc-perg">escolha uma pergunta</label>
+          <select id="dc-perg" data-campo="pergunta"><option value="multa" selected>prazo para comunicar multa</option><option value="oleo">troca de óleo</option><option value="carona">carona no caminhão</option><option value="acidente">o que fazer em acidente</option><option value="velocidade">velocidade máxima na BR-277</option></select></div>
+        <div class="lab-campo"><label for="dc-livre">ou escreva a sua</label><input type="text" id="dc-livre" data-campo="livre" placeholder="ex.: onde posso abastecer?"></div>
+        <p class="nota-demo">a busca compara as palavras da pergunta com cada parágrafo e aponta o trecho de onde tirou a resposta</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">de onde veio a resposta</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>A página de origem é a prova</h3><p>Boa ferramenta mostra de onde tirou a resposta. Abra a página e confira com os próprios olhos.</p></article>
+      <article class="cartao"><h3>"Não encontrei" é resposta certa</h3><p>Se o documento não fala do assunto, a resposta honesta é essa. Desconfie de número que não aparece no texto.</p></article>
+      <article class="cartao cartao--erro"><h3>Documento sigiloso fica fora</h3><p>Contrato, folha de pagamento, dados de clientes: só em ferramenta aprovada pela empresa.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 15 APRENDER E ORGANIZAR ======================= -->
+  <section class="secao" id="organizar">
+    <div class="secao-topo">
+      <span class="selo">15</span>
+      <h2 class="secao-titulo">Aprender e organizar</h2>
+    </div>
+    <p class="secao-lead">O Tutor AI monta percursos adaptados ao seu nível, com exercícios, perguntas e resumos no seu ritmo. O Mapify transforma textos, documentos, aulas e vídeos em mapas mentais.</p>
+
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">resposta pronta</span>
+        <div class="chat"><div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Me dê a resposta da questão 3 do treinamento.</div>
+          <div class="chat-msg chat-msg--ia">Resposta: alternativa C, "aumentar a distância do veículo da frente".</div>
+        </div></div>
+      </div>
+      <div>
+        <span class="rotulo-atual">aprendizagem</span>
+        <div class="chat"><div class="chat-corpo">
+          <div class="chat-msg chat-msg--voce">Me faça uma pergunta de cada vez sobre direção defensiva na chuva e corrija a minha resposta antes da próxima.</div>
+          <div class="chat-msg chat-msg--ia">Pergunta 1: com a pista molhada, o que acontece com a distância de frenagem? Responda com suas palavras.</div>
+        </div></div>
+      </div>
+    </div>
+    <p class="nota-demo" style="margin-top:10px">receber uma resposta pronta não é o mesmo que aprender: aprendizagem exige prática, perguntas e feedback</p>
+
+    <h3 class="sub-titulo">Laboratório: o mapa mental e a revisão</h3>
+    <div class="lab" data-lab="mapa">
+      <div class="lab-controles">
+        <h4>o mapa</h4>
+        <div class="lab-campo"><label for="mp-fonte">gerado a partir de…</label>
+          <select id="mp-fonte" data-campo="fonte"><option value="reuniao" selected>transcrição de uma reunião</option><option value="aula">resumo desta aula</option></select></div>
+        <label class="lab-check"><input type="checkbox" data-campo="revisar"> revisar: conferir com a fonte</label>
+        <h4>usos</h4>
+        <ul class="requisitos"><li>resumo de aula</li><li>planejamento de projeto</li><li>organização de relatório</li><li>apresentação de processos</li></ul>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o mapa em tópicos</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Peça perguntas, não respostas</h3><p>Use o tutor para ser questionado e corrigido. Copiar a resposta pronta não fica na memória.</p></article>
+      <article class="cartao"><h3>Mapa é ponto de partida</h3><p>O mapa organiza rápido um conteúdo longo, e você ajusta os ramos ao que importa.</p></article>
+      <article class="cartao cartao--erro"><h3>Mapa bonito pode estar errado</h3><p>Uma estrutura organizada pode trazer relações trocadas ou simplificações demais. Confira com a fonte.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 16 APRESENTAR E REGISTRAR ======================= -->
+  <section class="secao" id="apresentar">
+    <div class="secao-topo">
+      <span class="selo">16</span>
+      <h2 class="secao-titulo">Apresentações e reuniões</h2>
+    </div>
+    <p class="secao-lead">O Gamma transforma um tema ou roteiro em apresentação; o tl;dv grava, transcreve e resume reuniões. A IA faz a primeira versão; a qualidade da final é de quem apresenta e de quem conduz a reunião.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Gamma: revise antes de apresentar</h3>
+    <div class="lab" data-lab="contraste">
+      <div class="lab-controles">
+        <h4>a revisão</h4>
+        <ol class="passos passos--compactos">
+          <li>Sequência lógica e clareza</li>
+          <li>Adequação ao público</li>
+          <li>Qualidade das imagens</li>
+          <li>Informações sem fonte</li>
+          <li>Contraste e legibilidade</li>
+        </ol>
+        <h4>teste o contraste do slide</h4>
+        <div class="lab-campo"><label for="ct-texto">cor do texto</label>
+          <select id="ct-texto" data-campo="texto"><option value="ciano" selected>ciano</option><option value="azul">azul SEST SENAT</option><option value="marinho">azul-marinho</option><option value="branco">branco</option><option value="cinza">cinza médio</option><option value="amarelo">amarelo</option><option value="vermelho">vermelho</option><option value="preto">preto</option></select></div>
+        <div class="lab-campo"><label for="ct-fundo">cor do fundo</label>
+          <select id="ct-fundo" data-campo="fundo"><option value="branco" selected>branco</option><option value="gelo">azul-gelo</option><option value="cinzaClaro">cinza claro</option><option value="azul">azul SEST SENAT</option><option value="marinho">azul-marinho</option><option value="amarelo">amarelo</option><option value="preto">preto</option></select></div>
+        <div class="lab-campo"><label for="ct-tam">tamanho do texto — <span data-eco="tamanho">20</span> px</label><input type="range" id="ct-tam" data-campo="tamanho" min="14" max="40" step="2" value="20"></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o teste de contraste</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">tl;dv: da reunião à ata</h3>
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">transcrição</span>
+        <ul class="transcricao">
+          <li><time>10:02</time><b>Ana:</b> eu fico com a renovação dos extintores, até 31 de outubro.</li>
+          <li><time>10:05</time><b>Carla:</b> o treinamento de direção defensiva eu organizo para 15 de novembro.</li>
+          <li><time>10:07</time><b>Bruno:</b> falta aprovar o orçamento do treinamento.</li>
+        </ul>
+        <span class="nivel" style="margin-top:18px">ata gerada pela IA</span>
+        <ul class="requisitos">
+          <li><b>Decisão:</b> renovar os extintores da frota. Responsável: Ana. Prazo: 31/11.</li>
+          <li><b>Decisão:</b> treinamento de direção defensiva. Responsável: Carla. Data: 15/11.</li>
+          <li><b>Pendência:</b> aprovar o orçamento do treinamento.</li>
+        </ul>
+      </div>
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>o que está errado na ata?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha" data-quiz>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Compare a ata com a transcrição</p>
+              <div class="quiz-opcoes">
+                <button type="button" data-opcao="a">O responsável pelo treinamento</button>
+                <button type="button" data-opcao="b">O prazo dos extintores</button>
+                <button type="button" data-opcao="c">A pendência do orçamento</button>
+              </div>
+              <p class="quiz-explica">A Ana disse "31 de outubro"; a ata registrou 31/11, uma data que nem existe. Nomes, datas e prazos são o que mais se revisa numa ata.</p>
+            </div>
+          </div>
+          <ol class="passos passos--compactos" style="margin-top:20px">
+            <li>Avise os participantes de que a reunião está sendo gravada.</li>
+            <li>Proteja os assuntos confidenciais.</li>
+            <li>Revise nomes, decisões e prazos antes de enviar a ata.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A IA cria a primeira versão</h3><p>Estrutura, títulos e layout em minutos. O conteúdo certo, as fontes e o tom são trabalho de quem apresenta.</p></article>
+      <article class="cartao"><h3>Contraste é legibilidade</h3><p>Texto claro sobre fundo claro some no projetor. Ciano sobre branco, por exemplo, reprova no teste.</p></article>
+      <article class="cartao cartao--erro"><h3>Transcrição não é perfeita</h3><p>A IA erra nomes, números e prazos que ouviu. Uma data trocada na ata vira tarefa perdida.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 17 ESCOLHER ======================= -->
+  <section class="secao" id="escolher">
+    <div class="secao-topo">
+      <span class="selo">17</span>
+      <h2 class="secao-titulo">Escolher a ferramenta certa</h2>
+    </div>
+    <p class="secao-lead">Não é preciso usar todas as ferramentas: é preciso saber escolher a mais adequada e verificar o que ela entrega.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual ferramenta?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha quiz--grade" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Transformar a gravação da reunião de segurança em ata</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Gamma</button><button type="button" data-opcao="b">QuillBot</button><button type="button" data-opcao="c">tl;dv</button></div>
+              <p class="quiz-explica">Gravar, transcrever, resumir e organizar responsáveis e prazos é o trabalho do tl;dv.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Deixar mais formal um comunicado para os clientes</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">QuillBot</button><button type="button" data-opcao="b">Mapify</button><button type="button" data-opcao="c">ElevenLabs</button></div>
+              <p class="quiz-explica">Reformular e ajustar o tom de um texto existente.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Achar, num manual de 80 páginas, o prazo para comunicar uma multa</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Tutor AI</button><button type="button" data-opcao="b">ChatPDF</button><button type="button" data-opcao="c">Gamma</button></div>
+              <p class="quiz-explica">Pergunta direta a um documento, com a página de origem para conferir.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Narrar em espanhol o vídeo de boas-vindas para motoristas paraguaios</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Revid</button><button type="button" data-opcao="b">ChatPDF</button><button type="button" data-opcao="c">ElevenLabs</button></div>
+              <p class="quiz-explica">Texto em fala, em outro idioma. Revise a pronúncia de nomes e siglas.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Montar em minutos a primeira versão dos slides do treinamento</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">Gamma</button><button type="button" data-opcao="b">tl;dv</button><button type="button" data-opcao="c">HeyGen</button></div>
+              <p class="quiz-explica">Tema ou roteiro em apresentação; depois, revisão de sequência, fontes e contraste.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="painel-codigo painel-codigo--grade">
+        <figcaption>três perguntas orientadoras</figcaption>
+        <ol class="passos">
+          <li>Qual problema preciso resolver?</li>
+          <li>Posso inserir esse conteúdo nessa plataforma?</li>
+          <li>Como vou verificar a qualidade do resultado?</li>
+        </ol>
+<pre class="codigo" data-lang="texto">Checklist final
+· nada de dados pessoais ou sigilosos sem autorização
+· documentos públicos, fictícios ou autorizados
+· fatos, termos, datas e responsáveis verificados
+· conteúdo revisado antes de compartilhar
+· direitos autorais respeitados
+· uso de IA informado quando necessário
+· responsabilidade humana sobre a entrega</pre>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Tecnologia</h3><p>A ferramenta certa para o problema certo, escolhida pelas três perguntas.</p></article>
+      <article class="cartao"><h3>Pensamento crítico</h3><p>Conferir fatos, datas, nomes e sentido. A IA produz possibilidades, não certezas.</p></article>
+      <article class="cartao cartao--novo"><h3>Responsabilidade</h3><p>"A produtividade com IA acontece quando tecnologia, pensamento crítico e responsabilidade trabalham juntos."</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Oito perguntas rápidas; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">1. Qual prompt deixa menos decisões para a IA?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">"Uma imagem bonita de caminhão."</button>
+          <button type="button" data-opcao="b">"Fotografia realista de um caminhão numa rodovia ao amanhecer, formato 16:9, sem textos ou logotipos."</button>
+          <button type="button" data-opcao="c">"Caminhão, estrada, foto, bonito, moderno."</button>
+        </div>
+        <p class="quiz-explica">Estilo, sujeito, ambiente, luz, formato e restrições estão definidos. Os outros deixam quase tudo em aberto.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">2. "Mantenha a iluminação e o enquadramento" serve para…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">mudar a luz da imagem</button>
+          <button type="button" data-opcao="b">preservar o que já estava bom na versão anterior</button>
+          <button type="button" data-opcao="c">trocar o formato da imagem</button>
+        </div>
+        <p class="quiz-explica">Sem dizer o que preservar, a IA pode mexer justamente no que funcionava.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">3. Qual estilo combina com um aviso no mural sobre o uso do cinto?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">cinematográfico</button>
+          <button type="button" data-opcao="b">aquarela</button>
+          <button type="button" data-opcao="c">cartaz</button>
+        </div>
+        <p class="quiz-explica">Mensagem única, lida de longe: cartaz, com o título escrito depois, no editor.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">4. Um rosto gerado num site de rostos sintéticos pode ser usado…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">como depoimento de cliente no site</button>
+          <button type="button" data-opcao="b">como personagem ilustrativo, informando que é sintético</button>
+          <button type="button" data-opcao="c">como foto do perfil de um funcionário</button>
+        </div>
+        <p class="quiz-explica">Depoimento inventado e identidade falsa enganam pessoas, mesmo que o rosto não seja de ninguém.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">5. "A câmera acompanha o veículo lateralmente" pertence a qual bloco do prompt de vídeo?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">objetivo, duração e formato</button>
+          <button type="button" data-opcao="b">câmera, iluminação e estilo</button>
+          <button type="button" data-opcao="c">áudio, encerramento e restrições</button>
+        </div>
+        <p class="quiz-explica">Movimento de câmera é o terceiro bloco, junto com a luz e o estilo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">6. Para transformar um roteiro pronto em vídeo completo, com locução e música:</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">HeyGen</button>
+          <button type="button" data-opcao="b">InVideo</button>
+          <button type="button" data-opcao="c">FLUX</button>
+        </div>
+        <p class="quiz-explica">O InVideo organiza cenas, locução, música e transições. HeyGen é avatar; FLUX cria imagens de referência.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">7. No Google Flow, o Veo é…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">a plataforma onde você trabalha</button>
+          <button type="button" data-opcao="b">o modelo de IA que gera o vídeo</button>
+          <button type="button" data-opcao="c">o editor de legendas</button>
+        </div>
+        <p class="quiz-explica">Plataforma é o ambiente (Flow); modelo é a IA que produz o conteúdo (Veo).</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">8. A IA resumiu o manual e disse que a troca de óleo é a cada 30.000 km. O que fazer?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Usar: ela leu o documento inteiro</button>
+          <button type="button" data-opcao="b">Conferir na página original antes de usar</button>
+          <button type="button" data-opcao="c">Perguntar de novo: se repetir, está certo</button>
+        </div>
+        <p class="quiz-explica">No manual da seção 14, o certo é 20.000 km ou 6 meses. A resposta só vale depois de conferida na fonte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">Para cada tarefa, a ferramenta e o cuidado principal.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Cuidado principal</th></tr></thead>
+        <tbody>
+          <tr><td>Criar imagem a partir de texto</td><td>Gemini, Copilot, ChatGPT, Leonardo AI, Flow</td><td>os onze elementos; sem textos, marcas e logotipos</td></tr>
+          <tr><td>Ajustar uma imagem</td><td>feedback: mantenha, altere, remova, adicione, evite, formato</td><td>uma alteração por vez; diga o que preservar</td></tr>
+          <tr><td>Criar ou editar clipes</td><td>Runway, Flow (Veo)</td><td>continuidade, áudio e movimentos estranhos</td></tr>
+          <tr><td>Vídeo completo a partir de roteiro</td><td>InVideo (planejar antes: LTX Studio)</td><td>ritmo adequado ao público</td></tr>
+          <tr><td>Vídeo curto e vertical</td><td>Revid</td><td>cortes e legendas fiéis ao original</td></tr>
+          <tr><td>Apresentador virtual</td><td>HeyGen</td><td>autorização de imagem e voz; avisar que é sintético</td></tr>
+          <tr><td>Imagens de referência</td><td>FLUX</td><td>mesma aparência em todas as cenas</td></tr>
+          <tr><td>Corrigir e melhorar texto</td><td>QuillBot</td><td>comparar com o original</td></tr>
+          <tr><td>Narração</td><td>ElevenLabs</td><td>autorização de voz; pronúncia de siglas</td></tr>
+          <tr><td>Perguntar a um PDF</td><td>ChatPDF</td><td>conferir na página citada</td></tr>
+          <tr><td>Estudar</td><td>Tutor AI</td><td>praticar, não copiar respostas</td></tr>
+          <tr><td>Mapa mental</td><td>Mapify</td><td>revisar as relações</td></tr>
+          <tr><td>Apresentação</td><td>Gamma</td><td>sequência, fontes e contraste</td></tr>
+          <tr><td>Ata de reunião</td><td>tl;dv</td><td>avisar a gravação; revisar nomes e prazos</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Campanha de segurança na estrada</h2>
+    </div>
+    <p class="secao-lead">Uma campanha curta para os motoristas da empresa: um cartaz gerado e refinado com IA, o roteiro de um vídeo de 15 segundos e um texto de apoio revisado.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que a entrega precisa ter</h3>
+        <ul class="requisitos">
+          <li><b>Cartaz:</b> prompt visual com pelo menos 8 dos 11 elementos, gerado numa ferramenta gratuita (Gemini, Copilot ou ChatGPT).</li>
+          <li><b>Duas rodadas de feedback</b> com mantenha, altere, remova, adicione, evite ou formato, guardando as três versões.</li>
+          <li><b>Vídeo:</b> roteiro em 3 cenas e o prompt audiovisual da cena 1, com os quatro blocos.</li>
+          <li><b>Texto de apoio</b> (legenda do cartaz ou mensagem aos motoristas) revisado numa ferramenta como o QuillBot e comparado com o original.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>A ficha da campanha</h3>
+        <figure class="painel-codigo">
+          <figcaption>preencha os colchetes</figcaption>
+<pre class="codigo" data-lang="texto">CARTAZ
+Objetivo: [onde será usado]
+Sujeito, ação, ambiente: [...]
+Estilo, composição, enquadramento: [...]
+Iluminação, cores, formato: [...]
+Restrições: sem textos, marcas ou logotipos
+
+VÍDEO · 15 s · 3 cenas
+Cena 1: [o que acontece] · câmera: [movimento]
+Cena 2: [...] · câmera: [...]
+Cena 3: [...] · encerramento: [como termina]</pre>
+        </figure>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>O cartaz em <b>duas versões, 16:9 e 9:16</b>, sem cortar o sujeito ao mudar o formato.</li>
+          <li>O <b>título escrito no editor</b>, não pela IA: o prompt reserva o espaço e proíbe textos.</li>
+          <li>O <b>mesmo veículo, com a mesma aparência</b>, nas três cenas do vídeo: use uma imagem de referência.</li>
+          <li><b>Nenhuma pessoa real</b>, logotipo de outra empresa ou placa legível.</li>
+          <li>Nota mínima de <b>24 de 30</b> na rubrica de avaliação para a versão final do cartaz.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, junto da entrega</h3>
+        <ul class="requisitos">
+          <li>Envie o mesmo prompt do cartaz a duas ferramentas e avalie as duas com a rubrica. Qual venceu, e em qual critério?</li>
+          <li>Qual feedback mudou mais a imagem? Algum desfez algo que estava bom?</li>
+          <li>Aponte duas falhas na imagem ou no clipe e classifique: inconsistência, deformação, texto ilegível, objeto que some…</li>
+          <li>A campanha precisa informar que usou IA? Por quê?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="resultado-campanha">
+        <figure><figcaption>cartaz 9:16, título no editor</figcaption><div data-esboco='{"formato":"9:16","luz":"amanhecer","ambiente":"rodovia","sujeito":"caminhao","posicao":"centro","plano":"medio","estilo":"cartaz","cores":"azul"}'></div></figure>
+        <figure><figcaption>cena 1 · câmera acompanha</figcaption><div data-esboco='{"formato":"16:9","luz":"amanhecer","ambiente":"rodovia","sujeito":"caminhao","posicao":"terco","plano":"aberto","estilo":"foto","cores":"azul"}'></div></figure>
+        <figure><figcaption>cena 2 · motorista confere a carga</figcaption><div data-esboco='{"formato":"16:9","luz":"dia","ambiente":"patio","sujeito":"pessoa","posicao":"terco","plano":"medio","estilo":"foto","cores":"azul","extras":{"caminhaoFundo":true}}'></div></figure>
+        <figure><figcaption>cena 3 · encerramento</figcaption><div data-esboco='{"formato":"16:9","luz":"dia","ambiente":"rodovia","sujeito":"caminhao","posicao":"centro","plano":"aberto","estilo":"cartaz","cores":"azul"}'></div></figure>
+      </div>
+      <p class="nota-demo" style="margin-top:12px">esboços da composição: o mesmo caminhão azul em todas as peças, o título sempre na faixa superior</p>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Um documento com os prompts, as três versões do cartaz, o roteiro, o texto original e o revisado, e as respostas da Parte 3.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Prompt visual com pelo menos 8 elementos; prompt de vídeo com os 4 blocos; cartaz final com nota de 24 ou mais.</p></article>
+      <article class="cartao"><h3>Critério ético</h3><p>Sem pessoas reais, marcas de terceiros ou dados pessoais; uso de IA informado se a campanha for publicada.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Criar com IA é dirigir, revisar e decidir.</p>
+      <div class="rodape-meta">IA na Prática · Aula 2 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/aula.js"></script>
+</body>
+</html>
