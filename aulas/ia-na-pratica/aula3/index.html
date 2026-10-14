@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Claude no trabalho — IA na Prática · Aula 3 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="ia-na-pratica" data-aula="aula3" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> O Claude no trabalho</a>
+    <nav class="barra-menu">
+      <a href="#modelos">modelos</a>
+      <a href="#privacidade">privacidade</a>
+      <a href="#artefatos">artefatos</a>
+      <a href="#cowork">Cowork</a>
+      <a href="#office">Office</a>
+      <a href="#planilha">planilha</a>
+      <a href="#conectores">conectores</a>
+      <a href="#claude-code">Claude Code</a>
+      <a href="#claude-md">CLAUDE.md</a>
+      <a href="#publicar">publicar</a>
+      <a href="#skills">skills</a>
+      <a href="#skill-md">SKILL.md</a>
+      <a href="#criar-skill">criar skill</a>
+      <a href="#qual-recurso">qual recurso</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>IA na Prática</span><span>Aula 3</span></div>
+      <h1>O Claude no trabalho</h1>
+      <p class="subtitulo">Do chat ao agente: artefatos, Cowork, Office, conectores, Claude Code e Skills</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Nas aulas 1 e 2, a IA que conversa e cria. Hoje, um assistente que também executa: monta aplicativos, mexe nas pastas que você liberar, trabalha dentro do Excel, age no seu e-mail, constrói um site e aprende o seu jeito de trabalhar.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Diferenciar uma IA que conversa de um agente que executa, e escolher modelo e esforço pela tarefa.</li>
+      <li>Pedir artefatos, tarefas no Cowork e análises no Office com pedidos estruturados e seguros.</li>
+      <li>Ligar conectores com permissão por ação e planejar um projeto no Claude Code.</li>
+      <li>Transformar uma tarefa repetitiva em uma skill com um SKILL.md bem escrito e testado.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#executar"><span class="num">01</span><span class="rotulo">Conversar ou executar</span></a>
+      <a href="#modelos"><span class="num">02</span><span class="rotulo">Modelos, planos e privacidade</span></a>
+      <a href="#artefatos"><span class="num">03</span><span class="rotulo">Artefatos</span></a>
+      <a href="#cowork"><span class="num">04</span><span class="rotulo">Cowork</span></a>
+      <a href="#office"><span class="num">05</span><span class="rotulo">Excel, Word e PowerPoint</span></a>
+      <a href="#conectores"><span class="num">06</span><span class="rotulo">Conectores e MCP</span></a>
+      <a href="#claude-code"><span class="num">07</span><span class="rotulo">Claude Code: o site no ar</span></a>
+      <a href="#skills"><span class="num">08</span><span class="rotulo">Skills</span></a>
+      <a href="#qual-recurso"><span class="num">09</span><span class="rotulo">Qual recurso usar, quiz e atividade</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item"><span class="amostra amostra--escuro"></span> painel escuro = o que você escreve: o pedido, o prompt, o arquivo de regras</div>
+      <div class="legenda-item"><span class="amostra amostra--branco"></span> caixa branca = o que acontece. Todo laboratório funciona: mexa nos controles</div>
+      <div class="legenda-item"><span class="amostra amostra--pede">aprovar</span> amarelo = o Claude para e pede a sua aprovação</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = a estrutura: pastas do projeto e da skill</div>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 1</span><span class="parte-titulo">Conhecer o Claude</span></div>
+
+  <!-- ======================= 01 EXECUTAR ======================= -->
+  <section class="secao" id="executar">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Conversar é uma coisa, executar é outra</h2>
+    </div>
+    <p class="secao-lead">Uma IA conversacional responde e deixa a execução com você: copiar, colar, abrir outro programa, formatar. Um agente recebe um objetivo, acessa os arquivos, decide os passos e entrega o resultado. O Claude faz as duas coisas, e isso muda a pergunta: em vez de "como eu faço esse relatório?", "faça esse relatório a partir destes arquivos".</p>
+
+    <div class="lab" data-lab="quemfaz">
+      <div class="lab-controles">
+        <h4>a mesma tarefa, dois jeitos</h4>
+        <div class="lab-campo"><label for="qf-tarefa">tarefa</label>
+          <select id="qf-tarefa" data-campo="tarefa"><option value="relatorio" selected>relatório da semana (PDFs + planilha)</option><option value="notas">padronizar 20 notas fiscais</option><option value="email">responder ao e-mail de um cliente</option></select></div>
+        <div class="lab-campo"><label for="qf-modo">jeito de pedir</label>
+          <select id="qf-modo" data-campo="modo"><option value="conversa" selected>conversa: perguntar como fazer</option><option value="agente">agente: pedir o resultado</option></select></div>
+        <ol class="passos passos--compactos">
+          <li>Escolha a tarefa.</li>
+          <li>Troque entre conversa e agente.</li>
+          <li>Conte quantos passos ficam com você.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o que você escreve</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Feito pela Anthropic</h3><p>Empresa fundada por ex-integrantes da OpenAI, conhecida por pôr segurança no centro. A abordagem chamada IA constitucional orienta o assistente a ser útil, honesto e cuidadoso.</p></article>
+      <article class="cartao"><h3>Ele pede permissão</h3><p>Acessar uma pasta nova, alterar uma planilha, enviar um e-mail: cada ação sensível passa por uma confirmação sua. É o que torna seguro apontar a ferramenta para documentos de trabalho.</p></article>
+      <article class="cartao"><h3>Contexto compartilhado</h3><p>A conversa segue de um lugar para o outro: a análise feita no Excel vira slide no PowerPoint, o dado do Drive vira um painel, sem copiar e colar entre as etapas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 MODELOS ======================= -->
+  <section class="secao" id="modelos">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Modelos, tokens e esforço</h2>
+    </div>
+    <p class="secao-lead">O Claude não é um cérebro único: é um programa que oferece modelos diferentes, cada um com seu equilíbrio entre capacidade, velocidade e custo. Toda interação consome tokens, a unidade que mede quanto texto o modelo lê e escreve, e os limites de uso dos planos são calculados em cima disso.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Modelo</th><th>Perfil</th><th>Quando usar</th></tr></thead>
+        <tbody>
+          <tr><td><b>Haiku 5.5</b></td><td>o mais rápido e mais barato</td><td>tarefas simples e respostas curtas em grande volume</td></tr>
+          <tr><td><b>Sonnet 5.5</b></td><td>o equilíbrio entre qualidade, velocidade e custo</td><td>o uso diário, a maior parte das tarefas</td></tr>
+          <tr><td><b>Opus 5.5</b></td><td>o mais forte do dia a dia pesado</td><td>projetos complexos, código, análises com muitas etapas</td></tr>
+          <tr><td><b>Fable 5.1</b></td><td>o mais capaz disponível ao público</td><td>tarefas longas e muito complexas, quando capacidade vale mais que custo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: escolha o modelo e o esforço pela tarefa</h3>
+    <div class="lab" data-lab="modelo">
+      <div class="lab-controles">
+        <h4>no seletor da caixa de mensagem</h4>
+        <div class="lab-campo"><label for="md-tarefa">tarefa</label>
+          <select id="md-tarefa" data-campo="tarefa"><option value="classificar" selected>classificar 5.000 comentários de clientes</option><option value="resumo">resumir a ata de uma reunião curta</option><option value="email">responder ao e-mail de um cliente</option><option value="analise">análise de vendas em sete etapas</option><option value="sistema">reescrever um sistema inteiro numa sessão</option></select></div>
+        <div class="lab-campo"><label for="md-modelo">modelo</label>
+          <select id="md-modelo" data-campo="modelo"><option value="haiku">Haiku 5.5</option><option value="sonnet" selected>Sonnet 5.5</option><option value="opus">Opus 5.5</option><option value="fable">Fable 5.1</option></select></div>
+        <div class="lab-campo"><label for="md-esforco">esforço</label>
+          <select id="md-esforco" data-campo="esforco"><option value="baixo">baixo</option><option value="medio" selected>médio</option><option value="alto">alto</option></select></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o que fica no seletor</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Comece forte, siga no Sonnet</h3><p>Projeto exigente: comece com um modelo mais forte para ter uma base sólida e siga com o Sonnet no dia a dia. Quando ele patinar em algo difícil, volte ao mais forte só naquele ponto.</p></article>
+      <article class="cartao"><h3>Esforço é raciocínio</h3><p>Em alguns lugares, como o Claude Code e o painel do Office, você escolhe o esforço. Mais esforço, mais raciocínio antes de responder e mais tokens gastos. Tarefa simples, esforço baixo.</p></article>
+      <article class="cartao cartao--novo"><h3>Nomes de outubro de 2026</h3><p>Desde a apostila do curso, chegaram o Sonnet 5.5, o Opus 5.5 e o Haiku 5.5. Os nomes mudam a cada poucos meses; o critério de escolha continua o mesmo. Confira no seletor quais o seu plano libera.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 PRIVACIDADE ======================= -->
+  <section class="secao" id="privacidade">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Planos e privacidade</h2>
+    </div>
+    <p class="secao-lead">Dá para começar de graça, mas vários recursos desta aula exigem plano pago. E, antes de enviar um documento de trabalho, vale saber o que acontece com a conversa.</p>
+
+    <div class="dupla">
+      <div class="rolagem-x">
+        <table class="tabela">
+          <thead><tr><th>Recurso</th><th>Plano gratuito</th><th>Planos pagos</th></tr></thead>
+          <tbody>
+            <tr><td><b>Conversas, arquivos e artefatos</b></td><td>sim, com limite de uso</td><td>sim, com limites maiores</td></tr>
+            <tr><td><b>Skills</b></td><td>sim, com a execução de código ativada</td><td>sim</td></tr>
+            <tr><td><b>Cowork</b></td><td>não</td><td>sim</td></tr>
+            <tr><td><b>Suplementos do Office</b></td><td>não</td><td>sim</td></tr>
+            <tr><td><b>Claude Code</b></td><td>não</td><td>sim</td></tr>
+            <tr><td><b>Tarefas agendadas</b></td><td>não</td><td>sim</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>onde conferir o uso das suas conversas</figcaption>
+        <ol class="caminho"><li><span>Configurações</span></li><li><span>Privacidade</span></li></ol>
+        <ol class="passos">
+          <li>Nos planos individuais (Free, Pro e Max), as conversas podem ser usadas para treinar novos modelos quando essa opção está ligada.</li>
+          <li>A escolha aparece no cadastro e pode ser alterada a qualquer momento; vale para conversas novas ou retomadas.</li>
+          <li>Nos planos comerciais (Team, Enterprise e API), a Anthropic não treina com os dados dos clientes, por padrão.</li>
+        </ol>
+      </figure>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: antes de enviar</h3>
+    <div class="lab" data-lab="privacidade">
+      <div class="lab-controles">
+        <h4>a conta e o arquivo</h4>
+        <div class="lab-campo"><label for="pr-plano">plano</label>
+          <select id="pr-plano" data-campo="plano"><option value="free">Free</option><option value="pro" selected>Pro</option><option value="max">Max</option><option value="team">Team</option><option value="enterprise">Enterprise</option></select></div>
+        <div class="lab-campo"><label for="pr-treino">treinamento com as conversas (planos individuais)</label>
+          <select id="pr-treino" data-campo="treino"><option value="ligado" selected>ligado</option><option value="desligado">desligado</option></select></div>
+        <div class="lab-campo"><label for="pr-dado">o que você quer enviar</label>
+          <select id="pr-dado" data-campo="dado"><option value="cardapio">cardápio público da lanchonete</option><option value="vendas">planilha de vendas interna</option><option value="motoristas" selected>lista de motoristas com CPF e CNH</option><option value="contrato">contrato com um cliente</option></select></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">a sua situação</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Pro, Max, Team, Enterprise</h3><p>O Pro é a porta de entrada dos recursos pagos; os planos Max dão mais capacidade de uso; Team e Enterprise são para empresas, com controles administrativos.</p></article>
+      <article class="cartao"><h3>Anonimize antes</h3><p>Trocar nomes, CPF e placas por códigos ("motorista 07") resolve a maior parte das análises sem expor ninguém.</p></article>
+      <article class="cartao cartao--erro"><h3>Preços e limites mudam</h3><p>Valores, limites e o que cada plano inclui mudam com frequência. Confira sempre na página de planos do próprio Claude antes de decidir.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 2</span><span class="parte-titulo">Criar e executar</span></div>
+
+  <!-- ======================= 04 ARTEFATOS ======================= -->
+  <section class="secao" id="artefatos">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">Artefatos: aplicativos e painéis sem programar</h2>
+    </div>
+    <p class="secao-lead">Um artefato é algo que o Claude constrói ao lado da conversa para você usar ou mostrar: um aplicativo, um painel, uma calculadora, um documento. Ele continua editável depois de pronto: dá para pedir outra cor, um filtro novo, outro tipo de gráfico.</p>
+
+    <div class="dupla dupla--preview">
+      <figure class="painel-codigo">
+        <figcaption>o arquivo e um pedido curto</figcaption>
+<pre class="codigo" data-lang="texto">vendas.csv · 54 linhas
+mes,vendedor,categoria,valor,pedidos
+2026-01,Ana,Peças,3910,35
+2026-01,Ana,Pneus,3630,9
+2026-01,Ana,Serviços,2720,23
+2026-01,Bruno,Peças,3490,32
+…
+
+Crie um dashboard interativo para analisar
+esse CSV. O visual deve ser escuro e eu quero
+compartilhar com a equipe.</pre>
+        <ol class="passos passos--compactos">
+          <li>Arraste o CSV para uma conversa nova.</li>
+          <li>Escreva o pedido curto.</li>
+          <li>Filtre um vendedor: todos os números mudam.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>o artefato gerado</code></div>
+        <div class="preview-corpo">
+          <div class="dash-app" data-lab="dashboard">
+            <div class="dash-topo">
+              <b>Vendas · 1º semestre</b>
+              <label>vendedor <select data-campo="vendedor"><option value="todos" selected>todos</option><option value="Ana">Ana</option><option value="Bruno">Bruno</option><option value="Carla">Carla</option></select></label>
+              <label>categoria <select data-campo="categoria"><option value="todas" selected>todas</option><option value="Peças">Peças</option><option value="Pneus">Pneus</option><option value="Serviços">Serviços</option></select></label>
+            </div>
+            <div data-palco></div>
+          </div>
+          <p class="nota-demo">dados fictícios de uma loja de autopeças</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Aplicativos e ferramentas</h3><p>Um CRM simples com nome, contato e status; uma calculadora; um formulário; um gerador de paleta de cores que explica cada combinação.</p></article>
+      <article class="cartao"><h3>Painéis e análises</h3><p>Indicadores, gráficos e filtros a partir de uma planilha; receitas, despesas e projeções num pedido só; mapas para explorar dados por região.</p></article>
+      <article class="cartao cartao--erro"><h3>Ele também erra</h3><p>Se o Claude disser que existe um botão que não aparece na sua tela, diga que não existe, de preferência com um print, e peça a correção. Conferir faz parte.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 SEIS BLOCOS ======================= -->
+  <section class="secao" id="seis-blocos">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">O pedido de artefato em seis blocos</h2>
+    </div>
+    <p class="secao-lead">Ninguém é obrigado a seguir um modelo, mas com ele o Claude entende muito melhor o que construir: funcionalidade, estilo visual, funções, dados, contexto de uso e extras. O que você não disser, ele decide.</p>
+
+    <div class="lab lab--largo" data-lab="artefato">
+      <div class="lab-controles lab-controles--duas">
+        <h4>os seis blocos</h4>
+        <div class="lab-campo"><label for="ar-func">1. funcionalidade</label>
+          <select id="ar-func" data-campo="func"><option value="">(não informada)</option><option value="gastos">painel de gastos pessoais</option><option value="frota" selected>manutenção da frota</option><option value="checklist">checklist de inspeção do veículo</option></select></div>
+        <div class="lab-campo"><label for="ar-estilo">2. estilo visual</label>
+          <select id="ar-estilo" data-campo="estilo"><option value="" selected>(não informado)</option><option value="claro">minimalista e claro</option><option value="escuro">escuro, como um painel de carro</option><option value="colorido">colorido, ícones grandes</option></select></div>
+        <div class="lab-campo"><label>3. funções</label>
+          <label class="lab-check"><input type="checkbox" data-campo="fCad" checked> cadastrar e editar</label>
+          <label class="lab-check"><input type="checkbox" data-campo="fFiltro"> filtrar e buscar</label>
+          <label class="lab-check"><input type="checkbox" data-campo="fGrafico"> gráfico de resumo</label></div>
+        <div class="lab-campo"><label for="ar-dados">4. dados</label>
+          <select id="ar-dados" data-campo="dados"><option value="" selected>(não informados)</option><option value="ficticios">fictícios, para validar</option><option value="reais">reais, da planilha anexada</option></select></div>
+        <div class="lab-campo"><label for="ar-ctx">5. contexto de uso</label>
+          <select id="ar-ctx" data-campo="contexto"><option value="" selected>(não informado)</option><option value="aula">aula, compartilhado com os alunos</option><option value="equipe">equipe da oficina, pelo celular</option><option value="pessoal">uso pessoal, no computador</option></select></div>
+        <div class="lab-campo"><label>6. extras</label>
+          <label class="lab-check"><input type="checkbox" data-campo="xCelular"> funcionar no celular</label>
+          <label class="lab-check"><input type="checkbox" data-campo="xExportar"> botão de exportar</label>
+          <label class="lab-check"><input type="checkbox" data-campo="xAnim"> animações suaves</label></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o pedido montado</p><button type="button" class="botao-copiar" data-copiar="#pedido-artefato">copiar o pedido</button></div>
+          <pre id="pedido-artefato" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: compartilhe por link</h3>
+    <div class="lab" data-lab="compartilhar">
+      <div class="lab-controles">
+        <h4>no botão Compartilhar do artefato</h4>
+        <div class="lab-campo"><label for="cp-quem">quem pode ver (planos Pro e Max)</label>
+          <select id="cp-quem" data-campo="quem"><option value="privado">somente você</option><option value="link" selected>qualquer pessoa com o link</option></select></div>
+        <div class="lab-campo"><label for="cp-versao">versão compartilhada (a 3 tem o filtro por vendedor)</label>
+          <select id="cp-versao" data-campo="versao"><option value="v2" selected>versão 2</option><option value="v3">versão 3, a mais recente</option></select></div>
+        <p class="nota-demo">Team e Enterprise: dá para limitar a pessoas ou à organização; o link público depende do administrador.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o caminho</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Reúna antes, ajuste depois</h3><p>Organize os dados e as referências antes de pedir. O primeiro resultado raramente é o final, e tudo bem: ajuste conversando.</p></article>
+      <article class="cartao"><h3>Não sabe montar? Pergunte</h3><p>Explique o objetivo e pergunte ao próprio Claude qual seria a melhor forma de montar aquilo, antes de pedir o artefato.</p></article>
+      <article class="cartao"><h3>Modelos prontos</h3><p>Na aba Artefatos há modelos de designs, apresentações e documentos para partir de algo pronto e editar conversando ou mexendo direto.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 COWORK ======================= -->
+  <section class="secao" id="cowork">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Cowork: o Claude nas pastas do seu computador</h2>
+    </div>
+    <p class="secao-lead">No Cowork você define um objetivo de alto nível, como "organize estas notas fiscais", e o Claude cuida do resto: acessa só as pastas que você liberar, lê os arquivos, decide a estrutura e entrega o resultado. Exige plano pago, e o acesso a pastas locais é feito pelo aplicativo de computador.</p>
+
+    <div class="lab lab--largo" data-lab="cowork">
+      <div class="lab-controles">
+        <h4>o pedido</h4>
+        <div class="lab-campo"><label for="cw-caminho">caminho da pasta</label>
+          <input type="text" id="cw-caminho" data-campo="caminho" value="C:\Users\Ana\Documents\Notas fiscais" spellcheck="false"></div>
+        <div class="lab-campo"><label for="cw-tarefa">tarefa</label>
+          <select id="cw-tarefa" data-campo="tarefa"><option value="notas" selected>padronizar o nome das notas fiscais</option><option value="relatorio">relatório da semana em Word</option></select></div>
+        <div class="lab-campo"><label>instruções de segurança</label>
+          <label class="lab-check"><input type="checkbox" data-campo="dataDentro"> sem data no nome: abrir a nota e ler</label>
+          <label class="lab-check"><input type="checkbox" data-campo="naoApagar"> nunca apagar nada</label>
+          <label class="lab-check"><input type="checkbox" data-campo="resumo"> resumo de tudo no final</label></div>
+        <figure class="painel-codigo painel-codigo--mini">
+          <figcaption>copie o caminho no Explorador de Arquivos</figcaption>
+          <ol class="caminho"><li><span>botão direito na pasta</span></li><li><span>Copiar como caminho</span></li></ol>
+          <p class="atalho"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> no Windows 11, com a pasta selecionada</p>
+        </figure>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o pedido montado</p><button type="button" class="botao-copiar" data-copiar="#pedido-cowork">copiar o pedido</button></div>
+          <pre id="pedido-cowork" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Onde e o que sai</h3><p>Repare no padrão dos bons pedidos: todos dizem onde estão os arquivos e o que deve sair no final. Esses dois dados resolvem a maior parte dos pedidos mal interpretados.</p></article>
+      <article class="cartao"><h3>Corrija e ensine</h3><p>Não aceite a primeira entrega: se ficou arquivo sem data, peça que ele mesmo abra as notas e corrija. Esse tipo de correção mostra como você quer o trabalho.</p></article>
+      <article class="cartao cartao--novo"><h3>Tarefas agendadas</h3><p>Descreva uma vez e defina a frequência: "toda segunda às 9h, resuma os e-mails da semana". Roda mesmo com o computador desligado, mas usa conectores e arquivos da conta, não pastas locais.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 OFFICE ======================= -->
+  <section class="secao" id="office">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">O Claude dentro do Excel, do Word e do PowerPoint</h2>
+    </div>
+    <p class="secao-lead">Em vez de copiar dados para o chat e colar a resposta de volta, o Claude trabalha dentro do arquivo, num painel lateral: é um suplemento. Excel, Word e PowerPoint já estão disponíveis; o do Outlook está em beta pública.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">tour</span><code>instalar o suplemento</code></div>
+        <div class="preview-corpo">
+          <div class="tour" data-tour>
+            <div class="tour-barra">
+              <button type="button" data-tour-anterior>anterior</button>
+              <span class="tour-contador" data-tour-contador></span>
+              <button type="button" data-tour-proximo>próximo</button>
+            </div>
+            <p class="tour-legenda" data-tour-legenda></p>
+            <div class="app app-excel">
+              <div class="app-titulo"><b>inadimplencia-condominio.xlsx</b> · Excel<span class="app-botoes"><span>–</span><span>□</span><span>×</span></span></div>
+              <div class="app-guias"><span>Arquivo</span><span class="ativa" data-passo="1" data-legenda="Abra o Excel (ou o Word, ou o PowerPoint) na guia Página Inicial.">Página Inicial</span><span>Inserir</span><span>Fórmulas</span><span>Dados</span><span>Revisão</span><span>Exibir</span></div>
+              <div class="app-faixa">
+                <div class="app-grupo"><div><span class="app-btn">Colar</span></div><small>Área de Transferência</small></div>
+                <div class="app-grupo"><div><span class="app-btn"><b>N</b></span><span class="app-btn"><i>I</i></span><span class="app-btn"><u>S</u></span></div><small>Fonte</small></div>
+                <div class="app-grupo"><div><span class="app-btn">Formatação Condicional</span></div><small>Estilos</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="2" data-legenda="Clique em Suplementos. Em algumas versões, o caminho é Inserir › Suplementos."><span class="app-icone app-icone--sup"></span>Suplementos</span></div><small>Suplementos</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="5" data-legenda="Depois de instalado, clique no botão do Claude na faixa de opções."><span class="app-icone app-icone--claude"></span>Claude</span></div><small>Claude</small></div>
+              </div>
+              <div class="app-excel-corpo">
+                <table class="mini-grade">
+                  <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+                  <tr><th>1</th><td>Unidade</td><td>Valor</td><td>Status</td></tr>
+                  <tr><th>2</th><td>Torre A · 101</td><td class="num">R$ 640,00</td><td>pago</td></tr>
+                  <tr><th>3</th><td>Torre D · 304</td><td class="num">R$ 640,00</td><td>em atraso</td></tr>
+                  <tr><th>4</th><td>Torre B · 212</td><td class="num">R$ 710,00</td><td>em atraso</td></tr>
+                  <tr><th>5</th><td>Torre C · 108</td><td class="num">R$ 640,00</td><td>pago</td></tr>
+                </table>
+                <div class="dialogo">
+                  <div class="dialogo-topo">Suplementos</div>
+                  <div class="dialogo-corpo">
+                    <div class="dialogo-busca" data-passo="3" data-legenda="Pesquise por Claude."><small>Pesquisar:</small> Claude</div>
+                    <div class="dialogo-item"><span class="app-icone app-icone--claude"></span><div>Claude<small>Anthropic</small></div><span class="app-btn" data-passo="4" data-legenda="Clique em Adicionar e faça login com a sua conta do Claude.">Adicionar</span></div>
+                  </div>
+                </div>
+                <div class="painel-claude" data-passo="6" data-legenda="O painel abre à direita, com o arquivo aberto como contexto. Cada alteração pede a sua aprovação.">
+                  <div class="painel-claude-topo"><span class="app-icone app-icone--claude"></span>Claude</div>
+                  <div class="painel-claude-corpo">
+                    <span class="contexto">inadimplencia-condominio.xlsx</span>
+                    <div class="caixa-msg">Consolide todas as abas numa aba chamada Consolidado.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo painel-codigo--grade">
+        <figcaption>instalar uma vez, usar em todos os arquivos</figcaption>
+        <div>
+          <ol class="caminho"><li><span>Página Inicial</span></li><li><span>Suplementos</span></li><li><span>"Claude"</span></li><li><span>Adicionar</span></li></ol>
+          <p class="atalho" style="margin-top:14px">em algumas versões: Inserir › Suplementos</p>
+        </div>
+        <ol class="passos passos--compactos">
+          <li>Plano pago do Claude: Pro, Max, Team ou Enterprise.</li>
+          <li>Microsoft 365 com conta corporativa ou escolar; conta pessoal e Office 2016 ou 2019 não funcionam.</li>
+          <li>Permitir uma vez dá mais controle; permitir sempre ganha tempo em tarefas longas.</li>
+        </ol>
+      </figure>
+    </div>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Programa</th><th>O que o Claude faz ali dentro</th></tr></thead>
+        <tbody>
+          <tr><td><b>Excel</b></td><td>fórmulas das simples (<code>SE</code>, <code>CONT.SE</code>) às complexas (<code>PROCV</code>, <code>SOMARPRODUTO</code>, <code>DESLOC</code>, <code>INDIRETO</code>); abas, tabelas, gráficos, formatação e análises do dado bruto à decisão</td></tr>
+          <tr><td><b>PowerPoint</b></td><td>slides a partir de um roteiro, de uma planilha ou de outra apresentação; reescreve textos e aplica a mesma formatação em todos os slides</td></tr>
+          <tr><td><b>Word</b></td><td>escreve, revisa e ajusta documentos, com as alterações marcadas para você aceitar ou recusar</td></tr>
+          <tr><td><b>Outlook</b></td><td>trabalha com os seus e-mails, em beta pública</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ======================= 08 PLANILHA ======================= -->
+  <section class="secao" id="planilha">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">Analise uma planilha em etapas</h2>
+    </div>
+    <p class="secao-lead">Seguir um roteiro transforma a IA em analista: você decide as perguntas, ela faz o trabalho pesado. Cada etapa é um pedido que cria uma aba nova. E uma decisão vem antes de tudo: valores colados ou fórmulas?</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>o roteiro: um pedido por aba</figcaption>
+<pre class="codigo" data-lang="texto">0 Consolidado    junte as abas de janeiro a maio
+1 Panorama       total, taxa e os 10 maiores devedores
+2 Concentração   por torre, por tipo e mês a mês
+3 Risco          gravidade e débitos acima de 90 dias
+4 Impacto        multa de 2% e juros de 1% ao mês
+5 Relatório      os números principais em cards
+
+Construa tudo com fórmulas, não com valores
+colados: a planilha deve se atualizar sozinha
+quando entrar um mês novo.</pre>
+<pre class="codigo" data-lang="formula">=SOMA(B2:B6)   // o total que acompanha a base</pre>
+        <ol class="passos passos--compactos">
+          <li>Clique na célula B5, de abril.</li>
+          <li>Digite outro valor na barra de fórmulas e tecle Enter.</li>
+          <li>Compare os dois totais: qual acompanhou a mudança?</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Consolidado · aba criada pelo Claude</code></div>
+        <div class="preview-corpo">
+          <div class="planilha" data-planilha data-colados data-selecionar="B7" data-formatos="texto,moeda">
+            <table class="planilha-grade">
+              <tr><td class="titulo">Mês</td><td class="titulo">Em atraso</td></tr>
+              <tr><td>Janeiro</td><td>3850</td></tr>
+              <tr><td>Fevereiro</td><td>3420</td></tr>
+              <tr><td>Março</td><td>4780</td></tr>
+              <tr><td>Abril</td><td>3610</td></tr>
+              <tr><td>Maio</td><td>5690</td></tr>
+              <tr><td class="titulo">Total · fórmula</td><td>=SOMA(B2:B6)</td></tr>
+              <tr><td class="titulo">Total · valor colado</td><td>21350</td></tr>
+            </table>
+          </div>
+          <div data-colados-aviso></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Não sabe por onde começar?</h3><p>Pergunte ao Claude como ele analisaria aquela base. Nem toda sugestão vai servir, mas o planejamento ajuda a montar o roteiro.</p></article>
+      <article class="cartao cartao--novo"><h3>Uma vez ou todo mês</h3><p>Valores colados servem para uma análise que você faz uma vez. Fórmulas servem para o relatório que você refaz todo mês. Decida antes de pedir, não depois.</p></article>
+      <article class="cartao cartao--erro"><h3>Confira os nomes das funções</h3><p>Ao pedir fórmulas, ele pode precisar de ajustes. No Excel em português é <code>SOMA</code>, <code>SE</code>, <code>PROCV</code>, com ponto e vírgula entre os argumentos.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 APRESENTAÇÃO ======================= -->
+  <section class="secao" id="apresentacao">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Do Excel para o PowerPoint</h2>
+    </div>
+    <p class="secao-lead">Com a planilha aberta no Excel, o painel do Claude no PowerPoint mostra o arquivo como conectado: o Claude de um pede os dados ao do outro. O pedido dá o contexto: quais abas, quantos slides, o público e o tom. Depois, a mesma informação troca de roupa para cada público.</p>
+
+    <div class="lab" data-lab="publico">
+      <div class="lab-controles">
+        <h4>a mesma análise, outra lente</h4>
+        <div class="lab-campo"><label for="pb-publico">público</label>
+          <select id="pb-publico" data-campo="publico"><option value="sindico" selected>síndico</option><option value="conselho">conselho do condomínio</option><option value="moradores">assembleia de moradores</option></select></div>
+        <div class="lab-campo"><label>refinar a narrativa</label>
+          <label class="lab-check"><input type="checkbox" data-campo="afirmativos"> títulos que dizem a conclusão</label></div>
+        <ol class="passos passos--compactos">
+          <li>Escolha o público.</li>
+          <li>Ligue os títulos afirmativos.</li>
+          <li>Compare os slides: mesmos dados, outra ênfase.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o pedido no painel do PowerPoint</p><button type="button" class="botao-copiar" data-copiar="#pedido-publico">copiar o pedido</button></div>
+          <pre id="pedido-publico" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Compare o planejado com o executado</h3><p>O próprio Claude revisa sobreposição, contraste e texto transbordando, mas ainda erra: um slide em branco, dois slides iguais. Peça que ele compare o que planejou com o que construiu.</p></article>
+      <article class="cartao"><h3>Sonnet ou Opus no Office</h3><p>O seletor de modelo também aparece no painel. A regra é a mesma: Sonnet no dia a dia, o modelo mais forte quando a tarefa pede mais raciocínio.</p></article>
+      <article class="cartao cartao--erro"><h3>Sem inventar dados</h3><p>Ao mudar de público, diga com todas as letras: "use os mesmos dados, sem inventar números". Muda a lente, não a informação.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 3</span><span class="parte-titulo">Conectar, construir e ensinar</span></div>
+
+  <!-- ======================= 10 CONECTORES ======================= -->
+  <section class="secao" id="conectores">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Conectores e MCP</h2>
+    </div>
+    <p class="secao-lead">Um conector liga o Claude a uma ferramenta que você já usa (Gmail, Google Drive, Google Agenda, Slack, Notion, Microsoft 365 e centenas de outras) e ele passa a buscar informação e agir nela sem você sair da conversa. Por trás de todos está o MCP, Model Context Protocol: um padrão comum de conexão.</p>
+
+    <ul class="fluxo">
+      <li><div><b>Você pede</b><span>"resuma meus e-mails"</span></div></li>
+      <li><div><b>Claude</b><span>entende e escolhe a ação</span></div></li>
+      <li><div><b>MCP</b><span>traduz para a linguagem do serviço</span></div></li>
+      <li><div><b>Gmail</b><span>executa e devolve os dados</span></div></li>
+      <li><div><b>Resultado</b><span>o resumo, na conversa</span></div></li>
+    </ul>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Como um cabo USB-C</h3><p>Um único padrão liga aparelhos de marcas diferentes. O MCP é o padrão que liga o Claude a ferramentas diferentes.</p></article>
+      <article class="cartao"><h3>Como um tradutor</h3><p>Você fala na sua língua; o MCP leva o pedido na língua do Gmail, executa e traz a resposta de volta.</p></article>
+      <article class="cartao"><h3>Como o Pix</h3><p>O Pix criou uma linguagem comum entre bancos diferentes. O MCP faz o mesmo entre aplicativos.</p></article>
+    </div>
+
+    <h3 class="sub-titulo">Laboratório: permissão para cada ação</h3>
+    <div class="lab lab--largo" data-lab="permissoes">
+      <div class="lab-controles">
+        <h4>conector do Gmail · ferramentas</h4>
+        <div class="lab-campo"><label for="pm-pedido">o seu pedido</label>
+          <select id="pm-pedido" data-campo="pedido"><option value="resumir">resumir os e-mails da semana</option><option value="responder" selected>responder ao e-mail do suporte</option><option value="encaminhar">encaminhar o boleto ao financeiro</option></select></div>
+        <div class="lab-campo lab-campo--linha"><label for="pm-buscar">Buscar e-mails</label>
+          <select id="pm-buscar" data-campo="buscar"><option value="sempre" selected>Sempre permitir</option><option value="aprovacao">Requer aprovação</option><option value="bloqueado">Bloqueado</option></select></div>
+        <div class="lab-campo lab-campo--linha"><label for="pm-ler">Ler mensagem</label>
+          <select id="pm-ler" data-campo="ler"><option value="sempre" selected>Sempre permitir</option><option value="aprovacao">Requer aprovação</option><option value="bloqueado">Bloqueado</option></select></div>
+        <div class="lab-campo lab-campo--linha"><label for="pm-rascunho">Criar rascunho</label>
+          <select id="pm-rascunho" data-campo="rascunho"><option value="sempre" selected>Sempre permitir</option><option value="aprovacao">Requer aprovação</option><option value="bloqueado">Bloqueado</option></select></div>
+        <div class="lab-campo lab-campo--linha"><label for="pm-enviar">Enviar e-mail</label>
+          <select id="pm-enviar" data-campo="enviar"><option value="sempre" selected>Sempre permitir</option><option value="aprovacao">Requer aprovação</option><option value="bloqueado">Bloqueado</option></select></div>
+        <div class="lab-campo lab-campo--linha"><label for="pm-encaminhar">Encaminhar e-mail</label>
+          <select id="pm-encaminhar" data-campo="encaminhar"><option value="sempre">Sempre permitir</option><option value="aprovacao" selected>Requer aprovação</option><option value="bloqueado">Bloqueado</option></select></div>
+        <figure class="painel-codigo painel-codigo--mini">
+          <figcaption>onde ficam os conectores</figcaption>
+          <ol class="caminho"><li><span>Personalizar</span></li><li><span>Conectores</span></li><li><span>Gmail</span></li></ol>
+        </figure>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">a configuração</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Para conectar</h3><p>Em Personalizar, abra a lista de conectores, clique no sinal de mais ao lado da ferramenta, entre com a sua conta e autorize. Clicar no nome mostra as ações que ele sabe fazer.</p></article>
+      <article class="cartao"><h3>Combine recursos</h3><p>A planilha do Drive vira um painel (artefato); os dados viram slides (Office); o resumo do e-mail vira uma tarefa agendada toda segunda. Você passa a revisar, em vez de montar.</p></article>
+      <article class="cartao cartao--erro"><h3>A conexão falhou?</h3><p>Feche as abas da tentativa anterior, clique em Desvincular no conector com erro e refaça a autorização copiando o link para o navegador, em vez de clicar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 CLAUDE CODE ======================= -->
+  <section class="secao" id="claude-code">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Claude Code: prompt estruturado, não prompt aberto</h2>
+    </div>
+    <p class="secao-lead">O Claude Code é o agente de desenvolvimento: lê os arquivos do projeto, planeja, escreve o código, roda comandos e informa tudo o que fez. "Faça um cardápio digital" deixa ele livre para escolher tecnologias e inchar um projeto simples; objetivo, contexto, stack técnica e entregável fazem ele construir só o necessário.</p>
+
+    <div class="lab lab--largo" data-lab="code">
+      <div class="lab-controles lab-controles--duas">
+        <h4>os quatro blocos</h4>
+        <div class="lab-campo"><label for="cc-obj">objetivo</label>
+          <select id="cc-obj" data-campo="objetivo"><option value="">(não informado)</option><option value="cardapio" selected>cardápio da lanchonete</option><option value="portfolio">portfólio pessoal</option></select></div>
+        <div class="lab-campo"><label for="cc-ctx">contexto</label>
+          <select id="cc-ctx" data-campo="contexto"><option value="" selected>(não informado)</option><option value="celular">clientes no celular, link público</option><option value="recrutador">recrutadores, computador e celular</option></select></div>
+        <div class="lab-campo"><label for="cc-stack">stack técnica</label>
+          <select id="cc-stack" data-campo="stack"><option value="" selected>(não informada)</option><option value="simples">HTML, CSS e JavaScript</option></select></div>
+        <div class="lab-campo"><label for="cc-ent">entregável desta etapa</label>
+          <select id="cc-ent" data-campo="entregavel"><option value="" selected>(não informado)</option><option value="estrutura">só a estrutura inicial</option><option value="tudo">o site completo de uma vez</option></select></div>
+        <h4>modo de permissão</h4>
+        <div class="lab-campo"><label for="cc-modo">no seletor da sessão</label>
+          <select id="cc-modo" data-campo="modo"><option value="planejamento" selected>Planejamento</option><option value="solicitar">Solicitar permissões</option><option value="automatico">Automático</option><option value="ignorar">Ignorar permissões</option></select></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o primeiro prompt</p><button type="button" class="botao-copiar" data-copiar="#prompt-code">copiar o prompt</button></div>
+          <pre id="prompt-code" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="rolagem-x" style="margin-top:28px">
+      <table class="tabela">
+        <thead><tr><th>Modo</th><th>Como funciona</th><th>Quando usar</th></tr></thead>
+        <tbody>
+          <tr><td><b>Solicitar permissões</b></td><td>pede autorização antes de cada ação</td><td>quando você está começando</td></tr>
+          <tr><td><b>Automático</b></td><td>faz as ações simples direto e pergunta nas mais sensíveis</td><td>o meio-termo do dia a dia</td></tr>
+          <tr><td><b>Planejamento</b></td><td>monta e mostra o plano antes de executar qualquer coisa</td><td>no início de todo projeto ou etapa grande</td></tr>
+          <tr><td><b>Ignorar permissões</b></td><td>executa tudo sem perguntar</td><td>só quando você confia totalmente na tarefa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Onde fica</h3><p>No aplicativo do Claude, aba Code (plano pago): New session, escolha a pasta do projeto e confirme que confia nela. Também existe em terminal e dentro de editores como o VS Code.</p></article>
+      <article class="cartao"><h3>Não sabe a stack? Pergunte</h3><p>Peça ao Claude as opções de tecnologia e exemplos de sites feitos com cada uma. Entender o básico do que está sendo usado ajuda muito quando algo dá errado.</p></article>
+      <article class="cartao"><h3>Responda com clareza</h3><p>Se ele achar uma pasta com o mesmo nome, de um teste anterior, vai perguntar: recriar, aproveitar ou usar outro nome. Decidir faz parte do processo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 CLAUDE.md ======================= -->
+  <section class="secao" id="claude-md">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">CLAUDE.md: as regras que valem sempre</h2>
+    </div>
+    <p class="secao-lead">Na pasta principal do projeto, um arquivo chamado CLAUDE.md, em Markdown, guarda o objetivo, a stack e as convenções. O Claude lê esse arquivo no início de cada sessão, e você para de repetir as mesmas explicações. Regra boa é regra que dá para conferir.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>CLAUDE.md</figcaption>
+<pre class="codigo" data-lang="texto"># Cardápio Parada 277
+
+## Objetivo
+Cardápio digital da lanchonete Parada 277,
+aberto pelo celular, na mesa, por um link.
+
+## Stack
+HTML, CSS e JavaScript, sem framework pesado.
+
+## Regras
+- Nomes de arquivo em kebab-case: x-salada.jpg
+- Preços com vírgula decimal: R$ 24,90
+- No máximo três cores: marrom, creme e laranja
+- Uma foto por item, em assets/fotos</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>regra verificável ou vaga?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--par" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">"Nomes de arquivo em kebab-case"</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">verificável</button><button type="button" data-opcao="b">vaga</button></div>
+              <p class="quiz-explica">Dá para olhar a pasta e conferir: x-salada passa, X Salada não.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">"Código bonito e moderno"</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">verificável</button><button type="button" data-opcao="b">vaga</button></div>
+              <p class="quiz-explica">Bonito para quem? Não há como conferir, então cada sessão interpreta de um jeito.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">"No máximo três cores: marrom, creme e laranja"</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">verificável</button><button type="button" data-opcao="b">vaga</button></div>
+              <p class="quiz-explica">Conta-se nos dedos. Melhor ainda com os códigos das cores.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">"Visual profissional"</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">verificável</button><button type="button" data-opcao="b">vaga</button></div>
+              <p class="quiz-explica">Troque por algo que se confere: fontes, cores, espaçamento, uma referência.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>kebab-case</h3><p>Palavras separadas por hífen, sem espaços e sem acentos: <code>x-burger</code>, <code>cardapio.js</code>. Evita erro de link quando o site vai para a internet.</p></article>
+      <article class="cartao"><h3>Pastas com uma função só</h3><p>HTML para a estrutura, CSS para o visual, JS para o comportamento, assets para fotos e ícones. Se não dá para dizer em uma frase para que serve a pasta, está mal organizada.</p></article>
+      <article class="cartao"><h3>Cresce com o projeto</h3><p>Corrigiu o Claude duas vezes no mesmo ponto? Vira regra no CLAUDE.md.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 PUBLICAR ======================= -->
+  <section class="secao" id="publicar">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Teste no seu computador e publique</h2>
+    </div>
+    <p class="secao-lead">Ao terminar uma etapa, o Claude sugere rodar <code>npm run dev</code>: um servidor de testes no seu computador, num endereço como localhost:5173. Testado e ajustado, <code>npm run build</code> gera a versão final na pasta dist, e o Netlify publica essa pasta com um link. Colocar no ar é o que se chama deploy.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>os comandos e o que cada um produz</figcaption>
+<pre class="codigo" data-lang="texto">npm run dev
+  → http://localhost:5173
+    só no seu computador, para testar
+
+npm run build
+  → pasta dist/
+    a versão final e otimizada
+
+Netlify › arrastar a pasta dist
+  → https://cardapio-parada-277.netlify.app
+    o link público, em segundos</pre>
+        <ol class="passos passos--compactos">
+          <li>Peça ao Claude para rodar o servidor de testes.</li>
+          <li>Teste filtros e fotos; peça os ajustes.</li>
+          <li>Gere o build e arraste a pasta dist no Netlify.</li>
+          <li>Troque o nome do projeto: o endereço muda na hora.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>o cardápio no servidor de testes</code></div>
+        <div class="preview-corpo">
+          <div class="navegador">
+            <div class="navegador-barra"><i></i><i></i><i></i><span class="navegador-endereco">localhost:5173</span></div>
+            <div class="cardapio" data-cardapio>
+              <div class="cardapio-topo"><b>Parada 277</b><span>Lanches feitos na hora, na beira da BR</span></div>
+              <div class="cardapio-filtros">
+                <button type="button" data-filtro="todos">Todos</button>
+                <button type="button" data-filtro="lanches">Lanches</button>
+                <button type="button" data-filtro="bebidas">Bebidas</button>
+                <button type="button" data-filtro="sobremesas">Sobremesas</button>
+                <span class="cardapio-contador" data-cardapio-contador></span>
+              </div>
+              <div class="cardapio-itens">
+                <article class="prato" data-cat="lanches"><div class="prato-foto prato-foto--1">foto</div><b>X-Salada</b><p>pão, hambúrguer, queijo e salada</p><span>R$ 24,90</span></article>
+                <article class="prato" data-cat="lanches"><div class="prato-foto prato-foto--2">foto</div><b>X-Bacon</b><p>pão, hambúrguer, queijo e bacon</p><span>R$ 28,90</span></article>
+                <article class="prato" data-cat="lanches"><div class="prato-foto prato-foto--1">foto</div><b>Misto quente</b><p>presunto e queijo na chapa</p><span>R$ 12,00</span></article>
+                <article class="prato" data-cat="bebidas"><div class="prato-foto prato-foto--falhou">Suco de laranja</div><b>Suco de laranja</b><p>natural, 400 ml</p><span>R$ 9,50</span></article>
+                <article class="prato" data-cat="bebidas"><div class="prato-foto prato-foto--4">foto</div><b>Água com gás</b><p>garrafa de 500 ml</p><span>R$ 4,50</span></article>
+                <article class="prato" data-cat="sobremesas"><div class="prato-foto prato-foto--5">foto</div><b>Pudim</b><p>fatia do pudim da casa</p><span>R$ 8,00</span></article>
+              </div>
+            </div>
+          </div>
+          <p class="nota-demo">o bloco vermelho é a "rede de proteção": a foto do suco não carregou e o nome aparece no lugar</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Placeholder primeiro, foto depois</h3><p>Placeholder é o elemento provisório que só ocupa o lugar. Troque por fotos reais de um banco gratuito, como o Unsplash, até ter as fotos dos seus produtos.</p></article>
+      <article class="cartao"><h3>Peça a rede de proteção</h3><p>"Se alguma foto não carregar, mostre um bloco com o nome do item." Imagem quebrada vira um aviso claro, e um print enviado ao Claude resolve o resto.</p></article>
+      <article class="cartao cartao--novo"><h3>Mesmo prompt, site diferente</h3><p>Rodando o mesmo pedido duas vezes, o topo sai claro numa e escuro na outra. É normal: quanto mais específico o pedido (cores, seções, fontes), mais previsível o resultado.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 SKILLS ======================= -->
+  <section class="secao" id="skills">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Skills: ensine o Claude a trabalhar do seu jeito</h2>
+    </div>
+    <p class="secao-lead">Uma skill é um conjunto de instruções guardado numa pasta, como o manual de treinamento que você entrega a um funcionário novo. Você define o passo a passo uma vez e o Claude repete com consistência. Ele só carrega o que precisa, quando precisa.</p>
+
+    <div class="lab" data-lab="niveis">
+      <div class="lab-controles">
+        <h4>a skill instalada</h4>
+        <div class="arvore"><span class="arvore-raiz">relatorio-semanal/</span><ul>
+          <li><b>SKILL.md</b> <small>obrigatório: identificação e instruções</small></li>
+          <li class="arvore-pasta">scripts/<ul><li>grafico_rotas.py <small>código que gera o gráfico</small></li></ul></li>
+          <li class="arvore-pasta">references/<ul><li>padrao-de-texto.md <small>consultado só se preciso</small></li></ul></li>
+          <li class="arvore-pasta">assets/<ul><li>modelo-relatorio.docx <small>modelo, fontes, logotipo</small></li></ul></li>
+        </ul></div>
+        <div class="lab-campo"><label for="nv-pedido">o pedido</label>
+          <select id="nv-pedido" data-campo="pedido"><option value="tempo">previsão do tempo para amanhã</option><option value="relatorio" selected>relatório da semana</option><option value="grafico">relatório com gráfico por rota</option><option value="padrao">análise no padrão de texto da empresa</option></select></div>
+        <div class="lab-campo"><label for="nv-skills">skills instaladas: <b data-eco="skills"></b></label>
+          <input type="range" id="nv-skills" data-campo="skills" min="1" max="20" step="1" value="5"></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o que o Claude leu</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Não exige programação</h3><p>Uma skill simples é só o SKILL.md, escrito em português. Pastas de scripts, referências e modelos são opcionais.</p></article>
+      <article class="cartao"><h3>Ativação automática</h3><p>O Claude identifica sozinho qual skill usar e pode combinar várias. Também dá para chamar pelo nome: digite / na caixa de mensagem e escolha da lista.</p></article>
+      <article class="cartao"><h3>Escreva como receita</h3><p>"Ligue o forno e coloque o bolo" pode dar certo ou não. "Preaqueça a 180 graus e asse por 40 minutos" dá o mesmo resultado sempre. Detalhe é consistência.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 15 SKILL.md ======================= -->
+  <section class="secao" id="skill-md">
+    <div class="secao-topo">
+      <span class="selo">15</span>
+      <h2 class="secao-titulo">O SKILL.md: a description decide quando a skill entra</h2>
+    </div>
+    <p class="secao-lead">O SKILL.md começa com um cabeçalho entre linhas de três hífens, o frontmatter, com dois campos obrigatórios: name e description. A description diz o que a skill faz e quando usar; é só ela que o Claude lê o tempo todo para decidir se a skill entra.</p>
+
+    <div class="lab lab--largo" data-lab="skillmd">
+      <div class="lab-controles">
+        <h4>o frontmatter</h4>
+        <div class="lab-campo"><label for="sk-nome">name</label>
+          <input type="text" id="sk-nome" data-campo="nome" value="Relatório Semanal" spellcheck="false"></div>
+        <div class="lab-campo"><label for="sk-modelo">description</label>
+          <select id="sk-modelo" data-campo="modelo"><option value="vaga" selected>vaga</option><option value="semquando">diz o que faz, mas não quando</option><option value="completa">o que faz + quando usar</option><option value="generica">genérica demais</option><option value="propria">escrever a minha</option></select></div>
+        <div class="lab-campo"><label for="sk-desc">texto da description</label>
+          <textarea id="sk-desc" data-campo="descricao" spellcheck="false"></textarea></div>
+        <ol class="passos passos--compactos">
+          <li>Corrija o name.</li>
+          <li>Teste as quatro descriptions.</li>
+          <li>Escreva a sua e veja os testes.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o início do SKILL.md</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Depois do frontmatter: as instruções</h3>
+    <figure class="painel-codigo painel-codigo--grade">
+      <figcaption>relatorio-semanal/SKILL.md (continuação)</figcaption>
+<pre class="codigo" data-lang="texto"># Relatório semanal de entregas
+
+## Passos
+1. Abra a planilha de rotas da semana enviada.
+2. Some as entregas por rota e conte os atrasos
+   (entrega depois do horário combinado).
+3. Monte a tabela: rota, entregas, atrasos, %.
+4. Escreva um parágrafo de análise seguindo
+   references/padrao-de-texto.md.</pre>
+<pre class="codigo" data-lang="texto">## Formato da entrega
+- Datas como DD/MM/AAAA
+- Valores e porcentagens com vírgula decimal
+- No máximo uma página
+
+## Se algo der errado
+- Planilha sem a coluna "horário combinado":
+  pergunte antes de calcular atrasos.
+- Semana sem entregas: diga isso, sem tabela.</pre>
+    </figure>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Teste a ativação</h3><p>Liste frases que devem ativar a skill, inclusive paráfrases, e frases que não devem. Ativa de menos: acrescente as palavras que o usuário diria. Ativa demais: seja mais específico.</p></article>
+      <article class="cartao"><h3>Tamanho certo</h3><p>Mantenha o SKILL.md focado nas instruções e mande o detalhe para references/. O Claude só abre esses arquivos quando a tarefa pede.</p></article>
+      <article class="cartao cartao--erro"><h3>O que é recusado</h3><p>Arquivo que não se chama exatamente SKILL.md, name com espaços ou maiúsculas, os sinais &lt; e &gt; no frontmatter e nomes com "claude" ou "anthropic", que são reservados.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 16 CRIAR SKILL ======================= -->
+  <section class="secao" id="criar-skill">
+    <div class="secao-topo">
+      <span class="selo">16</span>
+      <h2 class="secao-titulo">Crie, instale e mantenha uma skill</h2>
+    </div>
+    <p class="secao-lead">O sinal mais claro: se você digita o mesmo pedido toda semana, está na hora de criar uma skill. O jeito mais fácil é pedir ajuda à Skill Creator, uma skill que cria skills: ela faz perguntas e monta o SKILL.md. Depois, teste e ajuste, sempre.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>ativar, criar e instalar</figcaption>
+        <ol class="caminho"><li><span>Configurações</span></li><li><span>Capacidades</span></li><li><span>execução de código</span></li></ol>
+        <ol class="caminho" style="margin-top:12px"><li><span>Personalizar</span></li><li><span>Skills</span></li><li><span>+</span></li><li><span>Criar habilidade</span></li></ol>
+<pre class="codigo" data-lang="texto">Quero criar uma skill que monte o relatório
+semanal de entregas a partir da planilha de
+rotas. Me faça as perguntas necessárias e
+escreva o SKILL.md.</pre>
+        <ol class="passos passos--compactos">
+          <li>Ligue a execução de código (no plano gratuito também).</li>
+          <li>Crie com a Skill Creator ou envie a pasta compactada em ZIP.</li>
+          <li>Ligue ou desligue cada skill na lista; chame pelo nome com /.</li>
+        </ol>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>uma skill ou duas?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--par" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Monta o relatório semanal de entregas a partir da planilha de rotas.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">uma skill</button><button type="button" data-opcao="b">duas skills</button></div>
+              <p class="quiz-explica">Uma responsabilidade, resumida numa frase sem "e também".</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Organiza as notas fiscais e também responde aos e-mails dos fornecedores.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">uma skill</button><button type="button" data-opcao="b">duas skills</button></div>
+              <p class="quiz-explica">Dois trabalhos que acontecem em momentos diferentes: duas skills menores.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Confere os documentos do motorista antes da viagem: CNH, exame e cursos obrigatórios.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">uma skill</button><button type="button" data-opcao="b">duas skills</button></div>
+              <p class="quiz-explica">Vários itens, uma só tarefa: conferir a documentação.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Cria a apresentação do mês e também agenda a reunião com a diretoria.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">uma skill</button><button type="button" data-opcao="b">duas skills</button></div>
+              <p class="quiz-explica">O "e também" denuncia: são duas responsabilidades.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Tarefa</th><th>Antes da skill</th><th>Depois da skill</th></tr></thead>
+        <tbody>
+          <tr><td><b>Relatório semanal</b></td><td>exportar, calcular as variações, copiar para o modelo e escrever a análise</td><td>"relatório da semana" e ele faz tudo no formato combinado</td></tr>
+          <tr><td><b>Análise de dados</b></td><td>explicar toda vez como explorar a base</td><td>enviar o CSV, dizer "explore isso" e ele segue o roteiro</td></tr>
+          <tr><td><b>Revisão de documentos</b></td><td>repetir as mesmas observações em toda revisão</td><td>a skill aplica o checklist da empresa sozinha</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Diretório e comunidade</h3><p>Em Skills, o sinal de mais leva ao diretório oficial (Skill Creator, Canvas Design, MCP Builder…). Bibliotecas da comunidade têm milhares de outras; pouco download não quer dizer skill ruim.</p></article>
+      <article class="cartao"><h3>Grave a tarefa</h3><p>No Cowork do aplicativo para Mac, você grava a tela, os cliques e a voz fazendo a tarefa, e o Claude propõe a skill para você revisar. Nos planos Pro, Max e Team.</p></article>
+      <article class="cartao cartao--erro"><h3>Skill pode ter scripts</h3><p>Uma skill pode trazer código que roda no seu ambiente. Leia a descrição e as instruções antes de instalar e prefira fontes que você conhece.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 17 QUAL RECURSO ======================= -->
+  <section class="secao" id="qual-recurso">
+    <div class="secao-topo">
+      <span class="selo">17</span>
+      <h2 class="secao-titulo">Qual recurso usar?</h2>
+    </div>
+    <p class="secao-lead">A pergunta que separa os recursos: o resultado é uma resposta, um arquivo que você compartilha ou uma ação nos seus arquivos e contas? Responder isso já indica por onde começar.</p>
+
+    <div class="quiz quiz--compacto quiz--grade" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Entender a diferença entre as categorias C e D da CNH</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">chat</button><button type="button" data-opcao="b">Cowork</button><button type="button" data-opcao="c">Claude Code</button></div>
+        <p class="quiz-explica">O resultado é uma resposta: conversa resolve, no plano gratuito.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Um painel de gastos para mandar à turma por link</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">conector</button><button type="button" data-opcao="b">artefato</button><button type="button" data-opcao="c">skill</button></div>
+        <p class="quiz-explica">Um arquivo funcional para compartilhar: artefato.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Renomear 200 fotos de vistoria numa pasta do computador</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">artefato</button><button type="button" data-opcao="b">chat</button><button type="button" data-opcao="c">Cowork</button></div>
+        <p class="quiz-explica">Ação em arquivos do computador: Cowork, com caminho, "nunca apague" e resumo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Criar uma aba de análise dentro da planilha da frota</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">Excel</button><button type="button" data-opcao="b">Claude Code</button><button type="button" data-opcao="c">conector</button></div>
+        <p class="quiz-explica">Trabalho dentro do arquivo: o suplemento do Excel, de preferência com fórmulas.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Achar no Gmail o e-mail do fornecedor e responder</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">artefato</button><button type="button" data-opcao="b">conector</button><button type="button" data-opcao="c">Cowork</button></div>
+        <p class="quiz-explica">A informação está numa conta online: conector, com aprovação antes de enviar.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">O mesmo relatório toda segunda, sempre no mesmo formato</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">chat</button><button type="button" data-opcao="b">artefato</button><button type="button" data-opcao="c">skill</button></div>
+        <p class="quiz-explica">Pedido que se repete vira skill; com uma tarefa agendada, roda sozinho.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">O cardápio da lanchonete no ar, com link público</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">Claude Code</button><button type="button" data-opcao="b">Word</button><button type="button" data-opcao="c">conector</button></div>
+        <p class="quiz-explica">Construir e publicar um site: Claude Code, com prompt estruturado e deploy.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Transformar a análise da planilha em sete slides</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">Cowork</button><button type="button" data-opcao="b">PowerPoint</button><button type="button" data-opcao="c">skill</button></div>
+        <p class="quiz-explica">O suplemento do PowerPoint busca os dados no Excel aberto: contexto compartilhado.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Oito hábitos que valem em todo recurso</h3>
+    <ol class="passos passos--duas">
+      <li><b>Organize antes de pedir:</b> dados, referências e objetivo.</li>
+      <li><b>Planeje antes de executar:</b> peça o plano em tarefas grandes.</li>
+      <li><b>Dê contexto:</b> público, tom, formato e o que evitar.</li>
+      <li><b>Revise sempre:</b> o slide em branco e o botão inexistente acontecem.</li>
+      <li><b>Controle as permissões:</b> libere só o necessário e nunca deixe apagar.</li>
+      <li><b>Escolha o modelo pela tarefa:</b> Sonnet no dia a dia, mais forte no complexo.</li>
+      <li><b>Cuide da privacidade:</b> confira o treinamento antes de enviar dados sensíveis.</li>
+      <li><b>Transforme repetição em skill:</b> o pedido de toda semana vira rotina.</li>
+    </ol>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Oito perguntas rápidas; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">1. O que diferencia um agente de uma IA conversacional?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O agente escreve textos mais longos.</button>
+          <button type="button" data-opcao="b">O agente recebe um objetivo e executa os passos: acessa arquivos, decide e entrega.</button>
+          <button type="button" data-opcao="c">O agente não precisa de permissão para nada.</button>
+        </div>
+        <p class="quiz-explica">A conversa responde e deixa a execução com você; o agente executa, pedindo permissão nas ações sensíveis.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">2. Classificar milhares de comentários simples: qual modelo?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O mais rápido e mais barato, como o Haiku.</button>
+          <button type="button" data-opcao="b">O mais capaz, como o Fable, com esforço alto.</button>
+          <button type="button" data-opcao="c">Tanto faz: todos gastam a mesma cota.</button>
+        </div>
+        <p class="quiz-explica">Tarefa simples em grande volume: capacidade sobrando só consome a cota mais rápido.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">3. Plano Pro com o treinamento ligado. As suas conversas…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">nunca são guardadas.</button>
+          <button type="button" data-opcao="b">só podem ser usadas nos planos Team e Enterprise.</button>
+          <button type="button" data-opcao="c">podem ser usadas para treinar novos modelos.</button>
+        </div>
+        <p class="quiz-explica">Nos planos individuais, a configuração decide. Nos comerciais, não há treino com os dados, por padrão.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">4. Você editou o artefato, mas o colega abre o link e não vê a mudança. Por quê?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O colega precisa ter conta no Claude.</button>
+          <button type="button" data-opcao="b">A versão compartilhada não é a mais recente.</button>
+          <button type="button" data-opcao="c">Artefatos não podem ser editados depois de prontos.</button>
+        </div>
+        <p class="quiz-explica">O link mostra a versão publicada. Depois de editar, confira qual versão está compartilhada.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">5. Num pedido ao Cowork numa pasta de trabalho, o que não pode faltar?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">"Seja rápido."</button>
+          <button type="button" data-opcao="b">A senha do computador.</button>
+          <button type="button" data-opcao="c">O caminho, o que deve sair, "nunca apague nada" e o pedido de resumo.</button>
+        </div>
+        <p class="quiz-explica">Sem o caminho, ele pergunta; sem a proibição, pode remover o que julgar desnecessário; sem resumo, você confere tudo à mão.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">6. A configuração equilibrada de um conector de e-mail é…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">buscar e ler em sempre permitir; enviar e encaminhar em requer aprovação.</button>
+          <button type="button" data-opcao="b">tudo em sempre permitir, para ganhar tempo.</button>
+          <button type="button" data-opcao="c">tudo bloqueado, por segurança.</button>
+        </div>
+        <p class="quiz-explica">Leituras liberadas fazem o conector render; nada sai em seu nome sem você ver.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">7. O que vai no CLAUDE.md de um projeto?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O código do site inteiro.</button>
+          <button type="button" data-opcao="b">O objetivo, a stack e regras verificáveis que valem em toda sessão.</button>
+          <button type="button" data-opcao="c">A senha do Netlify.</button>
+        </div>
+        <p class="quiz-explica">O Claude lê no início de cada sessão; você para de repetir explicações. Senha não vai em arquivo de projeto.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">8. A description de uma skill precisa dizer…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">só o nome do autor.</button>
+          <button type="button" data-opcao="b">"use sempre", para garantir que ela ative.</button>
+          <button type="button" data-opcao="c">o que a skill faz e quando usar, com as palavras que o usuário diria.</button>
+        </div>
+        <p class="quiz-explica">É a description que o Claude lê para decidir se a skill entra. Genérica demais, ela ativa onde não devia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">Os recursos da aula numa tabela só, para consultar quando bater a dúvida de qual usar.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Recurso</th><th>O que resolve</th><th>O que exige</th><th>Cuidado principal</th></tr></thead>
+        <tbody>
+          <tr><td><b>Chat</b></td><td>perguntar, analisar arquivos, gerar texto e ideias</td><td>plano gratuito</td><td>conferir o que a IA afirma</td></tr>
+          <tr><td><b>Artefatos</b></td><td>aplicativos, painéis e documentos que funcionam e se compartilham por link</td><td>plano gratuito</td><td>dados fictícios primeiro; compartilhar a versão mais recente</td></tr>
+          <tr><td><b>Cowork</b></td><td>executar tarefas nas pastas do computador</td><td>plano pago e o aplicativo de computador</td><td>caminho, o que sai no final, nunca apagar, resumo</td></tr>
+          <tr><td><b>Excel, Word e PowerPoint</b></td><td>analisar planilhas, montar slides e revisar documentos por dentro do arquivo</td><td>plano pago e Microsoft 365</td><td>fórmulas em vez de valores colados; revisar os slides</td></tr>
+          <tr><td><b>Conectores</b></td><td>buscar e agir no Gmail, no Drive, na agenda e em centenas de ferramentas</td><td>conta na ferramenta</td><td>aprovação em tudo que cria, altera ou envia</td></tr>
+          <tr><td><b>Claude Code</b></td><td>construir e publicar um site ou sistema</td><td>plano pago</td><td>objetivo, contexto, stack, entregável; modo de planejamento</td></tr>
+          <tr><td><b>Skills</b></td><td>ensinar o seu jeito de trabalhar para não repetir instruções</td><td>execução de código ativada</td><td>description com o que faz e quando usar; ler skills de terceiros</td></tr>
+          <tr><td><b>Tarefas agendadas</b></td><td>repetir um pedido sozinho, na frequência escolhida</td><td>plano pago</td><td>usam conectores e arquivos da conta, não pastas locais</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Um assistente para a sua tarefa repetitiva</h2>
+    </div>
+    <p class="secao-lead">Escolha uma tarefa que se repete toda semana no seu trabalho (ou use a do ponto de partida: o relatório semanal de entregas) e monte as três peças: o painel, o pedido para o Cowork e a skill.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que a entrega precisa ter</h3>
+        <ul class="requisitos">
+          <li><b>Artefato:</b> o pedido nos seis blocos para um painel da tarefa, com dados fictícios, gerado no Claude (o plano gratuito basta).</li>
+          <li><b>Cowork:</b> o pedido seguro em quatro linhas: caminho, tarefa, nunca apagar, resumo. Execute só se tiver plano pago.</li>
+          <li><b>Skill:</b> o SKILL.md da tarefa, com name em kebab-case, description com o que faz e quando usar, e os passos escritos como receita.</li>
+          <li><b>Testes:</b> três frases que devem ativar a skill e duas que não devem.</li>
+        </ul>
+        <p class="nota-atividade">Sem uma tarefa sua? Use o relatório semanal de entregas: uma planilha de rotas com data, rota, número de entregas, horário combinado e horário da entrega, em dados fictícios.</p>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>O molde do SKILL.md</h3>
+        <figure class="painel-codigo">
+          <figcaption>preencha os colchetes</figcaption>
+<pre class="codigo" data-lang="texto">---
+name: [nome-em-kebab-case]
+description: [o que a skill faz]. Use quando o
+  usuário pedir [as frases que ele diria].
+---
+# [Nome da tarefa]
+## Passos
+1. [primeiro passo, com detalhe de receita]
+2. [...]
+## Formato da entrega
+- [regra que dá para conferir]
+## Se algo der errado
+- Se [problema], [o que fazer].</pre>
+        </figure>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>Description com <b>no máximo 300 caracteres</b> que ative nas três frases de teste, inclusive nas paráfrases.</li>
+          <li><b>Duas regras verificáveis</b> no formato da entrega: nada de "bonito" ou "profissional".</li>
+          <li>Uma <b>instrução de erro</b>: o que fazer se o arquivo de entrada vier vazio ou sem uma coluna.</li>
+          <li>Se a description precisar de <b>"e também"</b>, divida em duas skills.</li>
+          <li>No artefato, <b>um filtro que muda todos os números</b> da tela.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, junto da entrega</h3>
+        <ul class="requisitos">
+          <li>Instale a skill (Personalizar › Skills) ou cole os passos numa conversa e rode a tarefa três vezes. Os resultados saíram iguais? O que variou?</li>
+          <li>Qual recurso da aula resolve melhor a sua tarefa: chat, artefato, Cowork, Office, conector, Claude Code ou skill? Por quê?</li>
+          <li>Abra a privacidade da sua conta: o treinamento com as conversas está ligado? Que dados da sua tarefa você não enviaria?</li>
+          <li>Abra uma skill do diretório oficial e leia a description: ela diz o que faz e quando usar?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="resultado-skill">
+        <div class="arvore"><span class="arvore-raiz">relatorio-semanal-entregas/</span><ul>
+          <li><b>SKILL.md</b> <small>name, description, passos, formato, erros</small></li>
+          <li class="arvore-pasta">references/<ul><li>padrao-de-texto.md <small>opcional</small></li></ul></li>
+        </ul></div>
+        <table class="tabela tabela--testes">
+          <thead><tr><th>frase de teste</th><th>esperado</th><th>no Claude</th></tr></thead>
+          <tbody>
+            <tr class="teste-certo"><td>Faça o relatório da semana</td><td>deve ativar</td><td>ativou</td></tr>
+            <tr class="teste-certo"><td>Monte o resumo semanal das entregas</td><td>deve ativar</td><td>ativou</td></tr>
+            <tr class="teste-certo"><td>Preciso fechar o relatório de sexta</td><td>deve ativar</td><td>ativou</td></tr>
+            <tr class="teste-certo"><td>Escreva um e-mail de aniversário</td><td>não deve</td><td>não ativou</td></tr>
+            <tr class="teste-certo"><td>Crie uma planilha de gastos</td><td>não deve</td><td>não ativou</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Um documento com o pedido de artefato e o link dele, o pedido do Cowork, o SKILL.md, as frases de teste e as respostas da Parte 3.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Os seis blocos identificáveis; as quatro linhas do Cowork; o frontmatter aprovado nas seis regras do laboratório 15; cinco testes certos.</p></article>
+      <article class="cartao"><h3>Critério de segurança</h3><p>Dados fictícios ou anonimizados; nada pessoal num artefato com link público; "nunca apague nada" em todo pedido sobre pastas.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Peça resultados, revise e transforme repetição em rotina.</p>
+      <div class="rodape-meta">IA na Prática · Aula 3 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/aula.js"></script>
+</body>
+</html>
