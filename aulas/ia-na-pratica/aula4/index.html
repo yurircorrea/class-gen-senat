@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA com responsabilidade — IA na Prática · Aula 4 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="ia-na-pratica" data-aula="aula4" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> IA com responsabilidade</a>
+    <nav class="barra-menu">
+      <a href="#contexto">contexto</a>
+      <a href="#pedidos">pedidos</a>
+      <a href="#termos">termos</a>
+      <a href="#ambiente">ambiente</a>
+      <a href="#etica">ética</a>
+      <a href="#limites">limites</a>
+      <a href="#lgpd">LGPD</a>
+      <a href="#detector">detector</a>
+      <a href="#pode">pode?</a>
+      <a href="#revisao">revisão</a>
+      <a href="#vieses">vieses</a>
+      <a href="#checklist">checklist</a>
+      <a href="#autoria">autoria</a>
+      <a href="#guia">guia</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>IA na Prática</span><span>Aula 4</span></div>
+      <h1>IA com responsabilidade</h1>
+      <p class="subtitulo">Uso ético, seguro e responsável: segurança da informação, LGPD e boas práticas</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Nas três primeiras aulas, o que a IA consegue fazer. Hoje, o que ela não deve fazer, o que não pode entrar nela e quem responde pelo resultado. A responsabilidade pelo uso da IA é sempre humana: a IA não responde processo, não assina documento e não representa a instituição.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Usar IA respeitando a segurança da informação e a proteção de dados da instituição.</li>
+      <li>Reconhecer dados pessoais, sensíveis e sigilosos antes de colar qualquer texto numa ferramenta de IA.</li>
+      <li>Identificar onde a IA pode apoiar e onde a decisão precisa ser humana.</li>
+      <li>Revisar o que a IA produz e construir regras práticas de uso para o seu setor.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#contexto"><span class="num">01</span><span class="rotulo">Contexto, rotina e ferramentas gratuitas</span></a>
+      <a href="#ambiente"><span class="num">02</span><span class="rotulo">IA não é ambiente seguro</span></a>
+      <a href="#etica"><span class="num">03</span><span class="rotulo">Ética e limites</span></a>
+      <a href="#lgpd"><span class="num">04</span><span class="rotulo">LGPD na prática</span></a>
+      <a href="#detector"><span class="num">05</span><span class="rotulo">Antes de colar: pode ou não pode</span></a>
+      <a href="#revisao"><span class="num">06</span><span class="rotulo">Revisão humana, erros e vieses</span></a>
+      <a href="#guia"><span class="num">07</span><span class="rotulo">O guia de uso do setor</span></a>
+      <a href="#encerramento"><span class="num">08</span><span class="rotulo">Encerramento, quiz e atividade</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item"><span class="amostra amostra--escuro"></span> painel escuro = o que você escreve: o pedido, o texto antes de colar</div>
+      <div class="legenda-item"><span class="amostra amostra--branco"></span> caixa branca = o que acontece. Todo laboratório funciona: mexa nos controles</div>
+      <div class="legenda-item"><span class="amostras-dados"><span class="dado dado--pessoal">pessoal</span><span class="dado dado--sensivel">sensível</span><span class="dado dado--sigiloso">sigiloso</span></span> os três tipos de dado que não vão para a IA</div>
+      <div class="legenda-item"><span class="amostra amostra--trecho">clique</span> texto com trechos clicáveis: encontre os problemas</div>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 1</span><span class="parte-titulo">Contexto e riscos</span></div>
+
+  <!-- ======================= 01 CONTEXTO ======================= -->
+  <section class="secao" id="contexto">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Pessoal, profissional ou institucional</h2>
+    </div>
+    <p class="secao-lead">O problema não é usar IA: é como e em qual contexto. A mesma ferramenta pede cuidados diferentes quando você pede uma receita para o almoço, revisa um e-mail de trabalho ou escreve em nome da instituição.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual é o contexto?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha quiz--grade" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Pedir ideias de passeio para o fim de semana, no celular</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">profissional</button><button type="button" data-opcao="c">institucional</button></div>
+              <p class="quiz-explica">Fora do trabalho e com dados seus: a responsabilidade é individual.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Revisar a redação de um e-mail para um fornecedor</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">profissional</button><button type="button" data-opcao="c">institucional</button></div>
+              <p class="quiz-explica">Apoio a uma tarefa do trabalho: cuidado com o que vai junto no texto.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Escrever o comunicado oficial publicado no site da unidade</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">profissional</button><button type="button" data-opcao="c">institucional</button></div>
+              <p class="quiz-explica">Fala em nome do SEST SENAT: conformidade total com as políticas e revisão obrigatória.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Resumir uma reportagem pública para a reunião da equipe</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">profissional</button><button type="button" data-opcao="c">institucional</button></div>
+              <p class="quiz-explica">Tarefa do trabalho com informação pública: um bom uso, sem dado protegido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>três contextos, três responsabilidades</figcaption>
+        <dl class="defs defs--colunas">
+          <dt><span class="defs-rotulo">Pessoal</span></dt>
+          <dd>Fora do trabalho, com dados seus. Quem responde: você.</dd>
+          <dt><span class="defs-rotulo">Profissional</span></dt>
+          <dd>Apoio às tarefas do dia a dia no trabalho. Quem responde: você, com atenção redobrada ao tipo de informação que insere.</dd>
+          <dt><span class="defs-rotulo">Institucional</span></dt>
+          <dd>Representa diretamente o SEST SENAT. Quem responde: você e a instituição. Exige política interna, LGPD e diretrizes oficiais.</dd>
+        </dl>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A responsabilidade é humana</h3><p>A IA não responde processo, não assina documento e não representa a instituição. Quem faz isso somos nós.</p></article>
+      <article class="cartao"><h3>O contexto muda tudo</h3><p>O mesmo pedido pode ser inofensivo em casa e um problema no trabalho, conforme as informações que vão junto.</p></article>
+      <article class="cartao cartao--erro"><h3>Conta pessoal no trabalho</h3><p>Usar a sua conta gratuita para uma tarefa do trabalho mistura os contextos: valem os termos que você aceitou, não as regras da instituição.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 PEDIDOS ======================= -->
+  <section class="secao" id="pedidos">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Onde a IA aparece na rotina administrativa</h2>
+    </div>
+    <p class="secao-lead">E-mails, atas, relatórios, comunicados e organização da agenda: é onde a IA mais ajuda, e é também onde os riscos aparecem com mais frequência. A diferença está no pedido: com os dados reais ou só com a estrutura.</p>
+
+    <div class="lab" data-lab="pedidos">
+      <div class="lab-controles">
+        <h4>a mesma tarefa, dois pedidos</h4>
+        <div class="lab-campo"><label for="pd-processo">processo</label>
+          <select id="pd-processo" data-campo="processo"><option value="email" selected>e-mail: redação, resposta, revisão</option><option value="ata">ata: transcrição e estrutura</option><option value="relatorio">relatório: compilação de dados</option><option value="comunicado">comunicado: elaboração</option><option value="organizacao">organização: planejamento da semana</option></select></div>
+        <ol class="passos passos--compactos">
+          <li>Escolha o processo.</li>
+          <li>Veja o que está marcado no pedido com dados reais.</li>
+          <li>Compare com o pedido que pede só a estrutura.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o pedido que pode ir para a IA</p><button type="button" class="botao-copiar" data-copiar="#pedido-seguro">copiar o pedido</button></div>
+          <pre id="pedido-seguro" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Estrutura é o ponto forte</h3><p>Modelos, roteiros, pautas e esqueletos de documentos: a IA faz muito bem e não precisa de nenhum dado real para isso.</p></article>
+      <article class="cartao"><h3>Os dados entram depois</h3><p>Com a estrutura pronta, você completa nomes, valores e datas no seu editor ou no sistema oficial, fora da ferramenta de IA.</p></article>
+      <article class="cartao"><h3>Apoio, não decisora</h3><p>Escrever, resumir, organizar e planejar são bons usos. Decidir pela equipe não é.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 TERMOS ======================= -->
+  <section class="secao" id="termos">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Ferramentas gratuitas: potencial e riscos ocultos</h2>
+    </div>
+    <p class="secao-lead">ChatGPT, Gemini, Copilot e outras ferramentas gratuitas escrevem, resumem, organizam e planejam muito bem. Mas, quando o produto é gratuito, o pagamento muitas vezes são os dados. Isso não as torna perigosas: exige ler os termos e usar com critério.</p>
+
+    <div class="dupla" data-achados="riscos">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">clique</span><code>termos de uso (texto fictício)</code></div>
+        <div class="preview-corpo">
+          <div class="papel">
+            <h4>AssistenteX · Termos de Uso</h4>
+            <p><span class="trecho" data-trecho data-achado="Regras que mudam sem aviso|Você aceita hoje termos que ainda não leu. Releia de tempos em tempos.">1. Ao usar o AssistenteX, você concorda com estes termos e com as versões futuras, que podem ser alteradas a qualquer momento.</span></p>
+            <p><span class="trecho" data-trecho>2. O serviço é gratuito e destinado ao uso pessoal.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Guardado sem prazo|&quot;Pelo tempo necessário&quot; não diz quanto tempo: o que você enviar pode ficar guardado por muito tempo.">3. Guardamos o que você digita e os arquivos enviados pelo tempo necessário às finalidades deste documento.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Treino ligado por padrão|Se você não mexer na configuração, as suas conversas ajudam a treinar o modelo.">4. Podemos usar suas conversas para treinar e melhorar nossos modelos. Você pode desativar essa opção nas configurações.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Pessoas podem ler|Além do sistema, revisores humanos podem ler trechos do que você escreveu.">5. Uma amostra das conversas pode ser lida por revisores humanos para controle de qualidade.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Fora do país|Os dados ficam sujeitos a outra legislação e fora do controle da instituição.">6. Os dados podem ser processados em servidores localizados em outros países.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Compartilhados com terceiros|Quem são os parceiros? O texto não diz, e você não tem como saber.">7. Podemos compartilhar informações com empresas parceiras e prestadores de serviço.</span></p>
+            <p><span class="trecho" data-trecho>8. Você pode apagar o seu histórico de conversas a qualquer momento.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="achados">
+        <figure class="painel-codigo painel-codigo--mini">
+          <figcaption>o que procurar em qualquer termo de uso</figcaption>
+          <ol class="passos passos--compactos">
+            <li>O que guardam, e por quanto tempo.</li>
+            <li>Se usam as conversas para treinar modelos.</li>
+            <li>Quem mais pode ver: revisores, parceiros.</li>
+            <li>Onde os dados são processados.</li>
+          </ol>
+        </figure>
+        <div class="achados-barra">
+          <span class="achados-contador" data-achados-contador></span>
+          <button type="button" class="botao botao--secundario" data-achados-limpar>limpar</button>
+          <button type="button" class="botao" data-achados-todos>mostrar todos</button>
+        </div>
+        <ol class="achados-lista" data-achados-lista></ol>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Potencial de verdade</h3><p>Escrita e revisão, resumos de documentos longos, organização de ideias e planejamento de tarefas: ótimas como apoio, não como decisoras.</p></article>
+      <article class="cartao"><h3>Termos pouco claros</h3><p>Os termos são longos e costumam permitir usos amplos dos dados. "Pode", "parceiros" e "tempo necessário" merecem uma segunda leitura.</p></article>
+      <article class="cartao cartao--novo"><h3>Conta da instituição é outra coisa</h3><p>Ferramentas contratadas pela instituição costumam ter contrato que proíbe usar os dados para treino. Na dúvida, pergunte à TI qual ferramenta é a oficial.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 AMBIENTE ======================= -->
+  <section class="secao" id="ambiente">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">IA não é ambiente seguro</h2>
+    </div>
+    <p class="secao-lead">As ferramentas de IA processam o que você digita em servidores fora da instituição, sem a auditoria, o registro de acesso e a política de retenção que os sistemas oficiais têm. A regra de bolso: se não pode ir por e-mail, não pode ir para a IA.</p>
+
+    <div class="lab" data-lab="ambiente">
+      <div class="lab-controles">
+        <h4>por onde o dado passa</h4>
+        <div class="lab-campo"><label for="am-ferramenta">ferramenta</label>
+          <select id="am-ferramenta" data-campo="ferramenta"><option value="pessoal" selected>conta pessoal gratuita</option><option value="corporativa">conta corporativa contratada</option><option value="interno">sistema oficial da instituição</option></select></div>
+        <div class="lab-campo"><label for="am-dado">o que vai</label>
+          <select id="am-dado" data-campo="dado"><option value="modelo">modelo de ofício em branco</option><option value="financeiro">relatório financeiro da unidade</option><option value="ficha" selected>ficha de colaborador com CPF</option></select></div>
+        <ol class="passos passos--compactos">
+          <li>Escolha a ferramenta e o conteúdo.</li>
+          <li>Siga o caminho do dado.</li>
+          <li>Leia quem controla o que acontece com ele.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">a decisão</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Processamento externo</h3><p>Os dados viajam para servidores de terceiros, muitas vezes em outros países e sujeitos a outras leis.</p></article>
+      <article class="cartao"><h3>Fora do controle da instituição</h3><p>Numa conta pessoal, não há auditoria, registro de acesso nem política de retenção gerenciada pela equipe de TI.</p></article>
+      <article class="cartao"><h3>Sistemas oficiais existem por um motivo</h3><p>Os sistemas homologados pela instituição garantem segurança e rastreabilidade. A IA não os substitui.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 2</span><span class="parte-titulo">Ética, limites e LGPD</span></div>
+
+  <!-- ======================= 05 ÉTICA ======================= -->
+  <section class="secao" id="etica">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Quatro princípios para cada uso</h2>
+    </div>
+    <p class="secao-lead">Usar IA com ética não é proibir a tecnologia: é deixar quatro princípios guiarem cada decisão de uso dentro da instituição.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual princípio está em jogo?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha quiz--grade" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">O resumo saiu com um número errado, e o colega disse: "foi a IA que errou".</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">responsabilidade</button><button type="button" data-opcao="b">transparência</button><button type="button" data-opcao="c">prudência</button><button type="button" data-opcao="d">finalidade</button></div>
+              <p class="quiz-explica">Quem usou responde pelo resultado. A IA não assume erro de ninguém.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Antes de divulgar o informativo, a equipe informa que o texto teve apoio de IA e confere tudo.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">responsabilidade</button><button type="button" data-opcao="b">transparência</button><button type="button" data-opcao="c">prudência</button><button type="button" data-opcao="d">finalidade</button></div>
+              <p class="quiz-explica">Reconhecer e verificar o uso de IA antes de publicar.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Na dúvida se a planilha tinha dados de clientes, a assistente decidiu não colar.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">responsabilidade</button><button type="button" data-opcao="b">transparência</button><button type="button" data-opcao="c">prudência</button><button type="button" data-opcao="d">finalidade</button></div>
+              <p class="quiz-explica">Na dúvida, não compartilhar. Confere-se primeiro.</p>
+            </div>
+            <div class="quiz-item" data-resposta="d">
+              <p class="quiz-pergunta">Usar a conta da unidade para escrever a campanha eleitoral de um candidato.</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">responsabilidade</button><button type="button" data-opcao="b">transparência</button><button type="button" data-opcao="c">prudência</button><button type="button" data-opcao="d">finalidade</button></div>
+              <p class="quiz-explica">O propósito não tem nada a ver com os objetivos da instituição: finalidade ilegítima.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo painel-codigo--grade">
+        <figcaption>os princípios</figcaption>
+<pre class="codigo" data-lang="texto">Responsabilidade
+  quem usa a ferramenta responde pelo resultado:
+  a IA é meio, não agente responsável
+
+Transparência
+  conteúdo apoiado por IA é reconhecido como tal
+  e verificado antes da divulgação</pre>
+<pre class="codigo" data-lang="texto">Prudência
+  na dúvida sobre o risco de compartilhar uma
+  informação, a escolha segura é não compartilhar
+
+Finalidade legítima
+  propósito claro, alinhado aos objetivos da
+  instituição e às normas vigentes</pre>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 06 LIMITES ======================= -->
+  <section class="secao" id="limites">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">O que a IA não deve fazer</h2>
+    </div>
+    <p class="secao-lead">A IA pode apresentar opções. A decisão, a norma, o parecer e a assinatura são humanos. A própria LGPD garante a quem é afetado o direito de pedir a revisão de decisões tomadas só por sistemas automatizados.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>quatro limites</figcaption>
+<pre class="codigo" data-lang="texto">1 Decidir
+  decisões sobre pessoas, processos ou recursos
+  precisam de julgamento humano
+
+2 Criar normas oficiais
+  regulamentos e instruções exigem autoria
+  qualificada, validação jurídica e aprovação
+
+3 Substituir parecer humano
+  análises técnicas e jurídicas são emitidas
+  por profissionais habilitados
+
+4 Assumir responsabilidade
+  a IA não representa o SEST SENAT: todo conteúdo
+  é assumido e validado por um colaborador</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>apoio ou decisão humana?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--par" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Sugerir três horários possíveis para a reunião da equipe</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">apoio</button><button type="button" data-opcao="b">decisão humana</button></div>
+              <p class="quiz-explica">Opções para alguém escolher: bom uso.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Definir qual colaborador recebe uma advertência</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">apoio</button><button type="button" data-opcao="b">decisão humana</button></div>
+              <p class="quiz-explica">Decisão sobre uma pessoa, com consequência: julgamento humano.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Listar pontos a conferir num modelo de contrato antes de enviar ao jurídico</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">apoio</button><button type="button" data-opcao="b">decisão humana</button></div>
+              <p class="quiz-explica">Checklist para o profissional habilitado, que dá o parecer.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Aprovar ou negar o pedido de reembolso de um aluno</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">apoio</button><button type="button" data-opcao="b">decisão humana</button></div>
+              <p class="quiz-explica">Afeta uma pessoa e um recurso da instituição.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Escrever e publicar o regulamento interno da unidade</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">apoio</button><button type="button" data-opcao="b">decisão humana</button></div>
+              <p class="quiz-explica">Norma oficial tem autor, validação jurídica e aprovação.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Opções, não decisões</h3><p>"Liste prós e contras de cada alternativa" é apoio. "Qual devemos escolher?" passa a decisão para quem não responde por ela.</p></article>
+      <article class="cartao"><h3>Revisão de decisão automatizada</h3><p>A LGPD (art. 20) dá ao titular o direito de pedir revisão de decisões tomadas só com base em tratamento automatizado que afetem os seus interesses.</p></article>
+      <article class="cartao cartao--erro"><h3>"A IA decidiu" não existe</h3><p>Se uma decisão foi tomada, alguém a tomou. Usar IA no caminho não transfere a responsabilidade.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 LGPD ======================= -->
+  <section class="secao" id="lgpd">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">LGPD na prática</h2>
+    </div>
+    <p class="secao-lead">A Lei Geral de Proteção de Dados (Lei 13.709/2018) protege as informações de pessoas físicas. Antes de compartilhar qualquer texto, reconheça o que há nele: dado pessoal, dado pessoal sensível ou informação sigilosa da instituição.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual categoria?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--linha quiz--grade" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">CPF de um aluno</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">sensível</button><button type="button" data-opcao="c">sigilosa</button><button type="button" data-opcao="d">pública</button></div>
+              <p class="quiz-explica">Identifica uma pessoa: dado pessoal.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Atestado médico de um colaborador</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">sensível</button><button type="button" data-opcao="c">sigilosa</button><button type="button" data-opcao="d">pública</button></div>
+              <p class="quiz-explica">Saúde está na lista de dados sensíveis da lei.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Faturamento da unidade no trimestre</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">sensível</button><button type="button" data-opcao="c">sigilosa</button><button type="button" data-opcao="d">pública</button></div>
+              <p class="quiz-explica">Não identifica ninguém, mas é informação interna da instituição.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Placa do caminhão de um motorista identificado</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">sensível</button><button type="button" data-opcao="c">sigilosa</button><button type="button" data-opcao="d">pública</button></div>
+              <p class="quiz-explica">Ligada a uma pessoa, a placa a torna identificável.</p>
+            </div>
+            <div class="quiz-item" data-resposta="d">
+              <p class="quiz-pergunta">Texto de uma lei publicada no Diário Oficial</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pessoal</button><button type="button" data-opcao="b">sensível</button><button type="button" data-opcao="c">sigilosa</button><button type="button" data-opcao="d">pública</button></div>
+              <p class="quiz-explica">Domínio público: pode ir para a IA. Confira a versão atual da lei.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>as três categorias</figcaption>
+        <dl class="defs defs--colunas">
+          <dt><span class="dado dado--pessoal">dado pessoal</span></dt>
+          <dd>Identifica ou torna identificável uma pessoa: nome completo, CPF, RG, CNH, endereço, telefone, e-mail, placa de um veículo ligado a alguém.</dd>
+          <dt><span class="dado dado--sensivel">dado pessoal sensível</span></dt>
+          <dd>Proteção reforçada: saúde, vida sexual, origem racial ou étnica, religião, opinião política, filiação a sindicato, dado genético ou biométrico.</dd>
+          <dt><span class="dado dado--sigiloso">informação sigilosa</span></dt>
+          <dd>Da instituição: finanças, contratos, estratégias, processos em andamento. Protegida por sigilo, contratos e política interna.</dd>
+        </dl>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao cartao--erro"><h3>Sigiloso não é categoria da LGPD</h3><p>A lei protege pessoas físicas. Finanças, contratos e estratégias são protegidos por sigilo, contrato e política interna: tão proibidos na IA quanto, mas por outro motivo.</p></article>
+      <article class="cartao"><h3>Quem fiscaliza</h3><p>A ANPD, Autoridade Nacional de Proteção de Dados. As sanções vão de advertência a multa de até 2% do faturamento, limitada a R$ 50 milhões por infração.</p></article>
+      <article class="cartao cartao--novo"><h3>Lei de IA ainda em discussão</h3><p>O PL 2338/2023, marco legal da IA, foi aprovado no Senado em dezembro de 2024 e segue na Câmara (outubro de 2026). Enquanto isso, valem a LGPD, o sigilo e as políticas internas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 DETECTOR ======================= -->
+  <section class="secao" id="detector">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">Antes de colar: encontre e troque os dados</h2>
+    </div>
+    <p class="secao-lead">O caso clássico: alguém cola nome, CPF e endereço de um cliente na IA só para "melhorar a redação" de um e-mail. Os dados ficam em servidores externos, a empresa pode responder por vazamento e o cliente perde a confiança. A intenção não elimina a exposição: troque os dados por marcadores antes de colar.</p>
+
+    <div class="lab lab--largo" data-lab="detector">
+      <div class="lab-controles">
+        <h4>o texto, antes de colar</h4>
+        <div class="lab-campo"><label for="dt-texto">escreva ou cole um texto (fica só nesta página)</label>
+          <textarea id="dt-texto" data-campo="texto" spellcheck="false" rows="11">Melhore a redação deste e-mail:
+
+Prezada Ana Paula Ribeiro,
+informamos que o motorista Carlos Eduardo Lima, CPF 123.456.789-00, CNH 01234567890, apresentou atestado com CID M54.5 e ficará afastado até o dia 20. O caminhão placa BRA2E19 ficará na garagem da Rua das Palmeiras, 450, CEP 85851-000. O desconto de R$ 380,00 já foi lançado.
+Dúvidas: (45) 99812-3456 ou carlos.lima@exemplo.com.br</textarea></div>
+        <label class="lab-check"><input type="checkbox" data-campo="trocar"> trocar os dados por marcadores</label>
+        <ol class="passos passos--compactos">
+          <li>Leia o que ficou marcado.</li>
+          <li>Ligue a troca por marcadores.</li>
+          <li>Reescreva o que ainda sobrar.</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">o texto que vai para a IA</p><button type="button" class="botao-copiar" data-copiar="#texto-anonimo">copiar o texto</button></div>
+          <pre id="texto-anonimo" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Marcador no lugar do dado</h3><p>Com [NOME 1] e [CPF], a IA trabalha a forma do texto do mesmo jeito. Você completa os dados depois, fora dela.</p></article>
+      <article class="cartao cartao--erro"><h3>O detector não acha tudo</h3><p>Apelidos, cargos únicos e descrições também identificam: "o único motorista da rota noturna" aponta para uma pessoa. Releia sempre.</p></article>
+      <article class="cartao"><h3>Quanto mais genérico, mais seguro</h3><p>Se o pedido funciona sem o dado, ele não precisava estar lá. Na maioria das vezes, funciona.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 PODE ======================= -->
+  <section class="secao" id="pode">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Pode, depende ou não pode?</h2>
+    </div>
+    <p class="secao-lead">Modelos em branco, textos genéricos, situações fictícias, informações públicas e estruturas administrativas podem ir para a IA. Dados pessoais reais, informações sigilosas, documentos confidenciais e dados sensíveis, não. Entre os dois, o que depende do conteúdo.</p>
+
+    <div class="quiz quiz--compacto quiz--grade" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Criar um modelo genérico de ofício, sem dados reais</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Estrutura em branco: o melhor uso da IA no trabalho.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Redigir um comunicado interno</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">O texto identifica pessoas ou processos sigilosos? Há dado sensível? Se não, pode.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Colar a planilha dos colaboradores para "otimizar"</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Dados pessoais de muitas pessoas de uma vez. Peça só a estrutura da planilha.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Pedir para resumir um laudo médico</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Dado de saúde é sensível: proteção reforçada pela LGPD.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Estruturar a pauta de uma reunião sem identificar participantes</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Organização sem dado de ninguém.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Resumir a ata de uma reunião da equipe</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Depende do que a ata registra: nomes, afastamentos e decisões sigilosas mudam a resposta.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Revisar um contrato com valores e partes identificadas</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Documento confidencial, com dados pessoais e financeiros.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Explicar um artigo da LGPD publicado no Diário Oficial</p>
+        <div class="quiz-opcoes"><button type="button" data-opcao="a">pode</button><button type="button" data-opcao="b">depende</button><button type="button" data-opcao="c">não pode</button></div>
+        <p class="quiz-explica">Informação pública. Só confira a explicação no texto da lei.</p>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Pode ir</h3><p>Modelos de documento em branco, textos genéricos, situações fictícias, informações públicas (leis, normas) e estruturas administrativas sem dado sensível.</p></article>
+      <article class="cartao cartao--erro"><h3>Não pode ir</h3><p>Dados pessoais reais, informações sigilosas, documentos confidenciais (contratos, pareceres, laudos), dados sensíveis (saúde, religião, biometria) e situações disciplinares.</p></article>
+      <article class="cartao"><h3>"É só para ajudar"</h3><p>Mesmo que seja só para ajudar, o risco continua existindo. A intenção não elimina a exposição dos dados.</p></article>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Parte 3</span><span class="parte-titulo">Revisão humana e boas práticas</span></div>
+
+  <!-- ======================= 10 REVISÃO ======================= -->
+  <section class="secao" id="revisao">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Revisão humana: a IA erra, inventa e envelhece</h2>
+    </div>
+    <p class="secao-lead">A IA escreve com fluidez e aparente precisão, o que não garante que esteja certa. Ela erra cálculos e interpretações, inventa leis, datas e citações com total confiança (as "alucinações") e pode estar desatualizada, porque cada modelo tem uma data de corte. Erro da IA que passa sem revisão vira erro do colaborador e da instituição.</p>
+
+    <div class="dupla" data-achados="problemas">
+      <div class="achados">
+        <figure class="painel-codigo painel-codigo--mini">
+          <figcaption>o pedido que gerou o comunicado</figcaption>
+<pre class="codigo" data-lang="texto">Escreva um comunicado sobre as inscrições
+do curso de atualização de motoristas
+na unidade de Foz do Iguaçu.</pre>
+          <ol class="passos passos--compactos">
+            <li>Leia o comunicado gerado.</li>
+            <li>Clique em cada trecho que você não publicaria.</li>
+            <li>Confira na lista o tipo de problema.</li>
+          </ol>
+        </figure>
+        <div class="achados-barra">
+          <span class="achados-contador" data-achados-contador></span>
+          <button type="button" class="botao botao--secundario" data-achados-limpar>limpar</button>
+          <button type="button" class="botao" data-achados-todos>mostrar todos</button>
+        </div>
+        <ol class="achados-lista" data-achados-lista></ol>
+      </div>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">clique</span><code>a resposta da IA, sem revisão</code></div>
+        <div class="preview-corpo">
+          <div class="papel">
+            <h4>Comunicado · Curso de atualização de motoristas</h4>
+            <p><span class="trecho" data-trecho>A Unidade B086 informa que estão abertas as inscrições para o curso de atualização de motoristas profissionais.</span>
+              <span class="trecho" data-trecho data-achado="Data que não existe|Setembro tem 30 dias. A IA escreve uma data impossível com a mesma segurança de uma certa.">As inscrições vão até 31 de setembro.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Erro de cálculo|3 × 25 = 75. Toda conta se refaz antes de publicar.">Serão 3 turmas de 25 alunos, totalizando 85 vagas.</span>
+              <span class="trecho" data-trecho data-achado="Lei inventada|Essa lei não existe: é uma alucinação. Lei, norma e data citadas se conferem na fonte oficial.">Conforme a Lei nº 19.432/2025, o curso passou a ser obrigatório para todos os motoristas profissionais.</span></p>
+            <p><span class="trecho" data-trecho>As aulas acontecem às terças e quintas, das 19h às 22h.</span>
+              <span class="trecho" data-trecho data-achado="Generalização|Não neva nas rodovias de Foz do Iguaçu. A IA repete padrões gerais que não refletem a região.">Recomenda-se atenção redobrada no inverno, quando a neve bloqueia as rodovias da região.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Dados pelo canal errado|A inscrição é pelo canal oficial; documento pessoal não circula pelo WhatsApp pessoal de ninguém.">Para se inscrever, envie CPF e foto do documento para o WhatsApp pessoal do instrutor.</span></p>
+            <p><span class="trecho" data-trecho data-achado="Assinado pela IA|A IA não representa a instituição. O comunicado é assinado e assumido por uma pessoa responsável.">Atenciosamente, Inteligência Artificial do SEST SENAT.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A IA pode errar</h3><p>Erros de interpretação, de cálculo e de raciocínio, principalmente em assuntos especializados.</p></article>
+      <article class="cartao"><h3>A IA pode inventar</h3><p>As alucinações apresentam informações falsas com total confiança, inclusive leis, datas e citações que não existem.</p></article>
+      <article class="cartao cartao--erro"><h3>A IA pode estar desatualizada</h3><p>Cada modelo tem uma data de corte. Leis, portarias e normas recentes podem não estar nas respostas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 VIESES ======================= -->
+  <section class="secao" id="vieses">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Generalizações, falsa confiança e vieses</h2>
+    </div>
+    <p class="secao-lead">Além de errar, a IA reproduz padrões dos dados com que foi treinada: generaliza, fala com uma confiança que convence e pode repetir preconceitos. O texto sai fluente e parece pronto, e é exatamente por isso que precisa de revisão.</p>
+
+    <div class="lab" data-lab="vies">
+      <div class="lab-controles">
+        <h4>o pedido e a revisão</h4>
+        <div class="chat"><div class="chat-corpo"><div class="chat-msg chat-msg--voce">Escreva um anúncio de vaga de motorista de caminhão.</div></div></div>
+        <div class="lab-campo"><label>o que a revisão corrige</label>
+          <label class="lab-check"><input type="checkbox" data-campo="genero"> tirar a restrição de gênero</label>
+          <label class="lab-check"><input type="checkbox" data-campo="idade"> tirar o limite de idade</label>
+          <label class="lab-check"><input type="checkbox" data-campo="aparencia"> tirar "forte e de boa aparência"</label>
+          <label class="lab-check"><input type="checkbox" data-campo="requisitos"> trocar por requisitos que se comprovam</label></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o anúncio, depois da revisão</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Generalizações</h3><p>Respostas baseadas em padrões gerais nem sempre refletem a realidade do SEST SENAT, da região ou do seu setor.</p></article>
+      <article class="cartao"><h3>Falsa confiança</h3><p>O tom fluente e assertivo cria uma impressão de autoridade que leva a aceitar informações erradas sem questionar.</p></article>
+      <article class="cartao cartao--erro"><h3>Reprodução de vieses</h3><p>Preconceitos presentes nos dados de treinamento aparecem nas respostas e influenciam decisões de forma sutil e prejudicial.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 CHECKLIST ======================= -->
+  <section class="secao" id="checklist">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Gerar, revisar, aprovar</h2>
+    </div>
+    <p class="secao-lead">Um fluxo simples garante que o conteúdo gerado seja confiável antes de ser usado: a IA gera, uma pessoa revisa e verifica, e alguém responsável aprova. A revisão humana não é opcional: é parte obrigatória do processo.</p>
+
+    <div class="lab" data-lab="checklist">
+      <div class="lab-controles">
+        <h4>antes de usar o texto</h4>
+        <div class="lab-campo"><label for="ck-destino">para onde o texto vai</label>
+          <select id="ck-destino" data-campo="destino"><option value="interno">rascunho interno da equipe</option><option value="oficial" selected>comunicado oficial publicado</option></select></div>
+        <div class="lab-campo"><label>revisão</label>
+          <label class="lab-check"><input type="checkbox" data-campo="fatos" checked> fatos, leis e datas conferidos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="numeros"> números e cálculos refeitos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="dados" checked> dados pessoais retirados</label>
+          <label class="lab-check"><input type="checkbox" data-campo="linguagem"> linguagem da instituição</label>
+          <label class="lab-check"><input type="checkbox" data-campo="transparencia"> uso de IA informado</label>
+          <label class="lab-check"><input type="checkbox" data-campo="aprovacao"> aprovado pelo responsável</label></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <p class="lab-codigo-titulo">o registro de revisão</p>
+          <pre data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Revise sempre</h3><p>Fatos, números e a coerência do texto. Um texto bem escrito pode conter erros graves.</p></article>
+      <article class="cartao"><h3>A voz é da instituição</h3><p>O conteúdo final reflete o padrão de comunicação do SEST SENAT, não o estilo da IA. Adapte sempre ao contexto.</p></article>
+      <article class="cartao"><h3>A responsabilidade final é sua</h3><p>Pelo conteúdo responde o profissional que o usou e quem o aprovou, nunca a ferramenta.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 AUTORIA ======================= -->
+  <section class="secao" id="autoria">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Direitos autorais e conteúdo gerado por IA</h2>
+    </div>
+    <p class="secao-lead">Quem é o autor de um texto gerado por IA? Pela lei brasileira de direitos autorais (Lei 9.610/1998), autor é a pessoa física que cria a obra, e a proteção de um texto produzido só pela IA não é clara. Além disso, a IA pode reproduzir trechos protegidos de outras fontes sem avisar.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>três cuidados</figcaption>
+<pre class="codigo" data-lang="texto">Material público
+  use com cautela: a autoria do texto
+  gerado pode não ter proteção clara
+
+Originalidade
+  a IA pode trazer trechos protegidos
+  de outras fontes: verifique antes de usar
+
+Uso interno
+  adapte e personalize o texto gerado
+  antes de compartilhar</pre>
+      </figure>
+
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>pode usar ou evite?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--compacto quiz--par" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Usar um rascunho da IA num documento interno, depois de adaptar e revisar</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pode usar</button><button type="button" data-opcao="b">evite</button></div>
+              <p class="quiz-explica">Uso interno, com o texto adaptado e revisado por você.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Publicar no site da unidade um texto da IA sem revisar</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pode usar</button><button type="button" data-opcao="b">evite</button></div>
+              <p class="quiz-explica">Material público, sem revisão: risco de erro e de trecho copiado.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Usar um parágrafo que a IA trouxe idêntico ao de um livro</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pode usar</button><button type="button" data-opcao="b">evite</button></div>
+              <p class="quiz-explica">Trecho protegido: cite a fonte ou escreva com as suas palavras.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Usar uma imagem gerada por IA no cartaz interno, informando o uso de IA</p>
+              <div class="quiz-opcoes"><button type="button" data-opcao="a">pode usar</button><button type="button" data-opcao="b">evite</button></div>
+              <p class="quiz-explica">Uso interno e transparente, sem pessoas reais nem marcas de terceiros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 14 GUIA ======================= -->
+  <section class="secao" id="guia">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Construção coletiva: o guia de uso de IA do setor</h2>
+    </div>
+    <p class="secao-lead">Com o que a turma discutiu, monte a minuta de um guia em quatro blocos: quando usar, quando não usar, validação obrigatória e dados que nunca entram. Regras práticas, que dá para seguir e conferir na rotina do setor.</p>
+
+    <div class="lab lab--largo" data-lab="guia">
+      <div class="lab-controles lab-controles--duas">
+        <div class="lab-campo" style="grid-column:1 / -1"><label for="gu-setor">setor</label>
+          <input type="text" id="gu-setor" data-campo="setor" value="Atendimento" spellcheck="false"></div>
+        <div class="lab-campo"><label>1. quando usar</label>
+          <label class="lab-check"><input type="checkbox" data-campo="u1" checked> modelos e estruturas</label>
+          <label class="lab-check"><input type="checkbox" data-campo="u2"> ideias e reuniões</label>
+          <label class="lab-check"><input type="checkbox" data-campo="u3" checked> revisar redação sem dados</label>
+          <label class="lab-check"><input type="checkbox" data-campo="u4"> resumir leis e normas</label></div>
+        <div class="lab-campo"><label>2. quando não usar</label>
+          <label class="lab-check"><input type="checkbox" data-campo="n1" checked> decisões sobre pessoas</label>
+          <label class="lab-check"><input type="checkbox" data-campo="n2" checked> documentos com dados</label>
+          <label class="lab-check"><input type="checkbox" data-campo="n3"> normas e pareceres</label>
+          <label class="lab-check"><input type="checkbox" data-campo="n4"> responsabilidade jurídica</label></div>
+        <div class="lab-campo"><label>3. validação obrigatória</label>
+          <label class="lab-check"><input type="checkbox" data-campo="v1" checked> quem assina revisa</label>
+          <label class="lab-check"><input type="checkbox" data-campo="v2"> conferir na fonte</label>
+          <label class="lab-check"><input type="checkbox" data-campo="v3"> chefia aprova o oficial</label>
+          <label class="lab-check"><input type="checkbox" data-campo="v4"> informar o uso de IA</label></div>
+        <div class="lab-campo"><label>4. dados que nunca entram</label>
+          <label class="lab-check"><input type="checkbox" data-campo="d1" checked> documentos e contatos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="d2" checked> saúde e disciplina</label>
+          <label class="lab-check"><input type="checkbox" data-campo="d3"> salários e contratos</label>
+          <label class="lab-check"><input type="checkbox" data-campo="d4"> processos internos</label></div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo">
+          <div class="lab-codigo-acoes"><p class="lab-codigo-titulo">a minuta em texto</p><button type="button" class="botao-copiar" data-copiar="#minuta-guia">copiar a minuta</button></div>
+          <pre id="minuta-guia" data-saida data-lang="texto"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="parte"><span class="parte-num">Fim do curso</span><span class="parte-titulo">Encerramento</span></div>
+
+  <!-- ======================= 15 ENCERRAMENTO ======================= -->
+  <section class="secao" id="encerramento">
+    <div class="secao-topo">
+      <span class="selo">15</span>
+      <h2 class="secao-titulo">O curso em quatro aulas</h2>
+    </div>
+    <p class="secao-lead">Ao longo do curso, você usou ferramentas de IA, agentes e automação de forma prática. Mais do que isso, aprendeu quando não usar, e por que essa escolha é tão importante quanto qualquer habilidade técnica.</p>
+
+    <div class="curso-aulas">
+      <article class="curso-aula"><small>Aula 1</small><b>Inteligência artificial</b><p>Fundamentos, aplicações no transporte e engenharia de prompt.</p></article>
+      <article class="curso-aula"><small>Aula 2</small><b>Criar com IA</b><p>Imagens, vídeos e ferramentas de IA para o trabalho.</p></article>
+      <article class="curso-aula"><small>Aula 3</small><b>O Claude no trabalho</b><p>Artefatos, Cowork, Office, conectores, Claude Code e Skills.</p></article>
+      <article class="curso-aula curso-aula--atual"><small>Aula 4</small><b>IA com responsabilidade</b><p>Segurança da informação, LGPD, revisão humana e boas práticas.</p></article>
+    </div>
+
+    <p class="citacao">"Usar IA com responsabilidade é <span>proteger a instituição</span>."</p>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Conhecimento</h3><p>Você entende como a IA funciona e onde ela agrega valor ao trabalho administrativo.</p></article>
+      <article class="cartao"><h3>Proteção</h3><p>Você sabe identificar riscos e proteger dados pessoais, informações da instituição e a reputação do SEST SENAT.</p></article>
+      <article class="cartao"><h3>Responsabilidade</h3><p>Você sabe que usar IA é sempre uma escolha humana, com consequências humanas e institucionais.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Oito perguntas rápidas; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">1. Um comunicado feito com IA saiu com um erro. Quem responde?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">A empresa que criou a ferramenta de IA.</button>
+          <button type="button" data-opcao="b">Quem usou e quem aprovou, e a instituição.</button>
+          <button type="button" data-opcao="c">Ninguém: foi um erro da máquina.</button>
+        </div>
+        <p class="quiz-explica">A responsabilidade pelo uso da IA é sempre humana. Erro que passa sem revisão vira erro do colaborador e da instituição.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">2. Qual é a regra de bolso para saber se algo pode ir para a IA?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Se não pode ir por e-mail, não pode ir para a IA.</button>
+          <button type="button" data-opcao="b">Se a ferramenta é famosa, pode tudo.</button>
+          <button type="button" data-opcao="c">Se é para ajudar, pode.</button>
+        </div>
+        <p class="quiz-explica">A ferramenta de IA é um ambiente externo, como um e-mail para fora. A intenção não elimina a exposição.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">3. Qual destes é dado pessoal sensível pela LGPD?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O CPF de um aluno.</button>
+          <button type="button" data-opcao="b">O faturamento da unidade.</button>
+          <button type="button" data-opcao="c">O atestado médico de um colaborador.</button>
+        </div>
+        <p class="quiz-explica">Saúde está na lista de sensíveis. CPF é dado pessoal; faturamento é informação sigilosa da instituição.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">4. Você precisa melhorar um e-mail que cita o nome e o CPF de um cliente. O que fazer?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Colar tudo: a ferramenta apaga depois.</button>
+          <button type="button" data-opcao="b">Trocar os dados por marcadores e completar depois, fora da IA.</button>
+          <button type="button" data-opcao="c">Desistir de usar IA para qualquer e-mail.</button>
+        </div>
+        <p class="quiz-explica">A IA melhora a forma do texto do mesmo jeito com [NOME] e [CPF]. Os dados reais não saem do seu computador.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">5. Pedir à IA que decida qual colaborador recebe uma advertência é…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">um bom uso, porque evita favoritismo.</button>
+          <button type="button" data-opcao="b">aceitável, se a resposta for revisada depois.</button>
+          <button type="button" data-opcao="c">um uso que não cabe: decisão sobre pessoas é humana.</button>
+        </div>
+        <p class="quiz-explica">A IA pode listar critérios, mas decisão administrativa que afeta pessoas exige julgamento humano, e envolveria dados pessoais.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">6. A IA citou uma lei com número e ano. O que fazer antes de usar?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Conferir na fonte oficial se a lei existe e diz aquilo.</button>
+          <button type="button" data-opcao="b">Nada: lei com número e ano é confiável.</button>
+          <button type="button" data-opcao="c">Perguntar de novo à IA se ela tem certeza.</button>
+        </div>
+        <p class="quiz-explica">Alucinações vêm com número, ano e confiança. Só a fonte oficial confirma.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">7. O que é uma alucinação da IA?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Uma falha de conexão com a internet.</button>
+          <button type="button" data-opcao="b">Uma informação falsa apresentada com total confiança.</button>
+          <button type="button" data-opcao="c">Uma resposta lenta demais.</button>
+        </div>
+        <p class="quiz-explica">Leis, datas e citações inventadas, escritas com a mesma fluidez das informações certas.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">8. Qual regra de um guia de uso de IA é verificável?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">"Usar a IA com cuidado."</button>
+          <button type="button" data-opcao="b">"Ter bom senso com os dados."</button>
+          <button type="button" data-opcao="c">"Não inserir CPF, RG, CNH, telefone nem endereço."</button>
+        </div>
+        <p class="quiz-explica">Dá para conferir se foi cumprida. "Cuidado" e "bom senso" cada um entende de um jeito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= RESUMO ======================= -->
+  <section class="secao" id="resumo">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Boas práticas consolidadas</h2>
+    </div>
+    <p class="secao-lead">As diretrizes da aula numa página só: a base de uma política de uso responsável de IA para o setor.</p>
+
+    <ol class="passos passos--duas">
+      <li><b>IA como apoio, nunca como decisora:</b> estrutura, revisão e conteúdo genérico; a decisão final é humana.</li>
+      <li><b>Nunca inserir dados protegidos:</b> pessoais, sensíveis ou sigilosos, qualquer que seja a intenção.</li>
+      <li><b>Revisão humana obrigatória:</b> todo conteúdo é verificado antes de ser usado, publicado ou enviado.</li>
+      <li><b>Linguagem institucional:</b> o texto final tem o padrão do SEST SENAT, não o estilo da IA.</li>
+      <li><b>Respeito integral à LGPD:</b> e às políticas internas de segurança da informação.</li>
+      <li><b>Ferramenta oficial primeiro:</b> na dúvida sobre qual ferramenta usar, pergunte à TI.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Antes de usar IA no trabalho</h3>
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Pergunte</th><th>Se a resposta for não</th></tr></thead>
+        <tbody>
+          <tr><td><b>Pode ir por e-mail para fora da instituição?</b></td><td>não vai para a IA</td></tr>
+          <tr><td><b>O texto está sem dados pessoais e sigilosos?</b></td><td>troque por marcadores ou peça só a estrutura</td></tr>
+          <tr><td><b>É apoio, e não uma decisão?</b></td><td>a decisão fica com uma pessoa; a IA só lista opções</td></tr>
+          <tr><td><b>Alguém vai conferir fatos, números, leis e datas?</b></td><td>não use nem publique</td></tr>
+          <tr><td><b>O texto final está na linguagem da instituição?</b></td><td>adapte antes de enviar</td></tr>
+          <tr><td><b>Um responsável aprovou o que será publicado?</b></td><td>espere a aprovação</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">O guia de bolso de IA do seu setor</h2>
+    </div>
+    <p class="secao-lead">Uma página que qualquer colega do setor consegue seguir: quais tarefas podem usar IA, como pedir sem expor dados e quem revisa antes de usar.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O que a entrega precisa ter</h3>
+        <ul class="requisitos">
+          <li><b>Três tarefas reais</b> do seu setor em que a IA poderia ajudar, cada uma classificada como pode, depende ou não pode, com o motivo.</li>
+          <li>Para uma tarefa "depende", o <b>pedido reescrito sem dados</b>: marcadores no lugar de nomes, documentos e valores.</li>
+          <li>O <b>guia do setor</b> nos quatro blocos (laboratório 14), com pelo menos duas regras em cada.</li>
+          <li>O <b>fluxo de revisão</b>: quem revisa, o que confere e quem aprova.</li>
+        </ul>
+        <p class="nota-atividade">Sem acesso a um setor? Use a secretaria de uma unidade de ensino: matrículas, atendimento a alunos, comunicados de turma e controle de frequência.</p>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>A ficha de cada tarefa</h3>
+        <figure class="painel-codigo">
+          <figcaption>preencha os colchetes</figcaption>
+<pre class="codigo" data-lang="texto">Tarefa: [o que você faz]
+Classificação: [pode / depende / não pode]
+Motivo: [que dado ou risco existe]
+
+Pedido sem dados:
+  [o pedido com [NOME], [CPF], [VALOR]...]
+
+Revisão:
+  quem revisa: [cargo]
+  o que confere: [fatos, números, dados]
+  quem aprova: [cargo]</pre>
+        </figure>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>O pedido reescrito passa no <b>detector do laboratório 08 sem nenhum dado marcado</b> e ainda dá à IA o que ela precisa para ajudar.</li>
+          <li><b>Nenhuma regra vaga:</b> "usar com cuidado" não vale; "não inserir CPF, RG, CNH" vale.</li>
+          <li>Uma regra para quando a IA <b>citar lei, norma ou data</b>: onde conferir.</li>
+          <li>Uma <b>frase de transparência</b> para conteúdo publicado com apoio de IA.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, junto da entrega</h3>
+        <ul class="requisitos">
+          <li>Leia a política de privacidade de uma ferramenta gratuita (ChatGPT, Gemini ou Copilot): as conversas são usadas para treinar? Dá para desligar? Onde os dados são processados?</li>
+          <li>Pergunte à IA sobre uma lei ou portaria de 2026 e confira na fonte oficial: ela acertou, errou ou inventou?</li>
+          <li>A instituição tem orientação oficial sobre uso de IA? Quem é o encarregado de dados (DPO)?</li>
+          <li>Encontre no site da ANPD uma orientação de proteção de dados que se aplique ao seu setor.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="resultado-guia">
+        <article class="guia-doc"><header><small>minuta do setor · sem valor oficial</small><b>Guia de uso de IA · Secretaria</b></header>
+          <div class="guia-blocos">
+            <section><h4>1. Quando usar IA</h4><ul><li>Modelos de comunicado e ofício em branco</li><li>Revisar a redação de textos sem dados pessoais</li></ul></section>
+            <section><h4>2. Quando não usar</h4><ul><li>Decidir matrícula, reembolso ou advertência</li><li>Qualquer documento com dados de alunos</li></ul></section>
+            <section><h4>3. Validação obrigatória</h4><ul><li>Quem assina revisa o texto inteiro</li><li>Lei, data e valor conferidos na fonte oficial</li></ul></section>
+            <section><h4>4. Dados que nunca entram</h4><ul><li>CPF, RG, CNH, telefone e endereço</li><li>Saúde, frequência e situação disciplinar</li></ul></section>
+          </div>
+          <footer>A responsabilidade pelo uso da IA é sempre humana.</footer></article>
+        <div class="pedido-caixa pedido-caixa--seguro"><span class="rotulo-atual">pedido sem dados</span>
+          <p>Escreva um e-mail cordial para [NOME 1] confirmando a matrícula no curso [CURSO], turma [TURMA], com início em [DATA]. Tom institucional, até cinco linhas.</p>
+          <p class="pedido-conta">detector do laboratório 08: nenhum dado marcado</p></div>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Um documento com as três fichas, o guia do setor em quatro blocos, o fluxo de revisão e as respostas da Parte 3.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Classificações justificadas; pedido sem nenhum dado identificável; duas regras verificáveis por bloco; quem revisa e quem aprova definidos.</p></article>
+      <article class="cartao"><h3>Critério ético</h3><p>Nenhum dado real de pessoa, aluno ou colaborador na entrega; exemplos fictícios ou com marcadores.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Proteja os dados, revise sempre e use a IA com ética.</p>
+      <div class="rodape-meta">IA na Prática · Aula 4 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/aula.js"></script>
+</body>
+</html>
