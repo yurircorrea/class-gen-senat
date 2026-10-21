@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análise de dados — Análise de Dados com Power BI · Aula 1 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="power-bi" data-aula="aula1" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Análise de dados</a>
+    <nav class="barra-menu">
+      <a href="#roteiro">roteiro</a>
+      <a href="#analise">análise</a>
+      <a href="#tipos">tipos</a>
+      <a href="#bi">BI</a>
+      <a href="#powerbi">power bi</a>
+      <a href="#exibicoes">exibições</a>
+      <a href="#carregar">carregar</a>
+      <a href="#powerquery">power query</a>
+      <a href="#limpeza">limpeza</a>
+      <a href="#dividir">colunas</a>
+      <a href="#etapas">etapas</a>
+      <a href="#cartao">cartões</a>
+      <a href="#barras">gráficos</a>
+      <a href="#mapa">mapa</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Análise de Dados com Power BI</span><span>Aula 1</span></div>
+      <h1>Análise de dados</h1>
+      <p class="subtitulo">Tipos de análise, BI, Power BI e o primeiro relatório</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= QUEM É O INSTRUTOR ======================= -->
+  <section class="secao" id="instrutor" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Instrutor</span>
+      <h2 class="secao-titulo">Quem é o instrutor</h2>
+    </div>
+    <p class="secao-lead">Desenvolvedor de software e instrutor de tecnologia, com formação em informática, engenharia de software e Internet das Coisas.</p>
+
+    <div class="dupla" style="align-items:center">
+      <div class="instrutor-cartao">
+        <img class="instrutor-foto" src="img/instrutor.jpg" alt="Foto de Yuri Reis Correa">
+        <div class="instrutor-texto">
+          <p class="instrutor-nome">Yuri Reis Correa</p>
+          <div class="instrutor-cargos"><span>Desenvolvedor de Software</span><span>Instrutor de Tecnologia</span></div>
+        </div>
+      </div>
+      <ul class="formacao">
+        <li><b>Técnico em Informática</b><span>Instituto Federal do Paraná — IFPR</span></li>
+        <li><b>Bacharel em Engenharia de Software</b><span>Universidade Tecnológica Federal do Paraná — UTFPR</span></li>
+        <li><b>Especialização em IoT (Internet das Coisas)</b><span>Instituto Federal do Paraná — IFPR</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= O CURSO ======================= -->
+  <section class="secao" id="curso">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Curso</span>
+      <h2 class="secao-titulo">O que é este curso</h2>
+    </div>
+    <p class="secao-lead">Capacitar você a iniciar na área de análise de dados, aplicando técnicas de análise no Power BI para desenvolver relatórios e dashboards que facilitem decisões baseadas em dados.</p>
+
+    <div class="par">
+      <div class="bloco-branco">
+        <span class="rotulo-atual">o que este curso é</span>
+        <ul class="requisitos">
+          <li>Introdução aos conceitos de análise de dados e de Power BI.</li>
+          <li>Uso das ferramentas para conhecer as possibilidades da área.</li>
+          <li>Prática a cada aula: um relatório de verdade, com dados de verdade.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="rotulo-antigo">o que este curso não é</span>
+        <ul class="requisitos">
+          <li>Formação de especialista em Power BI.</li>
+          <li>Curso de ciência de dados (programação, estatística avançada, aprendizado de máquina).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Ao terminar</h3><p>Você deixa de só olhar planilhas e passa a montar relatórios dinâmicos: junta dados de fontes separadas e transforma em informação visual para a rotina da empresa.</p></article>
+      <article class="cartao"><h3>Por que isso importa</h3><p>Gestores, vendedores e quem planeja precisam cada vez mais tomar decisões com base em dados, e não no "achismo".</p></article>
+      <article class="cartao cartao--novo"><h3>Dica</h3><p>Os conteúdos daqui são abrangentes e introdutórios. Recomendo fortemente que você continue os estudos na área.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Primeiro, o que é análise de dados e onde entra o BI. Depois, a prática: uma planilha de 203.882 vendas, limpa no Power Query, vira o primeiro relatório no Power BI.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Entender o que é análise de dados e para que ela serve.</li>
+      <li>Diferenciar análise descritiva, diagnóstica, preditiva e prescritiva.</li>
+      <li>Explicar o que é Business Intelligence e as etapas do processo de BI.</li>
+      <li>Conhecer o Power BI Desktop e as suas exibições.</li>
+      <li>Limpar e transformar uma planilha no Power Query.</li>
+      <li>Montar o primeiro relatório: cartões, filtros, gráficos e mapa.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#analise"><span class="num">01</span><span class="rotulo">O que é análise de dados</span></a>
+      <a href="#tipos"><span class="num">03</span><span class="rotulo">Tipos de análise</span></a>
+      <a href="#bi"><span class="num">05</span><span class="rotulo">Business Intelligence</span></a>
+      <a href="#powerbi"><span class="num">07</span><span class="rotulo">O Power BI</span></a>
+      <a href="#exibicoes"><span class="num">08</span><span class="rotulo">Carregar a BaseVendas</span></a>
+      <a href="#powerquery"><span class="num">10</span><span class="rotulo">Tratar no Power Query</span></a>
+      <a href="#cartao"><span class="num">16</span><span class="rotulo">Cartões e filtros</span></a>
+      <a href="#barras"><span class="num">18</span><span class="rotulo">Gráficos e mapa</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">Painel escuro = o que você faz no Power BI: o caminho de menus, os campos, o filtro.</div>
+      <div class="legenda-item">Toda caixa de <b>preview</b> funciona: clique, marque, digite.</div>
+      <div class="legenda-item">Os números são os da <b>BaseVendas.xlsx</b>, a planilha da prática.</div>
+      <div class="legenda-item"><span class="espaco espaco--grande"></span> amarelo = espaço sobrando no texto</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = visual selecionado ou filtrado</div>
+    </div>
+  </section>
+
+  <!-- ======================= 01 · O QUE É ANÁLISE DE DADOS ======================= -->
+  <section class="secao" id="analise">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">O que é análise de dados</h2>
+    </div>
+    <p class="secao-lead">Um processo de inspeção, limpeza, transformação e modelagem de dados para descobrir informações úteis, chegar a conclusões e apoiar a tomada de decisão. Faz parte da ciência de dados.</p>
+
+    <div class="dupla dupla--preview">
+      <figure class="painel-codigo">
+        <figcaption>a definição, verbo por verbo</figcaption>
+<pre class="codigo" data-lang="texto">análise de dados =
+  inspecionar   olhar os dados como chegaram
+  limpar        tirar o que atrapalha
+  transformar   deixar no formato certo
+  modelar       organizar e calcular
+
+para:
+  descobrir informação útil
+  chegar a conclusões
+  apoiar a tomada de decisão</pre>
+        <ol class="caminho">
+          <li><span>dado</span></li>
+          <li><span>informação</span></li>
+          <li><span>conhecimento</span></li>
+          <li><span>decisão</span></li>
+        </ol>
+      </figure>
+
+      <div class="preview" data-lab="ciencias">
+        <div class="preview-topo">
+          <span class="preview-selo">preview</span>
+          <div class="lab-opcoes" role="radiogroup" aria-label="Área do diagrama">
+            <label><input type="radio" name="c-area" data-campo="area" value="centro" checked> Ciência de Dados</label>
+            <label><input type="radio" name="c-area" data-campo="area" value="computacao"> Computação</label>
+            <label><input type="radio" name="c-area" data-campo="area" value="matematica"> Matemática</label>
+            <label><input type="radio" name="c-area" data-campo="area" value="dominio"> Domínio</label>
+          </div>
+        </div>
+        <div class="preview-corpo" data-palco></div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Três áreas juntas</h3><p>Computação para lidar com os dados, matemática e estatística para calcular, e conhecimento do negócio para saber o que perguntar.</p></article>
+      <article class="cartao"><h3>Qualquer área usa</h3><p>Finanças, saúde, direito, engenharia, transporte: onde há registros (vendas, viagens, atendimentos), há o que analisar.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Pular a limpeza. Uma planilha com espaço sobrando ou linha em branco dá total errado, e o relatório bonito passa a mentir.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 · PARA QUE SERVE ======================= -->
+  <section class="secao" id="serve">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">E para que ela serve?</h2>
+    </div>
+    <p class="secao-lead">Nas empresas, para trabalhar melhor, gastar menos e achar oportunidades. Nas ciências, para testar hipóteses e entender grandes volumes de dados.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>qual uso aparece em cada situação?</code></div>
+        <div class="preview-corpo">
+          <div class="quiz quiz--duplo" data-quiz>
+            <p class="quiz-placar" data-placar></p>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Uma transportadora compara o consumo de diesel de cada caminhão e acha três veículos gastando 20% a mais.</p>
+              <div class="quiz-opcoes">
+                <button type="button" data-opcao="a">Novas oportunidades</button>
+                <button type="button" data-opcao="b">Redução de custos</button>
+                <button type="button" data-opcao="c">Facilitar descobertas</button>
+              </div>
+              <p class="quiz-explica">O dado mostrou um padrão de gasto. Consertar ou trocar os três caminhões reduz o custo.</p>
+            </div>
+            <div class="quiz-item" data-resposta="a">
+              <p class="quiz-pergunta">Cruzando horário de saída e atraso das entregas, a empresa muda a ordem de carregamento dos caminhões.</p>
+              <div class="quiz-opcoes">
+                <button type="button" data-opcao="a">Otimização de processos</button>
+                <button type="button" data-opcao="b">Redução de custos</button>
+                <button type="button" data-opcao="c">Novas oportunidades</button>
+              </div>
+              <p class="quiz-explica">O processo (a ordem de carregamento) mudou por causa do dado. Pode até economizar, mas o foco é a forma de trabalhar.</p>
+            </div>
+            <div class="quiz-item" data-resposta="c">
+              <p class="quiz-pergunta">Uma loja de Foz percebe muitas compras pelo site vindas do Paraguai e passa a entregar em Ciudad del Este.</p>
+              <div class="quiz-opcoes">
+                <button type="button" data-opcao="a">Aumento da eficiência</button>
+                <button type="button" data-opcao="b">Redução de custos</button>
+                <button type="button" data-opcao="c">Novas oportunidades de mercado</button>
+              </div>
+              <p class="quiz-explica">Uma tendência nos dados revelou um mercado novo para expandir.</p>
+            </div>
+            <div class="quiz-item" data-resposta="b">
+              <p class="quiz-pergunta">Pesquisadores comparam dois grupos de pacientes para saber se um remédio funciona.</p>
+              <div class="quiz-opcoes">
+                <button type="button" data-opcao="a">Otimização de processos</button>
+                <button type="button" data-opcao="b">Facilitar descobertas</button>
+                <button type="button" data-opcao="c">Novas oportunidades de mercado</button>
+              </div>
+              <p class="quiz-explica">É a análise de dados nas ciências: testar uma hipótese com precisão.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os usos que vamos reconhecer</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">nas empresas
+  otimização de processos     melhorar a forma de trabalhar
+  aumento da eficiência       achar onde o processo emperra
+  redução de custos           enxergar padrões de gasto
+  novas oportunidades         tendências e mercados novos</pre>
+<pre class="codigo" data-lang="texto">nas ciências
+  facilitar descobertas       testar hipóteses com precisão
+  análise eficiente           interpretar volumes enormes</pre>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 03 · TIPOS DE ANÁLISE ======================= -->
+  <section class="secao" id="tipos">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Tipos de análise de dados</h2>
+    </div>
+    <p class="secao-lead">O mesmo histórico de vendas responde a quatro perguntas diferentes. Cada pergunta é um tipo de análise, e cada uma vale mais para a decisão do que a anterior.</p>
+
+    <div class="lab lab--largo" data-lab="tipos">
+      <div class="lab-controles">
+        <h4>tipo de análise</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Tipo de análise">
+          <label><input type="radio" name="t-tipo" data-campo="tipo" value="descritiva" checked> Descritiva</label>
+          <label><input type="radio" name="t-tipo" data-campo="tipo" value="diagnostica"> Diagnóstica</label>
+          <label><input type="radio" name="t-tipo" data-campo="tipo" value="preditiva"> Preditiva</label>
+          <label><input type="radio" name="t-tipo" data-campo="tipo" value="prescritiva"> Prescritiva</label>
+        </div>
+        <p class="lab-dica">Descritiva: se refere ao que ocorreu. Diagnóstica: identifica causas. Preditiva: prevê tendências. Prescritiva: recomenda ações.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a pergunta e a resposta</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Hoje: descritiva</h3><p>Todo relatório começa por aqui: quanto vendeu, onde, quando. É o que vamos montar no Power BI.</p></article>
+      <article class="cartao"><h3>Uma sobe na outra</h3><p>Sem saber o que aconteceu, não dá para explicar por quê; sem o porquê, a previsão é chute; sem previsão, não há recomendação.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Confundir previsão com recomendação. "Vai vender mais em dezembro" é preditiva; "compre estoque em outubro" é prescritiva.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 · PASSO A PASSO ======================= -->
+  <section class="secao" id="passos">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">O passo a passo da análise</h2>
+    </div>
+    <p class="secao-lead">Coleta e tratamento, geração de informação, apresentação e geração de conhecimento. Cada passo pede uma habilidade diferente: computação, matemática e estatística, comunicação e conhecimento do negócio.</p>
+
+    <div class="lab lab--largo" data-lab="jornada">
+      <div class="lab-controles">
+        <h4>passo</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Passo da análise">
+          <label><input type="radio" name="j-passo" data-campo="passo" value="coleta" checked> 1. Coleta e tratamento</label>
+          <label><input type="radio" name="j-passo" data-campo="passo" value="informacao"> 2. Geração de informação</label>
+          <label><input type="radio" name="j-passo" data-campo="passo" value="apresentacao"> 3. Apresentação</label>
+          <label><input type="radio" name="j-passo" data-campo="passo" value="conhecimento"> 4. Geração de conhecimento</label>
+        </div>
+        <p class="lab-dica">Os números são da BaseVendas, a planilha que vamos usar na prática.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que esse passo exige</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 05 · BUSINESS INTELLIGENCE ======================= -->
+  <section class="secao" id="bi">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">O que é Business Intelligence?</h2>
+    </div>
+    <p class="secao-lead">Inteligência de negócios: coleta, processamento e transformação de dados brutos em informações valiosas e compreensíveis para melhorar e otimizar decisões.</p>
+
+    <div class="lab lab--largo" data-lab="perguntas">
+      <div class="lab-controles">
+        <h4>pergunta de negócio</h4>
+        <div class="lab-campo">
+          <label for="bi-pergunta">escolha uma pergunta</label>
+          <select id="bi-pergunta" data-campo="pergunta">
+            <option value="marca" selected>Qual marca mais fatura?</option>
+            <option value="continente">Em que continente mais vendemos?</option>
+            <option value="mes">Qual foi o melhor mês?</option>
+            <option value="produto">Qual produto mais vende em unidades?</option>
+            <option value="volume">Quem mais vende é quem mais fatura?</option>
+          </select>
+        </div>
+        <p class="lab-dica">As perguntas da apresentação vão na mesma linha: por que as vendas aumentaram? Por que o produto X não vende no inverno? Quanto podemos faturar com outros produtos nessa época?</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">de onde vem a resposta</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>BI e análise de dados</h3><p>Muita gente usa "análise de dados" no lugar de "BI". As duas falam da mesma coisa: decidir com base no que os dados mostram.</p></article>
+      <article class="cartao"><h3>Para quem</h3><p>Empresas e equipes de qualquer tipo de projeto: comercial, logística, financeiro, RH.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Começar pelo gráfico. Comece pela pergunta de negócio; o gráfico é só a forma de responder.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 · ETAPAS DO PROCESSO DE BI ======================= -->
+  <section class="secao" id="etapas-bi">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Etapas do processo de BI</h2>
+    </div>
+    <p class="secao-lead">Seis etapas, e cada uma tem um lugar no Power BI. Avance no passo a passo e veja onde fica cada etapa.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Power BI Desktop, refeito em HTML</code></div>
+        <div class="preview-corpo">
+          <div class="tour" data-tour>
+            <div class="tour-barra">
+              <button type="button" data-tour-anterior>anterior</button>
+              <span class="tour-contador" data-tour-contador></span>
+              <button type="button" data-tour-proximo>próximo</button>
+            </div>
+            <p class="tour-legenda" data-tour-legenda></p>
+            <div class="app pbi-app">
+              <div class="app-titulo"><b>Sem título - Power BI Desktop</b><span class="app-botoes">— ▢ ✕</span></div>
+              <div class="app-guias"><span>Arquivo</span><span class="ativa">Página Inicial</span><span>Inserir</span><span>Modelagem</span><span>Exibição</span><span>Otimizar</span><span>Ajuda</span></div>
+              <div class="app-faixa">
+                <div class="app-grupo"><div><span class="app-btn">Colar</span></div><small>Área de Transferência</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="1" data-legenda="1. Importação dos dados: Obter dados traz Excel, banco de dados, páginas da web…">Obter dados</span><span class="app-btn">Pasta de trabalho do Excel</span></div><small>Dados</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="2" data-legenda="2. Tratamento dos dados: Transformar dados abre o Power Query, onde a planilha é organizada.">Transformar dados</span><span class="app-btn">Atualizar</span></div><small>Consultas</small></div>
+                <div class="app-grupo"><div><span class="app-btn">Novo visual</span></div><small>Inserir</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="4" data-legenda="4. Análise dos dados: Nova medida cria cálculos (em DAX) para o relatório.">Nova medida</span></div><small>Cálculos</small></div>
+                <div class="app-grupo"><div><span class="app-btn" data-passo="6" data-legenda="6. Compartilhamento: Publicar envia o relatório para o serviço do Power BI, na web.">Publicar</span></div><small>Compartilhar</small></div>
+              </div>
+              <div class="pbi-corpo">
+                <div class="pbi-trilho" aria-hidden="true">
+                  <span class="pbi-ico ativo" title="Exibição de relatório"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8"/><rect x="10.3" y="7" width="3.4" height="13"/><rect x="16.6" y="3" width="3.4" height="17"/></svg></span>
+                  <span class="pbi-ico" title="Exibição de tabela"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M3 15h18M9.5 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></span>
+                  <span class="pbi-ico" title="Exibição de modelo" data-passo="3" data-legenda="3. Criação dos relacionamentos: na Exibição de modelo, as tabelas são ligadas umas às outras."><svg viewBox="0 0 24 24"><rect x="2.5" y="3" width="8" height="6" rx="1"/><rect x="13.5" y="3" width="8" height="6" rx="1"/><rect x="8" y="15" width="8" height="6" rx="1"/><path d="M6.5 9v3h11V9M12 12v3" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></span>
+                  <span class="pbi-ico pbi-ico--texto" title="Exibição de consulta DAX">DAX</span>
+                  <span class="pbi-ico pbi-ico--texto" title="Exibição TMDL">{ }</span>
+                </div>
+                <div class="pbi-canvas" data-passo="5" data-legenda="5. Criação de relatórios: a tela recebe cartões, gráficos e mapas, organizados em páginas.">
+                  <p>Insira dados no relatório</p>
+                  <small>Depois de carregados, seus dados aparecerão no painel Dados.</small>
+                </div>
+                <div class="pbi-paineis">
+                  <div><b>Filtros</b><small>Filtros neste visual</small><small>Filtros nesta página</small><small>Filtros em todas as páginas</small></div>
+                  <div><b>Visualizações</b><span class="pbi-galeria"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                  <div><b>Dados</b><small>sem dados ainda</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>as seis etapas e onde ficam no Power BI</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">1 importação dos dados
+  os dados precisam vir de algum lugar
+  Excel, banco de dados, web
+  → Página Inicial › Obter dados
+
+2 tratamento dos dados
+  organizar num formato que o Power BI entenda
+  → Página Inicial › Transformar dados (Power Query)
+
+3 criação dos relacionamentos
+  as tabelas se relacionam; isso é configurado
+  → Exibição de modelo</pre>
+<pre class="codigo" data-lang="texto">4 análise dos dados
+  fórmulas e ferramentas dizem como calcular
+  → Nova medida (DAX)
+
+5 criação de relatórios
+  relatórios e painéis comunicam a informação
+  → Exibição de relatório › Visualizações
+
+6 compartilhamento dos painéis
+  quem precisa acessa as análises com facilidade
+  → Página Inicial › Publicar
+
+hoje: etapas 1, 2 e 5
+próximas aulas: relacionamentos e medidas</pre>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 07 · O QUE É O POWER BI ======================= -->
+  <section class="secao" id="powerbi">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">O que é o Power BI?</h2>
+    </div>
+    <p class="secao-lead">A ferramenta da Microsoft para Business Intelligence. Lê grandes quantidades de dados e mostra o que importa em relatórios interativos.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>a família Power BI</figcaption>
+<pre class="codigo" data-lang="texto">Power BI Desktop
+  onde o relatório é montado (é o desta aula)
+  gratuito para baixar e usar
+  não requer conta
+  roda no Windows
+
+serviço do Power BI (app.powerbi.com)
+  onde os relatórios são publicados e compartilhados
+
+Power BI Mobile
+  os relatórios no celular</pre>
+        <p class="atalho">baixar:</p>
+        <ol class="caminho">
+          <li><span>Microsoft Store</span></li>
+          <li><span>Power BI Desktop</span></li>
+          <li><span>Obter</span></li>
+        </ol>
+      </figure>
+
+      <div class="preview" data-lab="campos">
+        <div class="preview-topo">
+          <span class="preview-selo">preview</span>
+          <div class="lab-opcoes" role="radiogroup" aria-label="Campo de categoria">
+            <label><input type="radio" name="p-cat" data-campo="categoria" value="nenhuma"> sem categoria</label>
+            <label><input type="radio" name="p-cat" data-campo="categoria" value="marca" checked> Marca</label>
+            <label><input type="radio" name="p-cat" data-campo="categoria" value="continente"> Continente</label>
+          </div>
+          <div class="lab-opcoes" role="radiogroup" aria-label="Campo de valor">
+            <label><input type="radio" name="p-val" data-campo="valor" value="fat" checked> Faturamento</label>
+            <label><input type="radio" name="p-val" data-campo="valor" value="qtd"> Qtd. Vendida</label>
+          </div>
+        </div>
+        <div class="preview-corpo" data-palco></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">O Power BI é tipo Excel?</h3>
+    <div class="par">
+      <div>
+        <span class="rotulo-antigo">no Excel</span>
+        <div class="planilha planilha--compacta" data-planilha data-somente-leitura data-selecionar="F2">
+          <table class="planilha-grade" data-formatos="texto,dec2,int,dec2,texto,dec2">
+            <tr><td class="titulo">Marca</td><td class="titulo">Preço</td><td class="titulo">Qtd</td><td class="titulo">Faturamento</td><td class="titulo">Marca</td><td class="titulo">Total</td></tr>
+            <tr><td>Litware</td><td>1109</td><td>1</td><td>=B2*C2</td><td>Litware</td><td>=SOMASE($A$2:$A$7;E2;$D$2:$D$7)</td></tr>
+            <tr><td>Litware</td><td>215,62</td><td>1</td><td>=B3*C3</td><td>Contoso</td><td>=SOMASE($A$2:$A$7;E3;$D$2:$D$7)</td></tr>
+            <tr><td>Contoso</td><td>366,55</td><td>5</td><td>=B4*C4</td><td>Hashtag Toys</td><td>=SOMASE($A$2:$A$7;E4;$D$2:$D$7)</td></tr>
+            <tr><td>Litware</td><td>269,9</td><td>5</td><td>=B5*C5</td><td></td><td></td></tr>
+            <tr><td>Hashtag Toys</td><td>28</td><td>1</td><td>=B6*C6</td><td></td><td></td></tr>
+            <tr><td>Hashtag Toys</td><td>32</td><td>3</td><td>=B7*C7</td><td></td><td></td></tr>
+          </table>
+        </div>
+        <p class="planilha-dica">uma fórmula por célula; 6 linhas aqui, 203.882 na planilha real</p>
+      </div>
+      <div class="bloco-branco">
+        <span class="rotulo-atual">no Power BI</span>
+        <ul class="requisitos">
+          <li>Você escolhe os campos (Marca, Faturamento) e o visual soma as 203.882 linhas sozinho, como no preview acima.</li>
+          <li>A limpeza fica gravada e se repete quando os dados mudam.</li>
+          <li>Clicar num gráfico filtra os outros: o relatório conversa.</li>
+          <li>O Excel é uma das fontes de dados do Power BI. Uma ferramenta não depende da outra.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Não é Excel</h3><p>Os dois manipulam dados, daí a confusão. O Power BI é focado em análise e tem recursos que o Excel não tem.</p></article>
+      <article class="cartao"><h3>Os dois juntos</h3><p>É comum o dado nascer no Excel e a análise acontecer no Power BI, como na prática de hoje.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Procurar o Power BI Desktop no Mac ou no Linux: ele só roda no Windows.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 · AS EXIBIÇÕES ======================= -->
+  <section class="secao" id="exibicoes">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">As exibições do Power BI Desktop</h2>
+    </div>
+    <p class="secao-lead">A barra da esquerda troca a exibição. As três que importam hoje: relatório, tabela e modelo. Clique nos ícones.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code data-exibe-nome>clique nos ícones da barra da esquerda</code></div>
+        <div class="preview-corpo">
+          <div class="app pbi-app" data-exibicoes>
+            <div class="app-titulo"><b>Aula 1 - Power BI Desktop</b><span class="app-botoes">— ▢ ✕</span></div>
+            <div class="pbi-corpo">
+              <nav class="pbi-trilho" aria-label="Exibições">
+                <button type="button" class="pbi-ico" data-exibe="relatorio" title="Exibição de relatório"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8"/><rect x="10.3" y="7" width="3.4" height="13"/><rect x="16.6" y="3" width="3.4" height="17"/></svg></button>
+                <button type="button" class="pbi-ico" data-exibe="tabela" title="Exibição de tabela"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M3 15h18M9.5 4v16M15 4v16" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></button>
+                <button type="button" class="pbi-ico" data-exibe="modelo" title="Exibição de modelo"><svg viewBox="0 0 24 24"><rect x="2.5" y="3" width="8" height="6" rx="1"/><rect x="13.5" y="3" width="8" height="6" rx="1"/><rect x="8" y="15" width="8" height="6" rx="1"/><path d="M6.5 9v3h11V9M12 12v3" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></button>
+                <button type="button" class="pbi-ico pbi-ico--texto" data-exibe="dax" title="Exibição de consulta DAX">DAX</button>
+                <button type="button" class="pbi-ico pbi-ico--texto" data-exibe="tmdl" title="Exibição TMDL">{ }</button>
+              </nav>
+              <div class="pbi-vistas">
+                <p class="pbi-vista-nome" data-exibe-nome></p>
+
+                <div data-vista="relatorio" class="vista-relatorio">
+                  <div class="pbi-folha">
+                    <div class="pbi-visual"><p class="pbi-titulo">Faturamento total</p><div data-cartao-total></div></div>
+                    <div class="pbi-visual"><p class="pbi-titulo">Faturamento por marca</p><div data-barras-marca></div></div>
+                    <p class="pbi-abas"><span class="ativa">Página 1</span><span>+</span></p>
+                  </div>
+                  <div class="pbi-paineis">
+                    <div><b>Filtros</b><small>Filtros neste visual</small><small>Filtros nesta página</small><small>Filtros em todas as páginas</small></div>
+                    <div><b>Visualizações</b><span class="pbi-galeria"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>Construir visual · Formatar visual</small></div>
+                    <div><b>Dados</b><small class="pbi-campo">▸ Vendas</small></div>
+                  </div>
+                </div>
+
+                <div data-vista="tabela" class="vista-tabela" hidden>
+                  <div data-tabela-modelo="6"></div>
+                  <p class="nota-demo">Tabela: Vendas (203.882 linhas) · só leitura: para mudar os dados, volte ao Power Query</p>
+                </div>
+
+                <div data-vista="modelo" class="vista-modelo" hidden>
+                  <div class="modelo-tabela">
+                    <b>Vendas</b>
+                    <span>Categoria</span><span>Continente</span><span>Σ Custo Unitário</span><span>Data da Venda</span><span>Σ Faturamento</span><span>Marca</span><span>Nome Cliente</span><span>Nome Completo Cliente</span><span>País</span><span>Σ Preço Unitário</span><span>Produto</span><span>Σ Qtd. Vendida</span>
+                  </div>
+                  <div class="modelo-tabela modelo-tabela--futura">
+                    <b>outra tabela</b>
+                    <span>nas próximas aulas</span>
+                  </div>
+                  <p class="nota-demo">hoje há uma tabela só; com várias, os relacionamentos são as linhas entre elas</p>
+                </div>
+
+                <div data-vista="dax" class="vista-dax" hidden>
+<pre class="codigo" data-lang="formula">EVALUATE
+SUMMARIZECOLUMNS(
+    Vendas[Marca],
+    "Faturamento", SUM(Vendas[Faturamento])
+)</pre>
+                  <div data-dax-resultado></div>
+                </div>
+
+                <div data-vista="tmdl" class="vista-dax" hidden>
+<pre class="codigo" data-lang="texto">createOrReplace
+
+	table Vendas
+
+		column Marca
+			dataType: string
+
+		column Faturamento
+			dataType: double</pre>
+                  <p class="nota-demo">o modelo escrito em código: assunto para quem programa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>para que serve cada exibição</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">relatório
+  a tela onde se montam os visuais
+  painéis: Filtros, Visualizações, Dados
+
+tabela
+  os dados carregados, linha a linha
+  bom para conferir o que entrou
+
+modelo
+  as tabelas e os relacionamentos
+  entre elas</pre>
+<pre class="codigo" data-lang="texto">consulta DAX
+  consultas na linguagem DAX
+  (próximas aulas)
+
+TMDL
+  o modelo escrito em código
+  (para quem programa)</pre>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 09 · CARREGAR O EXCEL ======================= -->
+  <section class="secao" id="carregar">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Carregar a BaseVendas</h2>
+    </div>
+    <p class="secao-lead">Obter dados, escolher o arquivo, marcar a planilha no Navegador e clicar em Transformar Dados, não em Carregar: a planilha precisa de limpeza antes.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>passo a passo: o botão da vez fica piscando</code></div>
+        <div class="preview-corpo">
+          <div class="tour" data-tour>
+            <div class="tour-barra">
+              <button type="button" data-tour-anterior>anterior</button>
+              <span class="tour-contador" data-tour-contador></span>
+              <button type="button" data-tour-proximo>próximo</button>
+            </div>
+            <p class="tour-legenda" data-tour-legenda></p>
+            <div class="obter">
+              <div class="app pbi-app obter-faixa">
+                <div class="app-titulo"><b>Aula 1 - Power BI Desktop</b><span class="app-botoes">— ▢ ✕</span></div>
+                <div class="app-guias"><span>Arquivo</span><span class="ativa">Página Inicial</span><span>Inserir</span><span>Modelagem</span></div>
+                <div class="app-faixa">
+                  <div class="app-grupo"><div><span class="app-btn" data-passo="1" data-legenda="1. Página Inicial › Obter dados.">Obter dados</span></div><small>Dados</small></div>
+                </div>
+                <ul class="obter-menu">
+                  <li class="obter-menu-titulo">Fontes de dados comuns</li>
+                  <li data-passo="2" data-legenda="2. Escolha Pasta de trabalho do Excel.">Pasta de trabalho do Excel</li>
+                  <li>Modelos semânticos do Power BI</li>
+                  <li>SQL Server</li>
+                  <li>Texto/CSV</li>
+                  <li>Web</li>
+                  <li>Mais...</li>
+                </ul>
+              </div>
+              <div class="app obter-abrir">
+                <div class="app-titulo"><b>Abrir</b><span class="app-botoes">✕</span></div>
+                <div class="obter-arquivos">
+                  <span>Metas de vendas.xlsx</span>
+                  <span data-passo="3" data-legenda="3. Ache o arquivo BaseVendas.xlsx e clique nele.">BaseVendas.xlsx</span>
+                  <span>Relatório antigo.pbix</span>
+                </div>
+                <p class="obter-botoes"><span class="app-btn app-btn--primario" data-passo="4" data-legenda="4. Clique em Abrir.">Abrir</span><span class="app-btn">Cancelar</span></p>
+              </div>
+              <div class="app obter-navegador">
+                <div class="app-titulo"><b>Navegador</b><span class="app-botoes">▢ ✕</span></div>
+                <div class="navegador-corpo">
+                  <div class="navegador-arvore">
+                    <small>Opções de Exibição</small>
+                    <span>BaseVendas.xlsx [1]</span>
+                    <label data-passo="5" data-legenda="5. Marque a Planilha1: a prévia aparece à direita."><i class="caixa caixa--marcada"></i> Planilha1</label>
+                  </div>
+                  <div class="navegador-previa"><b>Planilha1</b><div data-navegador></div></div>
+                </div>
+                <p class="obter-botoes"><span class="app-btn">Carregar</span><span class="app-btn app-btn--primario" data-passo="6" data-legenda="6. Transformar Dados: abre o Power Query para limpar antes de carregar.">Transformar Dados</span><span class="app-btn">Cancelar</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>o caminho e a escolha que importa</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Página Inicial › Obter dados
+  › Pasta de trabalho do Excel
+  › BaseVendas.xlsx › Abrir
+
+Navegador
+  ☑ Planilha1</pre>
+<pre class="codigo" data-lang="texto">Carregar
+  leva os dados direto para o relatório, como estão
+
+Transformar Dados
+  abre o Power Query para limpar antes
+  ← o que vamos usar hoje
+
+atalho: na Página Inicial também há o botão
+Pasta de trabalho do Excel, que pula o menu</pre>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 10 · O POWER QUERY ======================= -->
+  <section class="secao" id="powerquery">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">O Power Query</h2>
+    </div>
+    <p class="secao-lead">O editor que trata os dados antes de irem para o relatório. Primeira tarefa: trocar o nome genérico "Planilha1" por um nome que diga o que a tabela guarda.</p>
+
+    <div class="lab lab--largo" data-lab="consulta">
+      <div class="lab-controles">
+        <h4>nome da consulta</h4>
+        <div class="lab-campo">
+          <label for="pq-nome">digite o novo nome</label>
+          <input type="text" id="pq-nome" data-campo="nome" value="Planilha1" spellcheck="false">
+        </div>
+        <h4>as cinco áreas do editor</h4>
+        <ol class="areas-pq">
+          <li><b>Faixa de opções</b> os comandos, em guias</li>
+          <li><b>Consultas</b> as tabelas que estão chegando</li>
+          <li><b>Barra de fórmulas</b> o que a etapa faz, em linguagem M</li>
+          <li><b>Visualização dos dados</b> uma amostra da tabela</li>
+          <li><b>Configurações de Consulta</b> o nome e as Etapas Aplicadas</li>
+        </ol>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde renomear</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Extrair, transformar, carregar</h3><p>É o que o Power Query faz: tira os dados da fonte, arruma e entrega ao Power BI. Em inglês, ETL.</p></article>
+      <article class="cartao"><h3>A planilha original não muda</h3><p>O Power Query trabalha numa cópia. A BaseVendas.xlsx continua igual no seu computador.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Deixar "Planilha1". O nome da consulta vira o nome da tabela no relatório; daqui a três tabelas, ninguém sabe qual é qual.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 · LIMPEZA ======================= -->
+  <section class="secao" id="limpeza">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Limpeza: o que está em branco ou sobrando</h2>
+    </div>
+    <p class="secao-lead">A BaseVendas chega com uma coluna sem título e quase vazia (Column10), seis linhas em branco no fim e marcas com um espaço sobrando no nome. Marque cada limpeza e veja a tabela mudar.</p>
+
+    <div class="lab lab--largo" data-lab="limpeza">
+      <div class="lab-controles">
+        <h4>limpezas</h4>
+        <label class="lab-check"><input type="checkbox" data-campo="coluna"> remover a coluna Column10</label>
+        <label class="lab-check"><input type="checkbox" data-campo="linhas"> remover as linhas em branco</label>
+        <label class="lab-check"><input type="checkbox" data-campo="aparar"> aparar a coluna Marca</label>
+        <p class="lab-dica">Colunas Categoria, Preço, Custo e Nome Cliente ocultas aqui para caber na tela.</p>
+        <p class="lab-dica">O Power Query mostra só as primeiras 1.000 linhas: as linhas em branco do fim não aparecem na visualização, mas estão no arquivo.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar no Power Query</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Lixo entra, lixo sai</h3><p>Linha em branco vira venda "nula"; coluna vazia polui o painel Dados. Tirar antes evita erro depois.</p></article>
+      <article class="cartao"><h3>Aparar</h3><p>Tira os espaços do começo e do fim do texto. Não mexe nos espaços do meio: "Hashtag Toys" continua com o seu.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>O espaço não aparece na tela. Para o Power Query, "Litware " e "Litware" são marcas diferentes: um filtro por Marca mostra as duas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 · DIVIDIR E RENOMEAR ======================= -->
+  <section class="secao" id="dividir">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Dividir a Localidade e renomear</h2>
+    </div>
+    <p class="secao-lead">"Chile - América do Sul" guarda duas informações numa célula. Divida pelo delimitador e renomeie as colunas novas para País e Continente.</p>
+
+    <div class="lab" data-lab="dividir">
+      <div class="lab-controles">
+        <h4>Dividir Coluna por Delimitador</h4>
+        <div class="lab-campo">
+          <label for="dv-delim">delimitador</label>
+          <select id="dv-delim" data-campo="delim">
+            <option value="traco" selected>Personalizado: " - " (espaço, hífen, espaço)</option>
+            <option value="hifen">Personalizado: "-" (só o hífen)</option>
+            <option value="virgula">Vírgula</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="dv-modo">dividir em</label>
+          <select id="dv-modo" data-campo="modo">
+            <option value="cada" selected>Cada ocorrência do delimitador</option>
+            <option value="esquerda">Delimitador mais à esquerda</option>
+            <option value="direita">Delimitador mais à direita</option>
+          </select>
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="renomear"> renomear para País e Continente</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar no Power Query</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Uma informação por coluna</h3><p>Com País e Continente separados, dá para somar por continente, filtrar um país e montar o mapa.</p></article>
+      <article class="cartao"><h3>Renomear</h3><p>Clique duas vezes no cabeçalho e digite. Aproveite e troque também "PrecoUnitario" por "Preço Unitário".</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Usar só o hífen. Os espaços em volta dele ficam grudados no país e no continente, e "Brasil " vira um país diferente de "Brasil".</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 · COLUNA CALCULADA ======================= -->
+  <section class="secao" id="calculo">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Faturamento: uma coluna calculada</h2>
+    </div>
+    <p class="secao-lead">A planilha tem preço e quantidade, mas não o valor de cada venda. Selecione as duas colunas e multiplique: nasce a coluna Faturamento.</p>
+
+    <div class="lab lab--largo" data-lab="calculo">
+      <div class="lab-controles">
+        <h4>coluna nova</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Coluna nova">
+          <label><input type="radio" name="cc-col" data-campo="coluna" value="faturamento" checked> Faturamento = Preço × Qtd.</label>
+          <label><input type="radio" name="cc-col" data-campo="coluna" value="custo"> Custo Total = Custo × Qtd.</label>
+          <label><input type="radio" name="cc-col" data-campo="coluna" value="lucro"> Lucro Unitário = Preço − Custo</label>
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="renomear" checked> renomear a coluna nova</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar no Power Query</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Linha a linha</h3><p>A conta é feita em cada venda. Depois, no relatório, o Power BI soma as 203.882 linhas: R$ 64,17 milhões.</p></article>
+      <article class="cartao"><h3>Ordem do clique</h3><p>Na subtração, a primeira coluna selecionada é a que vem antes do sinal: Preço, depois Custo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Somar o Preço Unitário no relatório. A soma de preços não é faturamento: um item de R$ 1.109 vendido 5 vezes conta uma vez só.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 · COLUNA DE EXEMPLOS ======================= -->
+  <section class="secao" id="exemplos">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Coluna de exemplos: o nome no padrão brasileiro</h2>
+    </div>
+    <p class="secao-lead">"Pinheiro, Vicente" está no padrão sobrenome, nome. Mostre ao Power Query como você quer ("Vicente Pinheiro") e ele descobre a regra sozinho.</p>
+
+    <div class="lab" data-lab="exemplos">
+      <div class="lab-controles">
+        <h4>exemplo da primeira linha</h4>
+        <div class="lab-campo">
+          <label for="ex-texto">"Pinheiro, Vicente" deve virar…</label>
+          <input type="text" id="ex-texto" data-campo="exemplo" value="Vicente Pinheiro" spellcheck="false">
+        </div>
+        <p class="lab-dica">Teste também: <code>Vicente</code> · <code>Pinheiro</code> · <code>VICENTE PINHEIRO</code> · <code>Vicente P.</code> · <code>vicente.pinheiro</code> · <code>Vicente Pinheiro da Silva</code></p>
+        <label class="lab-check"><input type="checkbox" data-campo="renomear"> renomear para Nome Completo Cliente</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde clicar no Power Query</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Você mostra, ele escreve</h3><p>A partir do exemplo, o Power Query escreve a transformação (em linguagem M) que vale para todas as linhas.</p></article>
+      <article class="cartao"><h3>Mais de um exemplo</h3><p>Se a regra sair errada em alguma linha, digite o exemplo dela também. Com dois ou três exemplos, ele acerta.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Confiar sem conferir. Role a coluna e veja linhas diferentes antes de clicar em OK: nomes compostos são os primeiros a falhar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 15 · ETAPAS APLICADAS ======================= -->
+  <section class="secao" id="etapas">
+    <div class="secao-topo">
+      <span class="selo">15</span>
+      <h2 class="secao-titulo">Etapas Aplicadas e Fechar e Aplicar</h2>
+    </div>
+    <p class="secao-lead">Cada clique da limpeza virou uma etapa, na ordem em que foi feito. Clique numa etapa e veja a tabela como estava naquele momento; no fim, Fechar e Aplicar leva tudo para o Power BI.</p>
+
+    <div class="etapas" data-etapas>
+      <div class="app pq-app" data-etapas-editor>
+        <div class="app-titulo"><b>Vendas - Editor do Power Query</b><span class="app-botoes">— ▢ ✕</span></div>
+        <div class="app-guias"><span>Arquivo</span><span class="ativa">Página Inicial</span><span>Transformar</span><span>Adicionar Coluna</span><span>Exibição</span></div>
+        <div class="app-faixa">
+          <div class="app-grupo"><div><button type="button" class="app-btn app-btn--primario" data-etapas-aplicar="sim">Fechar e Aplicar</button></div><small>Fechar</small></div>
+          <div class="app-grupo"><div><span class="app-btn">Atualizar Visualização</span><span class="app-btn">Editor Avançado</span></div><small>Consulta</small></div>
+        </div>
+        <div class="pq-corpo">
+          <div class="pq-centro">
+            <div class="pq-fx"><i>fx</i><code data-etapas-fx></code></div>
+            <p class="etapas-explica" data-etapas-texto></p>
+            <div data-etapas-grade></div>
+          </div>
+          <div class="pq-config">
+            <b>Configurações de Consulta</b>
+            <small>PROPRIEDADES</small><label>Nome</label><span class="pq-nome">Vendas</span>
+            <small>ETAPAS APLICADAS</small>
+            <ol class="etapas-lista" data-etapas-lista></ol>
+          </div>
+        </div>
+        <div class="etapas-rodape">
+          <button type="button" data-etapas-ir="-1">etapa anterior</button>
+          <span class="tour-contador" data-etapas-contador></span>
+          <button type="button" data-etapas-ir="1">próxima etapa</button>
+          <span class="etapas-dica">ou clique numa etapa, à direita</span>
+        </div>
+      </div>
+
+      <div class="app pbi-app" data-etapas-carga hidden>
+        <div class="app-titulo"><b>Aula 1 - Power BI Desktop</b><span class="app-botoes">— ▢ ✕</span></div>
+        <p class="carga-aviso"><b>Aplicar alterações de consulta</b> · Vendas · 203.882 linhas carregadas</p>
+        <div class="carga-corpo">
+          <p class="pbi-vista-nome">Exibição de tabela</p>
+          <div data-tabela-modelo="6"></div>
+          <p class="obter-botoes"><button type="button" class="app-btn" data-etapas-aplicar="nao">Transformar dados (voltar ao Power Query)</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Uma receita</h3><p>As etapas ficam gravadas. Se a BaseVendas ganhar vendas novas, Página Inicial › Atualizar repete toda a limpeza sozinho.</p></article>
+      <article class="cartao"><h3>Voltar no tempo</h3><p>Clicar numa etapa só mostra a tabela naquele ponto; nada é desfeito. Para continuar, clique de novo na última.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Apagar uma etapa do meio. As seguintes podem depender dela (uma coluna renomeada, por exemplo) e passam a dar erro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 16 · CARTÃO DE FATURAMENTO ======================= -->
+  <section class="secao" id="cartao">
+    <div class="secao-topo">
+      <span class="selo">16</span>
+      <h2 class="secao-titulo">Cartão: o faturamento total</h2>
+    </div>
+    <p class="secao-lead">De volta ao Power BI, o primeiro visual: um cartão com a soma do Faturamento. Depois, formatar: tirar o rótulo da categoria, pôr um título e mostrar em reais.</p>
+
+    <div class="lab" data-lab="cartao">
+      <div class="lab-controles">
+        <h4>formatar visual</h4>
+        <div class="lab-campo">
+          <label for="ct-unid">unidades de exibição</label>
+          <select id="ct-unid" data-campo="unidade">
+            <option value="auto" selected>Automático</option>
+            <option value="nenhum">Nenhum</option>
+            <option value="mil">Milhares</option>
+            <option value="mi">Milhões</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="ct-casas">casas decimais — <span data-eco="casas">2</span></label>
+          <input type="range" id="ct-casas" data-campo="casas" min="0" max="2" value="2">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="rotulo" checked> rótulo da categoria</label>
+        <label class="lab-check"><input type="checkbox" data-campo="titulo"> título</label>
+        <div class="lab-campo">
+          <label for="ct-texto">texto do título</label>
+          <input type="text" id="ct-texto" data-campo="texto" value="Faturamento total">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="moeda"> coluna no formato Moeda (R$)</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">campos e formatação</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Automático</h3><p>Para milhões, o Power BI escolhe "Mi": 64,17 Mi. Para ver o número inteiro, Unidades de exibição: Nenhum.</p></article>
+      <article class="cartao"><h3>Moeda é da coluna</h3><p>O formato Moeda fica na coluna Faturamento (Ferramentas de coluna), então vale para todos os visuais que a usarem.</p></article>
+      <article class="cartao cartao--novo"><h3>Cartão novo</h3><p>Desde novembro de 2025 o Cartão do Power BI é o visual novo, que aceita vários valores. Os nomes no painel de formatação podem variar um pouco entre versões.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 17 · N SUPERIOR, ESCOPO E PINCEL ======================= -->
+  <section class="secao" id="topn">
+    <div class="secao-topo">
+      <span class="selo">17</span>
+      <h2 class="secao-titulo">Cartão do produto mais vendido</h2>
+    </div>
+    <p class="secao-lead">Um cartão com o campo Produto não mostra o mais vendido. Para isso, um filtro N superior: o primeiro produto por quantidade vendida.</p>
+
+    <div class="lab" data-lab="topn">
+      <div class="lab-controles">
+        <h4>Filtros neste visual › Produto</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Tipo de filtro">
+          <label><input type="radio" name="tn-tipo" data-campo="tipo" value="basica" checked> Filtragem básica (sem filtro)</label>
+          <label><input type="radio" name="tn-tipo" data-campo="tipo" value="topn"> N superior</label>
+        </div>
+        <div class="lab-campo">
+          <label for="tn-mostrar">mostrar itens</label>
+          <select id="tn-mostrar" data-campo="mostrar">
+            <option value="superior" selected>Superior</option>
+            <option value="inferior">Inferior</option>
+          </select>
+        </div>
+        <div class="lab-campo">
+          <label for="tn-n">quantos — <span data-eco="n">1</span></label>
+          <input type="range" id="tn-n" data-campo="n" min="1" max="5" value="1">
+        </div>
+        <div class="lab-campo">
+          <label for="tn-por">por valor</label>
+          <select id="tn-por" data-campo="por">
+            <option value="qtd" selected>Qtd. Vendida</option>
+            <option value="fat">Faturamento</option>
+          </select>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">painel Filtros</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Neste visual, nesta página ou em todas as páginas?</h3>
+    <div class="lab" data-lab="escopo">
+      <div class="lab-controles">
+        <h4>onde está o filtro "Marca é Contoso"</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Onde o filtro vale">
+          <label><input type="radio" name="es-escopo" data-campo="escopo" value="visual" checked> Filtros neste visual</label>
+          <label><input type="radio" name="es-escopo" data-campo="escopo" value="pagina"> Filtros nesta página</label>
+          <label><input type="radio" name="es-escopo" data-campo="escopo" value="todas"> Filtros em todas as páginas</label>
+        </div>
+        <p class="lab-dica">O painel Filtros tem as três seções. A primeira só aparece com um visual selecionado.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que muda</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Pincel de Formatação</h3>
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>copiar a formatação de um visual para outro</figcaption>
+        <ol class="caminho">
+          <li><span>selecione o visual formatado</span></li>
+          <li><span>Página Inicial</span></li>
+          <li><span>Pincel de Formatação</span></li>
+        </ol>
+        <ol class="passos">
+          <li>Clique no visual que já está do jeito que você quer.</li>
+          <li>Clique em <b>Pincel de Formatação</b>.</li>
+          <li>Clique no visual que vai receber a formatação.</li>
+        </ol>
+        <p class="atalho">copia título, cores, bordas e rótulos; não copia os campos</p>
+      </figure>
+
+      <div class="preview" data-pincel>
+        <div class="preview-topo"><span class="preview-selo">preview</span><code data-pincel-legenda></code></div>
+        <div class="preview-corpo">
+          <div class="pincel-faixa">
+            <div class="app-grupo"><div><button type="button" class="app-btn" data-pincel-botao>Pincel de Formatação</button></div><small>Área de Transferência</small></div>
+            <button type="button" class="pincel-desfazer" data-pincel-desfazer>desfazer</button>
+          </div>
+          <div class="pbi-tela pincel-tela">
+            <div class="pbi-visual fmt-destaque" data-pincel-origem="fmt-destaque" role="button" tabindex="0" aria-label="Cartão formatado de faturamento">
+              <p class="pbi-titulo">Faturamento total</p>
+              <div class="pbi-cartao"><b>R$ 64,17 Mi</b><span>Soma de Faturamento</span></div>
+            </div>
+            <div class="pbi-visual" data-pincel-destino role="button" tabindex="0" aria-label="Cartão do produto mais vendido">
+              <p class="pbi-titulo">Produto mais vendido</p>
+              <div class="pbi-cartao pbi-cartao--texto"><b>DVD M360 Preto</b><span>Primeiro Produto</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Primeiro, não maior</h3><p>Com texto, o cartão mostra o "Primeiro Produto": o primeiro em ordem alfabética. O filtro N superior é que escolhe o mais vendido.</p></article>
+      <article class="cartao"><h3>Escopo do filtro</h3><p>Neste visual, só ele muda; nesta página, todos os visuais da página; em todas as páginas, o relatório inteiro.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>N superior 3 num cartão. Passam três produtos, e o cartão mostra o primeiro deles em ordem alfabética, não o campeão.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 18 · GRÁFICO DE BARRAS ======================= -->
+  <section class="secao" id="barras">
+    <div class="secao-topo">
+      <span class="selo">18</span>
+      <h2 class="secao-titulo">Gráfico de barras: faturamento por marca</h2>
+    </div>
+    <p class="secao-lead">Faturamento no eixo X, Marca no eixo Y. Depois, formatar: título claro, sem o eixo X, com o valor escrito em cada barra.</p>
+
+    <div class="lab" data-lab="barras">
+      <div class="lab-controles">
+        <h4>formatar visual</h4>
+        <label class="lab-check"><input type="checkbox" data-campo="titulo" checked> título</label>
+        <div class="lab-campo">
+          <label for="br-texto">texto do título</label>
+          <input type="text" id="br-texto" data-campo="texto" value="Faturamento por marca">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="eixox" checked> eixo X</label>
+        <label class="lab-check"><input type="checkbox" data-campo="rotulos"> rótulos de dados</label>
+        <div class="lab-campo">
+          <label for="br-ordem">classificar por</label>
+          <select id="br-ordem" data-campo="ordem">
+            <option value="valor" selected>Faturamento (maior primeiro)</option>
+            <option value="marca">Marca (A a Z)</option>
+          </select>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">campos e formatação</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Barras para nomes longos</h3><p>Com as categorias no eixo Y, nomes como "Wide World Importers" cabem inteiros, sem texto inclinado.</p></article>
+      <article class="cartao"><h3>Rótulo no lugar do eixo</h3><p>Com o valor escrito na barra, o eixo X vira repetição. Tirar o eixo deixa o gráfico mais limpo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ordem alfabética num ranking. Para comparar, a maior barra vai em cima: classifique pelo valor.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 19 · INTERAÇÃO ======================= -->
+  <section class="secao" id="interacao">
+    <div class="secao-topo">
+      <span class="selo">19</span>
+      <h2 class="secao-titulo">Os visuais conversam</h2>
+    </div>
+    <p class="secao-lead">Clique numa marca no gráfico de barras: os cartões passam a mostrar só aquela marca e as colunas destacam a parte dela em cada ano.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>um relatório de verdade, com os totais da BaseVendas</code></div>
+        <div class="preview-corpo">
+          <div class="relatorio" data-relatorio>
+            <div class="relatorio-topo"><p class="rel-estado" data-rel-estado></p><button type="button" class="pincel-desfazer" data-rel-limpar>limpar seleção</button></div>
+            <div class="relatorio-grade">
+              <div class="pbi-visual"><p class="pbi-titulo">Faturamento</p><div data-rel-fat></div></div>
+              <div class="pbi-visual"><p class="pbi-titulo">Produto mais vendido</p><div data-rel-prod></div></div>
+              <div class="pbi-visual rel-barras"><p class="pbi-titulo">Faturamento por marca · clique numa barra</p><div data-rel-barras></div></div>
+              <div class="pbi-visual rel-anos"><p class="pbi-titulo">Faturamento por ano</p><div data-rel-anos></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <figure class="painel-codigo">
+        <figcaption>o que se faz no relatório</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">clique numa barra
+  filtra os cartões
+  realça as colunas: a parte escura é da marca
+
+Ctrl + clique
+  soma outra marca à seleção</pre>
+<pre class="codigo" data-lang="texto">clique de novo na barra (ou numa área vazia)
+  limpa a seleção
+
+mudar o comportamento
+  selecione o visual › guia Formato
+  › Editar interações
+  escolha: filtrar, realçar ou nenhum</pre>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================= 20 · LINHAS E COLUNAS ======================= -->
+  <section class="secao" id="combo">
+    <div class="secao-topo">
+      <span class="selo">20</span>
+      <h2 class="secao-titulo">Gráfico de linhas e colunas</h2>
+    </div>
+    <p class="secao-lead">Duas medidas no mesmo gráfico: faturamento nas colunas e quantidade vendida na linha, cada uma com o seu eixo. No eixo X, a data da venda por ano e mês.</p>
+
+    <div class="lab lab--largo" data-lab="combo">
+      <div class="lab-controles">
+        <h4>hierarquia de datas</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Nível da data">
+          <label><input type="radio" name="cb-nivel" data-campo="nivel" value="ano" checked> Ano</label>
+          <label><input type="radio" name="cb-nivel" data-campo="nivel" value="mes"> Ano e Mês (expandido)</label>
+        </div>
+        <h4>campos e formatação</h4>
+        <label class="lab-check"><input type="checkbox" data-campo="linha" checked> Qtd. Vendida no eixo Y da linha</label>
+        <label class="lab-check"><input type="checkbox" data-campo="rotulos"> rótulos de dados</label>
+        <p class="lab-dica">A data entra como hierarquia: Ano, Trimestre, Mês, Dia. Remova Trimestre e Dia para ficar só com Ano e Mês.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">campos do visual</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Dois eixos</h3><p>Reais à esquerda, unidades à direita. Sem o eixo secundário, a linha de quantidade ficaria achatada no chão.</p></article>
+      <article class="cartao"><h3>Novembro de 2017</h3><p>Expandido por mês, aparece o pico: 27 mil unidades, quase o dobro de um mês comum, e R$ 3,51 milhões de faturamento.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Comparar anos incompletos. A base vai de junho de 2017 a agosto de 2019: só 2018 tem os doze meses.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 21 · MAPA ======================= -->
+  <section class="secao" id="mapa">
+    <div class="secao-topo">
+      <span class="selo">21</span>
+      <h2 class="secao-titulo">Mapa: faturamento por continente</h2>
+    </div>
+    <p class="secao-lead">Localização: Continente. Tamanho da bolha: Faturamento. Antes do primeiro mapa, uma configuração de segurança libera os visuais de mapa.</p>
+
+    <div class="lab lab--largo" data-lab="mapa">
+      <div class="lab-controles">
+        <h4>campos do visual Mapa</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Localização">
+          <label><input type="radio" name="mp-local" data-campo="local" value="continente" checked> Localização: Continente</label>
+          <label><input type="radio" name="mp-local" data-campo="local" value="pais"> Localização: País</label>
+        </div>
+        <div class="lab-campo">
+          <label for="mp-tam">tamanho da bolha</label>
+          <select id="mp-tam" data-campo="tamanho">
+            <option value="fat" selected>Faturamento</option>
+            <option value="qtd">Qtd. Vendida</option>
+          </select>
+        </div>
+        <p class="lab-dica">A área da bolha é proporcional ao valor. Passe o mouse numa bolha para ver o número.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">campos e configuração</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Por que dividir a Localidade</h3><p>O mapa precisa de um lugar por campo. Com país e continente juntos na mesma célula, ele pode errar o lugar.</p></article>
+      <article class="cartao"><h3>Categoria de dados</h3><p>Em Ferramentas de coluna, diga que a coluna é um Continente ou um País: o mapa acerta mais.</p></article>
+      <article class="cartao cartao--novo"><h3>Azure Maps</h3><p>A Microsoft anunciou que o visual Mapa vai ser substituído pelo Azure Maps. Se o Power BI oferecer a troca, aceite: os campos e a formatação vão junto.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Responda em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">"Foram vendidas 348 unidades do Biquíni em 2024." Que tipo de análise é essa?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Preditiva</button>
+          <button type="button" data-opcao="b">Descritiva</button>
+          <button type="button" data-opcao="c">Prescritiva</button>
+        </div>
+        <p class="quiz-explica">Descreve o que já aconteceu. Preditiva diria o que vai acontecer; prescritiva, o que fazer.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Onde a planilha é limpa e transformada antes de ir para o relatório?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Na Exibição de modelo</button>
+          <button type="button" data-opcao="b">No painel Visualizações</button>
+          <button type="button" data-opcao="c">No Power Query (Transformar dados)</button>
+        </div>
+        <p class="quiz-explica">O Power Query é o editor de tratamento. A Exibição de modelo cuida dos relacionamentos entre tabelas.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">A Localidade traz "Chile - América do Sul". Qual delimitador separa sem sobrar espaço?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">"-" (só o hífen)</button>
+          <button type="button" data-opcao="b">" - " (espaço, hífen, espaço)</button>
+          <button type="button" data-opcao="c">Vírgula</button>
+        </div>
+        <p class="quiz-explica">Só o hífen deixa "Chile " e " América do Sul", com espaços. A vírgula nem aparece no texto.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Um cartão com o campo Produto, sem filtro nenhum, mostra…</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">o primeiro produto em ordem alfabética</button>
+          <button type="button" data-opcao="b">o produto mais vendido</button>
+          <button type="button" data-opcao="c">quantos produtos existem</button>
+        </div>
+        <p class="quiz-explica">Para texto, o cartão usa "Primeiro": o primeiro em ordem alfabética. O mais vendido exige o filtro N superior.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">O filtro "Marca é Contoso" deve valer só para um gráfico. Onde ele vai?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Filtros em todas as páginas</button>
+          <button type="button" data-opcao="b">Filtros nesta página</button>
+          <button type="button" data-opcao="c">Filtros neste visual</button>
+        </div>
+        <p class="quiz-explica">"Neste visual" afeta só o visual selecionado. "Nesta página" afetaria todos os visuais da página.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">A BaseVendas ganhou as vendas de setembro. O que acontece com a limpeza feita no Power Query?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Precisa ser refeita, clique por clique</button>
+          <button type="button" data-opcao="b">Atualizar repete as Etapas Aplicadas nos dados novos</button>
+          <button type="button" data-opcao="c">Some: o Power Query não guarda nada</button>
+        </div>
+        <p class="quiz-explica">As Etapas Aplicadas são uma receita gravada. Página Inicial › Atualizar roda tudo de novo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">O visual Mapa aparece com um aviso e não mostra nada. O que falta?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Opções › Segurança › Usar visuais de Mapa e Mapa Coroplético</button>
+          <button type="button" data-opcao="b">Uma conta paga do Power BI</button>
+          <button type="button" data-opcao="c">Mudar a coluna para o formato Moeda</button>
+        </div>
+        <p class="quiz-explica">É uma opção de segurança, marcada uma vez em Arquivo › Opções e configurações › Opções. O Desktop continua gratuito.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">O Power BI é tipo Excel?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Sim, é o Excel com outro nome</button>
+          <button type="button" data-opcao="b">Sim: um depende do outro para funcionar</button>
+          <button type="button" data-opcao="c">Não: o Excel é uma das fontes; o Power BI é feito para análise</button>
+        </div>
+        <p class="quiz-explica">Os dois manipulam dados, mas o Power BI é focado em análise. Uma ferramenta não depende da outra.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA RÁPIDA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">Tudo o que fizemos hoje, na ordem da prática.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>Trazer a planilha</td><td>Obter dados › Pasta de trabalho do Excel</td><td>Power BI · Página Inicial</td></tr>
+          <tr><td>Limpar antes de carregar</td><td>Transformar Dados</td><td>Navegador (ou Página Inicial › Transformar dados)</td></tr>
+          <tr><td>Dar nome à tabela</td><td>Nome</td><td>Power Query · Configurações de Consulta › Propriedades</td></tr>
+          <tr><td>Tirar uma coluna</td><td>Remover Colunas</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Tirar linhas vazias</td><td>Remover Linhas › Remover Linhas em Branco</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Tirar espaços sobrando</td><td>Formato › Aparar</td><td>Power Query · Transformar</td></tr>
+          <tr><td>Separar país e continente</td><td>Dividir Coluna › Por Delimitador › " - "</td><td>Power Query · Transformar</td></tr>
+          <tr><td>Renomear uma coluna</td><td>clique duas vezes no cabeçalho</td><td>Power Query · grade de dados</td></tr>
+          <tr><td>Multiplicar duas colunas</td><td>Padrão › Multiplicar</td><td>Power Query · Adicionar Coluna</td></tr>
+          <tr><td>Coluna a partir de um exemplo</td><td>Coluna de Exemplos</td><td>Power Query · Adicionar Coluna</td></tr>
+          <tr><td>Mandar para o relatório</td><td>Fechar e Aplicar</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Mostrar um total</td><td>Cartão</td><td>Visualizações</td></tr>
+          <tr><td>Mostrar em reais</td><td>Formato › Moeda</td><td>Ferramentas de coluna</td></tr>
+          <tr><td>Achar o maior</td><td>Tipo de filtro: N superior</td><td>Filtros neste visual</td></tr>
+          <tr><td>Copiar a formatação</td><td>Pincel de Formatação</td><td>Página Inicial</td></tr>
+          <tr><td>Ranking por categoria</td><td>Gráfico de barras clusterizado</td><td>Visualizações</td></tr>
+          <tr><td>Duas medidas por data</td><td>Gráfico de linhas e colunas clusterizado</td><td>Visualizações</td></tr>
+          <tr><td>Ver ano e mês no eixo</td><td>Expandir tudo um nível abaixo na hierarquia</td><td>topo do visual</td></tr>
+          <tr><td>Liberar o mapa</td><td>Usar visuais de Mapa e Mapa Coroplético</td><td>Arquivo › Opções e configurações › Opções › Segurança</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Faça pelo menos mais 2 gráficos</h2>
+    </div>
+    <p class="secao-lead">No mesmo relatório .pbix da aula, crie mais dois gráficos de sua escolha, configurados e formatados para mostrar a informação da melhor forma possível.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 1 · obrigatória</span>
+        <h3>O relatório precisa ter</h3>
+        <ul class="requisitos">
+          <li>A consulta <b>Vendas</b> tratada no Power Query: Column10 e linhas em branco removidas, Localidade dividida em País e Continente, colunas Faturamento e Nome Completo Cliente.</li>
+          <li>Cartão de faturamento em Moeda (R$), com título e sem rótulo da categoria.</li>
+          <li>Cartão do produto mais vendido, com filtro N superior (Superior 1, por Qtd. Vendida), formatado com o Pincel de Formatação.</li>
+          <li>Barras de faturamento por marca com rótulos de dados, gráfico de linhas e colunas por ano e mês e mapa por continente.</li>
+          <li><b>Mais dois gráficos novos</b>, cada um com um título que diga o que ele mostra.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Já está pronto</h3>
+        <ul class="requisitos">
+          <li><code>BaseVendas.xlsx</code>: 203.882 vendas, de junho de 2017 a agosto de 2019.</li>
+          <li>O .pbix da aula, com a consulta Vendas e os visuais que montamos.</li>
+          <li>Ideias de visual: Gráfico de rosca por Continente, colunas por Categoria, Tabela por País, Gráfico de linhas por mês, Matriz de Marca × Ano.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Parte 2 · desafio</span>
+        <h3>Exigências que quebram a solução preguiçosa</h3>
+        <ul class="requisitos">
+          <li>Um dos gráficos novos mostra o <b>Lucro</b>, que não existe na planilha: crie no Power Query a coluna Lucro = (Preço Unitário − Custo Unitário) × Qtd. Vendida. O total confere com R$ 37,46 Mi.</li>
+          <li>Um cartão com a <b>Categoria que mais faturou</b>, escolhida por filtro N superior, não digitada.</li>
+          <li>Um gráfico só com os <b>5 países</b> que mais faturam (N superior 5).</li>
+          <li>Na coluna Marca, cada marca aparece <b>uma vez só</b> na lista de filtro do Power Query (nada de "Litware" e "Litware ").</li>
+          <li>Um filtro em <b>todas as páginas</b> que deixe só 2018, o único ano completo da base.</li>
+          <li>Nenhum título padrão: todo visual com um título escrito por você.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Parte 3 · investigação</span>
+        <h3>Responda por escrito, numa caixa de texto do relatório</h3>
+        <ul class="requisitos">
+          <li>Sem o filtro N superior, o cartão de Produto mostrava outro nome. Qual, e por quê?</li>
+          <li>No gráfico por ano, 2018 parece ter faturado o dobro de 2017. Por que essa comparação engana?</li>
+          <li>Qual dos seus gráficos novos responde a uma pergunta descritiva? Escreva a pergunta. Que decisão (prescritiva) ele poderia apoiar?</li>
+          <li>A Hashtag Toys é a marca que mais vende unidades. Por que ela fatura tão pouco? Qual gráfico mostra isso melhor?</li>
+          <li>Se a BaseVendas ganhar as vendas de setembro de 2019, o que você precisa refazer no Power Query?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Resultado esperado na tela</h3>
+    <div class="bloco-branco">
+      <div class="esperado">
+        <div class="pbi-visual"><p class="pbi-titulo">Faturamento total</p><div data-cartao-total></div></div>
+        <div class="pbi-visual"><p class="pbi-titulo">Produto mais vendido</p><div class="pbi-cartao pbi-cartao--texto"><b>DVD M360 Preto</b></div></div>
+        <div class="pbi-visual"><p class="pbi-titulo">Faturamento por marca</p><div data-barras-marca></div></div>
+        <div class="pbi-visual"><p class="pbi-titulo">Faturamento por continente</p><div data-mapa-continente></div></div>
+        <div class="pbi-visual esperado-cheio"><p class="pbi-titulo">Faturamento e quantidade por ano e mês</p><div data-combo-mes></div></div>
+        <div class="esperado-novo">seu gráfico 1</div>
+        <div class="esperado-novo">seu gráfico 2</div>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>O arquivo .pbix salvo como <code>aula1-seu-nome.pbix</code>, com as respostas da Parte 3 numa caixa de texto (Inserir › Caixa de texto).</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Os números conferem com a base (faturamento total R$ 64,17 Mi) e nada foi digitado à mão: tudo sai das colunas e dos filtros.</p></article>
+      <article class="cartao"><h3>Critério de leitura</h3><p>Cada gráfico se explica sozinho: título que diz o que mostra, valores em R$, rótulos legíveis e a maior barra em cima.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Na próxima aula, vamos aprofundar o Power BI e começar análises mais avançadas. Não esqueça de assinar a lista de presença!</p>
+      <div class="rodape-meta">Análise de Dados com Power BI · Aula 1 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/dados.js"></script>
+<script src="js/aula.js"></script>
+</body>
+</html>
