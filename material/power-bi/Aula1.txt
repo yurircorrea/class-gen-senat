@@ -1,0 +1,27 @@
+Power BI - Aula 1 - Roteiro para o professor (não apresentar aos alunos)
+
+- Mostrar as 3 guias do Power BI (relatórios, dados e modelo) (guia do DAX pode mencionar, mas não precisa dar ênfase)
+- Carregar o Excel BaseVendas
+- Apresentar e explicar o PowerQuery
+
+No Power Query:
+- Trocar nome da planilha
+- Explicar um pouco sobre o tratamento e limpeza de dados
+- Excluir colunas em branco
+- Excluir linhas em branco
+ 
+- Fazer as transformações de dados: 
+- Separar a localidade (guia transformar, dividir coluna, delimitador personalizado)
+- Renomear uma coluna
+- Multiplicar (Preço unitário * Quantidade) (via Adicionar Coluna / Trocar nome da coluna nova para Faturamento)
+- Inverter nome cliente para atender ao padrão do Brasil (via Adicionar coluna, coluna de exemplo) / Renomear para Nome Completo Cliente
+- Fechar o Power Query via Fechar e Aplicar
+ 
+De volta ao Power BI:
+- Visual de Cartão: Campos - Faturamento; Formatação: Retirar rotulo da categoria, Adicionar Titulo, Formatar, Colocar em formato de moeda.
+- Visual de cartão: Campos - Produto; Filtros (explicar a diferença de neste visual/nesta página/no documento): Produto, filtro n superior, n = 1, por valor (qtd vendida); Formatar como outro cartão (mostrar o pincel de formatação)
+- Visual de Gráfico de Barras: Eixo x: Faturamento; Eixo y: Marcas; Formatar o titulo; Remover o rótulo do eixo X; Colocar o rotulo de dados nas barras (ao invés do eixo X). 
+- Mostrar no gráfico como a seleção de uma marca específica muda os valores
+- Gráfico de colunas com linhas: Eixo X: Data venda (Deixar ano e mês); Eixo Y: Faturamento; Eixo Y linha: Quant. vendida; Formatar gráfico
+- Para o próximo gráfico: Opções e configurações - Segurança - Mostrar Mapas
+- Gráfico de Mapa: Continente; Tamanho da Bolha: Faturamento
