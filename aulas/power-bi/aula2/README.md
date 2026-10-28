@@ -18,14 +18,14 @@ rotatividade, Coluna de Exemplos, funil, rosca, árvore hierárquica e página d
 | Arquivo | Uso na aula |
 |---|---|
 | `material/power-bi/aula2/Parte1 - Linguagem DAX.pdf` | Slides da abertura: o que é DAX (Data Analysis eXpressions), medidas, "vamos praticar". Viraram as seções 01 e 02. |
-| `material/power-bi/aula2/Parte1- Gabarito.pbix` | **Base da Parte 1.** O layout do dashboard (posições, visuais, campos, medidas na tabela Medidas) foi lido do arquivo e refeito no simulador da seção 08. |
+| `material/power-bi/aula2/Parte1- Gabarito.pbix` | **Base da Parte 1.** O layout do dashboard (posições, visuais, campos, medidas na tabela Medidas) foi lido do arquivo e refeito no simulador da seção 08. Para baixar em Materiais da Aula. |
 | `material/power-bi/aula2/Parte1 - BaseProdução.xlsx` | Dados da Parte 1: 31.616 registros de produção, de 01/01/2021 a 09/01/2022. Todas as linhas estão em `js/dados-producao.js` (sem Hora Inicio, Data Fim e Hora Fim, que a aula não usa). A página tem um link para baixar a planilha (Parte 1 e atividade). |
-| `material/power-bi/aula2/Parte1 - Plano de Fundo.png` e `Parte1 - Ícones/` | Fundo e ícones do Dashboard de Produção, em `img/` (fundo reduzido para 1280 × 720). |
+| `material/power-bi/aula2/Parte1 - Plano de Fundo.png` e `Parte1 - Ícones/` | Fundo e ícones do Dashboard de Produção, em `img/` (fundo reduzido para 1280 × 720). Os originais, para baixar em Materiais da Aula. |
 | `material/power-bi/aula2/Parte1 - Roteiro do Professor.txt` | Usado só para os passos de formatação (título, rótulos, eixo, linhas de grade, Pincel de Formatação). Veja a divergência abaixo. |
 | `material/power-bi/aula2/Parte2 - Roteiro do Professor.txt` | **Roteiro da Parte 2**, seguido na ordem: seções 09 a 14. |
-| `material/power-bi/aula2/Parte2 - Gabarito.pbix` | Layout do Dashboard de RH e da página de dica de ferramenta (320 × 240), refeitos na seção 14. Confirmou o Sparkline by OKViz e a coluna Ano da Contratação no eixo dele. |
+| `material/power-bi/aula2/Parte2 - Gabarito.pbix` | Layout do Dashboard de RH e da página de dica de ferramenta (320 × 240), refeitos na seção 14. Confirmou o Sparkline by OKViz e a coluna Ano da Contratação no eixo dele. Para baixar em Materiais da Aula. |
 | `material/power-bi/aula2/Parte2 - BaseFuncionarios.xlsx` | Dados da Parte 2: 234 contratações de 2010 a 2018, em `js/dados-rh.js`. A página tem um link para baixar a planilha (Parte 2 e atividade). |
-| `material/power-bi/aula2/Parte2 - Plano de Fundo.png` e `Parte2 - Fundo da Dica de Ferramenta.png` | Fundos do Dashboard de RH e da dica, em `img/`. |
+| `material/power-bi/aula2/Parte2 - Plano de Fundo.png` e `Parte2 - Fundo da Dica de Ferramenta.png` | Fundos do Dashboard de RH e da dica, em `img/`. Os originais, para baixar em Materiais da Aula. |
 
 A identidade visual da página é a do SEST SENAT. As cores escuras, verdes e limão aparecem só
 dentro dos dashboards simulados, porque são as do gabarito que a turma vai reproduzir.
@@ -71,7 +71,7 @@ vale o que aparece na versão instalada.
 
 ## Seções
 
-Capa · roteiro e objetivos ·
+Capa · roteiro e objetivos · Materiais da Aula (ícones, planos de fundo e gabaritos das duas partes, para baixar) ·
 **Parte 1, Dashboard de Produção** — 01 O que é a linguagem DAX · 02 A anatomia de uma medida ·
 03 Criar medidas · 04 CALCULATE · 05 DIVIDE e porcentagem · 06 Coluna calculada ou medida ·
 07 Plano de fundo e ícones · 08 O Dashboard de Produção ·
@@ -131,14 +131,22 @@ segmentação de Mês junta os dois anos, como o nível Mês da hierarquia de da
 | 12 | construtor `cidade` | Coluna de Exemplos: o exemplo digitado é testado contra quatro regras (cidade, UF, CEP, rua) e preenche as outras linhas, com a fórmula M |
 | 13 | simulador `visuaisRh` | funil por Cidade, rosca por Genero e árvore hierárquica (Área › Cargo) com filtro cruzado |
 | 14 | simulador `dashRh` | o Dashboard de RH; passar o mouse no funil mostra a página de dica (Func. Ativos, Folha Salarial, Horas Extras por Cargo) |
+| materiais | links `download` | os 4 ícones, os 3 planos de fundo e os 2 gabaritos, cada um baixado do arquivo original em `material/` |
 | quiz | `data-quiz` | oito perguntas com os erros que o aluno comete de verdade |
 
 ## Dicas de condução (não aparecem na página)
 
-- **Links de download das planilhas**: apontam para `material/power-bi/aula2/` pelo caminho
-  relativo (`../../../material/...`), então funcionam abrindo a página de dentro do repositório. Se
-  for copiar só a pasta da aula para outro computador, leve as duas planilhas junto e ajuste os
-  quatro links no `index.html`.
+- **Links de download** (planilhas nas faixas da Parte 1 e da Parte 2 e na atividade, e a seção
+  Materiais da Aula): apontam para `material/power-bi/aula2/` pelo caminho relativo
+  (`../../../material/...`), então funcionam abrindo a página de dentro do repositório. Se for
+  copiar só a pasta da aula para outro computador, leve esses arquivos junto e ajuste os links no
+  `index.html`. Os roteiros do professor, o PDF dos slides e as planilhas não estão em Materiais da
+  Aula.
+- **Imagens por duplo clique**: aberta por `file://`, o navegador abre uma imagem em vez de
+  baixá-la pelo link. Por isso os 4 ícones e os 3 planos de fundo também estão em
+  `js/materiais.js` (cópias exatas em base64), e a página baixa de lá quando é aberta assim. Se
+  alguma dessas imagens mudar em `material/`, gere o arquivo de novo. Servida por http, a página
+  usa os links normais.
 - A página funciona sem internet. A prática precisa do **Power BI Desktop** em cada computador, das
   duas planilhas, dos planos de fundo e dos ícones. Para o Sparkline sem internet, baixe o
   `.pbiviz` antes da aula (o gabarito da Parte 2 já traz o visual embutido).
@@ -169,7 +177,10 @@ aula2/
 │   ├── dados-rh.js       as 234 linhas da BaseFuncionarios (gerado a partir da planilha)
 │   ├── pbi.js            simulador do Power BI: modelo, motor DAX, visuais, interface e a
 │   │                     configuração de cada laboratório (seção 6 do arquivo)
-│   └── aula.js           motor da aula (colorização, navegação, laboratórios, quiz, tour)
+│   ├── materiais.js      cópias exatas (base64) dos ícones e planos de fundo, para o download
+│   │                     funcionar quando a página é aberta por duplo clique
+│   └── aula.js           motor da aula (colorização, navegação, laboratórios, download dos
+│                         materiais, quiz)
 ├── fonts/                Roboto (títulos) em cópia local + licença OFL
 └── img/                  símbolo e logotipos SEST SENAT, planos de fundo e ícones do material
 ```
@@ -192,4 +203,6 @@ sugestão de SUM), medidas certas nos cartões, segmentação em lista, clique n
 CALCULATE, formato %, Manuela Merege com DIVIDE e com `/`, coluna calculada na Exibição de tabela,
 Shift + Enter em três linhas, importar o Sparkline e montar o visual, árvore em dois níveis, rosca
 filtrando o funil, segmentação suspensa no dashboard, dica de ferramenta no hover, todas as tarefas
-marcadas; laboratórios de plano de fundo, Coluna de Exemplos e anatomia; quiz.
+marcadas; laboratórios de plano de fundo, Coluna de Exemplos e anatomia; quiz. Os 13 links de
+download (planilhas e Materiais da Aula) baixam arquivos idênticos aos de `material/`, conferidos
+byte a byte por `file://` e por http.
