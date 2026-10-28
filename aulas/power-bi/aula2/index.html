@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medidas com DAX — Análise de Dados com Power BI · Aula 2 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="power-bi" data-aula="aula2" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Medidas com DAX</a>
+    <nav class="barra-menu">
+      <a href="#roteiro">roteiro</a>
+      <a href="#dax">dax</a>
+      <a href="#anatomia">anatomia</a>
+      <a href="#medidas">medidas</a>
+      <a href="#calculate">calculate</a>
+      <a href="#divide">divide</a>
+      <a href="#coluna">coluna</a>
+      <a href="#fundo">fundo</a>
+      <a href="#producao">produção</a>
+      <a href="#contar">contar</a>
+      <a href="#ano">ano</a>
+      <a href="#ativos">ativos</a>
+      <a href="#cidade">cidade</a>
+      <a href="#visuais">visuais</a>
+      <a href="#dica">dica</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Análise de Dados com Power BI</span><span>Aula 2</span></div>
+      <h1>Medidas com DAX</h1>
+      <p class="subtitulo">Dashboard de Produção e Dashboard de RH</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Avançando nos relatórios: medidas escritas em DAX e aplicadas nos gráficos. São duas partes, cada uma com um dashboard: o de Produção, com a BaseProdução, e o de RH, com a BaseFuncionarios.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Entender o que é a linguagem DAX e o que é uma medida.</li>
+      <li>Criar medidas com SUM, COUNTROWS, COUNT e DISTINCTCOUNT.</li>
+      <li>Calcular com outro filtro usando CALCULATE e BLANK().</li>
+      <li>Calcular proporções com DIVIDE e mostrar como porcentagem.</li>
+      <li>Diferenciar coluna calculada de medida.</li>
+      <li>Montar dashboards com plano de fundo, ícones, visual personalizado e dica de ferramenta.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#dax"><span class="num">01</span><span class="rotulo">O que é DAX</span></a>
+      <a href="#medidas"><span class="num">03</span><span class="rotulo">Criar medidas</span></a>
+      <a href="#calculate"><span class="num">04</span><span class="rotulo">CALCULATE</span></a>
+      <a href="#divide"><span class="num">05</span><span class="rotulo">DIVIDE e porcentagem</span></a>
+      <a href="#producao"><span class="num">08</span><span class="rotulo">Dashboard de Produção</span></a>
+      <a href="#contar"><span class="num">09</span><span class="rotulo">Contar linhas</span></a>
+      <a href="#ativos"><span class="num">11</span><span class="rotulo">Ativos e rotatividade</span></a>
+      <a href="#dica"><span class="num">14</span><span class="rotulo">Dashboard de RH</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">A janela do Power BI desta página é um <b>simulador</b>: as medidas são calculadas de verdade sobre as planilhas da aula.</div>
+      <div class="legenda-item">Painel escuro = o que você faz no Power BI: a fórmula, o caminho de menus, os campos.</div>
+      <div class="legenda-item">As <b>tarefas</b> embaixo do simulador se marcam sozinhas quando a medida dá o valor certo.</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = visual selecionado</div>
+      <div class="legenda-item">Faixa vermelha = erro na fórmula, com a mensagem do Power BI.</div>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 1 ======================= -->
+  <div class="parte" id="parte1">
+    <span class="parte-num">Parte 1</span>
+    <div>
+      <h2>Dashboard de Produção</h2>
+      <p>BaseProdução.xlsx · 31.616 registros de produção, de janeiro de 2021 a janeiro de 2022 · 31 operadores</p>
+    </div>
+    <img src="img/fundo-producao.jpg" alt="Plano de fundo do Dashboard de Produção">
+  </div>
+
+  <!-- ======================= 01 · O QUE É DAX ======================= -->
+  <section class="secao" id="dax" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">O que é a linguagem DAX</h2>
+    </div>
+    <p class="secao-lead">Data Analysis eXpressions, ou expressões de análise de dados: a linguagem das fórmulas do Power BI. Lembra as fórmulas do Excel, mas trabalha com colunas inteiras e recalcula sozinha a cada filtro.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>escolha um operador ou clique numa coluna do gráfico: a medida recalcula</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="excel"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a mesma soma no Excel e no Power BI</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// Excel: uma célula, um intervalo fixo
+=SOMA(G2:G31617)
+
+// DAX: uma medida, a coluna inteira
+Qtd Produzida = SUM(BaseProdução[Qtd Produzida])</pre>
+<pre class="codigo" data-lang="texto">Excel                      DAX
+células: G2:G31617         colunas: Tabela[Coluna]
+funções em português       funções em inglês
+  SOMA, SE, CONT.SE          SUM, IF, CALCULATE
+resultado fixo na célula   recalcula a cada filtro</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Medida guarda a conta</h3><p>Uma medida não guarda um número: guarda a fórmula. O número aparece no visual, calculado para o filtro que estiver na tela.</p></article>
+      <article class="cartao"><h3>Mesma medida, vários lugares</h3><p>Qtd Produzida vale no cartão, no gráfico por mês e na dica de ferramenta. Escreve uma vez, usa em todo o relatório.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Escrever como no Excel. <code>=SOMA(...)</code> dá erro: no DAX as funções são em inglês e a fórmula começa pelo nome da medida.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 · ANATOMIA ======================= -->
+  <section class="secao" id="anatomia">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">A anatomia de uma medida</h2>
+    </div>
+    <p class="secao-lead">Nome, sinal de igual e expressão. A expressão mais simples é uma agregação: uma função que transforma a coluna inteira em um número só.</p>
+
+    <div class="lab lab--largo" data-lab="anatomia">
+      <div class="lab-controles">
+        <h4>monte a medida</h4>
+        <div class="lab-campo">
+          <label for="anat-nome">nome da medida</label>
+          <input type="text" id="anat-nome" data-campo="nome" value="Qtd Produzida" autocomplete="off">
+        </div>
+        <div class="lab-campo">
+          <label for="anat-coluna">coluna da BaseProdução</label>
+          <select id="anat-coluna" data-campo="coluna">
+            <option selected>Qtd Produzida</option>
+            <option>Qtd Rejeitada</option>
+            <option>Total Horas</option>
+            <option>Numero Ordem</option>
+            <option>Operador</option>
+            <option>Produto</option>
+            <option>Ocorrência</option>
+          </select>
+        </div>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Função de agregação">
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="SUM" checked> SUM</label>
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="AVERAGE"> AVERAGE</label>
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="MIN"> MIN</label>
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="MAX"> MAX</label>
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="COUNT"> COUNT</label>
+          <label><input type="radio" name="anat-fn" data-campo="funcao" value="DISTINCTCOUNT"> DISTINCTCOUNT</label>
+        </div>
+        <p class="lab-dica">Teste SUM na coluna Operador: o DAX não soma texto. E DISTINCTCOUNT em Numero Ordem: quantas ordens de produção diferentes existem.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a medida na barra de fórmulas</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Nome livre</h3><p>Pode ter espaço e acento. É o nome que aparece no painel Dados e no visual, então escolha um que diga o que a medida mostra.</p></article>
+      <article class="cartao"><h3>Tabela[Coluna]</h3><p>O nome da tabela vem antes da coluna, e a coluna vai entre colchetes. O Power BI completa enquanto você digita: aceite a sugestão com Tab.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>DISTINCTCOUNT conta o branco como um valor. A coluna Ocorrência tem 12 tipos de ocorrência e linhas em branco: o resultado é 13.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 · CRIAR MEDIDAS ======================= -->
+  <section class="secao" id="medidas">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Criar medidas no Power BI</h2>
+    </div>
+    <p class="secao-lead">Primeiro, uma tabela só para guardar as medidas. Depois, cada medida na barra de fórmulas, e o resultado num cartão.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Inserir dados, Nova medida, escreva e tecle Enter; depois marque a medida com o cartão selecionado</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="medidas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o caminho e as fórmulas</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">1. Página Inicial › Inserir dados
+   Nome: Medidas › Carregar
+2. selecione a tabela Medidas no painel Dados
+3. Página Inicial › Nova medida
+4. escreva na barra de fórmulas e tecle Enter
+5. selecione o cartão e marque a medida</pre>
+<pre class="codigo" data-lang="formula">Qtd Produzida = SUM(BaseProdução[Qtd Produzida])
+Qtd Rejeitada = SUM(BaseProdução[Qtd Rejeitada])
+
+// bônus: ordens de produção diferentes
+Ordens = DISTINCTCOUNT(BaseProdução[Numero Ordem])</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Tabela Medidas</h3><p>A tabela nasce com uma coluna vazia (Coluna1). Depois da primeira medida, exclua essa coluna: o ícone vira o de calculadora e a tabela sobe para o topo do painel Dados.</p></article>
+      <article class="cartao"><h3>Onde a medida mora</h3><p>A medida fica na tabela que estava selecionada ao clicar em Nova medida. Para mudar depois: Ferramentas de medida › Tabela inicial.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Criar a medida Qtd Produzida dentro da BaseProdução: a tabela já tem uma coluna com esse nome e o Power BI recusa. Por isso a tabela Medidas.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 · CALCULATE ======================= -->
+  <section class="secao" id="calculate">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">CALCULATE: calcular com outro filtro</h2>
+    </div>
+    <p class="secao-lead">Horas produtivas são as horas sem nenhuma ocorrência (Ocorrência em branco); horas paradas, as horas com alguma ocorrência. As duas somam a mesma coluna, Total Horas, cada uma com um filtro.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie as duas medidas, coloque nos cartões e clique numa barra</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="calculate"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o cálculo, depois o filtro</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Horas Produtivas =
+CALCULATE(
+    SUM(BaseProdução[Total Horas]),     // o que calcular
+    BaseProdução[Ocorrência] = BLANK()  // com qual filtro
+)</pre>
+<pre class="codigo" data-lang="formula">Horas Paradas =
+CALCULATE(
+    SUM(BaseProdução[Total Horas]),
+    BaseProdução[Ocorrência] &lt;> BLANK()
+)
+// = BLANK()    está em branco
+// &lt;> BLANK()   não está em branco</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Primeiro o cálculo</h3><p>O primeiro argumento é o que calcular. Depois vêm um ou mais filtros, separados por vírgula.</p></article>
+      <article class="cartao"><h3>BLANK() é o vazio</h3><p>Uma célula sem nada é BLANK no Power BI. No visual, ela aparece como <b>(Em branco)</b>.</p></article>
+      <article class="cartao cartao--erro"><h3>Atenção</h3><p>Com uma barra selecionada, Horas Produtivas não muda. Não é erro: o filtro do CALCULATE na coluna Ocorrência substitui o filtro do clique na mesma coluna.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 · DIVIDE ======================= -->
+  <section class="secao" id="divide">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">DIVIDE e porcentagem</h2>
+    </div>
+    <p class="secao-lead">Disponibilidade e Qualidade são proporções: uma medida dividida por outra. DIVIDE divide e, quando o denominador é zero ou vazio, devolve (Em branco) em vez de erro.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie as medidas, mude o formato para % e escolha a operadora Manuela Merege</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="divide"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>medida que usa medida</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Disponibilidade =
+DIVIDE(
+    [Horas Produtivas],
+    [Horas Produtivas] + [Horas Paradas]
+)
+
+Qualidade =
+DIVIDE([Qtd Produzida] - [Qtd Rejeitada], [Qtd Produzida])</pre>
+<pre class="codigo" data-lang="texto">medida dentro de medida: só o nome
+  [Horas Produtivas]
+
+formato de porcentagem
+  selecione a medida no painel Dados
+  Ferramentas de medida › Formatação › %
+
+medidor de 0% a 100%
+  Formatar visual › Eixo do medidor
+  Mínimo: 0 · Máximo: 1</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Reaproveitar</h3><p><code>[Horas Produtivas]</code> reaproveita a conta pronta. Se a regra mudar, você muda num lugar só e todas as medidas que usam ela acompanham.</p></article>
+      <article class="cartao"><h3>DIVIDE ou /</h3><p>Com <code>/</code>, dividir por zero mostra NaN ou Infinito no visual. DIVIDE devolve (Em branco) e o visual fica limpo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ver 0,78 no medidor e achar que é pouco. É 77,69%: falta só o formato de porcentagem.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 · COLUNA × MEDIDA ======================= -->
+  <section class="secao" id="coluna">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Coluna calculada ou medida?</h2>
+    </div>
+    <p class="secao-lead">As duas usam DAX, mas calculam em momentos diferentes. A coluna calculada roda linha por linha e fica guardada na tabela; a medida calcula um número só, na hora, para o filtro que estiver na tela.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Exibição de tabela: Nova coluna; Exibição de relatório: Nova medida</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="coluna"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a mesma conta, dois jeitos</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// coluna calculada: uma resposta por linha
+Peças Boas = BaseProdução[Qtd Produzida] - BaseProdução[Qtd Rejeitada]
+
+// medida: uma resposta por filtro
+Total Peças Boas = [Qtd Produzida] - [Qtd Rejeitada]</pre>
+<pre class="codigo" data-lang="texto">               coluna calculada     medida
+cria em        Nova coluna          Nova medida
+calcula        linha por linha      no filtro da tela
+guarda         o valor de cada      só a fórmula
+               linha (ocupa)
+serve para     categoria, ano,      total, média,
+               faixa                porcentagem</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Coluna para categorizar</h3><p>Ano da contratação, faixa salarial, peças boas de cada ordem: coisas que você usa no eixo, na legenda ou na segmentação.</p></article>
+      <article class="cartao"><h3>Medida para resumir</h3><p>Totais, médias e porcentagens. É o que vai nos cartões, nos medidores e nos valores dos gráficos.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>SUM numa coluna calculada: as 31.616 linhas recebem o total geral, 3.084.251. E o contrário, coluna sem agregação numa medida, dá erro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 · PLANO DE FUNDO ======================= -->
+  <section class="secao" id="fundo">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">Plano de fundo e ícones</h2>
+    </div>
+    <p class="secao-lead">O dashboard ganha cara com uma imagem de fundo feita fora do Power BI (no PowerPoint ou no Canva, por exemplo) e ícones em PNG. Os visuais ficam por cima, sem fundo próprio.</p>
+
+    <div class="lab lab--fundo" data-lab="fundo">
+      <div class="lab-controles">
+        <h4>Formatar página › Tela de fundo</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Imagem">
+          <label><input type="radio" name="f-img" data-campo="imagem" value="nao"> sem imagem</label>
+          <label><input type="radio" name="f-img" data-campo="imagem" value="sim" checked> Parte1 - Plano de Fundo.png</label>
+        </div>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Ajuste da imagem">
+          <label><input type="radio" name="f-aj" data-campo="ajuste" value="normal"> Normal</label>
+          <label><input type="radio" name="f-aj" data-campo="ajuste" value="ajustar" checked> Ajustar</label>
+          <label><input type="radio" name="f-aj" data-campo="ajuste" value="preencher"> Preencher</label>
+        </div>
+        <div class="lab-campo">
+          <label for="f-transp">Transparência: <span data-eco="transp">100</span>%</label>
+          <input type="range" id="f-transp" min="0" max="100" step="5" value="100" data-campo="transp">
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="icones"> ícones e cartões por cima</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">onde fica no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Fundo na página</h3><p>Clique numa área vazia: o painel muda para Formatar página. Cada visual também tem uma Tela de fundo, que precisa ficar desativada para a imagem aparecer atrás dele.</p></article>
+      <article class="cartao"><h3>Tamanho certo</h3><p>A página tem 1280 × 720, proporção 16:9. Monte a imagem nessa proporção e use Ajustar: ela ocupa a página inteira sem cortar.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>A transparência da Tela de fundo começa em 100%. A imagem entra, mas não aparece até você baixar para 0%.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 · DASHBOARD DE PRODUÇÃO ======================= -->
+  <section class="secao" id="producao">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">O Dashboard de Produção</h2>
+    </div>
+    <p class="secao-lead">Tudo junto: plano de fundo, ícones, quatro cartões, duas segmentações, a produção mensal e os dois medidores. Escolha um operador ou um mês: todos os números se recalculam.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>abra as segmentações no alto, à direita, ou clique num ponto do gráfico</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="dashProducao"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a montagem e a formatação</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Cartão de linha múltipla (um para cada)
+  Qtd Produzida · Qtd Rejeitada
+  Horas Produtivas · Horas Paradas
+Segmentação de dados, estilo Lista suspensa
+  Operador · Data Inicio › Mês
+Gráfico de área
+  Eixo X: Data Inicio › Mês
+  Eixo Y: Qtd Produzida
+Medidor: Disponibilidade
+Medidor: Qualidade</pre>
+<pre class="codigo" data-lang="texto">Formatar visual, em todos
+  Tela de fundo: Desativado
+  Título: texto branco, centralizado
+Gráfico de área
+  Rótulos de dados: Ativado, branco, Mil
+  Eixo Y e linhas de grade: Desativado
+Medidores
+  Eixo do medidor: Mínimo 0 · Máximo 1
+Pincel de Formatação
+  copie o primeiro cartão para os outros</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Segmentação filtra a página</h3><p>Escolher Manuela Merege muda os cartões, o gráfico e os medidores ao mesmo tempo. As medidas recalculam para o filtro.</p></article>
+      <article class="cartao"><h3>Janeiro tem dois anos</h3><p>A base vai até 9 de janeiro de 2022, e o nível Mês junta os dois janeiros: dos 310 Mil, 22 Mil são de 2022. Para separar, use Ano e Mês no eixo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Medidor sem máximo: o Power BI usa o dobro do valor como máximo, e 77% vira meio ponteiro. Para porcentagem, fixe o Máximo em 1 (100%).</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 2 ======================= -->
+  <div class="parte" id="parte2">
+    <span class="parte-num">Parte 2</span>
+    <div>
+      <h2>Dashboard de RH</h2>
+      <p>BaseFuncionarios.xlsx · 234 contratações de 2010 a 2018 · 5 áreas · 5 cargos · 9 cidades</p>
+    </div>
+    <img src="img/fundo-rh.jpg" alt="Plano de fundo do Dashboard de RH">
+  </div>
+
+  <!-- ======================= 09 · CONTAR LINHAS ======================= -->
+  <section class="secao" id="contar" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Contar linhas e valores</h2>
+    </div>
+    <p class="secao-lead">Na BaseFuncionarios, cada linha é uma pessoa contratada. Para saber quantas, conte as linhas da tabela. Para saber quantas foram demitidas, conte os valores da coluna de demissão.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Nova medida, escreva, Enter; use a Exibição de tabela para conferir a coluna Data de Demissao</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="contar"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>três jeitos de contar</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// linhas da tabela: 234
+Contratações = COUNTROWS(BaseFuncionarios)
+
+// valores (não vazios) de uma coluna: 17
+Datas de Demissão = COUNT(BaseFuncionarios[Data de Demissao])
+
+// valores diferentes: 5
+Cargos = DISTINCTCOUNT(BaseFuncionarios[Cargo])</pre>
+<pre class="codigo" data-lang="texto">função          recebe    conta
+COUNTROWS       tabela    linhas
+COUNT           coluna    células com valor
+COUNTBLANK      coluna    células em branco
+DISTINCTCOUNT   coluna    valores diferentes</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>COUNTROWS pede a tabela</h3><p>Só o nome da tabela, sem colchetes: <code>COUNTROWS(BaseFuncionarios)</code>. É a contagem mais segura, porque não depende de nenhuma coluna estar preenchida.</p></article>
+      <article class="cartao"><h3>Por que 17?</h3><p>Só 17 pessoas têm Data de Demissao preenchida. COUNT pulou as 217 células em branco: quem ainda trabalha na empresa.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Contar funcionários com COUNT de uma coluna que tem buracos. O número sai menor, e ninguém percebe olhando o cartão.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 · ANO + VISUAL PERSONALIZADO ======================= -->
+  <section class="secao" id="ano">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Ano da contratação e visual personalizado</h2>
+    </div>
+    <p class="secao-lead">Para ver as contratações ano a ano, a tabela precisa de uma coluna com o ano. Para desenhar a linha do tempo pequena embaixo do cartão, um visual que não vem no Power BI: o Sparkline, do AppSource.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>siga as tarefas: cartão de linha múltipla, coluna do ano, importar o Sparkline</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="ano"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a coluna e o visual</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// coluna calculada em BaseFuncionarios
+Ano da Contratação =
+    YEAR(BaseFuncionarios[Data de Contratacao])
+
+// YEAR, MONTH e DAY tiram um pedaço da data
+// 23/04/2015 → 2015</pre>
+<pre class="codigo" data-lang="texto">Visualizações › ··· › Obter mais visuais
+  pesquise: Sparkline
+  Sparkline by OKViz › Adicionar
+sem internet: ··· › Importar um visual de
+  um arquivo (.pbiviz)
+Sparkline
+  Axis: Ano da Contratação
+  Measure: Contratações</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Cartão de linha múltipla</h3><p>Com o cartão selecionado, clique no ícone do Cartão de linha múltipla: os campos passam para o visual novo, que aceita várias medidas e se ajusta melhor ao fundo.</p></article>
+      <article class="cartao"><h3>Visual personalizado</h3><p>É feito por outras empresas e fica guardado dentro do .pbix. Prefira os certificados, que a Microsoft revisou.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ano da Contratação aparece com Σ: o Power BI acha que é número para somar. Em Ferramentas de coluna › Resumo, escolha Não resumir.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 · ATIVOS E ROTATIVIDADE ======================= -->
+  <section class="secao" id="ativos">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Ativos, desligados e rotatividade</h2>
+    </div>
+    <p class="secao-lead">CALCULATE de novo, agora contando linhas: ativo é quem não tem Data de Demissao; desligado, quem tem. A rotatividade (turnover) divide os desligados pelas contratações.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Shift + Enter quebra a linha; Enter confirma a medida</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="ativos"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>uma linha por argumento, com Shift + Enter</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Func. Ativos =
+CALCULATE(
+    COUNTROWS(BaseFuncionarios),
+    BaseFuncionarios[Data de Demissao] = BLANK()
+)
+
+Func. Desligados =
+CALCULATE(
+    COUNTROWS(BaseFuncionarios),
+    BaseFuncionarios[Data de Demissao] &lt;> BLANK()
+)</pre>
+<pre class="codigo" data-lang="formula">% Rotatividade = [Func. Desligados] / [Contratações]
+
+// 17 / 234 = 0,0726 → formato % → 7,26%</pre>
+        </div>
+        <p class="atalho"><kbd>Shift</kbd> + <kbd>Enter</kbd> nova linha na barra de fórmulas · <kbd>Enter</kbd> confirma · <kbd>Esc</kbd> cancela</p>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Fórmula legível</h3><p>As quebras de linha e o recuo não mudam o cálculo: o Power BI ignora. Servem para quem lê a medida depois, inclusive você.</p></article>
+      <article class="cartao"><h3>Copiar o cartão</h3><p>Ctrl + C e Ctrl + V no cartão de Contratações: a cópia já vem formatada. Só troque a medida.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>A rotatividade usa <code>/</code> e funciona porque Contratações nunca é zero aqui. Num filtro sem ninguém contratado, DIVIDE seria o mais seguro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 · CIDADE ======================= -->
+  <section class="secao" id="cidade">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">A cidade a partir do endereço</h2>
+    </div>
+    <p class="secao-lead">O funil precisa da cidade, mas a planilha só tem o endereço completo. No Power Query, a Coluna de Exemplos descobre a regra a partir de um exemplo digitado.</p>
+
+    <div class="lab lab--largo" data-lab="cidade">
+      <div class="lab-controles">
+        <h4>Adicionar Coluna › Coluna de Exemplos</h4>
+        <div class="lab-campo">
+          <label for="ex-1">digite o exemplo na primeira linha</label>
+          <input type="text" id="ex-1" data-campo="ex1" list="cidade-sugestoes" placeholder="Porto Alegre" autocomplete="off">
+          <datalist id="cidade-sugestoes"></datalist>
+        </div>
+        <div class="lab-campo">
+          <label for="ex-nome">nome da coluna (clique duas vezes no cabeçalho)</label>
+          <input type="text" id="ex-nome" data-campo="nomeCol" value="Cidade" autocomplete="off">
+        </div>
+        <p class="lab-dica">A primeira linha é <code class="longo">Av. Borges de Medeiros, 3120 - Praia de Belas, Porto Alegre - RS, 90110-150</code>. Teste também <code>RS</code> e <code>90110-150</code>.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power Query</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Onde fica</h3><p>Página Inicial › Transformar dados abre o Power Query. Lá: Adicionar Coluna › Coluna de Exemplos › A partir de Todas as Colunas. No fim, Fechar e Aplicar.</p></article>
+      <article class="cartao"><h3>Confira a regra</h3><p>Antes do OK, leia a fórmula que o Power Query escreveu e role a coluna: a regra precisa servir para todas as linhas, inclusive o endereço de shopping.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Um exemplo pode servir para duas regras. Se a coluna vier errada nas outras linhas, digite um segundo exemplo na linha de baixo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 · FUNIL, ROSCA E ÁRVORE ======================= -->
+  <section class="secao" id="visuais">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Funil, rosca e árvore hierárquica</h2>
+    </div>
+    <p class="secao-lead">Três visuais com a mesma medida, Func. Ativos. Clique numa cidade do funil ou numa fatia da rosca: os outros visuais filtram junto. Na árvore, clique nos nós para abrir a Área e depois o Cargo.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique numa cidade, numa fatia ou num nó da árvore; clique de novo para limpar</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="visuaisRh"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os campos de cada visual</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Funil
+  Categoria: Cidade
+  Valores: Func. Ativos
+Gráfico de rosca
+  Legenda: Genero
+  Valores: Func. Ativos</pre>
+<pre class="codigo" data-lang="texto">Árvore hierárquica
+  Analisar: Func. Ativos
+  Explicar por: Área, Cargo
+  no nó, clique em + e escolha o próximo
+  nível (Área, depois Cargo)</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Interação entre visuais</h3><p>Um clique filtra os outros visuais da página; Ctrl + clique seleciona mais de um. Clique de novo no mesmo ponto para limpar.</p></article>
+      <article class="cartao"><h3>Árvore explica um número</h3><p>Dos 217 ativos, quantos em cada área? E, dentro de Operações, em cada cargo? Cada clique abre um nível, ordenado do maior para o menor.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Rosca com muitas fatias vira confusão. Ela funciona com 2 a 5 categorias, como gênero; para as 9 cidades, o funil ou as barras leem melhor.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 · DICA DE FERRAMENTA ======================= -->
+  <section class="secao" id="dica">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Dica de ferramenta e o Dashboard de RH</h2>
+    </div>
+    <p class="secao-lead">A dica de ferramenta pode ser um mini dashboard que aparece ao passar o mouse. Passe o mouse nas cidades do funil: a página de dica mostra os ativos, a folha salarial e as horas extras por cargo daquela cidade.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>passe o mouse nas barras do funil; clique na rosca ou na árvore para filtrar</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="dashRh"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a página de dica e o vínculo com o funil</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">1. nova página (+ no rodapé) · nome: Dica
+2. Formatar página › Informações da página
+     Permitir uso como dica de ferramenta: Ativado
+3. Formatar página › Configurações de tela
+     Tipo: Dica de ferramenta (320 × 240)
+4. Tela de fundo: Fundo da Dica de Ferramenta.png
+5. Cartão: Func. Ativos
+   Cartão: Salario › renomear: Folha Salarial
+   Gráfico de barras: Cargo × Horas Extras</pre>
+<pre class="codigo" data-lang="texto">6. volte ao dashboard e selecione o funil
+7. Formatar visual › Geral › Dicas de ferramenta
+     Tipo: Página do relatório
+     Página: Dica
+8. passe o mouse numa cidade do funil
+
+inspiração para o layout
+  dribbble.com       pesquise: dashboard
+  br.pinterest.com   pesquise: power bi dashboard</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A dica recebe o filtro</h3><p>Ao passar o mouse em Recife, a página de dica é calculada só para Recife. As medidas são as mesmas; o filtro vem do ponto do gráfico.</p></article>
+      <article class="cartao"><h3>Renomear no visual</h3><p>Clique duas vezes no campo dentro do visual (ou botão direito › Renomear para este visual): Soma de Salario vira Folha Salarial só ali.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Esquecer o Tipo Dica de ferramenta: a página fica com 1280 × 720 e a dica aparece minúscula, ilegível.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Responda em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz quiz--duplo" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Qual medida soma a coluna Qtd Produzida?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">=SOMA(BaseProdução[Qtd Produzida])</button>
+          <button type="button" data-opcao="b">Qtd Produzida = SUM(BaseProdução[Qtd Produzida])</button>
+          <button type="button" data-opcao="c">Qtd Produzida = SUM(Qtd Produzida)</button>
+        </div>
+        <p class="quiz-explica">No DAX a medida começa pelo nome, as funções são em inglês e a coluna vem com a tabela: Tabela[Coluna].</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">A BaseFuncionarios tem 234 linhas e 17 datas de demissão. Quanto dá COUNT(BaseFuncionarios[Data de Demissao])?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">234</button>
+          <button type="button" data-opcao="b">217</button>
+          <button type="button" data-opcao="c">17</button>
+        </div>
+        <p class="quiz-explica">COUNT conta as células com valor. As 217 células em branco ficam de fora. Para contar as linhas, COUNTROWS.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Você clica na barra "Controle de Qualidade". O que acontece com o cartão Horas Produtivas?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Mostra as horas de Controle de Qualidade</button>
+          <button type="button" data-opcao="b">Fica (Em branco)</button>
+          <button type="button" data-opcao="c">Continua igual</button>
+        </div>
+        <p class="quiz-explica">O CALCULATE filtra a coluna Ocorrência com = BLANK(), e esse filtro substitui o do clique, que é na mesma coluna.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Manuela Merege não produziu nenhuma peça. O que a medida Qualidade, feita com DIVIDE, mostra para ela?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">NaN</button>
+          <button type="button" data-opcao="b">(Em branco)</button>
+          <button type="button" data-opcao="c">100%</button>
+        </div>
+        <p class="quiz-explica">O denominador, Qtd Produzida, é zero. DIVIDE devolve (Em branco); com a barra <code>/</code>, seria NaN.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Qual destas é uma coluna calculada, e não uma medida?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Ano da Contratação = YEAR(BaseFuncionarios[Data de Contratacao])</button>
+          <button type="button" data-opcao="b">Func. Ativos = CALCULATE(COUNTROWS(…), …)</button>
+          <button type="button" data-opcao="c">% Rotatividade = [Func. Desligados] / [Contratações]</button>
+        </div>
+        <p class="quiz-explica">YEAR de uma coluna precisa de uma linha para saber de qual data tirar o ano: é um valor por pessoa, usado como categoria no eixo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Como quebrar a linha na barra de fórmulas sem confirmar a medida?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Enter</button>
+          <button type="button" data-opcao="b">Shift + Enter</button>
+          <button type="button" data-opcao="c">Ctrl + Enter</button>
+        </div>
+        <p class="quiz-explica">Enter confirma a medida. Shift + Enter só pula de linha, para deixar a fórmula legível.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">A imagem de fundo foi escolhida na Tela de fundo, mas a página continua branca. O que falta?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Baixar a transparência para 0%</button>
+          <button type="button" data-opcao="b">Trocar o ajuste para Preencher</button>
+          <button type="button" data-opcao="c">Salvar a imagem em JPG</button>
+        </div>
+        <p class="quiz-explica">A Tela de fundo começa com 100% de transparência: a imagem está lá, invisível.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">% Rotatividade dá 0,0726. Como mostrar 7,26% no cartão?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Multiplicar por 100 na fórmula</button>
+          <button type="button" data-opcao="b">Mudar o formato da medida para Porcentagem</button>
+          <button type="button" data-opcao="c">Criar uma coluna calculada</button>
+        </div>
+        <p class="quiz-explica">O formato muda só a aparência. Multiplicando por 100, o cartão mostraria 7,26, mas sem o % e com o valor errado para outras contas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">As funções DAX da aula e onde ficam os comandos que usamos.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Função</th><th>Para</th><th>Exemplo desta aula</th></tr></thead>
+        <tbody>
+          <tr><td><code>SUM</code></td><td>somar uma coluna</td><td><code>SUM(BaseProdução[Qtd Produzida])</code></td></tr>
+          <tr><td><code>DISTINCTCOUNT</code></td><td>contar valores diferentes</td><td><code>DISTINCTCOUNT(BaseProdução[Numero Ordem])</code></td></tr>
+          <tr><td><code>COUNTROWS</code></td><td>contar as linhas de uma tabela</td><td><code>COUNTROWS(BaseFuncionarios)</code></td></tr>
+          <tr><td><code>COUNT</code></td><td>contar as células com valor</td><td><code>COUNT(BaseFuncionarios[Data de Demissao])</code></td></tr>
+          <tr><td><code>CALCULATE</code></td><td>calcular com outro filtro</td><td><code>CALCULATE(SUM(BaseProdução[Total Horas]), BaseProdução[Ocorrência] = BLANK())</code></td></tr>
+          <tr><td><code>BLANK</code></td><td>o valor vazio, para comparar</td><td><code>BaseFuncionarios[Data de Demissao] &lt;> BLANK()</code></td></tr>
+          <tr><td><code>DIVIDE</code></td><td>dividir sem erro de divisão por zero</td><td><code>DIVIDE([Qtd Produzida] - [Qtd Rejeitada], [Qtd Produzida])</code></td></tr>
+          <tr><td><code>YEAR</code></td><td>tirar o ano de uma data</td><td><code>YEAR(BaseFuncionarios[Data de Contratacao])</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rolagem-x" style="margin-top:24px">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>Criar uma tabela só de medidas</td><td>Inserir dados</td><td>Página Inicial</td></tr>
+          <tr><td>Criar uma medida</td><td>Nova medida</td><td>Página Inicial (ou botão direito na tabela, no painel Dados)</td></tr>
+          <tr><td>Criar uma coluna calculada</td><td>Nova coluna</td><td>Ferramentas de tabela, na Exibição de tabela</td></tr>
+          <tr><td>Mostrar como porcentagem</td><td>Formatação › %</td><td>Ferramentas de medida</td></tr>
+          <tr><td>Quebrar linha na fórmula</td><td>Shift + Enter</td><td>barra de fórmulas</td></tr>
+          <tr><td>Imagem atrás dos visuais</td><td>Tela de fundo › Imagem · Transparência 0%</td><td>Visualizações › Formatar página</td></tr>
+          <tr><td>Inserir um ícone</td><td>Elementos › Imagem</td><td>Inserir</td></tr>
+          <tr><td>Medidor de 0 a 100%</td><td>Eixo do medidor › Mínimo 0 · Máximo 1</td><td>Formatar visual</td></tr>
+          <tr><td>Visual que não vem no Power BI</td><td>··· › Obter mais visuais</td><td>Visualizações</td></tr>
+          <tr><td>Coluna a partir de um exemplo</td><td>Coluna de Exemplos</td><td>Power Query · Adicionar Coluna</td></tr>
+          <tr><td>Página que vira dica</td><td>Permitir uso como dica de ferramenta · Tipo: Dica de ferramenta</td><td>Formatar página</td></tr>
+          <tr><td>Ligar a dica a um visual</td><td>Dicas de ferramenta › Tipo: Página do relatório</td><td>Formatar visual › Geral</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Termine os dois dashboards</h2>
+    </div>
+    <p class="secao-lead">Nos dois relatórios da aula, deixe os dashboards completos, com as medidas escritas por você em DAX, e acrescente medidas novas.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Entrega</span>
+        <h3>O relatório precisa ter: </h3>
+        <ul class="requisitos">
+          <li>Todos os items feitos durante a aula;</li>
+          <li><b>Mais duas medidas novas</b>, uma em cada dashboard, cada uma num visual com um título que diga o que ela mostra.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Já está pronto: </h3>
+        <ul class="requisitos">
+          <li><code>BaseProdução.xlsx</code>: 31.616 registros de produção, de janeiro de 2021 a janeiro de 2022.</li>
+          <li><code>BaseFuncionarios.xlsx</code>: 234 contratações, de 2010 a 2018.</li>
+          <li>Os planos de fundo, o fundo da dica de ferramenta e os quatro ícones da produção.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Desafio</span>
+        <h3>Sugestões: </h3>
+        <ul class="requisitos">
+          <li><b>% Rejeição</b>: das peças produzidas, quantas foram rejeitadas. Com DIVIDE e formato de porcentagem, o total confere com 0,68%.</li>
+          <li><b>Peças por Hora</b>: Qtd Produzida dividida por Horas Produtivas. Quem é o operador mais rápido?</li>
+          <li><b>Salário Médio dos ativos</b>: AVERAGE dentro de um CALCULATE com o mesmo filtro de Func. Ativos. Confere com R$ 6.615,85.</li>
+          <li><b>Mulheres ativas</b>: CALCULATE([Func. Ativos], BaseFuncionarios[Genero] = "F"). Confere com 104.</li>
+          <li>Uma <b>dica de ferramenta</b> também no Dashboard de Produção, para o gráfico mensal.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Investigação</span>
+        <h3>Responda para si mesmo(a): </h3>
+        <ul class="requisitos">
+          <li>O ponto de janeiro mostra 310 Mil, mas janeiro de 2021 produziu 288 Mil. De onde vem a diferença? Como mostrar só 2021?</li>
+          <li>COUNTROWS(BaseFuncionarios) e COUNT(BaseFuncionarios[Data de Demissao]) dão 234 e 17. O que cada número conta?</li>
+          <li>Escolha a operadora Manuela Merege. Por que a Qualidade fica em branco e a Disponibilidade não?</li>
+          <li>Peças Boas (coluna) e Total Peças Boas (medida) dão o mesmo total. Qual ocupa espaço no arquivo? Qual obedece à segmentação de Operador?</li>
+          <li>Em Horas Produtivas, o que muda se você trocar <code>= BLANK()</code> por <code>= ""</code>? Teste.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Os dois arquivos .pbix salvos como <code>aula2-producao-seu-nome.pbix</code> e <code>aula2-rh-seu-nome.pbix</code>, com as respostas da investigação numa caixa de texto (Inserir › Caixa de texto).</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Os números conferem: Qtd Produzida 3,08 Mi, Disponibilidade 77,69%, Qualidade 99,32%, Func. Ativos 217, % Rotatividade 7,26%. Tudo calculado por medidas, nada digitado.</p></article>
+      <article class="cartao"><h3>Critério de leitura</h3><p>Cada visual se explica sozinho: título que diz o que mostra, porcentagem com %, rótulos legíveis sobre o fundo escuro.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Na próxima aula, seguimos construindo dashboards no Power BI. Não esqueça de assinar a lista de presença!</p>
+      <div class="rodape-meta">Análise de Dados com Power BI · Aula 2 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/dados-producao.js"></script>
+<script src="js/dados-rh.js"></script>
+<script src="js/pbi.js"></script>
+<script src="js/aula.js"></script>
+</body>
+</html>

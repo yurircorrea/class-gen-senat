@@ -1,0 +1,568 @@
+/* =========================================================
+   demos.css — demonstrações, laboratórios e os blocos para
+   assuntos que não são código (planilha, menus, atalhos,
+   aplicativos), mais as classes desta aula no fim do arquivo.
+   O simulador do Power BI (js/pbi.js) tem as classes no fim.
+   ========================================================= */
+
+/* rótulo miúdo sob uma demonstração */
+.nota-demo{font-size:15px;color:var(--texto);font-family:var(--mono);margin:0}
+
+/* moldura neutra para destacar um trecho da demonstração */
+.moldura{border:2px dashed #98A2A9;border-radius:10px;padding:14px;background:#fff}
+
+/* =========================================================
+   BLOCOS PARA ASSUNTOS SEM CÓDIGO
+   O painel escuro mostra "o que se faz" (fórmula, atalho,
+   caminho de menus); o preview mostra "o que acontece".
+   ========================================================= */
+
+/* ---------- teclas de atalho: <kbd>Ctrl</kbd> + <kbd>C</kbd> ---------- */
+kbd{
+  display:inline-block;min-width:1.9em;padding:2px 9px 3px;margin:0 1px;
+  font-family:var(--corpo);font-size:.88em;font-weight:700;line-height:1.3;text-align:center;
+  color:var(--azul);background:#fff;border:1.5px solid #AFC4DD;border-bottom-width:4px;border-radius:7px;
+  white-space:nowrap;vertical-align:.08em;
+}
+.painel-codigo kbd{color:var(--code-bg);background:var(--code-fg);border-color:#8FA4C2}
+.atalho{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:18px;color:var(--texto);margin:0}
+.painel-codigo .atalho{color:var(--code-fg)}
+
+/* ---------- caminho de menus: Página Inicial › Estilos › … ---------- */
+.caminho{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;margin:0;padding:0;list-style:none;
+  font-family:var(--corpo);font-size:19px;font-weight:700;
+}
+.caminho > li{display:inline-flex;align-items:center}
+.caminho > li > span{background:var(--gelo);color:var(--azul);border:1px solid var(--borda);border-radius:8px;padding:5px 12px}
+/* seta desenhada com borda: caractere de seta pode virar emoji colorido */
+.caminho > li + li::before{
+  content:"";width:9px;height:9px;margin:0 12px 0 8px;
+  border-top:3px solid var(--azul-linha);border-right:3px solid var(--azul-linha);transform:rotate(45deg);
+}
+.caminho > li:last-child > span{background:var(--azul);color:#fff;border-color:var(--azul)}
+.painel-codigo .caminho > li > span{background:#15284d;color:var(--code-fg);border-color:#2a4373}
+.painel-codigo .caminho > li:last-child > span{background:var(--ciano);color:var(--azul);border-color:var(--ciano)}
+
+/* ---------- passo a passo numerado ---------- */
+.passos{list-style:none;margin:0;padding:0;counter-reset:passo;display:flex;flex-direction:column;gap:14px}
+.passos > li{
+  counter-increment:passo;position:relative;padding:4px 0 4px 56px;min-height:40px;
+  font-size:19px;line-height:1.45;color:var(--tinta);
+}
+.passos > li::before{
+  content:counter(passo);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;
+  background:var(--ciano);color:var(--azul);display:flex;align-items:center;justify-content:center;
+  font-family:var(--titulo);font-weight:700;font-size:19px;
+}
+.painel-codigo .passos > li{color:var(--code-fg)}
+
+/* ---------- aplicativo reconstruído em HTML (nunca captura de tela) ----------
+   Janela genérica: barra de título, faixa de guias (ribbon), corpo.
+   .alvo-clique marca o controle da vez; .marcador numera pontos da tela. */
+.app{
+  border:1px solid #B9CBE0;border-radius:10px;background:#fff;overflow:hidden;
+  font-family:"Segoe UI",var(--corpo);font-size:15px;color:#1f2a37;position:relative;
+  box-shadow:0 8px 28px rgba(0,32,96,.10);
+}
+.app-titulo{
+  display:flex;align-items:center;gap:10px;padding:7px 12px;background:var(--azul);color:#fff;font-size:14px;
+}
+.app-titulo b{font-weight:600}
+.app-titulo .app-botoes{margin-left:auto;display:flex;gap:14px;font-family:var(--mono)}
+.app-guias{display:flex;gap:2px;padding:0 10px;background:#F3F6FA;border-bottom:1px solid #D7E0EB}
+.app-guias > span{padding:7px 12px;border-bottom:3px solid transparent;color:#334155}
+.app-guias > span.ativa{border-bottom-color:var(--azul-linha);color:var(--azul);font-weight:600;background:#fff}
+.app-faixa{display:flex;gap:6px;align-items:stretch;padding:8px 10px;border-bottom:1px solid #D7E0EB;flex-wrap:wrap}
+.app-grupo{display:flex;flex-direction:column;align-items:center;gap:4px;padding:2px 10px;border-right:1px solid #E2E8F0}
+.app-grupo:last-child{border-right:none}
+.app-grupo > div{display:flex;gap:4px}
+.app-grupo > small{font-size:11.5px;color:#64748b}
+.app-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid transparent;border-radius:5px;
+  background:#fff;color:#1f2a37;font:inherit;font-size:13.5px;
+}
+.app-corpo{padding:14px;background:#fff}
+.alvo-clique{outline:3px solid var(--azul-linha) !important;outline-offset:2px;border-radius:6px;background:#E3F4FD !important;
+  animation:pulso-alvo 1.4s ease-in-out infinite}
+@keyframes pulso-alvo{50%{outline-color:var(--ciano);box-shadow:0 0 0 6px rgba(95,225,255,.35)}}
+@media (prefers-reduced-motion:reduce){.alvo-clique{animation:none}}
+.marcador{
+  position:absolute;width:30px;height:30px;border-radius:50%;background:var(--ciano);color:var(--azul);
+  border:2px solid var(--azul);display:flex;align-items:center;justify-content:center;
+  font-family:var(--titulo);font-weight:700;font-size:15px;z-index:2;
+}
+
+/* ---------- quiz de verificação (motor em aula.js, seção 4) ---------- */
+.quiz{display:flex;flex-direction:column;gap:20px}
+.quiz-item{background:var(--superficie);border:1px solid var(--borda);border-radius:var(--raio);padding:22px 26px}
+.quiz-pergunta{font-size:22px;font-weight:700;color:var(--azul);margin:0 0 14px}
+.quiz-opcoes{display:flex;flex-wrap:wrap;gap:12px}
+.quiz-opcoes button{
+  flex:1 1 260px;text-align:left;font:inherit;font-size:18px;cursor:pointer;color:var(--tinta);
+  background:#fff;border:2px solid var(--borda);border-radius:10px;padding:12px 16px;
+}
+.quiz-opcoes button:hover{border-color:var(--azul-linha)}
+.quiz-opcoes button.certa{background:var(--certo-bg);border-color:var(--certo-tx);color:var(--certo-tx);font-weight:700}
+.quiz-opcoes button.errada{background:var(--erro-bg);border-color:var(--erro-tx);color:var(--erro-tx);text-decoration:line-through}
+.quiz-explica{display:none;margin:14px 0 0;font-size:18px;color:var(--texto);border-left:4px solid var(--ciano);padding-left:14px}
+.quiz-item.respondido .quiz-explica{display:block}
+.quiz-placar{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--azul);margin:0}
+
+/* ---------- laboratórios ---------- */
+.lab{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.lab-controles{
+  flex:1 1 320px;background:var(--superficie);border:1px solid var(--borda);border-radius:var(--raio);
+  padding:22px 24px;display:flex;flex-direction:column;gap:16px;
+}
+.lab-controles h4{
+  font-family:var(--mono);font-size:12px;letter-spacing:1.3px;text-transform:uppercase;
+  color:var(--texto);margin:0;font-weight:700;
+}
+.lab-campo{display:flex;flex-direction:column;gap:6px}
+.lab-campo > label{font-size:14px;font-family:var(--mono);color:var(--texto);letter-spacing:.3px}
+.lab-campo select,.lab-campo input[type=text],.lab-campo input[type=number]{
+  font-family:var(--mono);font-size:15px;padding:8px 11px;border:1px solid var(--borda);
+  border-radius:8px;background:#fff;color:var(--tinta);
+}
+.lab-campo input[type=range]{accent-color:var(--azul);height:28px;padding:0;border:none;background:none}
+.lab-check{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14.5px;color:var(--tinta)}
+.lab-check input{accent-color:var(--azul);width:17px;height:17px}
+.lab-saida{flex:1 1 620px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.lab-palco{
+  border:1px solid var(--borda);background:#fff;border-radius:var(--raio);
+  padding:24px;min-height:150px;
+}
+/* fundo xadrez: deixa visível o espaço que o elemento NÃO ocupa */
+.lab-palco--xadrez{
+  background-image:linear-gradient(45deg,#EEF3F8 25%,transparent 25%,transparent 75%,#EEF3F8 75%),
+                   linear-gradient(45deg,#EEF3F8 25%,transparent 25%,transparent 75%,#EEF3F8 75%);
+  background-size:22px 22px;background-position:0 0,11px 11px;
+}
+.lab-codigo{background:var(--code-bg);border-radius:var(--raio);padding:20px 24px;overflow-x:auto}
+.lab-codigo > figcaption,.lab-codigo > .lab-codigo-titulo{font-family:var(--corpo);font-size:15px;color:var(--code-com);margin:0 0 8px}
+.lab-codigo pre{margin:0;font-family:var(--mono);font-size:15px;line-height:1.6;color:var(--code-fg);white-space:pre-wrap;word-break:break-word}
+
+/* caixa alvo dos laboratórios de espaçamento e cor */
+.alvo{
+  background:var(--ciano);border:2px solid var(--azul);border-radius:8px;color:var(--azul);
+  font-family:var(--mono);font-weight:700;font-size:16px;text-align:center;padding:18px;
+}
+.alvo-externo{outline:2px dashed #98A2A9;background:rgba(0,0,0,.035);display:inline-block}
+
+/* ---------- comparativo antes/depois ---------- */
+.par{display:flex;flex-wrap:wrap;gap:20px}
+.par > *{flex:1 1 420px;min-width:0}
+.rotulo-antigo,.rotulo-atual{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:700;
+  letter-spacing:1.1px;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-bottom:10px;
+}
+.rotulo-antigo{background:var(--erro-bg);color:var(--erro-tx);border:1px solid var(--erro-bd)}
+.rotulo-atual{background:var(--ciano);color:var(--azul)}
+
+
+/* ---------- objetivos da aula ---------- */
+.objetivos{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 8px;padding:0;list-style:none;counter-reset:obj}
+.objetivos li{flex:1 1 560px;counter-increment:obj;position:relative;padding:16px 20px 16px 66px;
+  background:var(--gelo);border-radius:var(--raio);font-size:20px;color:var(--tinta);line-height:1.35}
+.objetivos li::before{content:counter(obj);position:absolute;left:18px;top:14px;width:34px;height:34px;border-radius:50%;
+  background:var(--azul);color:var(--ciano);display:flex;align-items:center;justify-content:center;font-family:var(--titulo);font-weight:700;font-size:17px}
+
+/* ---------- opções em pílula: botões de opção dos laboratórios ---------- */
+.lab-opcoes{display:flex;flex-wrap:wrap;gap:8px}
+.lab-opcoes--coluna{flex-direction:column;align-items:stretch}
+.lab-opcoes label{
+  position:relative;display:inline-flex;align-items:center;gap:8px;cursor:pointer;line-height:1.25;
+  font-family:var(--mono);font-size:14px;font-weight:700;color:var(--azul);
+  background:#fff;border:2px solid var(--borda);border-radius:999px;padding:7px 14px;
+}
+.lab-opcoes--coluna label{border-radius:10px}
+.lab-opcoes input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.lab-opcoes label:hover{border-color:var(--azul-linha)}
+.lab-opcoes label.marcado{background:var(--azul);border-color:var(--azul);color:#fff}
+.lab-opcoes label:focus-within{outline:3px solid var(--azul-linha);outline-offset:2px}
+.preview-topo .lab-opcoes label{font-size:13px;padding:5px 12px}
+.lab-dica{margin:0;font-size:16px;color:var(--texto);line-height:1.4}
+.lab-dica code{font-family:var(--mono);font-size:14px;background:var(--ciano-suave);padding:1px 6px;border-radius:5px;color:var(--tinta);white-space:nowrap}
+.lab-dica code.longo{white-space:normal;overflow-wrap:anywhere}
+.lab-campo input[type=text]{width:100%}
+
+/* avisos dentro dos laboratórios */
+.aviso{margin:14px 0 0;padding:10px 14px;border-radius:10px;background:var(--erro-bg);border:1px solid var(--erro-bd);color:var(--erro-tx);font-size:17px;line-height:1.4}
+.aviso--ok{background:var(--certo-bg);border-color:var(--certo-bd);color:var(--certo-tx)}
+.resposta{font-size:23px;margin:0 0 14px;color:var(--tinta)}
+.resposta b{color:var(--azul)}
+
+
+/* ---------- Power BI Desktop refeito em HTML ---------- */
+.pbi-corpo{display:flex;align-items:stretch;min-height:300px;border-top:1px solid #D7E0EB}
+.pbi-trilho{flex:0 0 54px;background:#F3F6FA;border-right:1px solid #D7E0EB;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0}
+.pbi-ico{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:6px;
+  color:#475569;border:0;background:none;padding:0;font:inherit}
+button.pbi-ico{cursor:pointer}
+.pbi-ico svg{width:22px;height:22px;fill:currentColor}
+.pbi-ico--texto{font-family:var(--mono);font-size:11.5px;font-weight:700}
+.pbi-ico:hover{background:#E6EEF6}
+.pbi-ico.ativo{color:var(--azul);background:#fff;box-shadow:inset 3px 0 0 var(--azul-linha)}
+.pbi-ico:focus-visible{outline:3px solid var(--azul-linha);outline-offset:1px}
+.pbi-vista-nome{margin:0;padding:6px 14px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--azul);background:#F7F9FC;border-bottom:1px solid #E2E8F0}
+.tabela-modelo{overflow-x:auto;border:1px solid #E2E8F0;background:#fff}
+.tabela-modelo table{border-collapse:collapse;width:100%;font-size:13.5px;font-family:"Segoe UI",var(--corpo)}
+.tabela-modelo th{background:#F3F6FA;text-align:left;padding:6px 8px;border:1px solid #E2E8F0;white-space:nowrap;font-weight:600}
+.tabela-modelo td{padding:5px 8px;border:1px solid #EEF2F6;white-space:nowrap;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+.tabela-modelo td.num{text-align:right}
+
+/* laboratório largo: controles numa faixa em cima, resultado na largura toda
+   (grades do Power Query e gráficos precisam de espaço para não cortar coluna) */
+.lab--largo{flex-direction:column;flex-wrap:nowrap;align-items:stretch}
+.lab--largo > .lab-controles{flex:0 0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px 28px;align-items:start}
+.lab--largo > .lab-controles > h4{grid-column:1 / -1;margin-bottom:-4px}
+.lab--largo > .lab-controles > h4 ~ h4{margin-top:6px}
+.lab--largo > .lab-saida{flex:0 0 auto}
+.lab--largo .lab-opcoes--coluna{flex-direction:row;flex-wrap:wrap}
+.lab--largo .lab-opcoes--coluna label{border-radius:999px}
+.lab--largo .areas-pq{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;gap:12px 26px}
+.lab--largo .areas-pq li{flex:1 1 200px}
+
+/* quiz curto em duas colunas */
+.quiz--duplo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.quiz--duplo > .quiz-placar{grid-column:1 / -1}
+
+/* painel em duas colunas sem partir um item ao meio: dois <pre> lado a lado */
+.pre-duplo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.pre-duplo > pre + pre{border-left:1px solid #22355a;padding-left:40px}
+@media (max-width:1200px){
+  .pre-duplo{grid-template-columns:minmax(0,1fr)}
+  .pre-duplo > pre + pre{border-left:none;padding-left:0;margin-top:14px}
+  .quiz--duplo{grid-template-columns:minmax(0,1fr)}
+}
+
+
+/* =========================================================
+   DESTA AULA — Análise de Dados com Power BI · Aula 2
+   Classes específicas: divisória das partes, anatomia de uma
+   medida, plano de fundo, Coluna de Exemplos e o simulador do
+   Power BI (js/pbi.js): faixa de opções, barra de fórmulas,
+   painéis Visualizações e Dados, tela do relatório, visuais,
+   exibição de tabela, tarefas e página de dica de ferramenta.
+   ========================================================= */
+
+[hidden]{display:none !important}
+
+/* ---------- divisória das duas partes da aula ---------- */
+.parte{margin:72px 0 0;padding:34px 40px;border-radius:var(--raio);background:var(--azul);color:#fff;
+  display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.parte-num{font-family:var(--mono);font-size:15px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  background:var(--ciano);color:var(--azul);border-radius:999px;padding:8px 18px;flex:0 0 auto}
+.parte h2{margin:0;font-family:var(--titulo);font-size:46px;line-height:1.05;color:var(--ciano)}
+.parte p{margin:6px 0 0;font-size:21px;color:#C9DAF2}
+.parte > div{flex:1 1 520px;min-width:0}
+.parte img{width:220px;max-width:100%;border-radius:8px;flex:0 0 auto;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+
+/* ---------- 02 · anatomia de uma medida ---------- */
+.anatomia{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 4px;font-family:var(--mono)}
+.anat-parte{display:flex;flex-direction:column;align-items:center;gap:6px}
+.anat-parte b{font-size:30px;line-height:1.2;padding:6px 10px;border-radius:8px;white-space:pre}
+.anat-parte small{font-family:var(--corpo);font-size:15px;color:var(--texto);text-align:center;max-width:180px}
+.anat-nome b{background:var(--gelo);color:var(--azul)}
+.anat-sinal b{color:var(--texto)}
+.anat-fn b{background:var(--code-bg);color:var(--code-cia)}
+.anat-tab b{background:#DCEBFA;color:#0B4A8B}
+.anat-col b{background:var(--ciano-suave);color:var(--tinta)}
+.anat-resultado{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:22px}
+.anat-resultado > .pv{flex:0 0 300px;height:150px;border:1px solid var(--borda);border-radius:8px}
+.anat-resultado > .resposta{flex:1 1 320px;margin:0}
+
+/* ---------- 07 · plano de fundo da página ---------- */
+.fundo-pagina{position:relative;width:100%;aspect-ratio:16 / 9;container-type:inline-size;background:#fff;border:1px solid #C5CFDA;overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,32,96,.12)}
+.fundo-imagem{position:absolute;inset:0;background:url("../img/fundo-producao.jpg") 0 0 no-repeat}
+.fundo-vazio{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;
+  font-family:var(--mono);font-size:15px;color:#94A3B8;outline:2px dashed #CBD5E1;outline-offset:-14px}
+/* página à esquerda; controles e caminho de menus à direita */
+.lab--fundo{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:20px 24px;align-items:start}
+.lab--fundo > .lab-saida{display:contents}
+.lab--fundo .lab-palco{grid-column:1;grid-row:1 / span 2}
+.lab--fundo > .lab-controles{grid-column:2;grid-row:1}
+.lab--fundo .lab-codigo{grid-column:2;grid-row:2}
+@media (max-width:1100px){
+  .lab--fundo{grid-template-columns:minmax(0,1fr)}
+  .lab--fundo .lab-palco,.lab--fundo > .lab-controles,.lab--fundo .lab-codigo{grid-column:1;grid-row:auto}
+}
+.fundo-icone{position:absolute;width:4.6%;height:auto}
+.fundo-cartao{position:absolute;width:12%;display:flex;flex-direction:column;align-items:flex-start;line-height:1.05;padding-top:.6%}
+.fundo-cartao b{font-family:"Segoe UI",var(--corpo);font-weight:600;font-size:2.1cqw;color:#fff;white-space:nowrap}
+.fundo-cartao span{font-size:1cqw;color:#E6F2F2;white-space:nowrap}
+
+/* ---------- 12 · Coluna de Exemplos ---------- */
+.ex-grade td{font-size:14px}
+.ex-grade td.ex-endereco{max-width:420px}
+.ex-grade th.ex-nova{background:#DCEBFA;color:var(--azul)}
+.ex-grade td.ex-digitado{background:#F4FBFF;font-weight:700;color:var(--azul);box-shadow:inset 0 0 0 2px var(--azul-linha)}
+.ex-grade td.ex-sugestao{background:#F7FAFD;color:#475569;font-style:italic}
+.ex-grade + .nota-demo,.ex-grade + .aviso,.ex-grade + .resposta{margin-top:14px}
+.ex-contagem{display:flex;flex-wrap:wrap;gap:8px}
+.ex-contagem span{font-family:var(--mono);font-size:14px;background:var(--gelo);border:1px solid var(--borda);border-radius:999px;padding:5px 12px;color:var(--tinta)}
+.ex-contagem b{color:var(--azul)}
+
+/* ---------- inspiração (dribbble, pinterest) ---------- */
+.inspira{display:flex;flex-wrap:wrap;gap:10px}
+.inspira code{font-family:var(--mono);font-size:16px;background:var(--ciano-suave);padding:4px 10px;border-radius:6px;color:var(--tinta)}
+
+/* =========================================================
+   SIMULADOR DO POWER BI (js/pbi.js)
+   ========================================================= */
+.pbi-sim{position:relative;display:flex;flex-direction:column;gap:16px}
+.sim-janela{display:flex;flex-direction:column}
+.sim-aviso{font-size:13px;color:var(--ciano);font-weight:600;margin-left:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sim-guia-contexto{background:#FFF7DB !important;color:#7A4B00 !important;border-bottom-color:#E0A100 !important}
+.sim-grupo-direita{margin-left:auto}
+.app-faixa .app-grupo > div{align-items:center}
+button.app-btn{cursor:pointer;border-color:#B9CBE0}
+button.app-btn:hover{background:#EEF5FC;border-color:var(--azul-linha)}
+button.app-btn:focus-visible{outline:3px solid var(--azul-linha);outline-offset:1px}
+.app-btn--primario{background:var(--azul) !important;color:#fff !important;border-color:var(--azul) !important}
+.sim-campo-faixa{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:#334155;white-space:nowrap}
+.sim-campo-faixa b{color:var(--azul);max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.sim-campo-faixa select{font:inherit;font-size:13.5px;padding:3px 6px;border:1px solid #B9CBE0;border-radius:4px;background:#fff;color:#1f2a37}
+.sim-btn-pct{font-weight:700;min-width:30px;justify-content:center}
+
+/* barra de fórmulas */
+.sim-fx{display:flex;align-items:flex-start;gap:4px;padding:6px 10px;border-bottom:1px solid #D7E0EB;background:#fff}
+.sim-fx-btn{flex:0 0 auto;width:30px;height:30px;border:1px solid transparent;border-radius:4px;background:none;font-size:17px;cursor:pointer;color:#475569}
+.sim-fx-btn:hover{background:#EEF5FC;border-color:#B9CBE0}
+.sim-fx-btn[data-acao="fx-confirmar"]{color:#17603A;font-weight:700}
+.sim-fx-btn[data-acao="fx-cancelar"]{color:#8C2F1F}
+.sim-fx-caixa{flex:1 1 auto;min-width:0;display:flex;border:1px solid #9FB3C8;border-radius:3px;background:#fff}
+.sim-fx-caixa:focus-within{border-color:var(--azul-linha);box-shadow:0 0 0 2px rgba(0,158,226,.25)}
+.sim-fx-linhas{margin:0;padding:6px 8px 6px 0;list-style:none;min-width:34px;text-align:right;color:#94A3B8;
+  font-family:var(--mono);font-size:16px;line-height:1.55;background:#F7F9FC;border-right:1px solid #E2E8F0;user-select:none}
+.sim-fx-caixa textarea{flex:1 1 auto;min-width:0;border:0;outline:0;resize:none;padding:6px 10px;margin:0;
+  font-family:var(--mono);font-size:16px;line-height:1.55;color:#0B1F3F;background:transparent;white-space:pre-wrap;overflow-wrap:anywhere}
+.sim-erro{padding:10px 14px;background:var(--erro-bg);border-bottom:1px solid var(--erro-bd);color:var(--erro-tx);font-size:16px;line-height:1.4;display:flex;flex-direction:column;gap:2px}
+.sim-erro b{font-size:14px;text-transform:uppercase;letter-spacing:.5px;font-family:var(--mono)}
+.sim-erro--aviso{background:#FFF8E5;border-color:#F2D58A;color:#6B4A00}
+.anat-resultado + .sim-erro,.preview-corpo > .sim-erro{border:1px solid var(--erro-bd);border-radius:8px;margin-top:18px}
+
+/* corpo: trilho de exibições, área e painéis */
+.sim-corpo{display:flex;align-items:stretch;border-top:1px solid #D7E0EB;background:#EEF1F5}
+.sim-area{flex:1 1 auto;min-width:0;padding:16px;display:flex;flex-direction:column}
+.sim-paineis{flex:0 0 auto;display:flex;border-left:1px solid #D7E0EB;background:#FAFBFD}
+.sim-painel{width:236px;padding:10px 10px 14px;border-right:1px solid #E2E8F0;display:flex;flex-direction:column;gap:8px;font-size:14px;
+  max-height:620px;overflow-y:auto}
+.sim-painel:last-child{border-right:none}
+.sim-painel > b{font-size:15px;color:#1f2a37}
+.sim-painel > small{font-size:12px;color:#64748b;margin-top:-6px}
+.sim-galeria{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+.sim-tipo{height:30px;border:1px solid transparent;border-radius:4px;background:none;padding:3px;cursor:pointer;color:#3D5A80;display:flex;align-items:center;justify-content:center;font:inherit;font-weight:700}
+.sim-tipo svg{width:22px;height:22px;fill:currentColor}
+.sim-tipo:hover{background:#E6EEF6;border-color:#C5D3E2}
+.sim-tipo.ativo{background:#DCEBFA;border-color:var(--azul-linha);color:var(--azul)}
+.sim-tipo--perso{color:#7A3E9D}
+.sim-tipo--mais{letter-spacing:1px;color:#475569}
+.sim-viz-nome{margin:6px 0 0;font-weight:700;font-size:13.5px;color:var(--azul)}
+.sim-viz-nome--nada{font-weight:400;color:#64748b;font-style:italic}
+.sim-poco{display:flex;flex-direction:column;gap:4px}
+.sim-poco > small{font-size:12px;color:#475569;font-weight:600}
+.sim-chip{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:4px 6px 4px 9px;border:1px solid #B9CBE0;border-radius:4px;background:#fff;font-size:13px;color:#1f2a37}
+.sim-chip button{border:0;background:none;cursor:pointer;color:#64748b;font-size:12px;padding:0 3px}
+.sim-chip button:hover{color:var(--erro-tx)}
+.sim-chip--vazio{border-style:dashed;color:#94A3B8;font-style:italic}
+.sim-appsource{border:1px solid #B9CBE0;border-radius:6px;background:#fff;padding:8px;display:flex;flex-direction:column;gap:8px}
+.sim-appsource p{margin:0;display:flex;flex-direction:column}
+.sim-appsource small{font-size:11.5px;color:#64748b}
+.sim-busca{font-size:13px;border:1px solid #CBD5E1;border-radius:3px;padding:3px 8px;color:#334155}
+.sim-busca::before{content:"🔍 ";font-size:11px}
+.sim-appsource-item{display:flex;align-items:center;gap:6px;font-size:13px}
+.sim-appsource-item svg{width:26px;height:26px;flex:0 0 auto;fill:#7A3E9D;color:#7A3E9D}
+.sim-appsource-item span{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.sim-appsource-item em{font-size:12px;color:var(--certo-tx);font-style:normal;font-weight:700}
+.sim-appsource-item .app-btn{font-size:12px;padding:3px 7px}
+
+/* painel Dados */
+.sim-tabela-dados{display:flex;flex-direction:column;gap:1px}
+.sim-tabela-nome{display:flex;align-items:center;gap:6px;border:0;background:none;padding:4px 2px;font:inherit;font-weight:700;color:#1f2a37;cursor:pointer;text-align:left;border-radius:4px}
+.sim-tabela-nome.sel{background:#DCEBFA;color:var(--azul)}
+.sim-campo{display:flex;align-items:center;gap:6px;padding:2px 2px 2px 16px;font-size:13.5px;color:#1f2a37;cursor:pointer;border-radius:3px;min-width:0}
+.sim-campo:hover{background:#EEF3F8}
+.sim-campo input{accent-color:var(--azul);margin:0;flex:0 0 auto}
+.sim-campo > span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sim-campo > span.sel{background:#FFF2C6;border-radius:3px;padding:0 3px;font-weight:700}
+.sim-campo em{font-size:11px;color:#64748b}
+.sim-campo--data{cursor:default;padding-left:34px}
+.sim-campo--nivel{padding-left:44px}
+.sim-vazio{padding-left:16px;color:#94A3B8;font-style:italic}
+.sim-tabela-dados i{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;font-style:normal;font-size:11px;font-weight:700;color:#475569}
+.ico-tabela{border:1.5px solid #64748b;border-radius:2px;background:linear-gradient(#64748b,#64748b) 0 4px/100% 1.5px no-repeat,linear-gradient(#64748b,#64748b) 6px 0/1.5px 100% no-repeat;width:14px !important;height:13px !important}
+.ico-medida{border:1.5px solid #3D5A80;border-radius:2px;width:12px !important;height:14px !important;
+  background:linear-gradient(#3D5A80,#3D5A80) 1.5px 1.5px/7px 3px no-repeat,radial-gradient(circle,#3D5A80 1px,transparent 1.3px) 0 6px/4px 4px}
+.ico-medida--erro{border-color:#B42318;background-color:#FDE2DE}
+.ico-cal{border:1.5px solid #64748b;border-top-width:3px;border-radius:2px;width:12px !important;height:12px !important}
+.ico-colcalc{font-family:Georgia,serif;font-style:italic !important;color:var(--azul) !important}
+
+/* tela do relatório */
+.sim-tela{flex:1 1 auto;position:relative}
+.sim-tela--grade{display:flex;flex-wrap:wrap;align-content:flex-start;gap:14px;padding:14px;background:#fff;border:1px solid #D7E0EB;min-height:260px}
+.sim-tela--grade > .pv--segmentacao{flex-grow:0}
+.sim-tela--livre{width:100%;max-width:1280px;margin:0 auto;aspect-ratio:16 / 9;background-color:#fff;background-size:100% 100%;background-repeat:no-repeat;
+  box-shadow:0 4px 18px rgba(0,32,96,.18);overflow:hidden;--e:1}
+.pv{position:relative;display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid transparent;font-family:"Segoe UI",var(--corpo);color:#252423;cursor:default}
+.sim-tela--grade > .pv{flex-grow:1;border-color:#E6EBF1;border-radius:4px;padding:8px 10px}
+.sim-tela--livre > .pv{position:absolute;background:transparent;padding:calc(6px * var(--e));font-size:calc(14px * var(--e))}
+.pv:hover{border-color:#C5D3E2}
+.pv--sel{outline:2px dashed var(--azul-linha);outline-offset:2px}
+.sim--leitura .pv--sel{outline:none}
+.sim--leitura .pv:hover{border-color:transparent}
+.pv-titulo{margin:0 0 4px;font-size:15px;font-weight:600;color:#252423;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 0 auto}
+.sim-tela--livre .pv-titulo{font-size:calc(15px * var(--e));margin-bottom:calc(2px * var(--e))}
+.pv-corpo{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.pv-svg{display:block;width:100%;height:100%;flex:1 1 auto;min-height:0;overflow:visible;font-family:"Segoe UI",var(--corpo)}
+.pv-eixo{font-size:12px;fill:#605E5C}
+.pv-rotulo{font-size:12px;fill:#252423;font-weight:600}
+.pv-rotulo--dentro{fill:#fff}
+.pv-grade{stroke:#E6E6E6;stroke-width:1}
+.pv-base{stroke:#C8C6C4;stroke-width:1}
+.pv-area{opacity:.45}
+.pv-linha{fill:none;stroke-width:2.4;stroke-linejoin:round}
+.pv-trilho{fill:#E6E6E6}
+.pv-medidor-valor{font-size:26px;font-weight:600;fill:#252423}
+.pv-cat{cursor:pointer;transition:opacity .2s}
+.pv-cat:hover{filter:brightness(1.08)}
+.pv-apagado{opacity:.3}
+.pv-vazio{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#94A3B8;text-align:center;font-size:13.5px;padding:8px}
+.pv-vazio svg{width:44px;height:44px;fill:#C5D3E2}
+.pv-erro{flex:1 1 auto;display:flex;flex-direction:column;gap:4px;justify-content:center;padding:10px;background:#FFF3F1;border:1px solid #F6CFC8;border-radius:4px;color:#8C2F1F;font-size:13.5px;line-height:1.35;overflow:auto}
+.pv-imagem{display:block;width:100%;height:100%;object-fit:contain}
+
+/* cartões */
+.pv-cartoes{flex:1 1 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 26px}
+.pv-multi{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.pv-cartao{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;min-width:0}
+.pv-multi .pv-cartao{align-items:flex-start;text-align:left;padding-left:8px;border-left:3px solid #118DFF}
+.pv-cartao b{font-weight:600;font-size:44px;line-height:1.1;color:#252423;white-space:nowrap}
+.pv-cartao span{font-size:14px;color:#605E5C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pv-multi .pv-cartao b{font-size:30px}
+.pv-cartao--branco b{font-size:24px;color:#605E5C;font-weight:400}
+.sim-tela--livre .pv-cartao b{font-size:calc(30px * var(--e))}
+.sim-tela--livre .pv-cartao span{font-size:calc(13px * var(--e))}
+.sim-tela--livre .pv-multi .pv-cartao{border-left:0;padding-left:0}
+.sim-tela--livre .pv-multi .pv-cartao b{font-size:calc(26px * var(--e))}
+
+/* segmentação suspensa */
+.pv-seg{position:relative;flex:0 0 auto}
+.pv-seg-botao{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;border:1px solid #C8C6C4;background:#fff;
+  font:inherit;font-size:14px;color:#252423;cursor:pointer;text-align:left}
+.pv-seg-botao span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-seg-botao i{flex:0 0 auto;width:8px;height:8px;border:solid #605E5C;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px)}
+.pv-seg-lista{position:absolute;z-index:20;left:0;right:0;top:100%;max-height:260px;overflow-y:auto;background:#fff;border:1px solid #C8C6C4;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);padding:4px 0;min-width:180px}
+.pv-seg-lista label{display:flex;align-items:center;gap:8px;padding:4px 10px;font-size:13.5px;color:#252423;cursor:pointer;white-space:nowrap}
+.pv-seg-lista label:hover{background:#F3F2F1}
+.pv-seg--lista{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.pv-seg--lista .pv-seg-lista{position:static;flex:1 1 auto;min-height:0;max-height:none;box-shadow:none;border:0;padding:0;min-width:0}
+.pv-seg--lista .pv-seg-lista label{padding:3px 2px}
+.caixa{position:relative;display:inline-block;flex:0 0 auto;width:15px;height:15px;border:1.5px solid #605E5C;border-radius:2px;background:#fff}
+.caixa--marcada{background:var(--azul);border-color:var(--azul)}
+.caixa--marcada::after{content:"";position:absolute;left:4px;top:0;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.sim-tela--livre .pv-seg-botao{font-size:calc(13px * var(--e));padding:calc(4px * var(--e)) calc(8px * var(--e))}
+.sim-tela--livre .pv--segmentacao{overflow:visible;z-index:5}
+
+/* tabela */
+.pv-tabela{flex:1 1 auto;overflow:auto;font-size:13px}
+.pv-tabela table{border-collapse:collapse;width:100%}
+.pv-tabela th{text-align:left;font-weight:600;padding:4px 8px;border-bottom:1px solid #C8C6C4;white-space:nowrap}
+.pv-tabela td{padding:3px 8px;border-bottom:1px solid #F0F0F0;white-space:nowrap}
+.pv-tabela .num{text-align:right;font-variant-numeric:tabular-nums}
+.pv-tabela tfoot td{font-weight:700;border-top:1px solid #C8C6C4}
+
+/* árvore hierárquica */
+.pv-arvore{flex:1 1 auto;display:flex;gap:16px;overflow-x:auto;padding:4px 2px}
+.pv-arv-col{flex:0 0 auto;width:170px;display:flex;flex-direction:column;gap:6px}
+.pv-arv-titulo{margin:0 0 2px;font-size:12.5px;font-weight:700;color:#605E5C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-arv-no{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:4px 6px 10px;border:1px solid transparent;border-radius:3px;
+  background:none;font:inherit;font-size:13px;color:#252423;text-align:left;cursor:pointer}
+.pv-arv-no:hover{border-color:#C8C6C4;background:#FAFAFA}
+.pv-arv-no span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pv-arv-no b{font-weight:600}
+.pv-arv-no i{position:absolute;left:6px;bottom:3px;height:5px;max-width:calc(100% - 12px);background:var(--cor-arv,#118DFF);border-radius:2px}
+.pv-arv-no.aberto{border-color:#118DFF;background:#EEF6FF}
+.pv-arv-no--raiz{border-color:#C8C6C4}
+.sim-tela--livre .pv-arvore{gap:calc(14px * var(--e))}
+.sim-tela--livre .pv-arv-col{width:calc(170px * var(--e))}
+.sim-tela--livre .pv-arv-no,.sim-tela--livre .pv-arv-titulo{font-size:calc(13px * var(--e))}
+
+/* exibição de tabela */
+.sim-vista-tabela{display:flex;flex-direction:column;gap:10px;min-width:0}
+.sim-vista-tabela .pbi-vista-nome{border:1px solid #E2E8F0}
+.tabela-modelo th.calc{background:#DCEBFA;color:var(--azul)}
+.tabela-modelo td[data-calc]{background:#F4FBFF;font-weight:600}
+.sim-vista-tabela .tabela-modelo th{white-space:normal;vertical-align:bottom;min-width:56px;line-height:1.2}
+.sim-vista-tabela .tabela-modelo td{max-width:140px}
+
+/* tarefas */
+.sim-tarefas{background:var(--gelo);border-radius:var(--raio);padding:16px 20px}
+.sim-tarefas-titulo{margin:0 0 12px;font-family:var(--titulo);font-weight:700;font-size:19px;color:var(--azul);display:flex;align-items:center;gap:12px}
+.sim-tarefas-titulo span{font-family:var(--mono);font-size:13px;background:var(--azul);color:var(--ciano);border-radius:999px;padding:3px 10px}
+.sim-tarefas ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.sim-tarefas li{flex:1 1 300px;min-width:0;display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--borda);border-radius:10px;padding:12px 14px}
+.sim-tarefas li.feita{border-color:var(--certo-bd);background:var(--certo-bg)}
+.sim-tarefas li > div{min-width:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.sim-tarefas p{margin:0;font-size:17px;line-height:1.35;color:var(--tinta)}
+.sim-check{flex:0 0 auto;width:22px;height:22px;border-radius:50%;border:2px solid #9FB3C8;background:#fff;margin-top:1px;position:relative}
+.feita .sim-check{background:var(--certo-tx);border-color:var(--certo-tx)}
+.feita .sim-check::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.sim-formula{display:block;max-width:100%;font-family:var(--mono);font-size:14px;color:var(--tinta);background:var(--ciano-suave);padding:4px 8px;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere}
+.sim-usar{font-family:var(--mono);font-size:12.5px;cursor:pointer;background:#fff;color:var(--azul);border:1px solid var(--borda);border-radius:999px;padding:3px 10px}
+.sim-usar:hover{border-color:var(--azul-linha)}
+
+/* página de dica de ferramenta */
+.sim-dica-flutuante{position:absolute;z-index:40;width:320px;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.35);border-radius:4px;overflow:hidden;background:#0d1b1e}
+.sim-dica-pagina{position:relative;width:320px;height:240px;background-size:100% 100%;--e:1}
+.sim-dica-pagina > .pv{position:absolute;background:transparent;padding:4px;font-size:12px}
+.sim-dica-pagina .pv-titulo{font-size:12px}
+.sim-dica-pagina .pv-cartao b{font-size:19px;color:#0d1b1e}
+.sim-dica-pagina .pv-cartao span,.sim-dica-pagina .pv--cartao .pv-titulo{color:#1d3a12}
+.sim-dica-pagina .pv--barras .pv-titulo{color:#fff}
+.sim-dica-pagina .pv-eixo{fill:#DCE7E6}
+.sim-dica-pagina .pv-rotulo{fill:#fff}
+.sim-dica-legenda{margin:0;padding:4px 10px;font-size:12px;color:#C2F743;font-family:var(--mono);background:#111}
+
+/* tema escuro dos dashboards (cores do gabarito) */
+.sim--escuro .pv{color:#fff}
+.sim--escuro .pv-titulo{color:#fff}
+.sim--escuro .pv-cartao b{color:#fff}
+.sim--escuro .pv-cartao span{color:#D5E5E3}
+.sim--escuro .pv-eixo{fill:#DCE7E6}
+.sim--escuro .pv-rotulo{fill:#fff}
+.sim--escuro .pv-rotulo--dentro{fill:#0d1b1e}
+.sim--escuro .pv-grade{stroke:rgba(255,255,255,.14)}
+.sim--escuro .pv-base{stroke:rgba(255,255,255,.35)}
+.sim--escuro .pv-trilho{fill:rgba(255,255,255,.2)}
+.sim--escuro .pv-medidor-valor{fill:#fff}
+.sim--escuro .pv-seg-botao{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.55);color:#fff}
+.sim--escuro .pv-seg-botao i{border-color:#fff}
+.sim--escuro .pv-arv-no{color:#fff}
+.sim--escuro .pv-arv-no:hover{background:rgba(255,255,255,.08)}
+.sim--escuro .pv-arv-no.aberto{background:rgba(174,222,60,.16);border-color:#AEDE3C}
+.sim--escuro .pv-arv-no--raiz{border-color:rgba(255,255,255,.4)}
+.sim--escuro .pv-arv-titulo{color:#DCE7E6}
+.sim--escuro .pv-arvore{--cor-arv:#AEDE3C}
+.sim--escuro .pv-vazio svg{fill:rgba(255,255,255,.35)}
+.sim--escuro .pv-vazio{color:rgba(255,255,255,.6)}
+
+/* ---------- telas menores que o projetor ---------- */
+@media (max-width:1300px){
+  .sim-painel{width:200px}
+  .sim-galeria{grid-template-columns:repeat(5,1fr)}
+}
+@media (max-width:1100px){
+  .sim-corpo{flex-wrap:wrap}
+  .sim-area{flex-basis:calc(100% - 55px)}
+  .sim-paineis{flex:1 1 100%;border-left:0;border-top:1px solid #D7E0EB}
+  .sim-painel{flex:1 1 50%;width:auto;max-height:360px}
+  .parte img{display:none}
+}
+@media (max-width:760px){
+  .sim-faixa .app-grupo > small{display:none}
+  .anat-parte b{font-size:22px}
+}
