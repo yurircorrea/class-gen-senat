@@ -19,12 +19,12 @@ rotatividade, Coluna de Exemplos, funil, rosca, árvore hierárquica e página d
 |---|---|
 | `material/power-bi/aula2/Parte1 - Linguagem DAX.pdf` | Slides da abertura: o que é DAX (Data Analysis eXpressions), medidas, "vamos praticar". Viraram as seções 01 e 02. |
 | `material/power-bi/aula2/Parte1- Gabarito.pbix` | **Base da Parte 1.** O layout do dashboard (posições, visuais, campos, medidas na tabela Medidas) foi lido do arquivo e refeito no simulador da seção 08. |
-| `material/power-bi/aula2/Parte1 - BaseProdução.xlsx` | Dados da Parte 1: 31.616 registros de produção, de 01/01/2021 a 09/01/2022. Todas as linhas estão em `js/dados-producao.js` (sem Hora Inicio, Data Fim e Hora Fim, que a aula não usa). |
+| `material/power-bi/aula2/Parte1 - BaseProdução.xlsx` | Dados da Parte 1: 31.616 registros de produção, de 01/01/2021 a 09/01/2022. Todas as linhas estão em `js/dados-producao.js` (sem Hora Inicio, Data Fim e Hora Fim, que a aula não usa). A página tem um link para baixar a planilha (Parte 1 e atividade). |
 | `material/power-bi/aula2/Parte1 - Plano de Fundo.png` e `Parte1 - Ícones/` | Fundo e ícones do Dashboard de Produção, em `img/` (fundo reduzido para 1280 × 720). |
 | `material/power-bi/aula2/Parte1 - Roteiro do Professor.txt` | Usado só para os passos de formatação (título, rótulos, eixo, linhas de grade, Pincel de Formatação). Veja a divergência abaixo. |
 | `material/power-bi/aula2/Parte2 - Roteiro do Professor.txt` | **Roteiro da Parte 2**, seguido na ordem: seções 09 a 14. |
 | `material/power-bi/aula2/Parte2 - Gabarito.pbix` | Layout do Dashboard de RH e da página de dica de ferramenta (320 × 240), refeitos na seção 14. Confirmou o Sparkline by OKViz e a coluna Ano da Contratação no eixo dele. |
-| `material/power-bi/aula2/Parte2 - BaseFuncionarios.xlsx` | Dados da Parte 2: 234 contratações de 2010 a 2018, em `js/dados-rh.js`. |
+| `material/power-bi/aula2/Parte2 - BaseFuncionarios.xlsx` | Dados da Parte 2: 234 contratações de 2010 a 2018, em `js/dados-rh.js`. A página tem um link para baixar a planilha (Parte 2 e atividade). |
 | `material/power-bi/aula2/Parte2 - Plano de Fundo.png` e `Parte2 - Fundo da Dica de Ferramenta.png` | Fundos do Dashboard de RH e da dica, em `img/`. |
 
 A identidade visual da página é a do SEST SENAT. As cores escuras, verdes e limão aparecem só
@@ -135,6 +135,10 @@ segmentação de Mês junta os dois anos, como o nível Mês da hierarquia de da
 
 ## Dicas de condução (não aparecem na página)
 
+- **Links de download das planilhas**: apontam para `material/power-bi/aula2/` pelo caminho
+  relativo (`../../../material/...`), então funcionam abrindo a página de dentro do repositório. Se
+  for copiar só a pasta da aula para outro computador, leve as duas planilhas junto e ajuste os
+  quatro links no `index.html`.
 - A página funciona sem internet. A prática precisa do **Power BI Desktop** em cada computador, das
   duas planilhas, dos planos de fundo e dos ícones. Para o Sparkline sem internet, baixe o
   `.pbiviz` antes da aula (o gabarito da Parte 2 já traz o visual embutido).

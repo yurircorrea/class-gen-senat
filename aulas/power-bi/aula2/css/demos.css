@@ -258,6 +258,13 @@ button.pbi-ico{cursor:pointer}
 .parte p{margin:6px 0 0;font-size:21px;color:#C9DAF2}
 .parte > div{flex:1 1 520px;min-width:0}
 .parte img{width:220px;max-width:100%;border-radius:8px;flex:0 0 auto;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+/* link para baixar a planilha da prática (fica em material/) */
+.parte a.arquivo{display:inline-flex;align-items:center;gap:8px;color:var(--azul);background:var(--ciano);font-family:var(--mono);font-size:17px;font-weight:700;
+  text-decoration:none;border-radius:999px;padding:5px 14px 5px 11px;vertical-align:1px}
+.parte a.arquivo svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.parte a.arquivo:hover{background:#fff}
+.parte a.arquivo:focus-visible{outline:3px solid #fff;outline-offset:3px}
+a.arquivo-texto{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--azul);background:var(--ciano-suave);padding:1px 6px;border-radius:5px}
 
 /* ---------- 02 · anatomia de uma medida ---------- */
 .anatomia{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 4px;font-family:var(--mono)}
