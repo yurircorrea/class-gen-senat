@@ -3,7 +3,8 @@
    1. Colorização dos painéis (fórmula DAX, texto)
    2. Navegação: progresso, menu ativo, voltar ao topo
    3. Laboratórios interativos (construtores desta aula)
-   4. Quiz de verificação
+   4. Materiais para baixar (cópia embutida quando aberta por file://)
+   5. Quiz de verificação
 
    O simulador do Power BI (barra de fórmulas, visuais,
    segmentações) mora em js/pbi.js. Os laboratórios daqui
@@ -283,7 +284,32 @@
   });
 
   /* ======================================================
-     4. QUIZ DE VERIFICAÇÃO
+     4. MATERIAIS PARA BAIXAR
+
+     Os links apontam para material/power-bi/aula2/. Aberta por
+     duplo clique (file://), a página não baixa uma imagem pelo
+     link: o navegador abre a imagem. Nesse caso o download sai
+     da cópia embutida em js/materiais.js.
+     ====================================================== */
+
+  if (location.protocol === "file:" && window.MATERIAIS) {
+    document.querySelectorAll("a[data-material]").forEach(function (a) {
+      a.addEventListener("click", function (ev) {
+        var nome = a.getAttribute("data-material"), b64 = window.MATERIAIS[nome];
+        if (!b64) return;
+        ev.preventDefault();
+        var t = document.createElement("a");
+        t.href = "data:image/png;base64," + b64;
+        t.download = nome.split("/").pop();
+        document.body.appendChild(t);
+        t.click();
+        t.remove();
+      });
+    });
+  }
+
+  /* ======================================================
+     5. QUIZ DE VERIFICAÇÃO
 
      A turma responde em voz alta; clicar marca a escolha, mostra
      a certa e revela a explicação. Clicar de novo troca a escolha.
