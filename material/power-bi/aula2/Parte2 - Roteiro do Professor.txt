@@ -1,0 +1,66 @@
+Importar a planilha
+
+Não é necessário fazer nada no Power Query por enquanto
+
+Apresentar as funções para contar a quantidade de linhas
+Criar uma nova medida
+Contratações = COUNTROWS(BaseFuncionarios)
+Explicar que a função COUNT conta os valores de uma coluna
+
+Inserir o visual de Cartão
+Adicionar o campo Contratações em Campos
+
+Definir o plano de fundo
+
+Alterar o visual para Cartão de Linha Múltipla
+
+Apresentar os visuais personalizados
+Importar o visual Sparkline
+
+Configurar o eixo (Axis) com Anos
+Configurar Valores com Contratações
+
+Mostrar referências visuais de dashboards nos sites dribbble.com e br.pinterest.com
+
+Criar uma nova medida
+Func. Ativos = CALCULATE(COUNTROWS(BaseFuncionarios), BaseFuncionarios[Data de Demissao] = BLANK())
+
+Explicar o uso do atalho Shift + Enter para quebrar linhas na barra de fórmulas
+
+Copiar o cartão anterior
+
+Criar a função para funcionários desligados
+Criar a medida Func. Desligados
+
+Criar a medida de rotatividade
+% Rotatividade = [Func. Desligados] / [Contratações]
+
+Inserir o Gráfico de Funil
+Adicionar Cidade no campo Categoria
+Adicionar Func. Ativos no campo Valores
+
+Inserir o Gráfico de Rosca
+Adicionar Func. Ativos no campo Valores
+Adicionar Gênero no campo Legenda
+
+Inserir o visual de Esquema Hierárquico (Árvore Hierárquica)
+Adicionar Func. Ativos no campo Analisar
+Adicionar Área e Cargo no campo Explicar por
+
+Apresentar o recurso de Dica de Ferramenta como um mini dashboard
+Criar uma nova página
+Configurar o tipo de página para permitir usar como dica de ferramenta
+Na guia Exibição, ajustar o tamanho da página
+Definir o plano de fundo
+Inserir o Gráfico de Cartão com Func. Ativos
+
+Copiar o cartão e substituir pelo campo Salário
+Renomear para Folha Salarial
+
+Inserir o Gráfico de Barras
+Adicionar Cargo no Eixo Y
+Adicionar Horas Extras no Eixo X
+
+Retornar ao Gráfico de Funil
+Ativar a opção de Dicas de Ferramenta
+Vincular o relatório da página de dica de ferramenta criada
