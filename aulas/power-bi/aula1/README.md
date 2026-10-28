@@ -17,7 +17,7 @@ BaseVendas.
 |---|---|
 | `material/power-bi/aula1/POWER BI AULA 01.pdf` | **Base da parte teórica** (apresentação do instrutor, 20 slides): quem é o instrutor (seção de abertura, com a foto do próprio slide em `img/instrutor.jpg`), objetivo do curso e o que ele é e não é, definição e usos da análise de dados, diagrama "análise de dados e as ciências", os quatro tipos de análise (exemplo do Biquíni), passo a passo da análise, BI, etapas do processo de BI, o que é o Power BI, se ele é "tipo Excel", a atividade (mais 2 gráficos) e os próximos capítulos. |
 | `material/power-bi/aula1/Aula1.txt` | **Roteiro da prática** (não é mostrado aos alunos). Virou as seções 08 a 21, na mesma ordem: exibições, carregar o Excel, Power Query (nome da consulta, colunas e linhas em branco, dividir a Localidade, renomear, Faturamento, coluna de exemplos, Fechar e Aplicar), cartão de faturamento, cartão com N superior e escopo dos filtros, pincel de formatação, barras, interação entre visuais, linhas e colunas e mapa. |
-| `material/power-bi/aula1/BaseVendas.xlsx` | **Dados da prática**: 203.882 vendas, de junho de 2017 a agosto de 2019. Todos os números da página são os reais: `js/dados.js` foi gerado a partir dela (totais por marca, mês, continente e país, produtos mais e menos vendidos). As grades do Power Query usam oito linhas reais do arquivo (linhas 2, 3, 12, 13, 15, 16, 26 e 800). |
+| `material/power-bi/aula1/BaseVendas.xlsx` | **Dados da prática**: 203.882 vendas, de junho de 2017 a agosto de 2019. Todos os números da página são os reais: `js/dados.js` foi gerado a partir dela (totais por marca, mês, continente e país, produtos mais e menos vendidos). As grades do Power Query usam oito linhas reais do arquivo (linhas 2, 3, 12, 13, 15, 16, 26 e 800). Para baixar em Materiais da Aula e no ponto de partida da atividade. |
 | `material/power-bi/descritivo-do-curso.md` | Contexto do curso inteiro (justificativa, objetivo, perfil de conclusão), usado na seção "O que é este curso". |
 
 O diagrama da seção 01 é adaptado do slide 9, que cita como fonte Alexandre Duarte (UFPB); a bolha
@@ -43,7 +43,8 @@ na versão instalada (os nomes dos visuais aparecem ao passar o mouse nos ícone
 
 ## Seções
 
-Capa · Quem é o instrutor · O que é este curso · roteiro e objetivos ·
+Capa · Quem é o instrutor · O que é este curso · roteiro e objetivos · Materiais da Aula (a
+BaseVendas.xlsx, para baixar) ·
 **Parte 1** — 01 O que é análise de dados · 02 Para que serve · 03 Tipos de análise ·
 04 Passo a passo da análise · 05 Business Intelligence · 06 Etapas do processo de BI ·
 07 O que é o Power BI (e se é tipo Excel) ·
@@ -84,6 +85,10 @@ quiz · referência rápida · atividade.
 
 ## Dicas de condução (não aparecem na página)
 
+- **Download da BaseVendas** (Materiais da Aula e atividade): o link aponta para
+  `material/power-bi/aula1/BaseVendas.xlsx` pelo caminho relativo (`../../../material/...`), então
+  funciona abrindo a página de dentro do repositório. Se for copiar só a pasta da aula para outro
+  computador, leve a planilha junto e ajuste os dois links no `index.html`.
 - A página funciona sem internet. A prática precisa do **Power BI Desktop** (gratuito, Windows) e
   da `BaseVendas.xlsx` em cada computador.
 - **Linhas e coluna em branco da BaseVendas:** as 6 linhas em branco do fim (linhas 203.884 a
