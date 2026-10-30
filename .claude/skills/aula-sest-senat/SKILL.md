@@ -90,6 +90,9 @@ de quatro informações:
 7. Registre tudo **dentro da página** (ver `references/design-system.md` §8): chips de curso e
    aula na capa, assinatura do instrutor com cargo e unidade, linha no rodapé e
    `data-curso`/`data-aula`/`data-instrutor`/`data-unidade` no `<body>`.
+8. **Pergunte quais materiais os alunos podem baixar** (regra 11 da §4): liste o que há em
+   `material/<curso>/<aula>/` e `material/<curso>/`, na mesma rodada do passo 2 quando o material
+   já estiver na pasta, ou assim que ele chegar. Só entra na página o que o usuário confirmar.
 
 ### 3.1 Extrair o material de origem
 
@@ -199,6 +202,26 @@ ou frameworks e a convenção visual das demonstrações.
 10. **Termos como o aluno vê na tela.** Nomes de guia, botão, menu e função exatamente como na
     versão em português do programa ("Página Inicial", "AutoSoma", `PROCV`), com `;` separando
     argumentos e vírgula decimal nas fórmulas.
+
+11. **Materiais da Aula: o usuário escolhe, a aula oferece.** Toda vez que uma aula for pedida,
+    pergunte se algum material deve ser disponibilizado para download dos alunos (§3.0, passo 8).
+    Os escolhidos, e só eles, vão numa seção `id="materiais"` chamada **Materiais da Aula**, logo
+    depois de "O que vamos ver hoje", com item no menu do topo (`materiais`). Se o usuário
+    não quiser nenhum, não crie a seção.
+    - Um cartão por arquivo (ou por grupo, como os quatro ícones de uma parte): nome do arquivo
+      como está em `material/`, tamanho, o que é e onde a aula o usa; botão "baixar".
+    - O link é `<a href="../../../material/<curso>/<aula>/arquivo" download>`, com o caminho
+      codificado (`%20`, `%C3%A7`…) e **sem** `download="nome"` (com acento no nome, o navegador
+      pode salvar o arquivo sem extensão; sem o valor, ele usa o nome do próprio arquivo). Aponte para o original; não duplique a planilha em `aulas/`.
+    - **Imagens por `file://`:** o navegador abre a imagem em vez de baixá-la. Para cada imagem
+      oferecida, guarde uma cópia exata em base64 em `js/materiais.js` e baixe de lá quando
+      `location.protocol === "file:"` (`data-material="<caminho em material/>"` no link). Planilhas,
+      PDFs e `.pbix` baixam normalmente.
+    - Teste cada link por `file://` e por http e compare o arquivo baixado com o original
+      byte a byte. Registre a seção e o `js/materiais.js` no README da aula, com o aviso de que
+      os links dependem de `material/` estar no mesmo repositório.
+    - Referência pronta: `aulas/power-bi/aula2/` (seção `#materiais`, `js/materiais.js`, bloco
+      `.materiais` do `css/demos.css`) e `aulas/power-bi/aula1/` (um arquivo só).
 
 ---
 

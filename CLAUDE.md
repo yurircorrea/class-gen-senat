@@ -68,6 +68,15 @@ Nomes de pasta: curso em minúsculas, sem acento, com hífen (`excel-basico`, `p
    entra se for informado.
 7. **`exemplos/` é só leitura** ao criar uma aula. Guarda a aula de referência de qualidade
    (`aula-excel`), na identidade SEST SENAT (o curso e a aula dos chips são ilustrativos).
+8. **Toda vez que uma aula for pedida, pergunte se algum material deve ficar disponível para
+   download dos alunos.** Liste os arquivos de `material/<curso>/<aula>/` (e os de
+   `material/<curso>/` que a aula usa) e pergunte quais os alunos podem baixar: planilhas da prática,
+   imagens, gabaritos, modelos. Em geral não entram o roteiro do instrutor nem o PDF dos slides. Pergunte
+   na mesma rodada do item 1 quando o material já estiver na pasta; senão, assim que ele chegar.
+   Os escolhidos vão numa seção **Materiais da Aula** (`id="materiais"`, logo depois do roteiro e
+   no menu), com link de download para o arquivo original em `material/`. **Só entra o que o
+   usuário confirmar**; se ele disser que nenhum, a aula não ganha a seção. Detalhes e armadilhas
+   em `.claude/skills/aula-sest-senat/SKILL.md` (regra 11). Referência: `aulas/power-bi/aula2/`.
 
 ## Regras que valem para toda aula
 
