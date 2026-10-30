@@ -39,6 +39,13 @@ Siga este roteiro, sem pular etapas:
    Se não vier argumento, liste o que existe em `material/<curso>/<aula>/` e `material/<curso>/` e
    pergunte qual usar.
 
+   **Materiais para download (obrigatório, junto com a pergunta do passo 1 quando o material já
+   estiver na pasta; senão, assim que ele chegar).** Liste os arquivos de
+   `material/<curso>/<aula>/` e `material/<curso>/` e pergunte se algum deve ser disponibilizado
+   para download dos alunos na seção **Materiais da Aula** (planilhas, imagens, gabaritos; em geral
+   não o roteiro do instrutor nem o PDF dos slides). Só entra o que o usuário confirmar; se
+   nenhum, a aula não ganha a seção. Como montar: habilidade `aula-sest-senat`, §4, regra 11.
+
 3. **Identidade visual: sempre a do SEST SENAT.** Use os assets da habilidade (cores, Roboto local,
    logotipos e símbolo). Não extraia cores nem fontes do material de origem: ele pode ter a marca
    de outra empresa.
@@ -68,7 +75,7 @@ Siga este roteiro, sem pular etapas:
    `.claude/skills/aula-sest-senat/assets/modelo-aula.html` (todos os blocos, com e sem código).
 
 10. **Verificar** conforme `references/qa-e-armadilhas.md`: sem transbordo horizontal, sem erro de
-    console, laboratórios, planilhas, quiz e tour funcionando, iframes com altura justa, sem área
+    console, cada link de "Materiais da Aula" baixando o arquivo idêntico ao original, laboratórios, planilhas, quiz e tour funcionando, iframes com altura justa, sem área
     vazia entre painéis, abrindo por `file://` com a Roboto e os logotipos, nenhum texto dirigido
     ao instrutor, chips de curso/aula e assinatura do instrutor visíveis na capa.
 

@@ -1,0 +1,92 @@
+Importar a Base Vendas e clicar em Transformar Dados para tratar as informações
+
+Renomear a tabela para Base Vendas
+
+Excluir a última coluna
+
+Explicar o painel de Etapas Aplicadas
+
+Excluir linhas em branco
+
+Alterar tipo da coluna de data
+Clicar com o botão direito, selecionar Alterar Tipo, Usando a Localidade, tipo Data e localidade Inglês (Estados Unidos)
+
+Unir as colunas de nome e sobrenome para criar Nome Completo pela guia Transformar
+
+Clicar em Fechar e Aplicar
+
+Carregar a Base Devolução 2019
+Clicar em Transformar Dados
+Renomear a consulta para Base Devoluções
+
+Excluir colunas e linhas desnecessárias
+
+Formatar a coluna de data
+
+Na Base Vendas, extrair o mês
+Acessar a guia Transformar, clicar em Data e selecionar Mês
+
+Na Base Vendas, multiplicar Quantidade Vendida por Preço Unitário
+Clicar com o botão direito e selecionar Nova Coluna
+Inserir o cálculo: Faturamento da Venda = Quantidade Vendida * Preço Unitário
+
+Acessar a exibição de Relatório
+Inserir o logo
+
+Inserir o Gráfico de Barras
+Selecionar a Base Vendas
+Adicionar Quantidade Vendida no campo Valor
+Adicionar Produto no campo Eixo
+Formatar o gráfico
+Alterar a paleta de cores para Clássico
+Ativar os Rótulos de dados
+
+Inserir o visual de Cartão
+Adicionar o campo Faturamento da Venda
+Na guia Modelagem ou Exibição de Dados, formatar o campo como moeda
+Formatar a tela de fundo
+Ativar bordas e arredondar os cantos
+
+Inserir outro visual de Cartão para o produto mais vendido
+Na Base Vendas, arrastar o campo Produto para o campo de dados do cartão
+Ajustar para exibir o primeiro produto em ordem alfabética
+No painel de Filtros, arrastar Produto para os filtros deste visual, escolher N Superior, definir o valor 1 e ordenar por Quantidade Vendida
+Copiar a formatação do cartão anterior
+
+Inserir o Gráfico de Colunas
+Adicionar Faturamento da Venda no campo Valor
+Adicionar Mês no campo Eixo
+Configurar o Eixo Y para iniciar em 6000000
+Ativar os Rótulos de dados
+
+Inserir o Gráfico de Pizza
+Selecionar a Base Devoluções
+Adicionar Quantidade Devolvida no campo Valor
+Adicionar Produto no campo Legenda
+Em Rótulo de dados, alterar o Estilo para Categoria e valor dos dados
+
+Inserir o Gráfico de Mapa com dados da Base Vendas
+Adicionar Loja no campo Localização
+Adicionar Faturamento da Venda no campo Tamanho
+
+Clicar fora dos visuais e definir a tela de fundo como preta
+
+Formatar o Gráfico de Barras
+Definir o título em cinza e centralizado
+Definir o Eixo Y em branco e aumentar o tamanho da fonte
+Definir os Rótulos de dados em branco e aumentar o tamanho da fonte
+Definir o Eixo X em branco
+Desmarcar as linhas de grade
+Adicionar bordas em branco e aumentar o raio dos cantos
+
+Copiar a formatação para o Gráfico de Colunas
+
+Formatar o Gráfico de Pizza
+Definir o título em branco e centralizado
+Definir os Rótulos de dados em branco e aumentar o tamanho do texto
+Adicionar borda
+
+Formatar o Gráfico de Mapa
+Definir o título como Faturamento por Loja, em branco e aumentar o tamanho do texto
+Em Estilos de mapa, alterar o tema para Escuro
+Adicionar borda em branco
