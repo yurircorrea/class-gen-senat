@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard de Vendas — Análise de Dados com Power BI · Aula 3 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="power-bi" data-aula="aula3" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Dashboard de Vendas</a>
+    <nav class="barra-menu">
+      <a href="#roteiro">roteiro</a>
+      <a href="#materiais">materiais</a>
+      <a href="#carregar">carregar</a>
+      <a href="#localidade">datas</a>
+      <a href="#mesclar">nome</a>
+      <a href="#mes">mês</a>
+      <a href="#devolucoes">devoluções</a>
+      <a href="#faturamento">faturamento</a>
+      <a href="#barras">barras</a>
+      <a href="#cartoes">cartões</a>
+      <a href="#colunas">colunas</a>
+      <a href="#pizza">pizza</a>
+      <a href="#mapa">mapa</a>
+      <a href="#escuro">tema escuro</a>
+      <a href="#dashboard">dashboard</a>
+      <a href="#quiz">quiz</a>
+      <!--a href="#atividade">atividade</a -->
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Análise de Dados com Power BI</span><span>Aula 3</span></div>
+      <h1>Dashboard de Vendas</h1>
+      <p class="subtitulo">Duas bases no Power Query, coluna calculada e um dashboard escuro</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Um relatório do começo ao fim, com duas planilhas: as vendas e as devoluções de uma loja de eletrônicos. Primeiro tratamos as duas no Power Query; depois montamos o dashboard, com tela de fundo preta.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Tratar uma planilha no Power Query e entender as Etapas Aplicadas.</li>
+      <li>Converter datas em formato americano com Alterar Tipo › Usando a Localidade.</li>
+      <li>Mesclar colunas e tirar o mês de uma data.</li>
+      <li>Carregar uma segunda base e limpar linhas em branco.</li>
+      <li>Criar uma coluna calculada em DAX e formatar como moeda.</li>
+      <li>Montar e formatar barras, cartões, colunas, pizza e mapa num dashboard escuro.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#carregar"><span class="num">01</span><span class="rotulo">Carregar e limpar a Base Vendas</span></a>
+      <a href="#localidade"><span class="num">02</span><span class="rotulo">Datas em formato americano</span></a>
+      <a href="#devolucoes"><span class="num">05</span><span class="rotulo">A Base Devoluções</span></a>
+      <a href="#faturamento"><span class="num">06</span><span class="rotulo">Faturamento em DAX</span></a>
+      <a href="#cartoes"><span class="num">08</span><span class="rotulo">Cartões e N superior</span></a>
+      <a href="#mapa"><span class="num">11</span><span class="rotulo">Mapa das lojas</span></a>
+      <a href="#escuro"><span class="num">12</span><span class="rotulo">Tema escuro</span></a>
+      <a href="#dashboard"><span class="num">13</span><span class="rotulo">O dashboard</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">As janelas do Power Query e do Power BI são <b>simuladores</b>: os comandos funcionam sobre as linhas reais das planilhas.</div>
+      <div class="legenda-item">Painel escuro = o que você faz: o caminho de menus, a fórmula, os campos.</div>
+      <div class="legenda-item">As <b>tarefas</b> embaixo de cada simulador se marcam sozinhas quando o resultado está certo.</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = visual selecionado</div>
+      <div class="legenda-item">No Power Query, <b>Error</b> em vermelho = valor que não pôde ser convertido.</div>
+    </div>
+  </section>
+
+  <!-- ======================= MATERIAIS DA AULA ======================= -->
+  <section class="secao" id="materiais">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Materiais</span>
+      <h2 class="secao-titulo">Materiais da Aula</h2>
+    </div>
+    <p class="secao-lead">Baixe antes de começar a prática: as duas planilhas entram no Power Query; o gabarito é o relatório pronto, para comparar com o seu no fim.</p>
+
+    <div class="materiais">
+      <div class="materiais-parte">
+      <a class="material" href="../../../material/power-bi/aula3/Base%20Vendas.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Base Vendas</b><span>Base Vendas.xlsx · 488 KB</span><small>9.999 vendas de 2018, com as datas em formato americano (seções 01 a 04).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula3/Base%20Devolu%C3%A7%C3%B5es.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Base Devoluções</b><span>Base Devoluções.xlsx · 199 KB</span><small>499 devoluções e 9.500 linhas em branco no fim (seção 05).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      </div>
+      <div class="materiais-parte">
+      <a class="material" href="../../../material/power-bi/aula3/Produtos.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Produtos</b><span>Produtos.xlsx · 9 KB</span><small>Os 7 produtos com o SKU de cada um e as 9 lojas. Usada no desafio da atividade.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula3/Aula%202%20-%20Gabarito.pbix" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8"/><rect x="10.3" y="7" width="3.4" height="13"/><rect x="16.6" y="3" width="3.4" height="17"/></svg>.pbix</span>
+        <span class="material-texto"><b>Gabarito</b><span>Aula 2 - Gabarito.pbix · 201 KB</span><small>O dashboard desta aula pronto. Abra no Power BI Desktop. Nele a coluna se chama Faturamento na Venda.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 1 ======================= -->
+  <div class="parte" id="parte1">
+    <span class="parte-num">Parte 1</span>
+    <div>
+      <h2>Tratar as duas bases no Power Query</h2>
+      <p>Base Vendas: 9.999 vendas · Base Devoluções: 499 devoluções · lojas em 9 cidades do Brasil</p>
+    </div>
+  </div>
+
+  <!-- ======================= 01 · CARREGAR E LIMPAR ======================= -->
+  <section class="secao" id="carregar" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Carregar e limpar a Base Vendas</h2>
+    </div>
+    <p class="secao-lead">Obter dados › Pasta de trabalho do Excel › Base Vendas.xlsx › marque a aba Vendas 2019 › <b>Transformar Dados</b>. O Power Query abre com a planilha como ela chegou: nome genérico, uma coluna vazia no fim e cada passo anotado em Etapas Aplicadas.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique no título de uma coluna para selecionar; clique numa etapa para voltar no tempo</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="vendasLimpeza"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o que se faz e a fórmula que o Power Query grava</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Configurações de Consulta › Nome: Base Vendas
+selecione Column9 › Página Inicial › Remover Colunas
+Página Inicial › Remover Linhas
+  › Remover Linhas em Branco
+Etapas Aplicadas: clique numa etapa para ver a
+  tabela daquele momento; ✕ apaga a etapa</pre>
+<pre class="codigo" data-lang="formula">= Table.RemoveColumns(#"Tipo Alterado",{"Column9"})
+
+= Table.SelectRows(#"Colunas Removidas",
+    each not List.IsEmpty(List.RemoveMatchingItems(
+    Record.FieldValues(_), {"", null})))</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Etapas são uma receita</h3><p>Cada clique vira uma etapa com uma fórmula M. Quando a planilha ganhar vendas novas, Atualizar repete a receita inteira sozinho.</p></article>
+      <article class="cartao"><h3>Linhas em branco: nenhuma aqui</h3><p>Na Base Vendas a etapa remove 0 linhas, e tudo bem: ela fica de proteção para o mês em que a planilha vier com buracos. Na Base Devoluções ela tira 9.500.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Apagar uma etapa do meio. As seguintes podem depender dela e quebrar: a etapa fica sublinhada em vermelho e o Power Query mostra o erro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 · LOCALIDADE ======================= -->
+  <section class="secao" id="localidade">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Datas em formato americano</h2>
+    </div>
+    <p class="secao-lead">A coluna Data chegou como texto: "6/30/2018" é 30 de junho no formato americano (mês/dia/ano). Convertendo do jeito brasileiro (dia/mês/ano), o Power Query procura o mês 30 e dá erro.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique no ícone ABC da coluna Data; botão direito no título abre Alterar Tipo</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="vendasData"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o mesmo texto, duas localidades</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">texto        Português (Brasil)   Inglês (EUA)
+6/30/2018    Error (mês 30)       30/06/2018
+10/5/2018    10/05/2018 errada    05/10/2018
+4/4/2018     04/04/2018           04/04/2018
+
+na Base Vendas, com Português (Brasil):
+  61% viram Error
+  35% viram uma data errada, sem aviso
+   3% acertam por acaso (dia = mês)</pre>
+<pre class="codigo" data-lang="texto">botão direito no título Data
+  › Alterar Tipo › Usando a Localidade...
+Tipo de Dados: Data
+Localidade: Inglês (Estados Unidos)
+OK
+
+ou: ícone ABC no título › Usando a Localidade...</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Localidade é a origem</h3><p>Ela diz como o texto foi escrito, não como a data vai aparecer. Depois de convertida, a data aparece no padrão do seu computador: 30/06/2018.</p></article>
+      <article class="cartao"><h3>Erro que se vê</h3><p>A barrinha verde embaixo do título vira vermelha e mostra a porcentagem de Error. É o primeiro lugar para olhar depois de mudar um tipo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Achar que só os erros são o problema. 10/5/2018 vira 10 de maio sem reclamar, mas a venda foi em 5 de outubro: 35% das datas ficam erradas em silêncio.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 · MESCLAR ======================= -->
+  <section class="secao" id="mesclar">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Nome Completo: mesclar colunas</h2>
+    </div>
+    <p class="secao-lead">Primeiro Nome e Sobrenome vêm separados. Mesclar Colunas junta as duas numa só, com o separador que você escolher, e tira as originais da tabela.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique em Primeiro Nome, Ctrl + clique em Sobrenome, guia Transformar</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="vendasNome"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a seleção, o comando e o resultado</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">clique em Primeiro Nome
+Ctrl + clique em Sobrenome
+Transformar › Mesclar Colunas
+  Separador: Espaço
+  Novo nome da coluna: Nome Completo
+OK</pre>
+<pre class="codigo" data-lang="formula">= Table.CombineColumns(#"Tipo Alterado com Localidade",
+    {"Primeiro Nome", "Sobrenome"},
+    Combiner.CombineTextByDelimiter(" ", QuoteStyle.None),
+    "Nome Completo")
+// Gabriel + " " + Thoni = Gabriel Thoni</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A ordem da seleção manda</h3><p>Clicou primeiro em Sobrenome? Sai "Thoni Gabriel". O número ao lado do título mostra a ordem.</p></article>
+      <article class="cartao"><h3>Transformar ou Adicionar Coluna</h3><p>Em Transformar, as duas colunas somem e fica a mesclada. Em Adicionar Coluna, as originais ficam e a mesclada vem a mais no fim.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Esquecer o separador: --Nenhum-- gera "GabrielThoni". Confira as primeiras linhas antes de seguir.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 · MÊS ======================= -->
+  <section class="secao" id="mes">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">O mês de cada venda</h2>
+    </div>
+    <p class="secao-lead">Para o gráfico de faturamento por mês, a tabela precisa de uma coluna com o mês. O menu Data só fica ativo quando a coluna é do tipo Data, o ícone de calendário: por isso a localidade vem antes.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>selecione Data, guia Adicionar Coluna › Data › Mês › Mês; depois Fechar e Aplicar</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="vendasMes"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>dois caminhos para o mesmo número</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Adicionar Coluna › Data › Mês › Mês
+  nova coluna Mês (1 a 12); a Data fica
+
+Transformar › Data › Mês › Mês
+  a própria coluna Data vira o número do mês
+  (a data some da tabela)
+
+Mês › Nome do Mês: junho, julho...
+  texto: no gráfico, sai em ordem alfabética</pre>
+<pre class="codigo" data-lang="formula">= Table.AddColumn(#"Colunas Mescladas", "Mês",
+    each Date.Month([Data]), Int64.Type)
+
+= Table.TransformColumns(#"Colunas Mescladas",
+    {{"Data", Date.Month, Int64.Type}})</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Adicionar guarda a data</h3><p>Com a Data inteira na tabela, dá para fazer depois um filtro por dia ou por semana. Por isso esta aula usa Adicionar Coluna.</p></article>
+      <article class="cartao"><h3>Número ou nome</h3><p>O número (1 a 12) já sai em ordem no eixo. O nome (janeiro, fevereiro…) precisa de Classificar por coluna para não virar abril, agosto, dezembro…</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Todas as vendas são de 2018, apesar da aba se chamar Vendas 2019. Confira os dados, não o nome do arquivo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 · DEVOLUÇÕES ======================= -->
+  <section class="secao" id="devolucoes">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">A segunda base: devoluções</h2>
+    </div>
+    <p class="secao-lead">Obter dados de novo, agora com a Base Devoluções. A planilha tem 499 devoluções e, depois delas, 9.500 linhas em branco que só têm formatação: o Power Query lê todas.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>repare no fim da tabela: as linhas amarelas estão vazias</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="devolucoes"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a mesma limpeza, em outra consulta</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Página Inicial › Nova Fonte › Excel
+  › Base Devoluções.xlsx › Devoluções 2019
+Nome da consulta: Base Devoluções
+Remover Colunas: Column7
+Remover Linhas em Branco: 9.999 → 499
+Data › Usando a Localidade › Inglês (EUA)
+Fechar e Aplicar</pre>
+<pre class="codigo" data-lang="texto">as duas bases não são iguais
+  Base Vendas        Preco Unitario
+  Base Devoluções    Preço Unitário
+  Base Vendas        iPhone   SKU HL1918
+  Base Devoluções    Iphone   SKU HL1148
+
+cada consulta vira uma tabela no relatório,
+sem ligação entre elas</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Linha formatada conta</h3><p>Uma célula com borda ou cor, mesmo vazia, faz o Excel guardar a linha. O Power Query traz todas: confira sempre o número de linhas embaixo da grade.</p></article>
+      <article class="cartao"><h3>Duas consultas</h3><p>No painel Consultas, à esquerda, aparecem as duas. Clique numa delas para editar; as etapas de cada uma são separadas.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Os SKUs não batem entre as bases: HL1148 é Câmera nas vendas e Iphone nas devoluções. Juntar as tabelas pelo SKU daria resultado errado.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 2 ======================= -->
+  <div class="parte" id="parte2">
+    <span class="parte-num">Parte 2</span>
+    <div>
+      <h2>O dashboard</h2>
+      <p>Faturamento total R$ 99,32 Mi · 30.043 unidades vendidas · 1.517 unidades devolvidas</p>
+    </div>
+  </div>
+
+  <!-- ======================= 06 · FATURAMENTO ======================= -->
+  <section class="secao" id="faturamento" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Faturamento: uma coluna em DAX</h2>
+    </div>
+    <p class="secao-lead">A planilha tem a quantidade e o preço, mas não o faturamento de cada venda. Na aula 1 fizemos essa conta no Power Query; aqui ela vira uma coluna calculada em DAX, direto no relatório.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Nova coluna, escreva e tecle Enter; depois clique na coluna nova no painel Dados</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="faturamento"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a coluna, as aspas e o formato</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Faturamento da Venda =
+    'Base Vendas'[Quantidade Vendida]
+        * 'Base Vendas'[Preco Unitario]
+
+// nome de tabela com espaço vai entre aspas simples
+// sem as aspas: erro em Base Vendas[...]</pre>
+<pre class="codigo" data-lang="texto">botão direito na Base Vendas (painel Dados)
+  › Nova coluna
+Enter confirma · Shift + Enter quebra a linha
+
+clique na coluna no painel Dados
+  › Ferramentas de coluna › Formato: Moeda
+5 × R$ 2.500 = R$ 12.500,00 (1ª venda)</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Power Query ou DAX?</h3><p>As duas formas dão o mesmo número. No Power Query a conta entra na receita da consulta; em DAX ela fica no modelo, ao lado das medidas.</p></article>
+      <article class="cartao"><h3>O formato é da coluna</h3><p>Moeda em Ferramentas de coluna vale para todo visual que usar a coluna: cartão, gráfico, tabela. Não precisa formatar visual por visual.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Escrever Preço Unitário com acento. Na Base Vendas a coluna é Preco Unitario, sem acento; o DAX não acha a coluna e dá erro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 · BARRAS ======================= -->
+  <section class="secao" id="barras">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">Gráfico de barras e o tema Clássico</h2>
+    </div>
+    <p class="secao-lead">Quantidade vendida por produto, do maior para o menor. O tema do relatório troca as cores de todos os visuais de uma vez; os rótulos de dados mostram o número na ponta de cada barra.</p>
+
+    <div class="lab lab--lado" data-lab="tema">
+      <div class="lab-controles">
+        <h4>Exibição › Temas</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Tema">
+          <label><input type="radio" name="t-tema" data-campo="tema" value="padrao"> Padrão</label>
+          <label><input type="radio" name="t-tema" data-campo="tema" value="classico" checked> Clássico</label>
+          <label><input type="radio" name="t-tema" data-campo="tema" value="executivo"> Executivo</label>
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="rotulos" checked> Rótulos de dados</label>
+        <p class="lab-dica">iPhone vende 8.974 unidades, quase o triplo da Câmera (2.805).</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Tema vale para tudo</h3><p>Trocar o tema muda as cores de todos os visuais e páginas, inclusive os que você ainda vai criar. Cor escolhida à mão num visual não muda.</p></article>
+      <article class="cartao"><h3>Logotipo</h3><p>Inserir › Elementos › Imagem coloca o logotipo da empresa no canto do dashboard, como nas aulas anteriores.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Barras sem rótulo obrigam o leitor a adivinhar o valor pelo eixo. Ative os rótulos de dados e desligue o eixo que ficou sobrando.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 · CARTÕES ======================= -->
+  <section class="secao" id="cartoes">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">Cartões: faturamento e o produto mais vendido</h2>
+    </div>
+    <p class="secao-lead">O primeiro cartão mostra o faturamento total. O segundo recebe o campo Produto, que é texto: o cartão mostra o Primeiro Produto em ordem alfabética, e só o filtro N superior faz dele o mais vendido.</p>
+
+    <div class="lab lab--lado" data-lab="primeiro">
+      <div class="lab-controles">
+        <h4>Filtros neste visual › Produto</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Tipo de filtro">
+          <label><input type="radio" name="p-filtro" data-campo="filtro" value="basica"> Filtragem básica</label>
+          <label><input type="radio" name="p-filtro" data-campo="filtro" value="qtd" checked> N superior 1 por Quantidade Vendida</label>
+          <label><input type="radio" name="p-filtro" data-campo="filtro" value="inferior"> N inferior 1</label>
+        </div>
+        <label class="lab-check"><input type="checkbox" data-campo="moeda" checked> Faturamento da Venda com formato Moeda</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Por que Primeiro?</h3><p>Um cartão mostra um valor só. Com texto, o Power BI resume a coluna pelo primeiro em ordem alfabética: Android.</p></article>
+      <article class="cartao"><h3>Fundo, borda e cantos</h3><p>Formatar visual › Geral › Efeitos: Tela de fundo, Borda visual e cantos arredondados. Depois o Pincel de Formatação copia tudo para o outro cartão.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ler "Android" e concluir que é o mais vendido. Sem o N superior, o cartão só mostra o primeiro nome do alfabeto.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 · COLUNAS ======================= -->
+  <section class="secao" id="colunas">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Faturamento por mês e o início do eixo</h2>
+    </div>
+    <p class="secao-lead">Todo mês fatura entre R$ 7,7 Mi e R$ 8,8 Mi. Com o eixo Y começando em zero, as colunas ficam quase iguais; começando em 6.000.000, como pede o roteiro, as diferenças aparecem, e parecem maiores do que são.</p>
+
+    <div class="lab lab--lado" data-lab="eixo">
+      <div class="lab-controles">
+        <h4>Formatar visual › Eixo Y › Intervalo › Mínimo</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Início do eixo Y">
+          <label><input type="radio" name="e-ini" data-campo="inicio" value="0"> Automático (0)</label>
+          <label><input type="radio" name="e-ini" data-campo="inicio" value="6000000" checked> 6.000.000</label>
+          <label><input type="radio" name="e-ini" data-campo="inicio" value="7500000"> 7.500.000</label>
+        </div>
+        <p class="lab-dica">Quanto mais alto o início, mais as pequenas diferenças parecem grandes.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Quando cortar o eixo</h3><p>Para comparar meses parecidos, cortar ajuda a enxergar a variação. Com os rótulos de dados ligados, o valor real continua na tela.</p></article>
+      <article class="cartao"><h3>Mês é número</h3><p>Com a coluna Mês (1 a 12), o eixo X já sai em ordem. Com o nome do mês, seria preciso classificar.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Cortar o eixo e tirar os rótulos: a coluna de dezembro fica 67% mais alta que a de maio, mas a diferença real é de 15%.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 · PIZZA ======================= -->
+  <section class="secao" id="pizza">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Devoluções por produto: gráfico de pizza</h2>
+    </div>
+    <p class="secao-lead">Este visual usa a outra tabela, a Base Devoluções. O SmartWatch é o mais devolvido: 395 unidades, mesmo vendendo bem menos que o iPhone.</p>
+
+    <div class="lab lab--lado" data-lab="pizza">
+      <div class="lab-controles">
+        <h4>Rótulos de detalhes › Conteúdo do rótulo</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Conteúdo do rótulo">
+          <label><input type="radio" name="z-est" data-campo="estilo" value="categoria"> Categoria</label>
+          <label><input type="radio" name="z-est" data-campo="estilo" value="valor"> Valor dos dados</label>
+          <label><input type="radio" name="z-est" data-campo="estilo" value="porcentagem"> Porcentagem do total</label>
+          <label><input type="radio" name="z-est" data-campo="estilo" value="ambos" checked> Categoria, valor dos dados</label>
+          <label><input type="radio" name="z-est" data-campo="estilo" value="catpct"> Categoria, porcentagem do total</label>
+          <label><input type="radio" name="z-est" data-campo="estilo" value="todos"> Todos os rótulos de detalhes</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Rótulo dispensa legenda</h3><p>Com o nome da categoria em cada fatia, a legenda ao lado vira repetição: desligue-a e ganhe espaço.</p></article>
+      <article class="cartao"><h3>Pizza ou barras?</h3><p>Pizza mostra a parte do todo. Para comparar sete produtos, as barras leem melhor; a pizza fica bem com poucos itens.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Comparar a pizza com as barras de vendas. São tabelas diferentes e o nome também muda: iPhone nas vendas, Iphone nas devoluções.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 · MAPA ======================= -->
+  <section class="secao" id="mapa">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Faturamento por loja: o mapa</h2>
+    </div>
+    <p class="secao-lead">Loja em Localização, Faturamento da Venda em Tamanho da bolha. São Paulo fatura R$ 22,1 Mi, um quarto do total; o estilo escuro do mapa combina com a tela de fundo preta.</p>
+
+    <div class="lab lab--lado" data-lab="mapa">
+      <div class="lab-controles">
+        <h4>Tamanho da bolha</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Tamanho da bolha">
+          <label><input type="radio" name="m-tam" data-campo="tamanho" value="fat" checked> Faturamento da Venda</label>
+          <label><input type="radio" name="m-tam" data-campo="tamanho" value="qtd"> Quantidade Vendida</label>
+        </div>
+        <h4>Configurações do mapa › Estilo</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Estilo do mapa">
+          <label><input type="radio" name="m-est" data-campo="estilo" value="estrada"> Estrada</label>
+          <label><input type="radio" name="m-est" data-campo="estilo" value="aereo"> Aéreo</label>
+          <label><input type="radio" name="m-est" data-campo="estilo" value="escuro" checked> Escuro</label>
+          <label><input type="radio" name="m-est" data-campo="estilo" value="claro"> Claro</label>
+          <label><input type="radio" name="m-est" data-campo="estilo" value="cinza"> Escala de cinza</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">no Power BI</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Liberar o mapa</h3><p>Se o mapa não aparecer: Arquivo › Opções e configurações › Opções › Segurança › Usar visuais de Mapa e Mapa Coroplético, como na aula 1.</p></article>
+      <article class="cartao"><h3>Categoria de dados</h3><p>Ferramentas de coluna › Categoria de dados: Cidade ajuda o mapa a não confundir nomes, como uma Salvador em outro país.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>"Goiás" na coluna Loja é o nome de um estado. O mapa põe a bolha no meio do estado, e não em Goiânia.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 · TEMA ESCURO ======================= -->
+  <section class="secao" id="escuro">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Tela de fundo preta e o Pincel de Formatação</h2>
+    </div>
+    <p class="secao-lead">Com a tela preta, o texto padrão (cinza-escuro) some. Cada visual precisa de títulos, eixos e rótulos claros, sem linhas de grade e com borda. Formate um visual e copie para os outros com o Pincel.</p>
+
+    <div class="lab lab--lado" data-lab="escuro">
+      <div class="lab-controles">
+        <h4>Formatar, passo a passo</h4>
+        <label class="lab-check"><input type="checkbox" data-campo="fundo" checked> Tela de fundo da página: Preto</label>
+        <label class="lab-check"><input type="checkbox" data-campo="titulo"> Título cinza, centralizado</label>
+        <label class="lab-check"><input type="checkbox" data-campo="eixos"> Eixos e rótulos em branco</label>
+        <label class="lab-check"><input type="checkbox" data-campo="grade"> Linhas de grade desativadas</label>
+        <label class="lab-check"><input type="checkbox" data-campo="borda"> Borda branca, cantos arredondados</label>
+        <label class="lab-check"><input type="checkbox" data-campo="pincel"> Pincel de Formatação no gráfico de colunas</label>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o que falta fazer</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Fundo da página</h3><p>Clique numa área vazia: Formatar página › Tela de fundo › Cor: Preto e Transparência 0%. A transparência começa em 100%, como na aula 2.</p></article>
+      <article class="cartao"><h3>Pincel copia tudo</h3><p>Selecione o visual pronto, clique no Pincel (Página Inicial) e clique no outro: cores, fontes, borda e título vão juntos; os campos não.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Pintar a página de preto e esquecer os eixos: os nomes dos produtos continuam em cinza-escuro, invisíveis no projetor.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 · DASHBOARD ======================= -->
+  <section class="secao" id="dashboard">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">O dashboard pronto</h2>
+    </div>
+    <p class="secao-lead">Os seis visuais na tela preta, nas posições do gabarito. Clique numa barra, numa coluna ou numa bolha do mapa: os visuais da Base Vendas filtram juntos, e a pizza das devoluções não muda.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique em iPhone nas barras e olhe a pizza; clique de novo para limpar</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="dashVendas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os visuais e os campos</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Gráfico de barras: Produto × Quantidade Vendida
+Cartão: Faturamento da Venda (Moeda)
+Cartão: Produto (Primeiro)
+  Filtros neste visual: N superior 1
+  por Quantidade Vendida
+Gráfico de colunas: Mês × Faturamento da Venda
+  Eixo Y › Mínimo: 6.000.000</pre>
+<pre class="codigo" data-lang="texto">Gráfico de pizza (Base Devoluções)
+  Produto × Quantidade Devolvida
+  Rótulos: Categoria, valor dos dados
+Mapa: Loja × Faturamento da Venda
+  Estilo: Escuro · Título: Faturamento por Loja
+Imagem: logotipo da empresa</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Interação entre visuais</h3><p>Clicar em iPhone nas barras muda o faturamento, o mapa e as colunas: todos vêm da Base Vendas. O cartão do mais vendido passa a mostrar o próprio iPhone.</p></article>
+      <article class="cartao"><h3>Por que a pizza não muda?</h3><p>As duas tabelas não têm relacionamento no modelo. Sem uma ligação, o filtro de uma não chega na outra.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ligar as tabelas pelo SKU para "consertar" a pizza: os códigos não batem entre as bases, e as devoluções de Câmera iriam para o iPhone.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Responda em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz quiz--duplo" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">A coluna Data tem "6/30/2018" como texto. Com o tipo Data em Português (Brasil), o que aparece?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">30/06/2018</button>
+          <button type="button" data-opcao="b">06/30/2018</button>
+          <button type="button" data-opcao="c">Error</button>
+        </div>
+        <p class="quiz-explica">Lendo dia/mês/ano, o mês seria 30. É preciso Usando a Localidade com Inglês (Estados Unidos).</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">E "10/5/2018", com Português (Brasil)?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Error</button>
+          <button type="button" data-opcao="b">10/05/2018, uma data errada sem aviso</button>
+          <button type="button" data-opcao="c">05/10/2018, certa</button>
+        </div>
+        <p class="quiz-explica">10 e 5 servem como dia e mês nas duas leituras. A venda foi em 5 de outubro, mas vira 10 de maio, e nada fica vermelho.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Você clicou primeiro em Sobrenome e depois Ctrl + clique em Primeiro Nome. Mesclar Colunas com espaço dá:</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Thoni Gabriel</button>
+          <button type="button" data-opcao="b">Gabriel Thoni</button>
+          <button type="button" data-opcao="c">Erro</button>
+        </div>
+        <p class="quiz-explica">A ordem da seleção é a ordem do texto mesclado.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Qual fórmula de coluna calculada funciona na Base Vendas?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Base Vendas[Quantidade Vendida] * Base Vendas[Preco Unitario]</button>
+          <button type="button" data-opcao="b">'Base Vendas'[Quantidade Vendida] * 'Base Vendas'[Preço Unitário]</button>
+          <button type="button" data-opcao="c">'Base Vendas'[Quantidade Vendida] * 'Base Vendas'[Preco Unitario]</button>
+        </div>
+        <p class="quiz-explica">Tabela com espaço vai entre aspas simples, e na Base Vendas a coluna é Preco Unitario, sem acento.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">O cartão com o campo Produto mostra "Android". Por quê?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">É o produto mais vendido</button>
+          <button type="button" data-opcao="b">É o primeiro em ordem alfabética</button>
+          <button type="button" data-opcao="c">É o produto mais caro</button>
+        </div>
+        <p class="quiz-explica">Sem filtro, o cartão resume texto como Primeiro. O mais vendido (iPhone) só aparece com N superior 1 por Quantidade Vendida.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Com o eixo Y começando em 6.000.000, a coluna de dezembro fica 67% mais alta que a de maio. Qual é a diferença real de faturamento?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Cerca de 15%</button>
+          <button type="button" data-opcao="b">67%</button>
+          <button type="button" data-opcao="c">Nenhuma</button>
+        </div>
+        <p class="quiz-explica">R$ 8,80 Mi contra R$ 7,68 Mi. Cortar o eixo aumenta a diferença visual; os rótulos mostram a real.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">A Base Devoluções chegou com 9.999 linhas. Quantas sobram depois de Remover Linhas em Branco?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">9.999</button>
+          <button type="button" data-opcao="b">9.500</button>
+          <button type="button" data-opcao="c">499</button>
+        </div>
+        <p class="quiz-explica">As 9.500 linhas do fim só tinham formatação. Ficam as 499 devoluções.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Clicar em iPhone no gráfico de barras não muda a pizza das devoluções. Por quê?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">A pizza está com filtro N superior</button>
+          <button type="button" data-opcao="b">As duas tabelas não têm relacionamento</button>
+          <button type="button" data-opcao="c">O iPhone não tem devoluções</button>
+        </div>
+        <p class="quiz-explica">O filtro anda pelos relacionamentos do modelo. Base Vendas e Base Devoluções estão soltas, sem ligação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">Tudo o que fizemos hoje, na ordem da prática.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>Dar nome à consulta</td><td>Nome</td><td>Power Query · Configurações de Consulta</td></tr>
+          <tr><td>Tirar a coluna vazia</td><td>Remover Colunas</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Tirar linhas vazias</td><td>Remover Linhas › Remover Linhas em Branco</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Ver e desfazer um passo</td><td>clique na etapa · ✕ ao lado dela</td><td>Power Query · Etapas Aplicadas</td></tr>
+          <tr><td>Converter data americana</td><td>Alterar Tipo › Usando a Localidade › Data, Inglês (Estados Unidos)</td><td>botão direito no título da coluna</td></tr>
+          <tr><td>Juntar nome e sobrenome</td><td>Mesclar Colunas · Separador: Espaço</td><td>Power Query · Transformar</td></tr>
+          <tr><td>Coluna com o mês</td><td>Data › Mês › Mês</td><td>Power Query · Adicionar Coluna</td></tr>
+          <tr><td>Calcular por linha no relatório</td><td>Nova coluna (DAX)</td><td>botão direito na tabela, no painel Dados</td></tr>
+          <tr><td>Mostrar em reais</td><td>Formato › Moeda</td><td>Ferramentas de coluna</td></tr>
+          <tr><td>Trocar as cores do relatório</td><td>Temas › Clássico</td><td>Exibição</td></tr>
+          <tr><td>Mostrar o mais vendido</td><td>Tipo de filtro: N superior · 1 · Por valor</td><td>Filtros neste visual</td></tr>
+          <tr><td>Começar o eixo em outro valor</td><td>Eixo Y › Intervalo › Mínimo</td><td>Formatar visual</td></tr>
+          <tr><td>Nome e valor na fatia</td><td>Rótulos de detalhes › Conteúdo do rótulo</td><td>Formatar visual (pizza)</td></tr>
+          <tr><td>Mapa escuro</td><td>Configurações do mapa › Estilo: Escuro</td><td>Formatar visual (mapa)</td></tr>
+          <tr><td>Página preta</td><td>Tela de fundo › Cor: Preto · Transparência 0%</td><td>Formatar página</td></tr>
+          <tr><td>Copiar a formatação</td><td>Pincel de Formatação</td><td>Página Inicial</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section hidden class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Termine o dashboard de vendas</h2>
+    </div>
+    <p class="secao-lead">No relatório da aula, deixe o dashboard completo e formatado na tela preta, e acrescente dois gráficos novos.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Entrega</span>
+        <h3>O relatório precisa ter: </h3>
+        <ul class="requisitos">
+          <li>Todos os items feitos durante a aula;</li>
+          <li><b>Mais dois gráficos novos</b>, um de cada base, cada um com um título que diga o que ele mostra.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Já está pronto: </h3>
+        <ul class="requisitos">
+          <li><a class="arquivo-texto" href="../../../material/power-bi/aula3/Base%20Vendas.xlsx" download>Base Vendas.xlsx</a>: 9.999 vendas de 2018.</li>
+          <li><a class="arquivo-texto" href="../../../material/power-bi/aula3/Base%20Devolu%C3%A7%C3%B5es.xlsx" download>Base Devoluções.xlsx</a>: 499 devoluções.</li>
+          <li>Ideias de visual: Faturamento por Loja em barras, Devoluções por Loja, Tabela com Nome Completo e Faturamento, Quantidade Vendida por Mês em linhas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Desafio</span>
+        <h3>Sugestões: </h3>
+        <ul class="requisitos">
+          <li>Uma medida <b>% Devolvido</b>: DIVIDE(SUM('Base Devoluções'[Quantidade Devolvida]), SUM('Base Vendas'[Quantidade Vendida])). Confere com 5,05%.</li>
+          <li>A coluna <b>Nome do Mês</b> no gráfico de colunas, em ordem de janeiro a dezembro (Ferramentas de coluna › Classificar por coluna: Mês).</li>
+          <li>Carregue a <a class="arquivo-texto" href="../../../material/power-bi/aula3/Produtos.xlsx" download>Produtos.xlsx</a> e veja na Exibição de modelo que relacionamentos o Power BI criou sozinho.</li>
+          <li>Um cartão com a <b>loja que mais faturou</b>, escolhida por N superior, não digitada.</li>
+          <li>Nenhum texto escuro sobrando na tela preta.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Investigação</span>
+        <h3>Responda para si mesmo(a): </h3>
+        <ul class="requisitos">
+          <li>Se você trocasse a localidade para Português (Brasil) depois de pronto, quantas vendas de dezembro sobrariam no gráfico? Por quê?</li>
+          <li>A aba se chama Vendas 2019, mas as datas são de 2018. Em que você confia: no nome ou nos dados?</li>
+          <li>Na Produtos.xlsx, HL1148 é Iphone; na Base Vendas, HL1148 é Câmera. Qual base está certa? O que acontece com um relacionamento pelo SKU?</li>
+          <li>O SmartWatch é o mais devolvido em unidades. Proporcionalmente às vendas, ele continua sendo?</li>
+          <li>Por que o roteiro manda começar o eixo Y em 6.000.000? Quando isso ajuda e quando engana?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>O arquivo .pbix salvo como <code>aula3-seu-nome.pbix</code>, com as respostas da investigação numa caixa de texto (Inserir › Caixa de texto).</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Os números conferem: faturamento R$ 99,32 Mi, iPhone como mais vendido, 499 devoluções e nenhum erro na coluna Data.</p></article>
+      <article class="cartao"><h3>Critério de leitura</h3><p>Na tela preta, todo texto aparece; cada visual tem título que diz o que mostra, valores em reais e borda.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Na próxima aula, seguimos construindo dashboards no Power BI. Não esqueça de assinar a lista de presença!</p>
+      <div class="rodape-meta">Análise de Dados com Power BI · Aula 3 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/dados-vendas.js"></script>
+<script src="js/pq.js"></script>
+<script src="js/pbi.js"></script>
+<script src="js/aula.js"></script>
+</body>
+</html>
