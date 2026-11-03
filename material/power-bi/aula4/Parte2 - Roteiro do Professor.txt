@@ -1,0 +1,47 @@
+Abrir Relacionamentos PowerBI
+
+Tratas colunas e linhas em branco
+
+
+Mostrar as tabelas na aba dados
+
+Tabela Produtos
+	Também podemos fazer fórmulas DAX nas colunas da tabela.
+	Nova coluna, Lucro  = Preco Unitario - Custo Unitario
+
+Tabela Clientes
+	Também tem fórmula na Promoção Dia das Mães
+	Também na Categoria
+	Explicar fórmula IF em cada uma
+
+Mostrar os relacionamentos e as chaves
+
+Na aba Relacionamentos:
+
+Esticar as tabelas para mostrar os campos todos
+
+Clica em qualquer lugar > Aba Página Inicial > Relações > Gerenciar Relações
+
+Novo Relacionamento: 
+	Da Tabela: Selecionar
+	Para Tabela: Selecionar
+	Os demais campos ele reconhece (verificar se está certo)
+	Salvar
+
+Também pode usar a detecção automática
+
+Não encontrou a de Data (fazer na mão)
+
+Criar medidas e gráficos:
+
+Medida: Total de Itens Vendidos: Total Itens Vendidos = SUM(BaseVendas[Qtd Vendida])
+Gráfico: Total Itens Vendidos x Produto: Tabela
+
+
+Medida: Total de Lucro das Vendas: Lucro Total = SUMX(BaseVendas, BaseVendas[Qtd Vendida] * RELATED(CadastroProdutos[Lucro]))
+	Formatar em Real
+	Cartão p/ Mostrar
+Gráfico: Lucro por Filial: Gráfico de Barras -> Formatar
+
+Medida: Total de Devoluções: Total Devoluções = SUM('BaseDevoluções'[Quantidade Devolvida])  (TEM QUE CRIAR NA TABELA CERTA)
+Gráfico: Pode colocar em tabela igual as vendas por produto

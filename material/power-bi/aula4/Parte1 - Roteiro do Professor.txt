@@ -1,0 +1,53 @@
+Receita = Calculete(sum(valor da movimentação),tipo="Recebimento")
+
+Shift + Enter
+
+Pagamentos = -Calculete(sum(valor da movimentação),tipo="Pagamento")
+
+Colocar Plano de fundo
+
+Gráfico de Cartões
+
+15% de imposto
+imposto = Receita * 0,15
+
+Lucro = Receita - Pagamento - Imposto
+
+Gráfico de Cascata
+Lucro - y
+Mês - Categoria
+
+Nova medida
+% Margem = Lucro/Receita
+
+Gráfico de rosca
+nova média
+Complemento margem = 1 - % margem
+
+Valores - Margem - Complemento das margem
+
+Gráfico de Cartão
+% Margem
+
+Endereço de imagem
+https://drive.google.com/uc?id=(Código)
+
+Render type
+Colocar bolas do mesmo tamanho
+
+Gráfico de história
+
+Qtd Movimentação = countrows(Movimentação)
+
+Transações Pix = calculate
+
+% Pix = pix/qtd movimentações
+
+na ordem
+
+O numero de transações foi de #, sendo # feitas via Pix, o que representa # das movimentações.
+
+Desvio da meta
+
+Gráfico Scroller
+Categoria - Município
