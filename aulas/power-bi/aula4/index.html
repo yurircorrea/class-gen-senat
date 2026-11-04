@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelagem de Dados — Análise de Dados com Power BI · Aula 4 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="power-bi" data-aula="aula4" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Modelagem de Dados</a>
+    <nav class="barra-menu">
+      <a href="#roteiro">roteiro</a>
+      <a href="#materiais">materiais</a>
+      <a href="#receita">receita</a>
+      <a href="#lucro">lucro</a>
+      <a href="#margem">margem</a>
+      <a href="#imagens">imagens</a>
+      <a href="#historia">texto</a>
+      <a href="#letreiro">letreiro</a>
+      <a href="#financeiro">financeiro</a>
+      <a href="#chaves">chaves</a>
+      <a href="#cardinalidade">tipos</a>
+      <a href="#tratar">tratar</a>
+      <a href="#colunas">colunas</a>
+      <a href="#relacoes">relações</a>
+      <a href="#related">related</a>
+      <a href="#vendas">vendas</a>
+      <a href="#quiz">quiz</a>
+      <a href="#atividade">atividade</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Análise de Dados com Power BI</span><span>Aula 4</span></div>
+      <h1>Modelagem de Dados</h1>
+      <p class="subtitulo">Um dashboard financeiro em DAX e um modelo com cinco tabelas relacionadas</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO + LEGENDA ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos ver hoje</h2>
+    </div>
+    <p class="secao-lead">Duas partes. Na primeira, um dashboard financeiro feito de medidas DAX, com três visuais personalizados. Na segunda, a modelagem de dados: cinco planilhas ligadas por relacionamentos, para um visual de uma tabela filtrar os números da outra.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos da aula</h3>
+    <ol class="objetivos">
+      <li>Calcular receita, pagamentos, imposto, lucro e margem com CALCULATE e medidas.</li>
+      <li>Usar o gráfico de cascata, a rosca e visuais personalizados (Image Grid, Data Story, Scroller).</li>
+      <li>Entender modelagem de dados, chave primária e chave estrangeira.</li>
+      <li>Reconhecer relações 1 para 1, 1 para N e N para N.</li>
+      <li>Criar relacionamentos no Power BI, à mão e com a detecção automática.</li>
+      <li>Calcular entre tabelas com RELATED e escrever colunas com IF.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Roteiro</h3>
+    <div class="roteiro">
+      <a href="#receita"><span class="num">01</span><span class="rotulo">Receita e pagamentos</span></a>
+      <a href="#lucro"><span class="num">02</span><span class="rotulo">Lucro e cascata</span></a>
+      <a href="#imagens"><span class="num">04</span><span class="rotulo">Visuais personalizados</span></a>
+      <a href="#financeiro"><span class="num">07</span><span class="rotulo">Dashboard Financeiro</span></a>
+      <a href="#chaves"><span class="num">08</span><span class="rotulo">Chaves</span></a>
+      <a href="#relacoes"><span class="num">12</span><span class="rotulo">Relacionamentos</span></a>
+      <a href="#related"><span class="num">13</span><span class="rotulo">RELATED</span></a>
+      <a href="#vendas"><span class="num">14</span><span class="rotulo">Relatório de vendas</span></a>
+    </div>
+
+    <h3 class="sub-titulo">Como ler as demonstrações desta página</h3>
+    <div class="legenda">
+      <div class="legenda-item">As janelas do Power BI e do Power Query são <b>simuladores</b>: medidas, relações e filtros funcionam sobre as linhas reais das planilhas.</div>
+      <div class="legenda-item">Painel escuro = o que você faz: a fórmula, o caminho de menus, os campos.</div>
+      <div class="legenda-item">As <b>tarefas</b> embaixo de cada simulador se marcam sozinhas quando o resultado está certo.</div>
+      <div class="legenda-item"><span class="amostra amostra--linha"></span> tracejado azul = visual selecionado</div>
+      <div class="legenda-item">Nas tabelas de exemplo: amarelo = chave primária; azul = chave estrangeira.</div>
+    </div>
+  </section>
+
+  <!-- ======================= MATERIAIS DA AULA ======================= -->
+  <section class="secao" id="materiais">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Materiais</span>
+      <h2 class="secao-titulo">Materiais da Aula</h2>
+    </div>
+    <p class="secao-lead">Baixe antes de começar a prática. As planilhas e as imagens entram nos relatórios; os gabaritos são os relatórios prontos, para comparar com o seu no fim.</p>
+
+    <div class="materiais">
+      <div class="materiais-parte">
+      <h3 class="sub-titulo">Parte 1 · Dashboard Financeiro</h3>
+      <div class="material material--icones">
+        <span class="material-texto"><b>Imagens</b><span>Parte1 - Imagens · 5 logotipos de bancos em PNG</span><small>Os bancos do Image Grid (seção 04). Clique num logotipo para baixar.</small></span>
+        <div class="material-icones material-icones--5">
+          <a class="icone-baixar" href="../../../material/power-bi/aula4/Parte1%20-%20Imagens/Bradesco.png" download data-material="Parte1 - Imagens/Bradesco.png"><img src="img/banco-bradesco.png" alt=""><span>Bradesco.png</span></a>
+          <a class="icone-baixar" href="../../../material/power-bi/aula4/Parte1%20-%20Imagens/Itau.png" download data-material="Parte1 - Imagens/Itau.png"><img src="img/banco-itau.png" alt=""><span>Itau.png</span></a>
+          <a class="icone-baixar" href="../../../material/power-bi/aula4/Parte1%20-%20Imagens/Nubank.png" download data-material="Parte1 - Imagens/Nubank.png"><img src="img/banco-nubank.png" alt=""><span>Nubank.png</span></a>
+          <a class="icone-baixar" href="../../../material/power-bi/aula4/Parte1%20-%20Imagens/Safra.png" download data-material="Parte1 - Imagens/Safra.png"><img src="img/banco-safra.png" alt=""><span>Safra.png</span></a>
+          <a class="icone-baixar" href="../../../material/power-bi/aula4/Parte1%20-%20Imagens/Santander.png" download data-material="Parte1 - Imagens/Santander.png"><img src="img/banco-santander.png" alt=""><span>Santander.png</span></a>
+        </div>
+      </div>
+      <a class="material" href="../../../material/power-bi/aula4/Parte1%20-%20BaseFinanceiro.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Planilha</b><span>Parte1 - BaseFinanceiro.xlsx · 170 KB</span><small>2.725 movimentações de 2020 e 2021, em 5 bancos e 4 municípios.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte1%20-%20Plano%20de%20Fundo.png" download data-material="Parte1 - Plano de Fundo.png">
+        <img class="material-capa" src="img/fundo-financeiro.jpg" alt="">
+        <span class="material-texto"><b>Plano de Fundo</b><span>Parte1 - Plano de Fundo.png · 755 KB</span><small>Formatar página › Tela de fundo, com Ajustar e transparência 0%.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte1%20-%20Gabarito.pbix" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8"/><rect x="10.3" y="7" width="3.4" height="13"/><rect x="16.6" y="3" width="3.4" height="17"/></svg>.pbix</span>
+        <span class="material-texto"><b>Gabarito</b><span>Parte1 - Gabarito.pbix · 1,2 MB</span><small>O Dashboard Financeiro pronto, com os visuais personalizados. Nele os Pagamentos se chamam Despesas.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      </div>
+
+      <div class="materiais-parte">
+      <h3 class="sub-titulo">Parte 2 · Modelagem de Dados</h3>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Vendas.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Vendas</b><span>Parte2 - Vendas.xlsx · 671 KB</span><small>23.794 vendas de 2019 a 2021 (aba BaseVendas).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Devolu%C3%A7%C3%B5es.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Devoluções</b><span>Parte2 - Devoluções.xlsx · 41 KB</span><small>1.140 devoluções e 5 colunas vazias (aba BaseDevoluções).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Produtos.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Produtos</b><span>Parte2 - Produtos.xlsx · 17 KB</span><small>24 produtos com SKU, preço, custo e lucro (aba CadastroProdutos).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Lojas.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Lojas</b><span>Parte2 - Lojas.xlsx · 16 KB</span><small>13 lojas com estado, gerente e endereço (aba CadastroLojas).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Clientes.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Clientes</b><span>Parte2 - Clientes.xlsx · 68 KB</span><small>822 clientes com idade, categoria e a promoção do Dia das Mães (aba CadastroClientes).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      <a class="material" href="../../../material/power-bi/aula4/Parte2%20-%20Gabarito.pbix" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8"/><rect x="10.3" y="7" width="3.4" height="13"/><rect x="16.6" y="3" width="3.4" height="17"/></svg>.pbix</span>
+        <span class="material-texto"><b>Gabarito</b><span>Parte2 - Gabarito.pbix · 784 KB</span><small>O modelo com as cinco tabelas relacionadas e os gráficos de vendas e devoluções.</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 1 ======================= -->
+  <div class="parte" id="parte1">
+    <span class="parte-num">Parte 1</span>
+    <div>
+      <h2>Dashboard Financeiro</h2>
+      <p>BaseFinanceiro.xlsx · 2.725 movimentações de 2020 e 2021 · recebimentos e pagamentos em 5 bancos</p>
+    </div>
+    <img src="img/fundo-financeiro.jpg" alt="Plano de fundo do Dashboard Financeiro">
+  </div>
+
+  <!-- ======================= 01 · RECEITA ======================= -->
+  <section class="secao" id="receita" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">Receita e pagamentos</h2>
+    </div>
+    <p class="secao-lead">A coluna Valor da Movimentação guarda entradas e saídas juntas; a coluna Tipo diz qual é qual. Com CALCULATE, a mesma soma vira duas medidas: só os recebimentos e só os pagamentos.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Nova medida, escreva e tecle Enter; Shift + Enter quebra a linha</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="receita"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a soma, com o filtro do tipo</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Receita =
+CALCULATE(
+    SUM(Movimentações[Valor da Movimentação]),
+    Movimentações[Tipo] = "Recebimento"
+)
+// R$ 94.602.866,94</pre>
+<pre class="codigo" data-lang="formula">Pagamentos =
+-CALCULATE(
+    SUM(Movimentações[Valor da Movimentação]),
+    Movimentações[Tipo] = "Pagamento"
+)
+// os pagamentos vêm negativos na planilha:
+// o menos na frente deixa o número positivo</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>CALCULATE, de novo</h3><p>A mesma ideia da aula 2: o cálculo e, depois da vírgula, o filtro. Texto entre aspas duplas, igualzinho à planilha: "Recebimento".</p></article>
+      <article class="cartao"><h3>Valor inteiro no cartão</h3><p>Formatar visual › Valor do balão › Unidades de exibição: Nenhum mostra R$ 94.602.866,94 em vez de R$ 94,60 Mi.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Escrever "Calculete" ou "Recebimentos". O DAX não conhece a função, e o filtro com uma letra a mais não acha nenhuma linha: o cartão fica em branco.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 · LUCRO ======================= -->
+  <section class="secao" id="lucro">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Imposto, lucro e o gráfico de cascata</h2>
+    </div>
+    <p class="secao-lead">Medidas que usam medidas: o imposto é 15% da receita, e o lucro é o que sobra. O gráfico de cascata mostra o lucro mês a mês: cada coluna sobe ou desce a partir da anterior, até o total.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie as duas medidas e marque o Lucro no gráfico de cascata</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="lucro"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as medidas e o gráfico</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Imposto = [Receita] * 0.15
+// no DAX o decimal é com ponto: 0,15 dá erro
+
+Lucro = [Receita] - [Pagamentos] - [Imposto]
+// R$ 35.548.595,98</pre>
+<pre class="codigo" data-lang="texto">Visualizações › Gráfico de cascata
+  Categoria: Data da Movimentacao › Mês
+  Eixo Y: Lucro
+Título: Lucro Mensal
+verde = mês com lucro · vermelho = prejuízo
+a última coluna é o Total</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Ponto, não vírgula</h3><p>Na barra de fórmulas do Power BI, o número decimal se escreve 0.15 e a vírgula separa argumentos. Com 0,15, o DAX entende dois números soltos e reclama.</p></article>
+      <article class="cartao"><h3>Por que cascata?</h3><p>Ela mostra como o total foi construído: abril, junho e agosto deram prejuízo, e setembro foi o melhor mês. Num gráfico de colunas comum, o negativo some no meio.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Somar o imposto em vez de subtrair. Confira o resultado com uma conta de cabeça: 94,6 − 44,9 − 14,2 dá 35,5 milhões.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 03 · MARGEM ======================= -->
+  <section class="secao" id="margem">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">A margem na rosca</h2>
+    </div>
+    <p class="secao-lead">% Margem: quanto de cada real recebido vira lucro. A rosca precisa de duas fatias para mostrar uma porcentagem: a margem e o complemento, o que falta para 100%.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie as duas medidas; na rosca, marque as duas em Valores, sem Legenda</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="margem"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a porcentagem e o que falta</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">% Margem = DIVIDE([Lucro], [Receita])
+// 37,58% · formato Porcentagem
+
+Complemento Margem = 1 - [% Margem]
+// 62,42%: as duas somam 100%</pre>
+<pre class="codigo" data-lang="texto">Gráfico de rosca
+  Valores: % Margem, Complemento Margem
+  Rótulos de detalhes: Desativado
+  Fatias: margem escura, complemento claro
+Cartão: % Margem, no meio da rosca
+  Título: Margem Lucro</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Duas medidas, duas fatias</h3><p>Sem nada em Legenda, cada medida em Valores vira uma fatia. É o jeito de desenhar uma porcentagem só como um anel.</p></article>
+      <article class="cartao"><h3>Cartão por cima</h3><p>O cartão com fundo transparente fica em cima do buraco da rosca: o número no centro, o anel em volta.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Pôr só a % Margem na rosca: com uma fatia só, ela fecha o círculo inteiro, e 37% parece 100%.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 · IMAGENS ======================= -->
+  <section class="secao" id="imagens">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">Os logotipos dos bancos: Image Grid</h2>
+    </div>
+    <p class="secao-lead">A coluna Imagem tem o endereço do logotipo de cada banco na internet. O visual personalizado Image Grid desenha uma imagem por endereço, e clicar num logotipo filtra o dashboard por aquele banco.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>marque a coluna Imagem no Image Grid e clique num banco</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="imagens"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o visual, o endereço e o formato</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Visualizações › ··· › Obter mais visuais
+  pesquise: Image Grid › Adicionar
+Image Grid
+  Image URL: Imagem
+Formatar visual › Render type: Circle
+  (todas as imagens em bolas do mesmo tamanho)</pre>
+<pre class="codigo" data-lang="texto">endereço de imagem no Google Drive:
+  https://drive.google.com/uc?id=CÓDIGO
+  o CÓDIGO é o trecho do link de compartilhar,
+  com o arquivo aberto para "qualquer pessoa
+  com o link"
+
+na planilha da aula: links do imgur.com</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Imagem é um endereço</h3><p>O Power BI não guarda a imagem: guarda o link. O visual busca a figura na internet cada vez que abre o relatório.</p></article>
+      <article class="cartao"><h3>Filtro clicando na figura</h3><p>Clique no Itaú: os cartões mostram R$ 33.261.602,80 de receita, só desse banco. Clique de novo para limpar.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Sem internet, ou com o link fechado para quem não é dono do arquivo, o visual mostra quadros vazios. Teste o link numa janela anônima.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 · DATA STORY ======================= -->
+  <section class="secao" id="historia">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Um texto com números: Data Story</h2>
+    </div>
+    <p class="secao-lead">O visual Enlighten Data Story escreve uma frase e troca cada # por uma medida, na ordem em que elas entram no visual. O texto acompanha os filtros: escolha um banco e a frase muda.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie as três medidas e marque na ordem; depois escolha um banco</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="historia"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as três medidas e a frase</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Qtd Movimentações = COUNTROWS(Movimentações)
+
+Transações Pix =
+CALCULATE(
+    COUNTROWS(Movimentações),
+    Movimentações[Forma Pagamento] = "Pix"
+)
+
+% Pix = DIVIDE([Transações Pix], [Qtd Movimentações])</pre>
+<pre class="codigo" data-lang="texto">Enlighten Data Story
+  Measures (na ordem dos #):
+    1. Qtd Movimentações
+    2. Transações Pix
+    3. % Pix
+  Text: O número de transações foi de #,
+    sendo # feitas via Pix, o que representa
+    # das movimentações.</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>A ordem importa</h3><p>O primeiro # recebe a primeira medida do visual, e assim por diante. Trocou a ordem, a frase fala besteira.</p></article>
+      <article class="cartao"><h3>Texto vivo</h3><p>Diferente de uma caixa de texto, o Data Story recalcula: com o filtro de um banco, os três números passam a ser só dele.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Mais # do que medidas: os # que sobram ficam no texto como estão. Conte os # e as medidas antes de publicar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 · SCROLLER ======================= -->
+  <section class="secao" id="letreiro">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">A margem por município: Scroller</h2>
+    </div>
+    <p class="secao-lead">O Scroller passa como um letreiro de bolsa: cada município com a sua margem e o desvio em relação à margem geral, com ▲ verde acima e ▼ vermelho abaixo.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>crie o Desvio Margem e marque depois da % Margem</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="letreiro"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o desvio e o visual</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Desvio Margem =
+    [% Margem]
+    - CALCULATE([% Margem], ALL(Movimentações))
+// ALL tira o filtro do município:
+// a segunda parte é a margem geral, 37,58%</pre>
+<pre class="codigo" data-lang="texto">Scroller
+  Category: Município
+  Measure Absolute: % Margem
+  Measure Deviation: Desvio Margem
+São Paulo     63,60%  ▲ 26,02%
+Belo Horizonte 21,45%  ▼ 16,13%</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>ALL tira o filtro</h3><p>Dentro do CALCULATE, ALL(Movimentações) ignora o filtro do município do letreiro. O resultado é a margem de todo mundo, a régua para comparar.</p></article>
+      <article class="cartao"><h3>Desvio, não meta</h3><p>Aqui o desvio é em relação à margem geral. Com uma meta fixa, troque a segunda parte pelo número da meta: [% Margem] - 0.30.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Olhar o Desvio Margem num cartão sozinho: sem filtro de município, a margem é igual à geral e o desvio dá zero.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 · DASHBOARD FINANCEIRO ======================= -->
+  <section class="secao" id="financeiro">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">O Dashboard Financeiro</h2>
+    </div>
+    <p class="secao-lead">Tudo junto sobre o plano de fundo: o letreiro no alto, os quatro cartões, os logotipos, a rosca da margem, o texto do Pix e a cascata do lucro mensal. Clique num banco ou num mês.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique num logotipo ou numa coluna da cascata; clique de novo para limpar</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="financeiro"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a montagem</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Formatar página › Tela de fundo
+  Imagem: Parte1 - Plano de Fundo.png
+  Ajustar · Transparência 0%
+Cartões: Receita, Pagamentos, Imposto, Lucro
+  Tela de fundo do visual: Desativado
+  Unidades de exibição: Nenhum
+  texto branco</pre>
+<pre class="codigo" data-lang="texto">Scroller: Município · % Margem · Desvio Margem
+Image Grid: Imagem
+Rosca: % Margem + Complemento Margem
+  com o cartão da margem no meio
+Data Story: o texto do Pix
+Cascata: Mês × Lucro · Título: Lucro Mensal</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Fundo com espaços prontos</h3><p>O plano de fundo já tem os ícones e as caixas: cada visual vai para o seu lugar, sem fundo próprio, como na aula 2.</p></article>
+      <article class="cartao"><h3>Três visuais de fora</h3><p>Image Grid, Enlighten Data Story e Scroller vêm do AppSource. O .pbix guarda os três: o gabarito abre com eles.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Clicar num mês da cascata e estranhar os cartões: o filtro vale para a página toda, então receita, imposto e lucro passam a ser só daquele mês.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= PARTE 2 ======================= -->
+  <div class="parte" id="parte2">
+    <span class="parte-num">Parte 2</span>
+    <div>
+      <h2>Modelagem de Dados</h2>
+      <p>Cinco planilhas: BaseVendas (23.794 vendas), BaseDevoluções (1.140) e os cadastros de Produtos (24), Lojas (13) e Clientes (822)</p>
+    </div>
+  </div>
+
+  <!-- ======================= 08 · CHAVES ======================= -->
+  <section class="secao" id="chaves" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">Modelagem e chaves</h2>
+    </div>
+    <p class="secao-lead">Modelagem de dados é organizar as tabelas para a análise. A venda não repete o nome, o preço e a marca do produto: guarda só o SKU, e o cadastro de produtos guarda o resto, uma vez só. O relacionamento liga as duas pela chave.</p>
+
+    <div class="lab lab--lado" data-lab="chaves">
+      <div class="lab-controles">
+        <h4>escolha uma venda</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Venda">
+          <label><input type="radio" name="k-venda" data-campo="venda" value="0" checked> venda 1</label>
+          <label><input type="radio" name="k-venda" data-campo="venda" value="1"> venda 4.001</label>
+          <label><input type="radio" name="k-venda" data-campo="venda" value="2"> venda 9.001</label>
+          <label><input type="radio" name="k-venda" data-campo="venda" value="3"> venda 15.001</label>
+          <label><input type="radio" name="k-venda" data-campo="venda" value="4"> venda 23.001</label>
+        </div>
+        <h4>siga a chave até o cadastro</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Cadastro">
+          <label><input type="radio" name="k-chave" data-campo="chave" value="produto" checked> Produto (SKU)</label>
+          <label><input type="radio" name="k-chave" data-campo="chave" value="loja"> Loja</label>
+          <label><input type="radio" name="k-chave" data-campo="chave" value="cliente"> Cliente (Código)</label>
+        </div>
+        <p class="lab-dica"><b>Chave primária</b>: identifica cada linha, sem repetir e sem vazio. <b>Chave estrangeira</b>: aponta para a chave primária de outra tabela.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a chave nas duas tabelas</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Fatos e cadastros</h3><p>BaseVendas e BaseDevoluções registram o que aconteceu (muitas linhas). Os cadastros descrevem quem e o quê (poucas linhas). As setas sempre saem do cadastro para a base.</p></article>
+      <article class="cartao"><h3>Por que separar</h3><p>Mudou o preço de um produto? Muda uma linha no cadastro, e não cada venda daquele produto. E o arquivo fica menor.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Usar como chave uma coluna que se repete no cadastro, como Marca ou Tipo. Chave primária não pode ter dois produtos com o mesmo valor.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 09 · CARDINALIDADE ======================= -->
+  <section class="secao" id="cardinalidade">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Os tipos de relação: 1:1, 1:N e N:N</h2>
+    </div>
+    <p class="secao-lead">A cardinalidade diz quantos registros de um lado combinam com quantos do outro. Ela decide para que lado vai a chave estrangeira.</p>
+
+    <div class="lab lab--largo" data-lab="cardinalidade">
+      <div class="lab-controles" style="grid-template-columns:minmax(0,1fr)">
+        <h4>tipo de relação</h4>
+        <div class="lab-opcoes lab-opcoes--coluna" role="radiogroup" aria-label="Tipo de relação">
+          <label><input type="radio" name="c-tipo" data-campo="tipo" value="um"> 1 para 1 (One-to-One)</label>
+          <label><input type="radio" name="c-tipo" data-campo="tipo" value="n" checked> 1 para N (One-to-Many)</label>
+          <label><input type="radio" name="c-tipo" data-campo="tipo" value="nn"> N para N (Many-to-Many)</label>
+        </div>
+        <p class="lab-dica">As cores ligam os registros: mesma cor, mesma chave.</p>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">definição e chave estrangeira</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>No Power BI</h3><p>O modelo mostra 1 do lado do cadastro e * (muitos) do lado da base. A seta no meio da linha mostra para onde o filtro anda.</p></article>
+      <article class="cartao"><h3>O caso mais comum</h3><p>Quase toda relação de um relatório é 1 para N: um produto, muitas vendas; uma loja, muitas devoluções.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ligar duas bases direto, como BaseVendas e BaseDevoluções pela Loja: as duas repetem a loja, e a relação vira muitos para muitos. Ligue cada base ao cadastro.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 10 · TRATAR ======================= -->
+  <section class="secao" id="tratar">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">Tratar colunas e linhas em branco</h2>
+    </div>
+    <p class="secao-lead">Antes de relacionar, as cinco planilhas passam pelo Power Query. A BaseDevoluções chega com cinco colunas vazias no fim (Column5 a Column9); as outras quatro estão limpas.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Ctrl + clique seleciona várias colunas de uma vez</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="devolucoes"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a limpeza</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Obter dados › Excel: as cinco planilhas
+  no Navegador, marque todas › Transformar Dados
+BaseDevoluções:
+  clique em Column5, Ctrl + clique até Column9
+  Página Inicial › Remover Colunas
+  Remover Linhas › Remover Linhas em Branco
+Fechar e Aplicar</pre>
+<pre class="codigo" data-lang="formula">= Table.RemoveColumns(#"Tipo Alterado",
+    {"Column5", "Column6", "Column7",
+     "Column8", "Column9"})</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Várias de uma vez</h3><p>Ctrl + clique soma colunas à seleção; Shift + clique pega um intervalo. Uma etapa só remove todas.</p></article>
+      <article class="cartao"><h3>Confira as outras</h3><p>Clientes, Lojas, Produtos e Vendas chegam sem colunas nem linhas sobrando. Mesmo assim, olhe a qualidade de cada coluna antes de Fechar e Aplicar.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Deixar as colunas vazias: elas não quebram nada, mas aparecem no painel Dados e no modelo, e confundem na hora de relacionar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 · COLUNAS DAX ======================= -->
+  <section class="secao" id="colunas">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">Fórmulas nas colunas: lucro e IF</h2>
+    </div>
+    <p class="secao-lead">Os cadastros também ganham colunas calculadas. Na planilha, Lucro, Categoria de Cliente e Promoção do Dia das Mães já vêm prontas; aqui você reescreve as três em DAX e confere se dão o mesmo resultado em todas as linhas.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique na tabela no painel Dados antes de Nova coluna: a coluna nasce nela</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="colunasModelo"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>uma conta e duas decisões</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// CadastroProdutos
+Lucro Calculado =
+    CadastroProdutos[Preco Unitario]
+    - CadastroProdutos[Custo Unitario]
+
+// CadastroClientes: um IF dentro do outro
+Categoria Calculada =
+IF(CadastroClientes[Idade do Cliente] &lt; 45, "Jovem",
+    IF(CadastroClientes[Idade do Cliente] &lt; 60, "Adulto",
+        "Idoso"))</pre>
+<pre class="codigo" data-lang="formula">// CadastroClientes: as duas condições juntas
+Promoção Calculada =
+IF(
+    AND(CadastroClientes[Gênero] = "Feminino",
+        CadastroClientes[Nº de Filhos] > 0),
+    "Sim", "Não"
+)
+// IF(teste, se verdadeiro, se falso)</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>IF como no Excel</h3><p>É o SE do Excel em inglês e com vírgula: IF(teste, valor se verdadeiro, valor se falso). Para três saídas, um IF dentro do outro.</p></article>
+      <article class="cartao"><h3>AND junta condições</h3><p>A promoção é só para quem é mulher e tem filhos. AND exige as duas; OR aceitaria qualquer uma.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Errar a faixa: com &lt;= 45, quem tem 45 anos vira Jovem, mas na planilha é Adulto. O laboratório só marca a tarefa quando as 822 linhas batem.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 · RELACIONAMENTOS ======================= -->
+  <section class="secao" id="relacoes">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">Relacionamentos na Exibição de modelo</h2>
+    </div>
+    <p class="secao-lead">Sem relacionamento, um visual com o produto do cadastro e a quantidade da base repete o total em toda linha: o Power BI não sabe qual venda é de qual produto. Ligue as tabelas na Exibição de modelo, arrastando ou em Gerenciar relações.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>arraste uma coluna até a coluna da outra tabela; os ícones à esquerda trocam a exibição</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="relacoes"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os três jeitos de relacionar</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">arrastar: na Exibição de modelo, arraste
+  BaseVendas[SKU Produto] até CadastroProdutos[SKU]
+
+Gerenciar relações (Página Inicial › Relações)
+  › Novo relacionamento
+  Da tabela: BaseDevoluções · SKU Produto
+  Para a tabela: CadastroProdutos · SKU
+  Cardinalidade e direção: ele reconhece
+    (confira se está certo) › Salvar</pre>
+<pre class="codigo" data-lang="texto">Gerenciar relações › Detecção automática
+  acha as colunas com o mesmo nome:
+  BaseVendas[Loja]           → CadastroLojas[Loja]
+  BaseDevoluções[Loja]       → CadastroLojas[Loja]
+  BaseVendas[Código Cliente] → CadastroClientes
+  não acha SKU Produto × SKU: nomes diferentes,
+  essa se faz à mão</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Estique as tabelas</h3><p>Na Exibição de modelo, arraste a borda de cada tabela para ver todas as colunas. Fica mais fácil achar a chave.</p></article>
+      <article class="cartao"><h3>Uma relação por par</h3><p>Entre duas tabelas só pode haver uma relação ativa. Errou a coluna? Clique na linha, Excluir, e faça de novo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Confiar só na detecção automática: ela liga colunas pelo nome. As de SKU ficaram de fora, e o relatório por produto continuaria repetindo o total.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 · RELATED ======================= -->
+  <section class="secao" id="related">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Medidas entre tabelas: RELATED</h2>
+    </div>
+    <p class="secao-lead">A venda tem a quantidade; o lucro de cada produto está no cadastro. SUMX passa venda por venda, e RELATED busca o lucro do produto daquela venda pela relação. Sem relação, RELATED não acha nada.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Shift + Enter para escrever a fórmula em várias linhas</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="related"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as medidas da Parte 2</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Total Itens Vendidos = SUM(BaseVendas[Qtd Vendida])
+// 71.442
+
+Lucro Total =
+SUMX(
+    BaseVendas,
+    BaseVendas[Qtd Vendida]
+        * RELATED(CadastroProdutos[Lucro])
+)
+// R$ 72.305.600,00 · formato Moeda</pre>
+<pre class="codigo" data-lang="formula">// crie na tabela certa: BaseDevoluções
+Total Devoluções =
+    SUM('BaseDevoluções'[Quantidade Devolvida])
+// 2.037
+
+// SUMX(tabela, expressão): calcula a expressão
+// linha por linha e soma tudo no fim</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Por que SUMX</h3><p>O lucro é por produto e a quantidade é por venda: é preciso multiplicar em cada linha antes de somar. SUM não faz conta por linha; SUMX faz.</p></article>
+      <article class="cartao"><h3>Tabela certa</h3><p>A medida funciona em qualquer tabela, mas guardá-la junto da tabela que ela soma ajuda quem procura no painel Dados.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>RELATED sem relação: "A coluna não existe ou não tem uma relação com nenhuma tabela disponível". O problema não é a fórmula, é o modelo.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 · RELATÓRIO DE VENDAS ======================= -->
+  <section class="secao" id="vendas">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">O relatório de vendas e devoluções</h2>
+    </div>
+    <p class="secao-lead">Com o modelo relacionado, um clique num produto filtra as vendas e as devoluções ao mesmo tempo: o filtro sai do cadastro e chega às duas bases pelas relações.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique num produto ou numa loja: os quatro visuais filtram juntos</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="dashModelo"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os visuais e de onde vem cada campo</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Cartão: Lucro Total
+Colunas: CadastroLojas[Loja] × Lucro Total
+Barras: CadastroProdutos[Produto]
+  × Total Itens Vendidos
+Barras: CadastroProdutos[Produto]
+  × Total Devoluções</pre>
+<pre class="codigo" data-lang="texto">o eixo vem do cadastro, o número vem da base
+o filtro anda: cadastro (1) → base (*)
+
+boas práticas de modelagem
+  nomes de coluna consistentes nas duas pontas
+  nada de duplicatas no cadastro
+  só as relações necessárias</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Eixo do cadastro</h3><p>Use Produto do CadastroProdutos, e não o SKU da base: o nome é legível, e o mesmo eixo serve para vendas e devoluções.</p></article>
+      <article class="cartao"><h3>Salvador sumiu?</h3><p>São 13 lojas no cadastro, mas Salvador não tem nenhuma venda: com valor em branco, a loja não aparece no gráfico.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Comparar vendas com devoluções por ano: as devoluções são de 2016 a 2018 e as vendas, de 2019 a 2021. Confira as datas antes de tirar conclusões.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Confira o que ficou</h2>
+    </div>
+    <p class="secao-lead">Responda em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz quiz--duplo" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Por que a medida Pagamentos começa com um sinal de menos?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Para subtrair da receita</button>
+          <button type="button" data-opcao="b">Porque os pagamentos vêm negativos na planilha</button>
+          <button type="button" data-opcao="c">É obrigatório no CALCULATE</button>
+        </div>
+        <p class="quiz-explica">A soma dos pagamentos dá −44,9 milhões. O menos na frente deixa positivo, e o Lucro faz a subtração.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Qual fórmula calcula 15% de imposto no DAX?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Imposto = [Receita] * 0.15</button>
+          <button type="button" data-opcao="b">Imposto = [Receita] * 0,15</button>
+          <button type="button" data-opcao="c">Imposto = [Receita] * 15</button>
+        </div>
+        <p class="quiz-explica">Na barra de fórmulas o decimal é com ponto; a vírgula separa argumentos.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Por que a rosca da margem usa duas medidas?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Para mostrar receita e lucro</button>
+          <button type="button" data-opcao="b">Porque rosca não aceita porcentagem</button>
+          <button type="button" data-opcao="c">Uma fatia só fecharia o círculo: o complemento mostra o que falta para 100%</button>
+        </div>
+        <p class="quiz-explica">% Margem e Complemento Margem somam 100%: o anel mostra a proporção.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Qual coluna é chave primária?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">BaseVendas[SKU Produto]</button>
+          <button type="button" data-opcao="b">CadastroProdutos[SKU]</button>
+          <button type="button" data-opcao="c">CadastroProdutos[Marca]</button>
+        </div>
+        <p class="quiz-explica">No cadastro, cada SKU aparece uma vez. Na base, o SKU se repete: é chave estrangeira. Marca repete no cadastro.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Antes das relações, a tabela Produto × Total Itens Vendidos mostra 71.442 em todas as linhas. Por quê?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Todos os produtos venderam igual</button>
+          <button type="button" data-opcao="b">A medida está errada</button>
+          <button type="button" data-opcao="c">Sem relação, o filtro do produto não chega à BaseVendas</button>
+        </div>
+        <p class="quiz-explica">O produto está no cadastro e a quantidade na base. Sem a ligação, cada linha recebe o total.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Por que a detecção automática não ligou BaseVendas a CadastroProdutos?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">As colunas têm nomes diferentes: SKU Produto e SKU</button>
+          <button type="button" data-opcao="b">Os SKUs não batem</button>
+          <button type="button" data-opcao="c">Porque a relação é 1 para 1</button>
+        </div>
+        <p class="quiz-explica">Ela procura colunas com o mesmo nome. Os valores batem; os nomes, não. Essa relação se faz à mão.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Para o Lucro Total, por que SUMX com RELATED e não SUM?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">SUMX é mais rápido</button>
+          <button type="button" data-opcao="b">É preciso multiplicar quantidade por lucro em cada venda antes de somar</button>
+          <button type="button" data-opcao="c">SUM não funciona com moeda</button>
+        </div>
+        <p class="quiz-explica">SUMX faz a conta linha por linha; RELATED traz o lucro do produto daquela linha.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Numa relação 1 para N entre departamentos e funcionários, onde fica a chave estrangeira?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Em Departamentos</button>
+          <button type="button" data-opcao="b">Numa tabela nova no meio</button>
+          <button type="button" data-opcao="c">Em Funcionários: cada um guarda o ID do seu departamento</button>
+        </div>
+        <p class="quiz-explica">A chave vai para o lado N, que tem um só registro do outro lado. Tabela no meio é a solução do N para N.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REFERÊNCIA ======================= -->
+  <section class="secao" id="referencia">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Resumo</span>
+      <h2 class="secao-titulo">Referência rápida</h2>
+    </div>
+    <p class="secao-lead">As fórmulas da aula e onde ficam os comandos que usamos.</p>
+
+    <div class="rolagem-x">
+      <table class="tabela">
+        <thead><tr><th>Função</th><th>Para</th><th>Exemplo desta aula</th></tr></thead>
+        <tbody>
+          <tr><td><code>CALCULATE</code></td><td>somar só um tipo de linha</td><td><code>CALCULATE(SUM(Movimentações[Valor da Movimentação]), Movimentações[Tipo] = "Recebimento")</code></td></tr>
+          <tr><td><code>DIVIDE</code></td><td>porcentagem sem erro de divisão por zero</td><td><code>DIVIDE([Lucro], [Receita])</code></td></tr>
+          <tr><td><code>COUNTROWS</code></td><td>contar linhas</td><td><code>COUNTROWS(Movimentações)</code></td></tr>
+          <tr><td><code>ALL</code></td><td>ignorar os filtros de uma tabela</td><td><code>CALCULATE([% Margem], ALL(Movimentações))</code></td></tr>
+          <tr><td><code>IF</code> · <code>AND</code></td><td>decidir por linha, com uma ou duas condições</td><td><code>IF(AND(CadastroClientes[Gênero] = "Feminino", CadastroClientes[Nº de Filhos] > 0), "Sim", "Não")</code></td></tr>
+          <tr><td><code>SUMX</code></td><td>calcular linha por linha e somar</td><td><code>SUMX(BaseVendas, BaseVendas[Qtd Vendida] * RELATED(CadastroProdutos[Lucro]))</code></td></tr>
+          <tr><td><code>RELATED</code></td><td>buscar um valor do cadastro pela relação</td><td><code>RELATED(CadastroProdutos[Lucro])</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rolagem-x" style="margin-top:24px">
+      <table class="tabela">
+        <thead><tr><th>Para</th><th>Use</th><th>Onde</th></tr></thead>
+        <tbody>
+          <tr><td>Número inteiro no cartão</td><td>Valor do balão › Unidades de exibição: Nenhum</td><td>Formatar visual</td></tr>
+          <tr><td>Lucro mês a mês</td><td>Gráfico de cascata · Categoria: Mês · Eixo Y: Lucro</td><td>Visualizações</td></tr>
+          <tr><td>Logotipos, texto com números, letreiro</td><td>Image Grid · Enlighten Data Story · Scroller</td><td>Visualizações › ··· › Obter mais visuais</td></tr>
+          <tr><td>Imagem pelo endereço</td><td>https://drive.google.com/uc?id=CÓDIGO</td><td>coluna com o link</td></tr>
+          <tr><td>Tirar várias colunas</td><td>Ctrl + clique › Remover Colunas</td><td>Power Query · Página Inicial</td></tr>
+          <tr><td>Ver e ligar as tabelas</td><td>Exibição de modelo · arrastar coluna sobre coluna</td><td>barra da esquerda</td></tr>
+          <tr><td>Criar ou conferir relações</td><td>Gerenciar relações › Novo relacionamento · Detecção automática</td><td>Página Inicial › Relações</td></tr>
+          <tr><td>Coluna calculada no cadastro</td><td>Nova coluna (com a tabela selecionada)</td><td>painel Dados ou Ferramentas de tabela</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= ATIVIDADE ======================= -->
+<section class="secao atividade" id="atividade">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Atividade</span>
+      <h2 class="secao-titulo">Termine os dois relatórios</h2>
+    </div>
+    <p class="secao-lead">No Dashboard Financeiro e no modelo de vendas, deixe tudo o que fizemos funcionando e acrescente análises novas.</p>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Entrega</span>
+        <h3>O relatório precisa ter: </h3>
+        <ul class="requisitos">
+          <li>Todos os items feitos durante a aula;</li>
+          <li><b>Mais dois gráficos novos</b>, um em cada relatório, cada um com um título que diga o que ele mostra. No modelo de vendas, um deles usa uma coluna dos cadastros de Clientes ou de Lojas.</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">ponto de partida</span>
+        <h3>Já está pronto: </h3>
+        <ul class="requisitos">
+          <li><a class="arquivo-texto" href="../../../material/power-bi/aula4/Parte1%20-%20BaseFinanceiro.xlsx" download>Parte1 - BaseFinanceiro.xlsx</a>, o plano de fundo e os logotipos dos bancos.</li>
+          <li>As cinco planilhas da Parte 2, na seção Materiais da Aula.</li>
+          <li>Ideias de visual: Receita por Forma de Pagamento, Lucro por Categoria de Cliente, Lucro Total por Estado, Itens Vendidos por Marca.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dupla">
+      <div class="bloco-branco">
+        <span class="nivel">Desafio</span>
+        <h3>Sugestões: </h3>
+        <ul class="requisitos">
+          <li><b>Faturamento</b> com SUMX e RELATED do Preco Unitario. Confere com R$ 156.765.700,00.</li>
+          <li><b>% Devolução</b> = DIVIDE([Total Devoluções], [Total Itens Vendidos]). Confere com 2,85%.</li>
+          <li>Lucro Total por <b>Categoria de Cliente</b>: Jovem, Adulto e Idoso. Quem dá mais lucro?</li>
+          <li>Um Scroller com <b>meta fixa</b>: Desvio Meta = [% Margem] - 0.30.</li>
+          <li>Uma relação <b>1 para 1</b> a mais no modelo: existe alguma coluna que possa fazer isso? Por quê?</li>
+        </ul>
+      </div>
+      <div class="bloco-branco">
+        <span class="nivel">Investigação</span>
+        <h3>Responda para si mesmo(a): </h3>
+        <ul class="requisitos">
+          <li>Abril, junho e agosto deram prejuízo. Foi porque a receita caiu ou porque os pagamentos subiram?</li>
+          <li>São Paulo tem margem de 63,60% e Belo Horizonte de 21,45%. Que pergunta você faria ao gerente de Belo Horizonte?</li>
+          <li>Por que Salvador está no cadastro de lojas e não aparece no gráfico de lucro por loja?</li>
+          <li>As devoluções são de 2016 a 2018 e as vendas de 2019 a 2021. O que isso diz sobre a % Devolução?</li>
+          <li>Se o CadastroProdutos tivesse dois produtos com o mesmo SKU, o que aconteceria com a relação?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="criterios">
+      <article class="cartao"><h3>Entrega</h3><p>Os dois arquivos .pbix salvos como <code>aula4-financeiro-seu-nome.pbix</code> e <code>aula4-modelo-seu-nome.pbix</code>, com as respostas da investigação numa caixa de texto.</p></article>
+      <article class="cartao"><h3>Critério técnico</h3><p>Os números conferem: Receita R$ 94.602.866,94, Lucro R$ 35.548.595,98, % Margem 37,58%, Lucro Total R$ 72.305.600,00 e cinco relações no modelo.</p></article>
+      <article class="cartao"><h3>Critério de leitura</h3><p>Cada visual se explica sozinho: título que diz o que mostra, valores em reais e eixos legíveis sobre o plano de fundo escuro.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Na próxima aula, seguimos construindo dashboards no Power BI. Não esqueça de assinar a lista de presença!</p>
+      <div class="rodape-meta">Análise de Dados com Power BI · Aula 4 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/dados-financeiro.js"></script>
+<script src="js/dados-modelo.js"></script>
+<script src="js/pq.js"></script>
+<script src="js/pbi.js"></script>
+<script src="js/aula.js"></script>
+</body>
+</html>
