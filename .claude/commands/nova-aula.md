@@ -23,6 +23,8 @@ Siga este roteiro, sem pular etapas:
      `index.html` ou o `README.md`). Pergunte também o cargo como deve aparecer ("Instrutor de
      Informática", "Instrutora de Informática"), a menos que o pedido já diga. Não deduza o cargo
      pelo nome da pessoa.
+   - e-mail de envio da atividade: para Yuri Reis Correa é `yuricorrea@sestsenat.org.br`; para
+     outro instrutor, pergunte (não deduza pelo nome).
 
    Nunca deduza o curso pelo assunto do material. A unidade é sempre **B086 - Foz do Iguaçu/PR**.
 
@@ -69,6 +71,9 @@ Siga este roteiro, sem pular etapas:
    (`.capa-meta`), assinatura do instrutor com cargo e unidade (`.assinatura`), linha no rodapé
    (`.rodape-meta`) e `data-curso`/`data-aula`/`data-instrutor`/`data-unidade` no `<body>`. Modelo
    em `references/design-system.md` §8. Repita tudo no `README.md` da aula.
+   **A atividade termina sempre com a faixa Envio** (`.envio-atividade`) com o e-mail do
+   instrutor e o link `mailto:` com o assunto `Atividade - <curso> - <aula>` (habilidade, §4,
+   regra 12; modelo em `references/design-system.md` §7).
 
 9. **Referência de qualidade:** `exemplos/aula-excel/` (aula completa sem código: planilhas que
    calculam, laboratórios com construtor, tour, quiz, gráfico que acompanha a planilha, atividade) e
@@ -77,7 +82,8 @@ Siga este roteiro, sem pular etapas:
 10. **Verificar** conforme `references/qa-e-armadilhas.md`: sem transbordo horizontal, sem erro de
     console, cada link de "Materiais da Aula" baixando o arquivo idêntico ao original, laboratórios, planilhas, quiz e tour funcionando, iframes com altura justa, sem área
     vazia entre painéis, abrindo por `file://` com a Roboto e os logotipos, nenhum texto dirigido
-    ao instrutor, chips de curso/aula e assinatura do instrutor visíveis na capa.
+    ao instrutor, chips de curso/aula e assinatura do instrutor visíveis na capa, faixa Envio com
+    o e-mail certo no fim da atividade.
 
 11. **Entregar** com um resumo curto: onde ficaram o material e a aula (caminhos completos), o
     curso, a aula e o instrutor registrados, e o que foi corrigido em relação ao material de

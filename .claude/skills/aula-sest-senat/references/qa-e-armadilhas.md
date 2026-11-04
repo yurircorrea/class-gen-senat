@@ -218,6 +218,8 @@ arquivo existente: script Python com `str.replace` e `assert` de que o alvo foi 
 - [ ] abre por `file://` com tudo funcionando, Roboto e logotipos carregados
 - [ ] chips de curso e aula na capa; instrutor, cargo e unidade na capa e no rodapé;
       `data-curso`, `data-aula`, `data-instrutor`, `data-unidade` no `<body>`
+- [ ] atividade fechando com a faixa **Envio** (`.envio-atividade`): e-mail do instrutor, link
+      `mailto:` com o assunto `Atividade - <curso> - <aula>`
 - [ ] nenhum texto dirigido ao instrutor na página
 - [ ] nomes de menu, função e atalho conferidos na versão atual em português
 - [ ] arquivos de QA removidos

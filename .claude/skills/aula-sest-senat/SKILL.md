@@ -70,6 +70,7 @@ de quatro informações:
 | cargo | — | "Instrutor de Informática" | pergunte junto com o nome |
 | unidade | `data-unidade="B086"` | "Unidade B086 - Foz do Iguaçu/PR" | fixa nesta instância |
 | e-mail | — | linha opcional da assinatura | só se for informado |
+| e-mail de envio da atividade | — | faixa **Envio** da atividade (regra 12) | Yuri Reis Correa: `yuricorrea@sestsenat.org.br`; outro instrutor: pergunte |
 
 1. Use o que o pedido já disser ("curso de Excel Básico, aula 3, instrutor Yuri Reis Correa").
 2. O que faltar, **pergunte numa única rodada**, oferecendo como opções os cursos que já existem
@@ -93,6 +94,9 @@ de quatro informações:
 8. **Pergunte quais materiais os alunos podem baixar** (regra 11 da §4): liste o que há em
    `material/<curso>/<aula>/` e `material/<curso>/`, na mesma rodada do passo 2 quando o material
    já estiver na pasta, ou assim que ele chegar. Só entra na página o que o usuário confirmar.
+9. **E-mail de envio da atividade** (regra 12 da §4): para o instrutor Yuri Reis Correa é
+   `yuricorrea@sestsenat.org.br`. Para outro instrutor, pergunte o e-mail na mesma rodada do
+   passo 2; não deduza pelo nome.
 
 ### 3.1 Extrair o material de origem
 
@@ -190,7 +194,9 @@ ou frameworks e a convenção visual das demonstrações.
    projeção ninguém rola uma barra horizontal dentro de uma caixa.
 
 7. **Atividade final em três partes** (ver `references/design-system.md` §7): obrigatória,
-   desafio e investigação. O desafio existe para quebrar a solução preguiçosa.
+   desafio e investigação. O desafio existe para quebrar a solução preguiçosa. Se o usuário
+   pedir outro formato (só a investigação, por exemplo), siga o pedido; a regra 12 vale do mesmo
+   jeito.
 
 8. **Curso, aula, instrutor e unidade na página** (§3.0): chips na capa, assinatura do
    instrutor, linha no rodapé, atributos no `<body>`. Material e aula ficam nas pastas do curso e
@@ -222,6 +228,14 @@ ou frameworks e a convenção visual das demonstrações.
       os links dependem de `material/` estar no mesmo repositório.
     - Referência pronta: `aulas/power-bi/aula2/` (seção `#materiais`, `js/materiais.js`, bloco
       `.materiais` do `css/demos.css`) e `aulas/power-bi/aula1/` (um arquivo só).
+
+12. **Toda atividade diz para onde enviar.** Logo abaixo dos `.criterios`, a faixa
+    `.envio-atividade` com o rótulo **Envio** e o texto "Envie a atividade para o e-mail …",
+    com link `mailto:` e o assunto já preenchido (`Atividade - <curso> - <aula>`, codificado na
+    URL). O e-mail é o do instrutor da aula (§3.0, passo 9): para Yuri Reis Correa,
+    `yuricorrea@sestsenat.org.br`. Vale para toda aula, qualquer que seja o formato da
+    atividade. Marcação e estilo em `references/design-system.md` §7 (o estilo já está em
+    `assets/estilo.css`). Referência: a atividade de `aulas/power-bi/aula4/`.
 
 ---
 
