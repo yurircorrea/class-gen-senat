@@ -690,3 +690,10 @@ button.pbi-ico{cursor:pointer}
 
 /* planilha estreita: colunas do tamanho do conteúdo */
 .planilha--compacta .planilha-grade td{min-width:0;padding:5px 8px}
+
+/* atividade: para onde enviar */
+.envio-atividade{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:24px 0 0;padding:20px 24px;border-radius:var(--raio);
+  background:var(--azul);color:#fff;font-size:21px;line-height:1.4}
+.envio-atividade .nivel{margin:0;background:var(--ciano);color:var(--azul)}
+.envio-atividade a{color:var(--ciano);font-weight:700;overflow-wrap:anywhere}
+.envio-atividade a:focus-visible{outline:3px solid var(--ciano);outline-offset:3px}
