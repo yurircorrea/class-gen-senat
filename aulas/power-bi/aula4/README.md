@@ -19,7 +19,7 @@ automática) e medidas entre tabelas com SUMX e RELATED.
 | Arquivo | Uso na aula |
 |---|---|
 | `material/power-bi/aula4/Parte1 - Roteiro do Professor.txt` | **Roteiro da Parte 1**, seguido na ordem nas seções 01 a 07. Não é mostrado aos alunos nem oferecido para download. |
-| `material/power-bi/aula4/Parte1 - BaseFinanceiro.xlsx` | 2.725 movimentações de 2020 e 2021 (todas as linhas em `js/dados-financeiro.js`). Para baixar em Materiais da Aula e na atividade. |
+| `material/power-bi/aula4/Parte1 - BaseFinanceiro.xlsx` | 2.725 movimentações de 2020 e 2021 (todas as linhas em `js/dados-financeiro.js`). Para baixar em Materiais da Aula. |
 | `material/power-bi/aula4/Parte1 - Imagens/*.png` | Os logotipos dos 5 bancos. Para baixar em Materiais da Aula (com cópia embutida em `js/materiais.js`, porque o navegador abre PNG em vez de baixar quando a página está em `file://`). Versões reduzidas em `img/banco-*.png` alimentam o Image Grid simulado. |
 | `material/power-bi/aula4/Parte1 - Plano de Fundo.png` | O fundo do dashboard (1280 × 720). Para baixar (também embutido); cópia em JPEG em `img/fundo-financeiro.jpg` para o simulador da seção 07. |
 | `material/power-bi/aula4/Parte1 - Gabarito.pbix` | O Dashboard Financeiro pronto. Posições, cores da rosca (`#365160`/`#F1F1F1`), texto do Data Story, fundo do Scroller e título "Lucro Mensal" foram lidos do arquivo. Para baixar. |
@@ -52,7 +52,7 @@ aparecem só dentro do dashboard simulado, porque são as do gabarito que a turm
 4. **Desvio Margem.** O roteiro termina em "Desvio da meta" e "Gráfico Scroller · Categoria -
    Município", sem a fórmula. A página usa a margem do município menos a margem geral,
    `[% Margem] - CALCULATE([% Margem], ALL(Movimentações))` (São Paulo +26,02 pp, Belo Horizonte
-   −16,13 pp), e o desafio sugere a versão com meta fixa. Confira se era essa a intenção.
+   −16,13 pp). Confira se era essa a intenção; com uma meta fixa, seria `[% Margem] - 0.30`.
 5. **Endereço de imagem do Google Drive.** O formato `https://drive.google.com/uc?id=CÓDIGO` do
    roteiro é antigo e o Google já mudou o acesso direto a arquivos mais de uma vez: teste o link
    antes da aula. A planilha usa links do imgur.com; o Image Grid precisa de internet para mostrar
@@ -72,7 +72,7 @@ aparecem só dentro do dashboard simulado, porque são as do gabarito que a turm
    menos de 45 anos Jovem, de 45 a 59 Adulto, 60 ou mais Idoso; promoção Sim para Feminino com
    filhos.
 9. **Os dados têm armadilhas de verdade**, aproveitadas na atividade:
-   - as devoluções são de 2016 a 2018 e as vendas de 2019 a 2021: a % Devolução (2,85%) mistura
+   - as devoluções são de 2016 a 2018 e as vendas de 2019 a 2021: uma % Devolução (2,85%) mistura
      períodos;
    - Salvador está no cadastro de lojas e não tem nenhuma venda;
    - a BaseDevoluções chega com 5 colunas vazias (Column5 a Column9);
@@ -150,7 +150,7 @@ Fechar e Aplicar.
 
 ## Dicas de condução (não aparecem na página)
 
-- **Links de download** (Materiais da Aula e atividade): apontam para `material/power-bi/aula4/`
+- **Links de download** (Materiais da Aula): apontam para `material/power-bi/aula4/`
   pelo caminho relativo (`../../../material/...`), então funcionam abrindo a página de dentro do
   repositório. As imagens PNG, por `file://`, saem de uma cópia embutida em `js/materiais.js`
   (carregada só no primeiro clique). Se for copiar só a pasta da aula para outro computador, leve
@@ -162,9 +162,22 @@ Fechar e Aplicar.
   R$ 44.863.840,92; Imposto R$ 14.190.430,04; Lucro R$ 35.548.595,98; % Margem 37,58%;
   2.725 movimentações, 1.200 via Pix (44,04%); melhor margem São Paulo 63,60%, pior Belo Horizonte
   21,45%. Parte 2: 71.442 itens vendidos; Lucro Total R$ 72.305.600,00; 2.037 itens devolvidos;
-  mais vendido Smart TV 50' 4K - Preto (7.762); iPhone 7 - Dourado 2.591. Desafio: Faturamento
-  R$ 156.765.700,00; % Devolução 2,85%; lucro por categoria Jovem R$ 32.317.700, Adulto
-  R$ 19.775.800, Idoso R$ 20.212.100.
+  mais vendido Smart TV 50' 4K - Preto (7.762); iPhone 7 - Dourado 2.591.
+- **Atividade: só a investigação, entregue em texto.** Cinco perguntas, respondidas por escrito
+  e numeradas de 1 a 5. Respostas esperadas (não aparecem na página):
+  1. Os **pagamentos** subiram: R$ 9,00 Mi em abril, R$ 9,68 Mi em junho e R$ 8,15 Mi em agosto,
+     contra uma média de R$ 3,74 Mi por mês. A receita desses meses (R$ 7,06 Mi, R$ 5,37 Mi e
+     R$ 5,48 Mi) fica perto da média de R$ 7,88 Mi; julho, outubro e dezembro têm receita menor e
+     não deram prejuízo. Valores somando 2020 e 2021, como na cascata.
+  2. Resposta aberta: espera-se uma pergunta sobre custos (o que pesa nos pagamentos de lá) ou
+     sobre preços e volume de recebimentos, e não só "por que vendeu menos".
+  3. Salvador não tem nenhuma venda na BaseVendas: o Lucro Total dela fica em branco, e o Power BI
+     não mostra categoria com valor em branco.
+  4. Não: as bases são de períodos diferentes, então as devoluções não são dessas vendas. Dividir
+     uma pela outra (2,85%) compara coisas de anos diferentes.
+  5. O SKU deixaria de ser único no cadastro, então não serviria mais de chave primária: a relação
+     não poderia mais ser 1 para muitos (o Power BI dá erro ao atualizar ou ao criar a relação e só
+     aceita como muitos para muitos), e a venda daquele SKU poderia contar para os dois produtos.
 - Na seção 12, comece pela Exibição de relatório (todos os produtos com 71.442) e só depois
   relacione: a mudança da tabela é o ponto da aula.
 - Os simuladores de cada seção começam com o que as seções anteriores deixaram pronto, então dá
