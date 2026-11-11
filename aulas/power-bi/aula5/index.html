@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudo de Caso: Análise Completa — Análise de Dados com Power BI · Aula 5 · SEST SENAT</title>
+<link rel="icon" href="img/simbolo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/demos.css">
+</head>
+<body data-curso="power-bi" data-aula="aula5" data-instrutor="Yuri Reis Correa" data-unidade="B086">
+
+<!-- ============================ BARRA ============================ -->
+<div class="barra">
+  <div class="barra-interna">
+    <a class="barra-marca" href="#roteiro"><img class="simbolo" src="img/simbolo.svg" alt=""> Estudo de Caso</a>
+    <nav class="barra-menu">
+      <a href="#roteiro">roteiro</a>
+      <a href="#materiais">materiais</a>
+      <a href="#caso">caso</a>
+      <a href="#conhecer">conhecer</a>
+      <a href="#diagnostico">diagnóstico</a>
+      <a href="#entregas">entregas</a>
+      <a href="#entregadores">entregadores</a>
+      <a href="#empresas">empresas</a>
+      <a href="#modelo">modelo</a>
+      <a href="#colunas">colunas</a>
+      <a href="#perguntas">perguntas</a>
+      <a href="#medidas">medidas</a>
+      <a href="#fundo">fundo</a>
+      <a href="#relatorio">relatório</a>
+      <a href="#conclusoes">conclusões</a>
+      <a href="#documento">documento</a>
+      <a href="#compartilhar">compartilhar</a>
+      <a href="#quiz">quiz</a>
+    </nav>
+  </div>
+  <div class="progresso"></div>
+</div>
+
+<!-- ============================ CAPA ============================ -->
+<header class="capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <div class="capa-meta"><span>Análise de Dados com Power BI</span><span>Aula 5</span></div>
+      <h1>Estudo de Caso: Análise Completa</h1>
+      <p class="subtitulo">Uma empresa de entregas manda a planilha. A turma devolve informação: do tratamento ao relatório compartilhado, em dois encontros</p>
+      <div class="assinatura">
+        <span class="instrutor">Yuri Reis Correa</span>
+        <span class="cargo">Instrutor de Tecnologia · Unidade B086 - Foz do Iguaçu/PR</span>
+      </div>
+    </div>
+    <div class="capa-arte" aria-hidden="true"><span class="lua lua--gelo"></span><span class="lua lua--ciano"></span></div>
+    <div class="capa-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ======================= ROTEIRO ======================= -->
+  <section class="secao" id="roteiro" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Aula</span>
+      <h2 class="secao-titulo">O que vamos fazer nestes dois encontros</h2>
+    </div>
+    <p class="secao-lead">Tudo o que vimos no curso, agora num trabalho só, do começo ao fim. A planilha é de uma empresa de entregas; a análise é nossa. Algumas análises vêm sugeridas na página, as outras a turma decide junto.</p>
+
+    <h3 class="sub-titulo" style="margin-top:0">Objetivos</h3>
+    <ol class="objetivos">
+      <li>Percorrer um fluxo de análise completo: receber, conhecer, tratar, modelar, calcular, apresentar, concluir e compartilhar.</li>
+      <li>Tratar quatro tabelas no Power Query, com comandos novos: Dividir Coluna, Substituir Valores, Somente Data e Somente Hora.</li>
+      <li>Transformar regras de negócio em colunas e medidas DAX, e discutir as decisões que os dados não respondem sozinhos.</li>
+      <li>Escolher perguntas, montar o relatório sobre um fundo feito no Canva e escrever conclusões que a empresa entende.</li>
+      <li>Documentar o processo e escolher como compartilhar o relatório.</li>
+    </ol>
+
+    <h3 class="sub-titulo">Os dois encontros</h3>
+    <div class="agenda">
+      <div class="agenda-dia">
+        <h4>Encontro 1 · Dos dados ao modelo</h4>
+        <p>Da planilha recebida a um modelo limpo, relacionado e com as regras da empresa.</p>
+        <ol>
+          <li><span>0:00</span><a href="#caso">01 O pedido do cliente</a><em>20 min</em></li>
+          <li><span>0:20</span><a href="#conhecer">02 Conhecer a planilha e as perguntas</a><em>30 min</em></li>
+          <li><span>0:50</span><a href="#diagnostico">03 Diagnóstico</a><em>20 min</em></li>
+          <li><span>1:10</span><a href="#entregas">04 Tratar Entregas</a><em>25 min</em></li>
+          <li class="pausa"><span>1:35</span>intervalo<em>15 min</em></li>
+          <li><span>1:50</span><a href="#entregadores">05 Tratar Entregadores</a><em>30 min</em></li>
+          <li><span>2:20</span><a href="#empresas">06 Empresas Clientes, com vocês</a><em>20 min</em></li>
+          <li><span>2:40</span><a href="#modelo">07 Relacionamentos</a><em>15 min</em></li>
+          <li><span>2:55</span><a href="#colunas">08 Colunas e regras da empresa</a><em>25 min</em></li>
+        </ol>
+      </div>
+      <div class="agenda-dia">
+        <h4>Encontro 2 · Do modelo à decisão</h4>
+        <p>Das perguntas da turma ao relatório pronto, às conclusões e à entrega.</p>
+        <ol>
+          <li><span>0:00</span><a href="#perguntas">09 Das perguntas às medidas</a><em>25 min</em></li>
+          <li><span>0:25</span><a href="#medidas">10 As medidas</a><em>35 min</em></li>
+          <li><span>1:00</span><a href="#fundo">11 O fundo no Canva</a><em>35 min</em></li>
+          <li class="pausa"><span>1:35</span>intervalo<em>15 min</em></li>
+          <li><span>1:50</span><a href="#relatorio">12 O relatório</a><em>40 min</em></li>
+          <li><span>2:30</span><a href="#conclusoes">13 Conclusões</a><em>20 min</em></li>
+          <li><span>2:50</span><div><a href="#documento">14 Documento</a> e <a href="#compartilhar">15 Compartilhar</a></div><em>30 min</em></li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="sub-titulo">Como ler esta página</h3>
+    <div class="legenda">
+      <div class="legenda-item"><span class="quem quem--sugerido">Sugerido</span> o caminho vem pronto na página, para todo mundo chegar no mesmo lugar.</div>
+      <div class="legenda-item"><span class="quem quem--turma">A turma decide</span> não há resposta única: a turma discute, decide e registra.</div>
+      <div class="legenda-item">Os <b>quadros tracejados</b> guardam o que a turma escreve (perguntas, decisões, conclusões) de um encontro para o outro.</div>
+      <div class="legenda-item">Power Query e Power BI são <b>simuladores</b> com as linhas reais da planilha. As tarefas se marcam sozinhas.</div>
+      <div class="legenda-item">Nesta aula não há atividade para enviar: a avaliação é a <b>participação</b> em cada etapa.</div>
+    </div>
+  </section>
+
+  <!-- ======================= MATERIAIS DA AULA ======================= -->
+  <section class="secao" id="materiais">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Materiais</span>
+      <h2 class="secao-titulo">Materiais da Aula</h2>
+    </div>
+    <p class="secao-lead">A planilha que a empresa mandou. Baixe antes de começar: é ela que vamos abrir no Power BI.</p>
+
+    <div class="materiais">
+      <div class="materiais-parte">
+      <a class="material" href="../../../material/power-bi/aula5/DadosEmpresaEntregas.xlsx" download>
+        <span class="material-capa material-capa--pbix" aria-hidden="true"><svg viewBox="0 0 24 24" class="ico-grade"><rect x="3.5" y="4" width="17" height="16" rx="1.5"/><path d="M3.5 9.3h17M3.5 14.7h17M9.2 4v16M14.8 4v16"/></svg>.xlsx</span>
+        <span class="material-texto"><b>Dados da empresa de entregas</b><span>DadosEmpresaEntregas.xlsx · 377 KB</span><small>Quatro abas: Entregadores, Veículos, Empresas Clientes e Entregas (4.598 entregas de 30/07/2024 a 30/07/2025).</small></span>
+        <span class="material-botao"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0-4.5-4.5M12 14l4.5-4.5M4 17v3h16v-3"/></svg>baixar</span>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ENCONTRO 1 ======================= -->
+  <div class="parte parte--encontro" id="encontro1">
+    <span class="parte-num">Encontro 1</span>
+    <div>
+      <h2>Dos dados ao modelo</h2>
+      <p>Receber, conhecer, diagnosticar, tratar as quatro tabelas, relacionar e criar as colunas com as regras da empresa.</p>
+      <p class="parte-tempo">01 a 08 · cerca de 3 horas</p>
+    </div>
+  </div>
+
+  <!-- ======================= 01 · O CASO ======================= -->
+  <section class="secao" id="caso" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">01</span>
+      <h2 class="secao-titulo">O pedido do cliente</h2>
+      <span class="quem quem--sugerido">Sugerido</span>
+    </div>
+    <p class="secao-lead">Uma empresa de entregas locais nos mandou uma planilha com os seus entregadores, veículos, clientes e as entregas do último ano. O pedido: importar no Power BI, tratar o que for preciso e devolver <b>informação</b>, em análises, com todo o processo documentado.</p>
+
+    <div class="lab lab--largo" data-lab="fluxo">
+      <div class="lab-controles">
+        <h4>as oito etapas de uma análise completa</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Etapa">
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="receber" checked> 1 receber</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="conhecer"> 2 conhecer</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="tratar"> 3 tratar</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="modelar"> 4 modelar</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="calcular"> 5 calcular</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="apresentar"> 6 apresentar</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="concluir"> 7 concluir</label>
+          <label><input type="radio" name="f-etapa" data-campo="etapa" value="compartilhar"> 8 compartilhar</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a etapa no projeto</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Informação, não planilha</h3><p>O cliente já tem os dados. O que ele não tem são as respostas: quanto fatura, onde, com quem, o que está em risco.</p></article>
+      <article class="cartao"><h3>Documentar tudo</h3><p>Cada tratamento, cada regra e cada análise vão para um documento. Outra pessoa precisa entender o que fizemos e por quê.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Abrir o Power BI e sair fazendo gráfico. Sem saber o que a empresa quer saber, o relatório vira uma coleção de números bonitos.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 02 · CONHECER ======================= -->
+  <section class="secao" id="conhecer">
+    <div class="secao-topo">
+      <span class="selo">02</span>
+      <h2 class="secao-titulo">Conhecer a planilha</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">Quatro abas. Antes de tratar qualquer coisa: o que cada linha representa, qual coluna identifica cada linha e como uma aba se liga à outra. Depois, as perguntas que a empresa gostaria de ver respondidas.</p>
+
+    <div class="lab lab--largo" data-lab="abas">
+      <div class="lab-controles">
+        <h4>aba da planilha</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Aba">
+          <label><input type="radio" name="a-aba" data-campo="aba" value="entregas" checked> Entregas</label>
+          <label><input type="radio" name="a-aba" data-campo="aba" value="entregadores"> Entregadores</label>
+          <label><input type="radio" name="a-aba" data-campo="aba" value="empresas"> Empresas Clientes</label>
+          <label><input type="radio" name="a-aba" data-campo="aba" value="veiculos"> Veículos</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o mapa da aba</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="quadros" style="margin-top:28px">
+      <div class="quadro" data-quadro="perguntas" data-marcavel data-vazio="Nenhuma pergunta ainda. O que a empresa gostaria de saber?">
+        <h3>Perguntas da turma <span class="quem quem--turma">A turma decide</span></h3>
+        <p>O que a empresa de entregas gostaria de saber com estes dados? Uma pergunta por linha. No encontro 2, cada pergunta vira uma medida e um visual.</p>
+        <ol data-lista></ol>
+        <form><input data-novo placeholder="Ex.: quais clientes pedem mais entregas?" aria-label="Nova pergunta"><button type="submit">Adicionar</button></form>
+      </div>
+      <div class="cartoes cartoes--coluna">
+        <article class="cartao"><h3>Perguntas sugeridas para começar</h3><p>Quantas entregas a empresa fez? Quanto faturou, com entregas e com contratos? Quanto gasta com salários? Qual é o lucro?</p></article>
+        <article class="cartao"><h3>De onde vêm as outras</h3><p>Olhe as colunas: UF, porte, entregador, data e hora, conteúdo, tipo de veículo. Cada coluna é um jeito de dividir um número.</p></article>
+        <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Pergunta que os dados não respondem, como "qual entregador é mais simpático?". Confira se existe coluna para isso.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 03 · DIAGNÓSTICO ======================= -->
+  <section class="secao" id="diagnostico">
+    <div class="secao-topo">
+      <span class="selo">03</span>
+      <h2 class="secao-titulo">Diagnóstico: o que precisa de tratamento</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">Antes de abrir o Power Query, a caça aos problemas. Cada cartão mostra um pedaço real da planilha: o que está errado ali? Discuta com a turma e clique para conferir.</p>
+
+    <div class="cacada">
+      <details class="pista"><summary><b>A aba Entregas</b><code>linhas 4.599 a 4.997: todas as células vazias</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>São <strong>399 linhas em branco</strong> no fim, que o Excel guardou por causa da formatação. O Power Query traz todas.</p><p><strong>Tratamento:</strong> Remover Linhas › Remover Linhas em Branco (seção 04).</p></div></details>
+      <details class="pista"><summary><b>Nome e sobrenome</b><code>Nome: Vinícius · Sobrenome: Nunes</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>Para mostrar no gráfico, o nome inteiro numa coluna só é melhor. E nomes repetem: há 101 nomes diferentes para 124 pessoas.</p><p><strong>Tratamento:</strong> Mesclar Colunas com espaço → Nome Completo (seção 05).</p></div></details>
+      <details class="pista"><summary><b>Telefones</b><code>+55 (35) 67205-9812</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>Os 235 telefones (entregadores e empresas) começam com <strong>+55</strong>: a informação não diferencia ninguém.</p><p><strong>Tratamento:</strong> Substituir Valores "+55 " por nada (seções 05 e 06).</p></div></details>
+      <details class="pista"><summary><b>Endereços</b><code>Conjunto Pinto, 54, Pindorama, 93208550 Brito / RR</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>Cidade e UF estão grudadas no fim do texto: não dá para fazer "faturamento por UF". E o CEP vem de dois jeitos: <strong>93208550</strong> e <strong>95666-610</strong>.</p><p><strong>Tratamento:</strong> Dividir Coluna por Delimitador, três vezes (seções 05 e 06).</p></div></details>
+      <details class="pista"><summary><b>Data e hora</b><code>Data e Hora da Entrega: 2024-10-02 18:15:20</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>Data e hora juntas. Para analisar por mês e por horário do dia, cada uma precisa da sua coluna.</p><p><strong>Tratamento:</strong> Adicionar Coluna › Data › Somente Data e Hora › Somente Hora (seção 04).</p></div></details>
+      <details class="pista"><summary><b>Nomes de coluna</b><code>Valor Final da Entrega (R$) · Porcentagem de Taxa (%)</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>O "(R$)" e o "(%)" vão aparecer em todo título de gráfico e atrapalham nas fórmulas DAX.</p><p><strong>Tratamento:</strong> renomear as colunas (seção 04). O formato de moeda fica para o Power BI.</p></div></details>
+      <details class="pista"><summary><b>A taxa de cada entrega</b><code>Porcentagem de Taxa: 11,83 · 12,12 · 5,62 · 12,07 …</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>A taxa varia de 5% a quase 15%, sem regra. A empresa cobra por <strong>porte do cliente</strong>: Pequeno 5%, Médio 8%, Grande 9,5%.</p><p><strong>Tratamento:</strong> uma coluna calculada com a regra (seção 08). É decisão de negócio, não clique.</p></div></details>
+      <details class="pista"><summary><b>Datas que não fecham</b><code>entrega em 2025, entregador demitido em 2024</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p><strong>966 entregas</strong> têm data depois da demissão do entregador, e <strong>418</strong> são de antes da assinatura do contrato do cliente. Isso não se conserta com clique.</p><p><strong>Tratamento:</strong> registrar no documento e perguntar à empresa. Não se apaga dado sem saber o motivo.</p></div></details>
+      <details class="pista"><summary><b>O período</b><code>primeira entrega: 30/07/2024 · última: 30/07/2025</code><em>o que fazer? clique para conferir</em></summary>
+        <div><p>Julho de 2024 tem só 24 entregas: o período começa no dia 30. Num gráfico por mês, ele parece um mês ruim, mas está incompleto.</p><p><strong>Tratamento:</strong> avisar no relatório ou filtrar os meses completos. A turma decide.</p></div></details>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>Tratar × decidir</h3><p>Linha em branco se remove. Entrega depois da demissão se investiga. Saber a diferença é o que separa limpeza de dado de apagar informação.</p></article>
+      <article class="cartao"><h3>Dados de exemplo</h3><p>A planilha é fictícia: nomes, CNPJs e valores foram gerados. Por isso aparecem coisas como uma Yamaha Factor cadastrada como caminhonete.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Corrigir na planilha original, no Excel. O tratamento fica no Power Query, em etapas que se repetem quando chegar a planilha do mês que vem.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 04 · TRATAR ENTREGAS ======================= -->
+  <section class="secao" id="entregas">
+    <div class="secao-topo">
+      <span class="selo">04</span>
+      <h2 class="secao-titulo">Tratar a tabela Entregas</h2>
+      <span class="quem quem--sugerido">Sugerido</span>
+    </div>
+    <p class="secao-lead">Obter dados › Excel, marque as quatro abas no Navegador e clique em Transformar Dados. A primeira consulta é Entregas: tirar as linhas em branco, separar data e hora e limpar os nomes das colunas.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Data e Hora da Entrega já chega como Data/Hora: o ícone tem calendário e relógio</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="entregas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>os passos</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Página Inicial › Remover Linhas
+  › Remover Linhas em Branco
+selecione Data e Hora da Entrega
+Adicionar Coluna › Data › Somente Data
+Adicionar Coluna › Hora › Somente Hora
+clique duplo no título: renomear
+  Data → Data da Entrega
+  Hora → Hora da Entrega
+remova Data e Hora da Entrega</pre>
+<pre class="codigo" data-lang="formula">= Table.AddColumn(#"Linhas em Branco Removidas",
+    "Data", each DateTime.Date([Data e Hora da Entrega]),
+    type date)
+= Table.AddColumn(#"Data Inserida",
+    "Hora", each DateTime.Time([Data e Hora da Entrega]),
+    type time)
+// e renomear Valor do Conteúdo (R$),
+// Valor Final da Entrega (R$) e Porcentagem de Taxa (%)</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Por que Adicionar Coluna</h3><p>Adicionar Coluna cria uma coluna nova e mantém a original até você decidir apagá-la. Transformar troca a própria coluna: sem volta, a não ser pelas Etapas Aplicadas.</p></article>
+      <article class="cartao"><h3>Hora sem data</h3><p>Com a hora separada, dá para perguntar em que horário do dia a empresa mais entrega. Com as duas juntas, cada valor é único e não agrupa.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Se a coluna ficar como texto, o menu Data fica cinza. Aí o caminho é Dividir Coluna pelo espaço e acertar o tipo de cada parte.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 05 · TRATAR ENTREGADORES ======================= -->
+  <section class="secao" id="entregadores">
+    <div class="secao-topo">
+      <span class="selo">05</span>
+      <h2 class="secao-titulo">Tratar Entregadores: nome, telefone e endereço</h2>
+      <span class="quem quem--sugerido">Sugerido</span>
+    </div>
+    <p class="secao-lead">Três comandos para três problemas: Mesclar Colunas junta o nome, Substituir Valores tira o +55 e Dividir Coluna por Delimitador separa o endereço em pedaços, do fim para o começo.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Dividir Coluna fica em Página Inicial e em Transformar; o delimitador personalizado aceita espaços</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="entregadores"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>o endereço, de trás para a frente</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Conjunto Pinto, 54, Pindorama, 93208550 Brito / RR
+
+1. Endereço, delimitador " / ", mais à direita
+   Endereço.1  Conjunto Pinto, 54, Pindorama, 93208550 Brito
+   Endereço.2  RR                          → renomear UF
+2. Endereço.1, delimitador ", ", mais à direita
+   Endereço.1.1  Conjunto Pinto, 54, Pindorama
+   Endereço.1.2  93208550 Brito
+3. Endereço.1.2, delimitador " ", mais à esquerda
+   Endereço.1.2.1  93208550   → renomear CEP
+   Endereço.1.2.2  Brito      → renomear Cidade</pre>
+<pre class="codigo" data-lang="formula">= Table.SplitColumn(#"Valor Substituído", "Endereço",
+    Splitter.SplitTextByEachDelimiter({" / "},
+      QuoteStyle.Csv, true),
+    {"Endereço.1", "Endereço.2"})
+// true = delimitador mais à direita
+// depois de cada divisão, o Power Query
+// acrescenta sozinho uma etapa Tipo Alterado
+
+= Table.ReplaceValue(#"Colunas Mescladas",
+    "+55 ", "", Replacer.ReplaceText, {"Telefone"})</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Por que pela direita</h3><p>O começo do endereço muda (às vezes tem bairro, às vezes não), mas o fim é sempre "CEP Cidade / UF". Cortar pelo delimitador mais à direita é seguro.</p></article>
+      <article class="cartao"><h3>Cidade com espaço</h3><p>"Castro das Flores" tem espaços. Por isso o último corte é no espaço mais à esquerda: separa o CEP e deixa a cidade inteira.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Substituir "+55" sem o espaço: o telefone fica " (35) 67205-9812", com um espaço na frente que ninguém vê e que atrapalha a comparação.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 06 · EMPRESAS ======================= -->
+  <section class="secao" id="empresas">
+    <div class="secao-topo">
+      <span class="selo">06</span>
+      <h2 class="secao-titulo">Empresas Clientes: agora é com vocês</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">Os mesmos problemas da tabela anterior: telefone com +55 e endereço com cidade e UF grudadas. Sem passo a passo desta vez: a turma diz o comando, o delimitador e o lado.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>a coluna de telefone aqui se chama Telefone de Contato</code></div>
+        <div class="preview-corpo"><div class="pq-sim" data-pq="empresas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>a tabela antes e as perguntas para a turma</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">CNPJ             26.503.971/0001-48
+Razão Social     Pacheco Pacheco Ltda. S/A
+Endereço         Jardim de Mendonça, 19, Juliana,
+                 25564729 Sales de Barros / RN
+Telefone de Contato  +55 (99) 85307-2483
+Porte            Médio</pre>
+<pre class="codigo" data-lang="texto">qual comando tira o +55?
+qual delimitador separa a UF? de que lado?
+e a cidade, que vem depois do CEP?
+o que sobra na coluna Endereço?
+os nomes novos: UF, Cidade, CEP</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Mesma receita</h3><p>Dados parecidos pedem o mesmo tratamento. Num projeto real, o mesmo jeito de tratar endereço em todas as tabelas facilita juntar tudo depois.</p></article>
+      <article class="cartao"><h3>Veículos</h3><p>A quarta aba já chega limpa: nenhuma coluna para dividir ou substituir. Confira a qualidade das colunas e feche.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Esquecer de renomear: "Endereço.2" no gráfico não diz nada para a empresa. O nome da coluna é o rótulo que o cliente vai ler.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 07 · MODELO ======================= -->
+  <section class="secao" id="modelo">
+    <div class="secao-topo">
+      <span class="selo">07</span>
+      <h2 class="secao-titulo">Relacionamentos: a entrega no centro</h2>
+      <span class="quem quem--sugerido">Sugerido</span>
+    </div>
+    <p class="secao-lead">Entregas é a tabela de fatos: cada linha aponta para um entregador, uma empresa e um veículo. Três relações 1 para muitos, e nenhuma com o mesmo nome dos dois lados.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>arraste a coluna de Entregas até a chave da outra tabela; o terceiro ícone à esquerda é a Exibição de modelo</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="modelo"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as três relações</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">Entregas[CPF do Entregador]   * → 1  Entregadores[CPF]
+Entregas[CNPJ do Solicitante] * → 1  Empresas Clientes[CNPJ]
+Entregas[Placa do Veículo]    * → 1  Veículos[Placa]</pre>
+<pre class="codigo" data-lang="texto">Detecção automática: nenhuma relação
+  procura colunas com o mesmo nome e valores
+  em comum. CPF × CPF do Entregador: nomes
+  diferentes. Endereço × Endereço: mesmo nome,
+  mas nenhum valor igual.</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Esquema estrela</h3><p>Uma tabela de fatos no meio e os cadastros em volta. É o desenho mais comum de um modelo no Power BI.</p></article>
+      <article class="cartao"><h3>O filtro anda para um lado</h3><p>Do cadastro (1) para Entregas (*). Escolher uma UF filtra as entregas; escolher um mês não filtra os salários dos entregadores.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Ligar Entregadores a Empresas pela coluna UF: as duas repetem a UF, e a relação seria muitos para muitos, sem sentido para o negócio.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 08 · COLUNAS ======================= -->
+  <section class="secao" id="colunas">
+    <div class="secao-topo">
+      <span class="selo">08</span>
+      <h2 class="secao-titulo">Colunas calculadas: as regras da empresa</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">A empresa explicou duas regras. A manutenção do veículo deve ser feita em breve quando faltam 10.000 km ou menos para a revisão. A taxa da entrega depende do porte do cliente: Pequeno 5%, Médio 8%, Grande 9,5%. A primeira é conta; a segunda tem uma dúvida.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique na tabela no painel Dados antes de Nova coluna: a coluna nasce nela</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="colunas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as duas regras em DAX</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">// Veículos
+Manutenção em Breve =
+IF(
+    Veículos[Quilometragem da Próxima Revisão]
+        - Veículos[Quilometragem rodada] &lt;= 10000,
+    "Sim", "Não"
+)</pre>
+<pre class="codigo" data-lang="formula">// Entregas: o porte está em Empresas Clientes
+Taxa por Porte =
+SWITCH(
+    RELATED('Empresas Clientes'[Porte]),
+    "Pequeno", 0.05,
+    "Médio", 0.08,
+    "Grande", 0.095
+)
+// SWITCH compara o valor com cada opção, em ordem</pre>
+        </div>
+      </figure>
+    </div>
+
+    <h3 class="sub-titulo">A dúvida: a taxa incide sobre o quê?</h3>
+    <p class="secao-lead" style="margin-top:0">"Aplica-se taxa de 5% em cada entrega realizada." Sobre o preço da entrega? Sobre o valor da mercadoria? Ou a taxa é tudo o que a empresa fica? Cada leitura dá um faturamento diferente. A turma escolhe e registra a decisão.</p>
+    <div class="lab lab--largo" data-lab="taxa">
+      <div class="lab-controles">
+        <h4>leitura da regra</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Regra">
+          <label><input type="radio" name="t-regra" data-campo="regra" value="a" checked> sobre o valor da entrega</label>
+          <label><input type="radio" name="t-regra" data-campo="regra" value="b"> sobre o valor do conteúdo</label>
+          <label><input type="radio" name="t-regra" data-campo="regra" value="c"> só a taxa é da empresa</label>
+        </div>
+        <h4>entrega de exemplo</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Entrega">
+          <label><input type="radio" name="t-ex" data-campo="exemplo" value="0" checked> ENT00001 · Pequeno</label>
+          <label><input type="radio" name="t-ex" data-campo="exemplo" value="8"> ENT00009 · Médio</label>
+          <label><input type="radio" name="t-ex" data-campo="exemplo" value="2"> ENT00003 · Grande</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">a coluna Faturamento da Entrega</p><pre data-saida data-lang="formula"></pre></div>
+      </div>
+    </div>
+
+    <div class="quadros" style="margin-top:28px">
+      <div class="quadro" data-quadro="decisoes" data-vazio="Nenhuma decisão registrada ainda.">
+        <h3>Decisões da turma <span class="quem quem--turma">A turma decide</span></h3>
+        <p>Toda escolha que muda um número entra aqui: a leitura da taxa, o que fazer com as entregas depois da demissão, os meses incompletos.</p>
+        <ol data-lista></ol>
+        <form><input data-novo placeholder="Ex.: a taxa incide sobre o valor da entrega, porque…" aria-label="Nova decisão"><button type="submit">Registrar</button></form>
+      </div>
+      <div class="cartoes cartoes--coluna">
+        <article class="cartao"><h3>Nesta página</h3><p>Os laboratórios seguintes usam a primeira leitura (taxa sobre o valor da entrega). Se a turma escolher outra, os valores no Power BI de vocês serão outros, e está tudo bem: o que importa é estar registrado.</p></article>
+        <article class="cartao"><h3>Quem decide de verdade</h3><p>Num projeto real, a dúvida vai por escrito para o cliente. A análise não inventa regra de negócio.</p></article>
+        <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Taxa em número inteiro: <code>"Pequeno", 5</code> multiplica o valor por 6. Em DAX, 5% se escreve 0.05.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ENCONTRO 2 ======================= -->
+  <div class="parte parte--encontro" id="encontro2">
+    <span class="parte-num">Encontro 2</span>
+    <div>
+      <h2>Do modelo à decisão</h2>
+      <p>As perguntas da turma viram medidas e visuais; o relatório ganha fundo, conclusões, documento e um jeito de chegar ao cliente.</p>
+      <p class="parte-tempo">09 a 15 · cerca de 3 horas</p>
+    </div>
+  </div>
+
+  <!-- ======================= 09 · PERGUNTAS ======================= -->
+  <section class="secao" id="perguntas" style="border-top:none">
+    <div class="secao-topo">
+      <span class="selo">09</span>
+      <h2 class="secao-titulo">Das perguntas às medidas</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">As perguntas do encontro 1 estão de volta. Cada uma vira três coisas: uma medida (o número), um eixo (como dividir o número) e um visual. O gerador abaixo mostra como uma medida e uma coluna formam uma pergunta, e quando o modelo não consegue respondê-la.</p>
+
+    <div class="lab lab--largo" data-lab="perguntas">
+      <div class="lab-controles">
+        <h4>o número</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Medida">
+          <label><input type="radio" name="p-med" data-campo="medida" value="faturamento" checked> faturamento das entregas</label>
+          <label><input type="radio" name="p-med" data-campo="medida" value="quantidade"> número de entregas</label>
+          <label><input type="radio" name="p-med" data-campo="medida" value="ticket"> faturamento médio</label>
+          <label><input type="radio" name="p-med" data-campo="medida" value="contratos"> contratos</label>
+          <label><input type="radio" name="p-med" data-campo="medida" value="salarios"> salários</label>
+        </div>
+        <h4>dividido por</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Dimensão">
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="uf" checked> UF do cliente</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="porte"> porte</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="entregador"> entregador</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="mes"> mês</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="hora"> hora do dia</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="conteudo"> conteúdo</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="veiculo"> tipo de veículo</label>
+          <label><input type="radio" name="p-dim" data-campo="dimensao" value="manutencao"> manutenção em breve</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">pergunta, medida, eixo e visual</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="quadros" style="margin-top:28px">
+      <div class="quadro" data-quadro="perguntas" data-marcavel data-vazio="Nenhuma pergunta registrada no encontro 1. Comece agora.">
+        <h3>Perguntas da turma <span class="quem quem--turma">A turma decide</span></h3>
+        <p>Marque ✓ as perguntas que já têm medida e visual no relatório. As que ficarem sem ✓ vão para o documento como próximos passos.</p>
+        <ol data-lista></ol>
+        <form><input data-novo placeholder="Mais uma pergunta" aria-label="Nova pergunta"><button type="submit">Adicionar</button></form>
+      </div>
+      <div class="cartoes cartoes--coluna">
+        <article class="cartao"><h3>Uma pergunta, um visual</h3><p>Se um gráfico tenta responder duas perguntas, não responde nenhuma. Divida.</p></article>
+        <article class="cartao"><h3>Escolha as melhores</h3><p>O fundo tem espaço para uns doze visuais. Entre as perguntas da turma, quais ajudam a empresa a decidir alguma coisa?</p></article>
+        <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Salários por porte do cliente: o filtro de Empresas Clientes não chega a Entregadores. O cartão mostra o mesmo total em todas as barras.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 10 · MEDIDAS ======================= -->
+  <section class="secao" id="medidas">
+    <div class="secao-topo">
+      <span class="selo">10</span>
+      <h2 class="secao-titulo">As medidas que sustentam o relatório</h2>
+      <span class="quem quem--sugerido">Sugerido</span>
+    </div>
+    <p class="secao-lead">Seis medidas respondem às perguntas sugeridas: quantas entregas, quanto faturaram as entregas e os contratos, quanto se gasta com salários e o lucro. Cada uma na tabela de onde vem o número, formatada em Moeda e com o valor inteiro no cartão.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>Nova medida, escreva e tecle Enter; depois selecione o cartão e marque a medida</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="medidas"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>as seis medidas</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="formula">Total de Entregas = COUNTROWS(Entregas)
+
+Faturamento Entregas =
+    SUM(Entregas[Faturamento da Entrega])
+
+Faturamento com Contratos =
+    SUM('Empresas Clientes'[Valor mensal do contrato])
+
+Faturamento Total =
+    [Faturamento Entregas] + [Faturamento com Contratos]</pre>
+<pre class="codigo" data-lang="formula">Despesa com Salários =
+    SUM(Entregadores[Salário Mensal])
+
+Lucro = [Faturamento Total] - [Despesa com Salários]
+
+// cartão: Formatar visual › Valor do balão
+//   › Unidades de exibição: Nenhum
+// R$ 651.204,58 em vez de R$ 651,20 Mil</pre>
+        </div>
+      </figure>
+    </div>
+
+    <h3 class="sub-titulo">Para discutir antes de confiar no Lucro</h3>
+    <div class="cartoes">
+      <article class="cartao"><h3>Um mês ou um ano?</h3><p>As entregas cobrem um ano inteiro. "Valor mensal do contrato" e "Salário Mensal" são de um mês. Somar tudo junto mistura um ano de entregas com um mês de contratos e salários. Como a turma resolve?</p></article>
+      <article class="cartao"><h3>Quem ainda trabalha?</h3><p>34 dos 124 entregadores têm data de demissão. A soma dos salários com eles é R$ 317.315,90; só com os 90 ativos, R$ 231.068,30. Qual entra na despesa?</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Escolher um mês na segmentação e achar que o lucro do mês apareceu: o filtro de data chega às entregas, mas não aos contratos nem aos salários.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 11 · FUNDO ======================= -->
+  <section class="secao" id="fundo">
+    <div class="secao-topo">
+      <span class="selo">11</span>
+      <h2 class="secao-titulo">O fundo do relatório no Canva</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">O fundo dá a cara do relatório e reserva o lugar de cada visual. A turma desenha o próprio no Canva, juntos. O da turma anterior está aqui como referência: título, caixas para os cartões, espaços grandes para os gráficos e os logotipos.</p>
+
+    <div class="dupla">
+      <figure class="fundo-ref">
+        <img src="img/fundo-exemplo.jpg" alt="Fundo de exemplo: título Análise Empresa de Entregas, caixas arredondadas para cartões e gráficos sobre degradê azul, logotipos SEST SENAT no canto">
+        <figcaption>Referência: o fundo feito pela turma anterior (1920 × 1080, exportado em PNG).</figcaption>
+      </figure>
+      <figure class="painel-codigo">
+        <figcaption>do Canva ao Power BI</figcaption>
+<pre class="codigo" data-lang="texto">Canva
+  Criar design › Tamanho personalizado
+    1920 × 1080 px (ou 1280 × 720: a mesma proporção 16:9)
+  fundo, título e caixas com cantos arredondados
+  deixe espaço entre as caixas: o visual tem margem
+  Compartilhar › Baixar › PNG
+
+Power BI
+  Formatar página › Tela de fundo
+    Imagem: o PNG do Canva
+    Ajuste da imagem: Ajustar
+    Transparência: 0%
+  em cada visual: Tela de fundo › Desativado</pre>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Planeje pelas perguntas</h3><p>Conte os visuais antes de desenhar: quantos cartões, quantos gráficos grandes. A caixa nasce do tamanho da resposta.</p></article>
+      <article class="cartao"><h3>Contraste</h3><p>Texto branco pede fundo escuro; cores fortes nas caixas brigam com as cores dos gráficos. Caixas discretas deixam os números aparecerem.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Exportar em 1080 × 1080 ou em outra proporção: a imagem estica na página 16:9 do Power BI e as caixas saem do lugar.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 12 · RELATÓRIO ======================= -->
+  <section class="secao" id="relatorio">
+    <div class="secao-topo">
+      <span class="selo">12</span>
+      <h2 class="secao-titulo">O relatório: os espaços vazios são da turma</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">Os cartões das medidas sugeridas já estão no lugar. Os espaços vazios esperam as análises da turma: escolha o espaço, o tipo de visual e os campos. As medidas e as colunas estão todas no painel Dados.</p>
+
+    <div class="pilha">
+      <div class="preview">
+        <div class="preview-topo"><span class="preview-selo">preview</span><code>clique num espaço vazio, escolha o visual em Visualizações e marque os campos em Dados</code></div>
+        <div class="preview-corpo"><div class="pbi-sim" data-sim="relatorio"></div></div>
+      </div>
+      <figure class="painel-codigo">
+        <figcaption>pistas para os espaços vazios</figcaption>
+        <div class="pre-duplo">
+<pre class="codigo" data-lang="texto">em cima, à esquerda: segmentação de dados
+  Entregas[Data da Entrega] › Ano e Mês
+espaço grande de baixo: um gráfico de colunas
+  ou de barras com uma coluna de cadastro no eixo
+espaço do meio, à direita: um ranking
+  barras + Filtros neste visual › N superior
+faixa de baixo, à direita: um gráfico por porte</pre>
+<pre class="codigo" data-lang="texto">gráfico sem título no fundo escuro:
+  Formatar visual › Título
+remover o eixo e mostrar o valor:
+  Eixo X: Desativado · Rótulos de dados: Ativado
+N superior: Filtros neste visual
+  › Tipo de filtro: N superior
+  › Mostrar itens: Em cima 3
+  › Por valor: a medida</pre>
+        </div>
+      </figure>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Cada espaço, uma pergunta</h3><p>Antes de clicar num visual, diga em voz alta a pergunta que ele responde. Se não der, o espaço fica para outra análise.</p></article>
+      <article class="cartao"><h3>Teste o filtro</h3><p>Escolha um mês na segmentação e veja o que muda. Os cartões que não mudam contam uma história sobre o modelo.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Um gráfico de barras com os 124 entregadores: ninguém lê. Ranking pede N superior; o resto vai numa tabela.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 13 · CONCLUSÕES ======================= -->
+  <section class="secao" id="conclusoes">
+    <div class="secao-topo">
+      <span class="selo">13</span>
+      <h2 class="secao-titulo">Dos números às conclusões</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">O relatório mostra; a conclusão explica. Uma boa conclusão tem três partes: o que vimos, o que significa para a empresa e o que recomendamos. Um exemplo com a coluna de manutenção, e o resto é da turma.</p>
+
+    <div class="dupla">
+      <figure class="painel-codigo">
+        <figcaption>uma conclusão em três partes</figcaption>
+<pre class="codigo" data-lang="texto">o que vimos
+  111 dos 223 veículos (quase metade) estão
+  a 10.000 km ou menos da próxima revisão
+
+o que significa
+  se todos pararem para revisão ao mesmo tempo,
+  falta veículo para as entregas
+
+o que recomendamos
+  agendar as revisões em lotes, começando
+  pelos que estão mais perto do limite</pre>
+      </figure>
+      <div class="quadro" data-quadro="conclusoes" data-vazio="Nenhuma conclusão ainda. O que o relatório mostra?">
+        <h3>Conclusões da turma <span class="quem quem--turma">A turma decide</span></h3>
+        <p>Uma conclusão por linha: o que vimos, o que significa e o que recomendamos.</p>
+        <ol data-lista></ol>
+        <form><input data-novo placeholder="Ex.: as entregas se concentram em… por isso…" aria-label="Nova conclusão"><button type="submit">Adicionar</button></form>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Número com contexto</h3><p>"R$ 186 mil" sozinho não diz nada. Comparado com quê? Com o mês anterior, com outra UF, com o salário?</p></article>
+      <article class="cartao"><h3>Diga o que os dados não mostram</h3><p>Entregas depois da demissão, meses incompletos, contratos mensais: uma conclusão honesta cita os limites.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Concluir causa a partir de coincidência: "a UF X fatura mais porque tem melhores entregadores". Os dados mostram onde, não por quê.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 14 · DOCUMENTO ======================= -->
+  <section class="secao" id="documento">
+    <div class="secao-topo">
+      <span class="selo">14</span>
+      <h2 class="secao-titulo">Documentar o processo</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">O cliente pediu o processo documentado. O documento junta o que a turma fez nas quatro partes abaixo e o que está nos quadros (perguntas, decisões e conclusões). No fim, baixe em .txt.</p>
+
+    <div class="documento" data-documento>
+      <div class="documento-partes">
+        <label>Tratamentos de dados
+          <textarea data-parte="tratamentos" data-titulo="Tratamentos de Dados" spellcheck="false">	- Foram removidas as linhas em branco da tabela Entregas
+	- Entregas: separadas a Data e a Hora da Entrega; renomeadas as colunas de valores (sem R$ e %)
+	- Entregadores: mescladas Nome e Sobrenome em Nome Completo; removido o +55 do Telefone; separados do Endereço o CEP, a Cidade e a UF
+	- Empresas Clientes: removido o +55 do Telefone de Contato; separados do Endereço o CEP, a Cidade e a UF</textarea></label>
+        <label>Colunas calculadas
+          <textarea data-parte="colunas" data-titulo="Colunas Calculadas" spellcheck="false">	- Manutenção em Breve (Veículos): Sim quando faltam 10.000 km ou menos para a próxima revisão
+	- Taxa por Porte (Entregas): Pequeno 5%, Médio 8%, Grande 9,5%
+	- Faturamento da Entrega (Entregas): </textarea></label>
+        <label>Relacionamentos
+          <textarea data-parte="relacionamentos" data-titulo="Relacionamentos" spellcheck="false">	- Entregas > Entregadores (Entregas.CPF do Entregador; Entregadores.CPF)
+	- Entregas > Empresas Clientes (Entregas.CNPJ do Solicitante; Empresas Clientes.CNPJ)
+	- Entregas > Veículos (Entregas.Placa do Veículo; Veículos.Placa)</textarea></label>
+        <label>Análises (pergunta · medida · visual)
+          <textarea data-parte="analises" data-titulo="Análises" spellcheck="false">	1 - Qual foi o total de entregas? Medida: COUNTROWS(Entregas). Visual: Cartão
+	2 - </textarea></label>
+      </div>
+      <div class="documento-previa">
+        <p>prévia do documento</p>
+        <pre data-previa></pre>
+        <div class="documento-botoes"><button type="button" data-baixar-doc>Baixar documento (.txt)</button></div>
+      </div>
+    </div>
+
+    <div class="cartoes">
+      <article class="cartao"><h3>Para quem é</h3><p>Para o cliente e para quem pegar o projeto depois. Escreva como se a pessoa não tivesse visto a aula.</p></article>
+      <article class="cartao"><h3>Fica guardado</h3><p>Os campos e os quadros ficam salvos neste navegador, neste computador, até alguém apagar. Baixe o .txt no fim para não depender disso.</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Documentar só o "como" e esquecer o "por quê": "taxa sobre o valor da entrega" sem dizer que foi uma decisão da turma vira regra inventada.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= 15 · COMPARTILHAR ======================= -->
+  <section class="secao" id="compartilhar">
+    <div class="secao-topo">
+      <span class="selo">15</span>
+      <h2 class="secao-titulo">Compartilhar o relatório</h2>
+      <span class="quem quem--turma">A turma decide</span>
+    </div>
+    <p class="secao-lead">O relatório pronto precisa chegar a quem decide. O jeito certo depende de quem recebe, do que a pessoa vai fazer com ele e de que dados ele mostra.</p>
+
+    <div class="lab lab--largo" data-lab="compartilhar">
+      <div class="lab-controles">
+        <h4>quem vai receber</h4>
+        <div class="lab-opcoes" role="radiogroup" aria-label="Situação">
+          <label><input type="radio" name="c-canal" data-campo="canal" value="gestor" checked> o gestor, sempre atualizado</label>
+          <label><input type="radio" name="c-canal" data-campo="canal" value="reuniao"> uma reunião</label>
+          <label><input type="radio" name="c-canal" data-campo="canal" value="analista"> outro analista</label>
+          <label><input type="radio" name="c-canal" data-campo="canal" value="publico"> um site aberto</label>
+        </div>
+      </div>
+      <div class="lab-saida">
+        <div class="lab-palco" data-palco></div>
+        <div class="lab-codigo"><p class="lab-codigo-titulo">o caminho</p><pre data-saida data-lang="texto"></pre></div>
+      </div>
+    </div>
+
+    <div class="cartoes" style="margin-top:28px">
+      <article class="cartao"><h3>O pacote completo</h3><p>Relatório e documento andam juntos. O cliente precisa dos números e das decisões que estão por trás deles.</p></article>
+      <article class="cartao"><h3>Dados de pessoas</h3><p>CPF, telefone e salário são dados pessoais. Antes de compartilhar, pergunte: quem recebe precisa ver isso?</p></article>
+      <article class="cartao cartao--erro"><h3>Armadilha</h3><p>Publicar na Web para "mandar o link ao chefe": o link fica aberto para qualquer pessoa na internet, com todos os dados.</p></article>
+    </div>
+  </section>
+
+  <!-- ======================= QUIZ ======================= -->
+  <section class="secao" id="quiz">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Quiz</span>
+      <h2 class="secao-titulo">Revisão do fluxo</h2>
+    </div>
+    <p class="secao-lead">Uma pergunta por etapa. Responda em voz alta; um clique mostra a resposta certa e o porquê.</p>
+
+    <div class="quiz quiz--duplo" data-quiz>
+      <p class="quiz-placar" data-placar></p>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">A planilha chegou. Qual é o primeiro passo?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Montar os gráficos para ver o que aparece</button>
+          <button type="button" data-opcao="b">Entender o pedido e o que cada aba e cada linha representam</button>
+          <button type="button" data-opcao="c">Apagar as linhas estranhas no Excel</button>
+        </div>
+        <p class="quiz-explica">Sem saber o que a empresa quer e como os dados se organizam, o resto é tentativa.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">"Conjunto Pinto, 54, Pindorama, 93208550 Brito / RR". Como tirar a UF?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Mesclar Colunas</button>
+          <button type="button" data-opcao="b">Substituir Valores</button>
+          <button type="button" data-opcao="c">Dividir Coluna por " / ", delimitador mais à direita</button>
+        </div>
+        <p class="quiz-explica">O fim do endereço é sempre "/ UF". Dividir pela direita separa a UF numa coluna própria.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">966 entregas têm data depois da demissão do entregador. O que fazer?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Registrar no documento e perguntar à empresa</button>
+          <button type="button" data-opcao="b">Apagar essas entregas no Power Query</button>
+          <button type="button" data-opcao="c">Trocar a data de demissão</button>
+        </div>
+        <p class="quiz-explica">Não se apaga nem se corrige dado sem saber o motivo. Pode ser erro de cadastro, pode ser outra coisa.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Por que a Detecção automática não ligou Entregas a Entregadores?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Porque os CPFs não batem</button>
+          <button type="button" data-opcao="b">Porque as colunas têm nomes diferentes: CPF do Entregador e CPF</button>
+          <button type="button" data-opcao="c">Porque a relação seria 1 para 1</button>
+        </div>
+        <p class="quiz-explica">Ela procura o mesmo nome com valores em comum. Os valores batem; os nomes, não. Essa se faz à mão.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">Na coluna Taxa por Porte, por que RELATED?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Para somar as taxas</button>
+          <button type="button" data-opcao="b">Porque SWITCH só funciona com RELATED</button>
+          <button type="button" data-opcao="c">Porque o porte está em Empresas Clientes, e a coluna é de Entregas</button>
+        </div>
+        <p class="quiz-explica">RELATED busca, pela relação, o valor do lado 1 para a linha de Entregas que está sendo calculada.</p>
+      </div>
+      <div class="quiz-item" data-resposta="a">
+        <p class="quiz-pergunta">Ao escolher um mês na segmentação, a Despesa com Salários não muda. Por quê?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O filtro de data está em Entregas e não chega a Entregadores</button>
+          <button type="button" data-opcao="b">A medida está errada</button>
+          <button type="button" data-opcao="c">Os salários são iguais todo mês</button>
+        </div>
+        <p class="quiz-explica">O filtro anda do lado 1 para o lado *. Entregadores é o lado 1: o filtro de Entregas não volta para lá.</p>
+      </div>
+      <div class="quiz-item" data-resposta="b">
+        <p class="quiz-pergunta">Qual é a melhor conclusão?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">O faturamento é de R$ 837 mil</button>
+          <button type="button" data-opcao="b">Quase metade da frota precisa de revisão em breve: escalonar as revisões evita veículo parado</button>
+          <button type="button" data-opcao="c">O gráfico de colunas ficou bonito</button>
+        </div>
+        <p class="quiz-explica">Conclusão tem o que vimos, o que significa e o que fazer. Número solto é só o começo.</p>
+      </div>
+      <div class="quiz-item" data-resposta="c">
+        <p class="quiz-pergunta">O gestor quer acompanhar o relatório no celular, sempre atualizado. Como compartilhar?</p>
+        <div class="quiz-opcoes">
+          <button type="button" data-opcao="a">Publicar na Web (público)</button>
+          <button type="button" data-opcao="b">Exportar para PDF toda semana</button>
+          <button type="button" data-opcao="c">Publicar no serviço do Power BI e compartilhar com ele</button>
+        </div>
+        <p class="quiz-explica">O serviço mantém o relatório interativo e com acesso controlado. Publicar na Web deixa tudo aberto para qualquer pessoa.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= FECHAMENTO (sem atividade para enviar) ======================= -->
+<section class="secao atividade" id="fechamento">
+  <div class="wrap">
+    <div class="secao-topo">
+      <span class="selo selo--escuro">Avaliação</span>
+      <h2 class="secao-titulo">Nesta aula, o trabalho é a participação</h2>
+    </div>
+    <p class="secao-lead">Não há atividade para enviar. A avaliação acontece durante os dois encontros, em cada etapa do estudo de caso.</p>
+
+    <div class="fechamento">
+      <article class="cartao"><h3>Perguntar</h3><p>Trazer perguntas para a empresa, apontar problemas no diagnóstico e dizer o comando antes de ele ser feito.</p></article>
+      <article class="cartao"><h3>Decidir</h3><p>Defender uma leitura da regra da taxa, escolher as análises do relatório e os visuais de cada espaço.</p></article>
+      <article class="cartao"><h3>Concluir</h3><p>Escrever conclusões com o que vimos, o que significa e o que recomendamos, e ajudar a fechar o documento.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="rodape-interna">
+    <div>
+      <h2>Bom trabalho!</h2>
+      <p>Na próxima aula, começa o projeto do curso. Não esqueça de assinar a lista de presença!</p>
+      <div class="rodape-meta">Análise de Dados com Power BI · Aula 5 — Yuri Reis Correa, Instrutor de Tecnologia<br>SEST SENAT · Unidade B086 - Foz do Iguaçu/PR</div>
+    </div>
+    <div class="rodape-marcas">
+      <img src="img/logo-sest-senat-branco.png" alt="SEST SENAT">
+      <img src="img/logo-sistema-transporte-branco.png" alt="CNT / SEST SENAT / ITL — Sistema Transporte">
+    </div>
+  </div>
+</footer>
+
+<button class="voltar-topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<script src="js/dados-entregas.js"></script>
+<script src="js/pq.js"></script>
+<script src="js/pbi.js"></script>
+<script src="js/aula.js"></script>
+</body>
+</html>
