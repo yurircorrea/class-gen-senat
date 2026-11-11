@@ -1,0 +1,67 @@
+Análise de Dados para Empresa de Entregas
+
+Tratamentos de Dados:
+	- Foram removidas linhas e colunas em branco
+	- Tabela Entregadores:
+		- Foram mescladas as colunas 'Nome' e 'Sobrenome', formando a coluna 'Nome Completo'
+		- Foi removido o prefixo de país na coluna 'Telefone', por serem todos iguais
+		- Foram separados do 'Endereço' a cidade e a UF
+	- Tabela Empresas: 
+		- Foram separados do 'Endereço' a cidade e a UF
+		- Foi removido o prefixo de país na coluna 'Telefone', por serem todos iguais
+	- Tabela Entregas
+		- Foram separadas a Data e a Hora da Entrega
+		- Foram renomeadas as colunas de valores (removido o R$)
+
+Colunas Calculadas:
+	- Foi adicionada coluna para identificar se o veículo precisa de manutenção em breve. Regra: Se a diferença entre a quilometragem da próx. revisão e a quilometragem rodada for menor ou igual a 10.000 Km, a manutenção DEVE ser feita em breve.
+	- Foi modificada a coluna de taxa da entrega para considerar o porte da empresa solicitante. Regra: Se a empresa solicitante tiver porte pequeno, aplica-se taxa de 5%, em cada entrega realizada. Se a empresa tiver porte médio, a taxa é de 8%, se a empresa tiver porte grande, a taxa será de 9,5%
+	- Foram calculados os faturamentos de cada entrega, considerando a taxa cobrada
+
+
+Relacionamentos:
+	- Entregas > Entregadores (Entregadores.CPF; Entregas.CPF do Entregador);
+	- Entregas > Empresas Clientes (Empresas Cliente.CNPJ; Entregas. CNPJ do Solicitante);
+	- Entregas > Veículos (Veículos.Placa; Entregas. Placa do Veículo);
+
+
+Análises:
+	1 - Qual foi o total de entregas que a empresa fez?
+		Medida: COUNTROWS para contar o número de linhas da planilha.
+		Visual: Cartão
+
+	2 - Quanto foi faturado no total? (Entregas + Contratos)
+		Medida: Faturamento com Contratos + Faturamento com Entregas. Formatada em Moeda (R$)
+		Visual: Cartão, com formatação para não agrupar unidades
+
+	3 - Qual foi a despesa total com salários de entregadores?
+		Medida: SUM(Salários Entregadores). Formatada em Moeda (R$)
+		Visual: Cartão, com formatação para não agrupar unidades
+
+	4 - Qual foi o lucro total?
+		Medida: Receita - Despesa. Formatada em Moeda (R$)
+		Visual: Cartão, com formatação para não agrupar unidades
+
+	5 - Quanto foi faturado com todas as entregas? (Soma e Média)
+		Medida (Soma): SUM na coluna Faturamento das Entregas. Formatada em Moeda (R$)
+		Visual: Cartão, com formatação para não agrupar unidades
+
+	6 - Quanto foi faturado com os contratos? (Soma e Média)
+		Medida (Soma): SUM na coluna Valor Mensal do Contrato na tabela Empresa Clientes. Formatada em Moeda (R$)
+		Visual Cartão, com formatação para não agrupar unidades
+
+	7 - Qual foi a Receita por UF?
+		Medida: N/A
+		Visual: Gráfico de colunas, removido o Eixo X, adicionado rótulo de valores.
+
+	8 - Qual foi o top 3 Entregadores com mais receita:
+		Medida: N/A
+		Visual: Gráfico de Barras, com filtro N Superior no nome do entregador, por faturamento (Entregas).
+
+	9 - Qual foi o faturamento médio por porte de empresa?
+		Medida: MEDIAN(Faturamento das Entregas) + MEDIAN(Faturamento dos Contratos)
+		Visual: Gráfico de área, formatado com rótulos de dados
+
+	10 - Quais os dados do relatório em cada mês?
+		Segmentação de dados: Mês/Ano da Data da Entrega
+	
