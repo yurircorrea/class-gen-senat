@@ -95,12 +95,16 @@ Detalhadas na habilidade `aula-sest-senat`. As que mais importam:
 6. **Sem área vazia** entre painel e preview: `.dupla` quando as alturas são parecidas, `.pilha`
    (preview em cima, painel em duas colunas embaixo) quando o painel é bem mais alto.
 7. **Atividade final em três partes**: obrigatória, desafio e investigação.
-8. **Conferir se o material envelheceu** antes de escrever. Apostilas erram, menus mudam de lugar
+8. **Toda atividade diz para onde enviar**: depois dos critérios, a faixa **Envio** com o e-mail
+   do instrutor e link `mailto:` com o assunto `Atividade - <curso> - <aula>`. Para Yuri Reis
+   Correa: `yuricorrea@sestsenat.org.br`; para outro instrutor, pergunte o e-mail junto com o nome
+   e o cargo. Detalhes em `.claude/skills/aula-sest-senat/SKILL.md` (regra 12).
+9. **Conferir se o material envelheceu** antes de escrever. Apostilas erram, menus mudam de lugar
    entre versões do Office e frameworks mudam.
-9. **Identidade SEST SENAT sempre** (de `material/designsystem.pdf`, já pronta nos assets da
-   habilidade): azul `#00307C`, ciano `#5FE1FF`, azul-gelo `#EAF6FE`, azul-marinho `#002060`,
-   títulos em Roboto, corpo em Calibri, logotipos oficiais. Não use as cores do material de origem.
-10. **Termos como o aluno vê na tela**: menus, botões e funções como na versão em português, com
+10. **Identidade SEST SENAT sempre** (de `material/designsystem.pdf`, já pronta nos assets da
+    habilidade): azul `#00307C`, ciano `#5FE1FF`, azul-gelo `#EAF6FE`, azul-marinho `#002060`,
+    títulos em Roboto, corpo em Calibri, logotipos oficiais. Não use as cores do material de origem.
+11. **Termos como o aluno vê na tela**: menus, botões e funções como na versão em português, com
     `;` entre argumentos e vírgula decimal nas fórmulas.
 
 ## Convenções de trabalho

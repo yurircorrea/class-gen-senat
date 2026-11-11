@@ -290,7 +290,7 @@ que o aluno fotografa.
 
 ## 7. Atividade final
 
-Fundo ciano, três partes, mais resultado esperado e critérios.
+Fundo ciano, três partes, mais resultado esperado, critérios e a faixa de envio.
 
 ```html
 <section class="secao atividade" id="atividade">
@@ -335,6 +335,7 @@ Fundo ciano, três partes, mais resultado esperado e critérios.
       <article class="cartao"><h3>Critério técnico</h3><p>…</p></article>
       <article class="cartao"><h3>Critério de acessibilidade</h3><p>…</p></article>
     </div>
+    <p class="envio-atividade"><span class="nivel">Envio</span> Envie a atividade para o e-mail <a href="mailto:yuricorrea@sestsenat.org.br?subject=Atividade%20-%20Excel%20B%C3%A1sico%20-%20Aula%203">yuricorrea@sestsenat.org.br</a></p>
   </div>
 </section>
 ```
@@ -354,6 +355,13 @@ Fundo ciano, três partes, mais resultado esperado e critérios.
   código, em comentário no próprio código; em planilha, numa aba "Respostas"): por que A dá
   resultado diferente de B, o que acontece se trocar X por Y, onde você usou Z. Transforma o
   exercício de cópia em entendimento.
+
+- **Envio — sempre.** A faixa `.envio-atividade` fecha a atividade, depois dos critérios, em
+  toda aula (SKILL.md, regra 12). O e-mail é o do instrutor: para Yuri Reis Correa,
+  `yuricorrea@sestsenat.org.br`; para outro instrutor, o que ele informar. O link `mailto:`
+  leva o assunto `Atividade - <curso> - <aula>` codificado (`%20`, `%C3%A1`…), com o curso e a
+  aula como aparecem nos chips da capa. O texto visível é o próprio endereço, para o aluno
+  copiar da projeção. O estilo está em `assets/estilo.css`.
 
 Proibições explícitas valem mais que requisitos: "nenhum valor calculado digitado à mão: tudo por
 fórmula", "sem `float`, sem `position`, sem `@media`" obrigam a usar o que foi ensinado.

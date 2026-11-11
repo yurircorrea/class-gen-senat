@@ -584,3 +584,10 @@ kbd{
 .painel-codigo--grade > figcaption{grid-column:1 / -1}
 @media (max-width:1100px){.painel-codigo--grade{grid-template-columns:1fr}}
 .lab--largo > .lab-controles{flex:1 1 520px}
+
+/* atividade: para onde enviar */
+.envio-atividade{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:24px 0 0;padding:20px 24px;border-radius:var(--raio);
+  background:var(--azul);color:#fff;font-size:21px;line-height:1.4}
+.envio-atividade .nivel{margin:0;background:var(--ciano);color:var(--azul)}
+.envio-atividade a{color:var(--ciano);font-weight:700;overflow-wrap:anywhere}
+.envio-atividade a:focus-visible{outline:3px solid var(--ciano);outline-offset:3px}
